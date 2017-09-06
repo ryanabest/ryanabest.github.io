@@ -6,7 +6,7 @@ Gather all the necessary software and files to get started:
 
 - The [Sublime Text 3](http://www.sublimetext.com) editor
 - The [GitHub Desktop](https://desktop.github.com) GUI client
-- Clone a copy of http://github.com/samizdatco/dvia
+- Clone a copy of http://github.com/samizdatco/dvia-2017
 
 The P5.js [site](https://p5js.org) has an extensive [Reference](https://p5js.org/reference/) section with a full listing of the drawing commands that make up its API. It’s also got a somewhat sparser set of [Tutorials](https://p5js.org/learn/) that *might* help you get started (but mostly seem to be written to an audience that’s familiar with the original [Processing](http://processing.org/) environment so YMMV).
 
