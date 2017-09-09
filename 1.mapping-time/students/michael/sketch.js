@@ -1,3 +1,26 @@
+/* FEATURES
+Stroke object
+Transforms / Rotate
+Perlin noise on pen strokes
+TODO: Slow reaveal strokes
+TODO: Slow color strokes
+TODO: Stroke death: fade, wind?
+
+TODO: Blot object
+TODO: Meandering pen movement
+
+TODO: csv reader - decided what == distraction
+TODO: resize update propagation
+TODO: array add / remove 
+*/
+
+/* Visualizations
+hrs,min,sec - circular form
+between seasons - color lerp
+digital activities - inkblots
+digital activity % distraction = blot size & alpha
+*/
+
 var sArr=[]; // stroke array
 gX = 100;
 gY = 100;
@@ -19,8 +42,13 @@ function Stroke (color, type, val, month) {
       var y=0;
       this.g.stroke(color);
       for (var idx = 0; idx < gPts; idx++) {
-        var endX=x+(gX/gPts); // TODO complicate w noise
+        var endX=x+(gX/gPts); 
         var endY=y+(gY/gPts);
+        if (idx) {
+          offset=idx*1.0/gPts;
+          yoff = noise(offset+val) * 2;
+          endY -= yoff; // TODO complicate w noise
+        }
         var weight = gPts/2 - abs((gPts/2)-idx) ; // TODO easing on strokeweight
         this.g.strokeWeight(weight * 1.3);
         this.g.line(x, y, endX, endY);
@@ -93,7 +121,7 @@ function draw() {
   
   if (flag == 0) {
   for (idx=0; idx < 60; idx++) {
-    sArr.push(new Stroke(color(0, 0, 255, 55), 0, idx, 1)); // add object to array
+    sArr.push(new Stroke(color(0, 0, 255, 20), 0, idx, 1)); // add object to array
   }
   for (var idx=0; idx < sArr.length; idx++) {
     sArr[idx].setup()
