@@ -5,6 +5,40 @@ var py = 0;
 var easing = 0.05;
 
 var object;
+var sArr=[]; // stroke array
+
+gX = 100;
+gY = 100;
+gPts = 50; // points to modify by noise 
+
+function Stroke (color, drawX, drawY) {
+    this.color = color;
+    this.locX = drawX;
+    this.locY = drawY;
+    this.rotation = 0;
+    this.g = createGraphics(gX, gY);
+    
+    this.setup = function () {
+      // add self to array
+      var x=0;
+      var y=0;
+      this.g.stroke(color);
+      for (var idx = 0; idx < gPts; idx++) {
+        var endX=x+(gX/gPts); // TODO complicate w noise
+        var endY=y+(gY/gPts);
+        var weight = gPts/2 - abs((gPts/2)-idx) ; // TODO easing on strokeweight
+        this.g.strokeWeight(weight * 1.3);
+        this.g.line(x, y, endX, endY);
+        x=endX;
+        y=endY;
+      }
+
+    }
+    
+    this.draw = function () {
+      image(this.g, this.locX, this.locY);
+    }
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -13,17 +47,23 @@ function setup() {
   o = createGraphics(400, 250); // this is a framebuffer?
   var x, y, weight;
   //o.background(222);  // background assumed transparent
-  for (mx=0, my=0; mx < 400 && my < 250; mx++, my++) {
-    x += (mx - x)*easing;
-    y += (my - y)*easing;
-    weight = dist(x, y, px, py);
+  
+  
+  sArr.push(new Stroke(color(0, 0, 255, 55), 200,200)); // add object to array
+  for (var idx=0; idx < sArr.length; idx++) {
+    sArr[idx].setup()
+  }
+  
+  o.stroke(255,0,0);  // fill for lines
+  maxdist = dist(0, 0, 250, 250)
+  for (x=0, y=0; x < 400 && y < 250; px++, py++) {
+    weight = (maxdist - dist(x, y, 125, 125)) * .01
     o.strokeWeight(weight);
     o.line(x, y, px, py);
-    py = y;
-    px = x;
+    x = px;
+    y = py;
   }
-  o.stroke(255,0,0);  // fill for lines
-  o.line(0,0,400,250);
+  //o.line(0,0,400,250);
 }
 
 function draw() {
@@ -46,9 +86,13 @@ function draw() {
   );
   
   push();
-  rotate(frameCount / -100.0);
-  image(o, 150, 75);
-  image(o, 100, 75);
+  //rotate(frameCount / -100.0);
+    
+  for (var idx=0; idx < sArr.length; idx++) {
+    sArr[idx].draw()
+    
+  }
+  //image(o, 100, 75);
   pop();
 }
 
