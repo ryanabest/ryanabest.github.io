@@ -1,22 +1,17 @@
-var x = 0;
-var y = 0;
-var px = 0;
-var py = 0;
-var easing = 0.05;
-
-var object;
 var sArr=[]; // stroke array
-
 gX = 100;
 gY = 100;
 gPts = 50; // points to modify by noise 
-
-function Stroke (color, drawX, drawY) {
+midX = 0;
+midY = 0;
+  
+function Stroke (color, type, val, month) {
     this.color = color;
-    this.locX = drawX;
-    this.locY = drawY;
+    this.locX = midX;
+    this.locY = midY;
     this.rotation = 0;
     this.g = createGraphics(gX, gY);
+    
     
     this.setup = function () {
       // add self to array
@@ -32,28 +27,44 @@ function Stroke (color, drawX, drawY) {
         x=endX;
         y=endY;
       }
+    }
+    
+    this.live = function () {
+      
+    }
+    
+    this.die = function () {
+      
+    }
+    
+    this.update = function () {
 
     }
     
     this.draw = function () {
-      image(this.g, this.locX, this.locY);
+      secs = TWO_PI / 60;
+      push();
+      translate(midX, midY);
+      rotate(secs * val);
+      //this.locX += this.locX*cos(secs * val);
+      //this.locY += this.locY*sin(secs * val);
+      image(this.g, 100, 100);
+      pop()
+
+
     }
 }
 
 function setup() {
+  update();
   createCanvas(windowWidth, windowHeight);
-  stroke(0);
   
-  o = createGraphics(400, 250); // this is a framebuffer?
-  var x, y, weight;
   //o.background(222);  // background assumed transparent
   
   
-  sArr.push(new Stroke(color(0, 0, 255, 55), 200,200)); // add object to array
-  for (var idx=0; idx < sArr.length; idx++) {
-    sArr[idx].setup()
-  }
+
   
+  /*
   o.stroke(255,0,0);  // fill for lines
   maxdist = dist(0, 0, 250, 250)
   for (x=0, y=0; x < 400 && y < 250; px++, py++) {
@@ -64,18 +75,31 @@ function setup() {
     y = py;
   }
   //o.line(0,0,400,250);
+  */
 }
 
+function update () {
+  t = [second(), minute(), hour(), day(), month()]; 
+  //t.push();
+  
+  midX = width / 2;
+  midY = height / 2;
+}
+
+flag = 0;
 function draw() {
-  //var targetX = mouseX;
-  x += (mouseX - x)*easing;
-  //var targetY = mouseY;
-  y += (mouseY - y)*easing;
-  var weight = dist(x, y, px, py);
-  strokeWeight(weight);
-  line(x, y, px, py);
-  py = y;
-  px = x;
+
+  update();
+  
+  if (flag == 0) {
+  for (idx=0; idx < 60; idx++) {
+    sArr.push(new Stroke(color(0, 0, 255, 55), 0, idx, 1)); // add object to array
+  }
+  for (var idx=0; idx < sArr.length; idx++) {
+    sArr[idx].setup()
+  }
+  flag = 1;
+  }
   
   background(55);
   fill(255,0,0);
@@ -87,15 +111,15 @@ function draw() {
   
   push();
   //rotate(frameCount / -100.0);
-    
+  
   for (var idx=0; idx < sArr.length; idx++) {
+    sArr[idx].update()
     sArr[idx].draw()
-    
   }
-  //image(o, 100, 75);
   pop();
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  // TODO need to update strokes too
 }
