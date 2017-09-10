@@ -1,3 +1,9 @@
+/*
+we create our conception of time: 
+natural time (external to us), vs mediated time
+
+*/
+
 /* FEATURES
 Done: Stroke object
 Done: Transforms / Rotate
@@ -6,40 +12,44 @@ Done: timer events
 Done: Slow reveal strokes
 Done: Slow color strokes
 Done: array add / remove 
-zero point offset - taken care of w sDisp
+Nope: zero point offset - taken care of w sDisp
 Done: mouseSplosion
 Done: stroke: off by 1
 
-TODO: leaf sizing
-TODO: ordered drawing outside to inside
-TODO: Meandering pen movement
-TODO: Blot object
+Done: stroke sizing
+Done: ordered drawing outside to inside
+Nope: Meandering pen movement -  used mouse XY
+Done: Blot object
 TODO: csv reader - decided what == distraction
-TODO: resize update propagation
+Done: window resize update propagation
+Done: test keys to show features  (a,s | b | 1,2,3,4)
 
 Extra
 TODO: sound
-TODO: make sec dots at center instead
-TODO: every x sec is bold?
-TODO: make stroke more ornate
-TODO: Stroke death: fade, wind?
-TODO: get tint() working / nope. broken but good.
-
+Nope: make sec dots at center instead - didn't look good
+Nope: every x sec is bold? - no value
+Done: make stroke more ornate
+Nope: Stroke death: fade, wind? - NO. Too visually busy...?
+DEAD: get tint() working / nope. broken but good.
 */
 
 /* Visualizations
+Stroke birth is black ink but lerps to a color relative to season & grows to size.
+Stroke death is reverse of death but a bit faster
 hrs,min,sec - circular form
 between seasons - color lerp
 digital activities - inkblots
 digital activity % distraction = blot size & alpha
 */
 
-var sArr=[]; // stroke array
-gX = 100;	// fb x size
-gY = 100;	// fb y size
+var sArr=[];	// stroke array
+var bArr=[];	// blot array
+
+gX = 150;	// fb x size
+gY = 150;	// fb y size
 gPts = 30;	// points to modify by noise for each stroke
 sDisp = 7;	// stroke disperson around ring
-sDens = 20;	// stroke density
+sDens = 10;	// stroke density
 
 midX = 0;  	// canvas midx
 midY = 0;	// canvas midy
@@ -49,10 +59,59 @@ tMax = [];	// max for each time value
 
 black = null;
 fadeTime = 20.0;
-  
-function Stroke (color, type, val, month) {
+
+
+// Distracted / tech mediated time drawing
+function Blot (strength, x, y) {
     this.alive = true;
     this.color = color;
+    this.strength = map(strength, 0, 100, 0, 1000);
+    this.sizeMax = map(strength, 0, 100, 10, 40); // size of blot
+    this.size=5;
+    this.g = createGraphics(gX, gY);
+    this.midGX = gX/2;
+    this.midGY = gY/2;
+    this.x = mouseY;
+    this.y = mouseX;
+    
+    this.genBlot = function () {
+      //this.g.background(255);  // need transparent "color" so as not to have to constantly malloc framebuffer
+      this.g = createGraphics(gX, gY);
+      this.g.fill(20, constrain(this.strength, 0, 255));
+      this.g.stroke(0, constrain(this.strength, 0, 255));
+      this.g.ellipse(this.midGX, this.midGY, this.size, this.size);
+    }
+    
+    // array filter test
+    this.fTest  = function (val) {
+      return (val != this);
+    }
+    
+    this.update = function () {
+    
+      if (this.size < this.sizeMax) this.size+=20;
+      
+      this.strength-=4;
+      this.genBlot();
+      if (this.strength <= 0) {  // invisible == eol
+        bArr = bArr.filter(this.fTest, this);
+	return (false);
+      }
+      return(true);
+    }
+    
+    this.draw = function () {
+      push();
+      translate(this.y - this.midGY, this.x - this.midGY);
+      image(this.g, 0, 0);
+      pop()
+    }
+}
+    
+// "Natural" time drawing  
+function Stroke (color, type, val, month) {
+    this.alive = true;
+    //this.color = color;
     this.type = type;
     this.locX = midX;
     this.locY = midY;
@@ -64,18 +123,19 @@ function Stroke (color, type, val, month) {
     this.eFrame = -1;		// end fc
     
     this.genStroke = function (cPercent) {
-      this.g.tint(55, 4);  // not working
+      //this.g.tint(55, 4);  // not working
 
       var x=0;
       var y=0;
-      var c = lerpColor(black, this.color, cPercent);	// start off like black ink
+      // var c = lerpColor(black, this.color, cPercent);	// start off like black ink
+      var c = lerpColor(black, currColor[type], cPercent);
       this.g.stroke(c);
       for (var idx = 0; idx < gPts; idx++) {
         var endX=x+(gX/gPts); 
         var endY=y+(gY/gPts);
         if (idx) {
           offset=idx*1.0/gPts;
-          yoff = noise(offset+val) * 2;
+          yoff = noise(offset+val) * 7;
           endY -= yoff; // TODO complicate w noise
         }
         var weight = gPts/2 - abs((gPts/2)-idx) ; // TODO easing on strokeweight
@@ -117,22 +177,25 @@ function Stroke (color, type, val, month) {
       }
         
       if (this.eFrame > 0 && frameCount-this.eFrame > fadeTime) { // remove from array
-	sArr = sArr.filter(this.fTest);
+	sArr = sArr.filter(this.fTest, this);
 	return (false);
       }
       return (true);
     }
     
     this.draw = function () {
-      angleStep = TWO_PI / tMax[this.type];
+      var angleStep = TWO_PI / tMax[this.type];
       
       push();
       translate(midX, midY);
       rotate(angleStep * val * sDisp);
       
-      mouseSplode = map(mouseX, 0, width, 1, 6);
-      drawStart = sDens*this.type*mouseSplode;
-      image(this.g, drawStart, drawStart, this.endX, this.endY);
+      var mouseSplode = map(mouseX, 0, width, 1, 6);
+      var drawStart = sDens*this.type*mouseSplode;
+      var sizeDiff = 10;
+      var sizeX = constrain(this.endX, 0, gX - (4*sizeDiff) + (type*sizeDiff)); 
+      var sizeY = constrain(this.endY, 0, gY - (4*sizeDiff) + (type*sizeDiff));
+      image(this.g, drawStart, drawStart, sizeX, sizeY);
       pop()
     }
 }
@@ -153,33 +216,60 @@ Date.prototype.getDOY = function() {
     return dayOfYear;
 };
 
-currColor = [];
+prevColor = [];
 nextColor = [];
+currColor = []; // lerped of the two
+doyOff = 0;  // day of year offset - for demo
 
 // set lerping colors by day of year
 function setSeason () {
+  var sSp = 79;   // start days of year
+  var sSu = 172;
+  var sFa = 265;
+  var sWi = 355; 
+  
+  var lSp = 93;   // length of period in days
+  var lSu = 93;
+  var lFa = 90;
+  var lWi = 79; 
+  
   d = new Date;
-  doy = d.getDOY();
-  currColor = winterColor;
+  doy = d.getDOY() + doyOff;
+  
+  prevColor = winterColor;
   nextColor = springColor;
+  var day = 0;
+  var dLen = lWi;
   
-  if (doy > 79){ // BUG: leap year
-    currColor = springColor;
+  if (doy > sSp){ // BUG: leap year
+    prevColor = springColor;
     nextColor = summerColor;
+    var day = doy - sSp;
+    var dLen = lSp;
   }
-  if (doy > 172){
-    currColor = summerColor;
+  if (doy > sSu){
+    prevColor = summerColor;
     nextColor = fallColor;
+    var day = doy - sSu;
+    var dLen = lSu;
   }
-  if (doy > 265){
-    currColor = fallColor;
+  if (doy > sFa){
+    prevColor = fallColor;
     nextColor = winterColor;
+    var day = doy - sFa;
+    var dLen = lFa;
   }
   
-  if (doy > 355){
-    currColor = winterColor;
+  if (doy > sWi){
+    prevColor = winterColor;
     nextColor = springColor;
+    var day = doy - sWi;
+    var dLen = lWi;
   }  
+  
+  var strength = map(day, 0, dLen, 0, 1);
+  for (var idx=0; idx < prevColor.length; idx++)
+    currColor[idx] = lerpColor(prevColor[idx], nextColor[idx], strength);
 }
 
 function setup() {
@@ -212,8 +302,8 @@ function setup() {
   tPrev = t; // previous time
   for (var tidx=0; tidx < t.length - 1; tidx++) {	// make all strokes
     for (var nidx=0; nidx < t[tidx] - 1; nidx++) {
-      var c = lerpColor(currColor[tidx], nextColor[tidx], .33);
-      var o = new Stroke(c, tidx, nidx, 0)
+      // var c = lerpColor(currColor[tidx], nextColor[tidx], .33);
+      var o = new Stroke(-1, tidx, nidx, 0)
       sArr.push(o);		// add object to array
     }
   }
@@ -228,7 +318,7 @@ function update () {
   
   for (var idx=0; idx < t.length; idx++) {		// compare all except month
     
-    if (t[idx] != tPrev[idx] && t[idx] != 0) {		// if new...
+    if (t[idx] != tPrev[idx]) {		// if new...
       if (idx == 4) {					// if the month turns over get new end day
         tMax = [60,60,24, 32 - new Date(year(), month(), 32).getDate(), 12];
         continue;
@@ -241,10 +331,12 @@ function update () {
         }
       }
       // console.log("Added: " + t[idx]);
-      var c = lerpColor(currColor[idx], nextColor[idx], .33);
-      var o = new Stroke(c, idx, t[idx], 0)
-      //o.setup();
-      sArr.push(o);					// add object to array
+      if (t[idx] != 0 && !bArr.length) { // don't draw stroke for 0 
+        var c = lerpColor(currColor[idx], nextColor[idx], .33);
+        var o = new Stroke(c, idx, t[idx], 0)
+        //o.setup();
+        sArr.push(o);					// add object to array
+      }
       
       tPrev[idx] = t[idx];				// update previous time
     }
@@ -254,35 +346,70 @@ function update () {
   midY = height / 2;
 }
 
-flag = 0;
+seasonChanged = false; // if we manually change the season
+
 function draw() {
 
   update();
-  
-  /*
-  if (flag == 0) {
-  for (idx=0; idx < 60; idx++) {
-    sArr.push(new Stroke(color(0, 0, 255, 20), 0, idx, 1)); // add object to array
-  }
-  for (var idx=0; idx < sArr.length; idx++) {
-    sArr[idx].setup()
-  }
-  flag = 1;
-  }
-  */
+
   
   background(255);
+  
+  /*
   fill(255,0,0);
   ellipse(
     200+100*cos(map(millis()%5000,0,5000,0,TWO_PI)),
     200+100*sin(map(millis()%5000,0,5000,0,TWO_PI)),
     20,20
   );
-  
-  for (var idx=0; idx < sArr.length; idx++) {
-    if (sArr[idx].update())
-      sArr[idx].draw();
+  */
+  // FIXME: Make one one array per unit time.  This is dumb.
+  for (tidx=t.length-1; tidx >= 0; tidx--) {  // draw by precedent (type)
+    for (var idx=0; idx < sArr.length; idx++) {
+      if (sArr[idx].type==tidx && sArr[idx].update()) {
+        if (seasonChanged) sArr[idx].genStroke(1);
+        sArr[idx].draw();
+      }
+    }
   }
+  
+  seasonChanged = false;
+  
+  for (var idx=0; idx < bArr.length; idx++) {
+    if (bArr[idx].update())
+      bArr[idx].draw();
+  }
+}
+
+function keyTyped() {
+  if (key === '1') {
+    currColor = springColor;
+    seasonChanged=true;
+  } else if (key === '2') {
+    currColor = summerColor;
+    seasonChanged=true;
+  } else if (key === '3') {
+    currColor = fallColor;
+    seasonChanged=true;
+  } else if (key === '4') {
+    currColor = winterColor;
+    seasonChanged=true;
+  } else if (key === 's') {  // demo season color lerping
+    doyOff += 20;
+    setSeason();
+    seasonChanged=true;
+    console.log("doyOff: " + doyOff);  // demo season color lerping
+  } else if (key === 'a') { 
+    doyOff -= 20;
+    setSeason();
+    seasonChanged=true;
+    console.log("doyOff: " + doyOff);
+  } else if (key === 'b') {   // distracted blot
+    var o = new Blot(random(0,100), 0, 0)
+    bArr.push(o);
+  }
+  // uncomment to prevent any default behavior
+  return false;
 }
 
 function windowResized() {
