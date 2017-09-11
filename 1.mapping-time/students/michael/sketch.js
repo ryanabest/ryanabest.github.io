@@ -2,6 +2,7 @@
 we create our conception of time: 
 natural time (external to us), vs mediated time
 
+sounds: freesound.org
 */
 
 /* FEATURES
@@ -44,6 +45,7 @@ digital activity % distraction = blot size & alpha
 
 var sArr=[];	// stroke array
 var bArr=[];	// blot array
+var blotTimeout = 0;
 
 gX = 150;	// fb x size
 gY = 150;	// fb y size
@@ -65,7 +67,7 @@ fadeTime = 20.0;
 function Blot (strength, x, y) {
     this.alive = true;
     this.color = color;
-    this.strength = map(strength, 0, 100, 0, 1000);
+    this.strength = map(strength, 0, 100, 0, 300);
     this.sizeMax = map(strength, 0, 100, 10, 40); // size of blot
     this.size=5;
     this.g = createGraphics(gX, gY);
@@ -272,6 +274,53 @@ function setSeason () {
     currColor[idx] = lerpColor(prevColor[idx], nextColor[idx], strength);
 }
 
+maxSounds = 5;
+strokeSounds = [];
+blotSounds = []
+
+function preload() {
+  soundFormats('mp3', 'ogg');
+  
+  for (var idx=0; idx < maxSounds; idx++) {
+    strokeSounds[idx] = loadSound('https://wolfm2.github.io/dviaE1/s' + idx + '.mp3');
+    blotSounds[idx] = loadSound('https://raw.githubusercontent.com/wolfm2/wolfm2.github.io/master/dviaE1/b' + idx + '.mp3'); // wasn't being updated
+  }
+}
+
+currEvent = 0;
+nextEventEpoch = 0;
+nextEventTitle = ""
+eDelta = Date.now() - Date.parse("Sep 7, 2017 10:07:41 PM");  // epoch delta for demo 
+eventNum = 0; // number of current events
+firstTime = true;
+doEvents = true;
+
+function nextEvent() {  // Coarse right now.  Just Proof of concept.
+
+  var currEpoch = Date.now() - eDelta;
+  
+  for (; currEvent < events.length; currEvent++) {
+    if ( Date.parse(events[currEvent][0]) > currEpoch ) {
+      var div = document.getElementById('event');
+      if (doEvents) 
+        div.innerHTML = 'Next event: ' + nextEventTitle;
+      else
+        div.innerHTML = 'Events Off';
+      if (firstTime) { // flush prev events
+        eventNum = 0; 
+        firstTime = false;
+      }
+      return;
+    } else {
+      nextEventEpoch = Date.parse(events[currEvent][0]);
+      nextEventTitle = events[currEvent][1];
+      if (doEvents) eventNum++; 
+    }
+  }
+  
+
+}
+
 function setup() {
   /* seasonal colors:
     summer	= bright egg yolk
@@ -279,6 +328,8 @@ function setup() {
     winter	= aquamarine
     spring	= lime green
   */
+ 
+  nextEvent();
   
   //summerColor = [color('#ffd827'), color('#fe6b05'), color('#ec1b45'), color('#668013')];
   summerColor = [color('#f8ff00'), color('#fe6b05'), color('#c20065'), color('#067515')];
@@ -316,6 +367,8 @@ function setup() {
 function update () {
   t = [second(), minute(), hour(), day(), month()]; 
   
+  nextEvent();
+  
   for (var idx=0; idx < t.length; idx++) {		// compare all except month
     
     if (t[idx] != tPrev[idx]) {		// if new...
@@ -331,11 +384,17 @@ function update () {
         }
       }
       // console.log("Added: " + t[idx]);
-      if (t[idx] != 0 && !bArr.length) { // don't draw stroke for 0 
+      if (blotTimeout && blotTimeout < millis()) { // save a few cycles
+        blotTimeout = 0;
+      }
+      
+      if (t[idx] != 0 && !blotTimeout) { // don't draw stroke for 0 
         var c = lerpColor(currColor[idx], nextColor[idx], .33);
         var o = new Stroke(c, idx, t[idx], 0)
         //o.setup();
         sArr.push(o);					// add object to array
+        //mySound.setVolume(0.1);
+        strokeSounds[Math.round(random(4))].play();
       }
       
       tPrev[idx] = t[idx];				// update previous time
@@ -351,8 +410,6 @@ seasonChanged = false; // if we manually change the season
 function draw() {
 
   update();
-
-  
   background(255);
   
   /*
@@ -372,6 +429,9 @@ function draw() {
       }
     }
   }
+  
+  for (; eventNum > 0; eventNum--)  // make blots
+    mouseClicked();
   
   seasonChanged = false;
   
@@ -404,12 +464,30 @@ function keyTyped() {
     setSeason();
     seasonChanged=true;
     console.log("doyOff: " + doyOff);
-  } else if (key === 'b') {   // distracted blot
-    var o = new Blot(random(0,100), 0, 0)
-    bArr.push(o);
+  } else if (key === 'd') {   // turn events off for demo
+    doEvents = ! doEvents;
+  } else if (key === 'p') {   // parse csv
+    /*
+    Papa.parse("https://raw.githubusercontent.com/wolfm2/wolfm2.github.io/master/dviaE1/events.csv", {
+    //https://raw.githubusercontent.com/samizdatco/dvia-2017/master/1.mapping-time/students/michael/events.csv", {
+	//worker: true,
+	download: true,
+	header: true,
+	step: function(results) {
+	console.log("Row:", results.data);
+      }
+    });
+    */  // GitHub blocks xmlhttpRequest. Server side err in preflight.  Solution: Munge CSV into array.
   }
   // uncomment to prevent any default behavior
   return false;
+}
+
+function mouseClicked() {  // make blot
+  var o = new Blot(random(0,100), 0, 0)
+  bArr.push(o);
+  blotTimeout = millis() + 1000;
+  blotSounds[Math.round(random(4))].play(); 
 }
 
 function windowResized() {
