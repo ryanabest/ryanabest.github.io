@@ -88,29 +88,52 @@ function draw() {
 
   stroke(200);
   strokeWeight(2);
-  for (i=0;i<61;i++) {
+  for (i=0;i<59;i++) {
     line(x1,y,x1 + cos(s(i)) * r,y + sin(s(i)) * r);
     line(x2,y,x2 + cos(s(i)) * r,y + sin(s(i)) * r);
   }
   function s(i) {
-    return map(i, 0, 60, 0, TWO_PI) - HALF_PI;
+    return map(i, 0, 59, 0, TWO_PI) - HALF_PI;
   }
 
   stroke(255);
   //strokeWeight(3);
-  for (i=second();i<minute()+second();i++) {
-    //one black line if minutes == 0
-    if (minute()==0) {
-      for (i=second()+1;i<minute()+second()+1;i++) {
-        stroke(0);
-        line(x1,y,x1 + cos(s(i)) * r,y + sin(s(i)) * r);
-        line(x2,y,x2 + cos(s(i)) * r,y +  sin(s(i)) * r);
-      }
-    } else {
+  if (minute()==0) {
+    stroke(framecolor);
+    line(x1,y,x1 + cos(s(second())) * r,y + sin(s(second())) * r);
+    line(x2,y,x2 + cos(s(second())) * r,y + sin(s(second())) * r);
+  } else if (minute()==59) {
+    stroke(0);
+    line(x1,y,x1 + cos(s(second())) * r,y + sin(s(second())) * r);
+    line(x2,y,x2 + cos(s(second())) * r,y + sin(s(second())) * r);
+  } else {
+    for (i=second();i<minute()+second();i++) {
       line(x1,y,x1 + cos(s(i)) * r,y + sin(s(i)) * r);
       line(x2,y,x2 + cos(s(i)) * r,y +  sin(s(i)) * r);
     }
   }
+/*
+  for (i=0;i<15;i++) {
+    if (second() > 14) {
+      line(x2,y,x2 + cos(s(i)) * r,y +  sin(s(i)) * r);
+    }
+  }
+  for (i=0;i<30;i++) {
+    if (second() > 29) {
+      line(x2,y,x2 + cos(s(i)) * r,y +  sin(s(i)) * r);
+    }
+  }
+  for (i=0;i<45;i++) {
+    if (second() > 44) {
+      line(x2,y,x2 + cos(s(i)) * r,y +  sin(s(i)) * r);
+    }
+  }
+  for (i=0;i<59;i++) {
+    if (second() == 59) {
+      line(x2,y,x2 + cos(s(i)) * r,y +  sin(s(i)) * r);
+    }
+  }
+*/
 
 
   //line(600, 290, 600 + cos(s(minute())) * 90, 290 + sin(s(minute())) * 90);
