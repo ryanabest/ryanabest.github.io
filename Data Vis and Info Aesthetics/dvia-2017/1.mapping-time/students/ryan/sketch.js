@@ -29,7 +29,7 @@ function draw() {
   }
   var h = map(hr,0,11,0,1);
   var time0color = color(255,0,0); //red - will be pure red from 00:00-01:00
-  var time24color = color(0,255,0); //green - will be pure green from 23:00-00:00
+  var time24color = color(255,255,0); //yellow - will be pure yellow from 23:00-00:00
   var framecolor = lerpColor(time0color,time24color,h);
 
   //frame color legend
