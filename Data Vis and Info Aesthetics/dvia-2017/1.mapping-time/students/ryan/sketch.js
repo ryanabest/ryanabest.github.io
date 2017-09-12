@@ -24,19 +24,19 @@ function draw() {
 
   //frame color based on hour
   var hr = hour()
-  if (hr > 12) {
+  if (hr > 11) {
     var hr = hr - 12;
   }
-  var h = map(hr,0,12,0,1);
+  var h = map(hr,0,11,0,1);
   var time0color = color(255,0,0); //red - will be pure red from 00:00-01:00
   var time24color = color(0,255,0); //green - will be pure green from 23:00-00:00
   var framecolor = lerpColor(time0color,time24color,h);
 
   //frame color legend
   strokeWeight(0);
-  for (i=0;i<12;i++) {
+  for (i=0;i<11;i++) {
     function legendh(i) {
-      return map(i,0,12,0,1);
+      return map(i,0,11,0,1);
     }
     var legendcolor = lerpColor(time0color,time24color,legendh(i));
     fill(legendcolor);
@@ -56,7 +56,7 @@ function draw() {
   line(300,60,300,80) // back tube to seat
 
   var seccolor = 255;
-  if (hour() > 12) {
+  if (hour() > 11) {
     var seccolor = 0;
   }
 
