@@ -27,18 +27,51 @@ function draw() {
   if (hr > 11) {
     var hr = hr - 12;
   }
-  var h = map(hr,0,11,0,1);
-  var time0color = color(255,0,0); //red - will be pure red from 00:00-01:00
-  var time24color = color(255,255,0); //yellow - will be pure yellow from 23:00-00:00
-  var framecolor = lerpColor(time0color,time24color,h);
+
+  var red = color(255,0,0);
+  var yellow = color(255,255,0);
+  var blue = color(0,0,255);
+
+  var h1 = map(hr,0,5,0,1);
+  var h2 = map(hr,5,11,0,1);
+
+  var framecolor1 = lerpColor(yellow,red,h1);
+  if (hour() < 12) {
+    var framecolor1 = lerpColor(blue,red,h2);
+  } //if AM, switch the yellow and blue
+
+  var framecolor2 = lerpColor(red,blue,h2);
+  if (hour() < 12) {
+    var framecolor2 = lerpColor(red,yellow,h2);
+  } //if AM, switch the yellow and blue
+
+  if (hr > 5) {
+     framecolor = framecolor2
+  } else {
+    framecolor = framecolor1
+  }
 
   //frame color legend
   strokeWeight(0);
-  for (i=0;i<11;i++) {
+  for (i=0;i<5;i++) {
     function legendh(i) {
-      return map(i,0,11,0,1);
+      return map(i,0,5,0,1);
     }
-    var legendcolor = lerpColor(time0color,time24color,legendh(i));
+    var legendcolor = lerpColor(yellow,red,legendh(i));
+    if (hour() < 12) {
+      var legendcolor = lerpColor(blue,red,legendh(i));
+    } //if AM, switch the yellow and blue
+    fill(legendcolor);
+    rect((250)+(25*i),425,25,25);
+  }
+  for (i=5;i<11;i++) {
+    function legendh(i) {
+      return map(i,5,11,0,1);
+    }
+    var legendcolor = lerpColor(red,blue,legendh(i));
+    if (hour() < 12) {
+      var legendcolor = lerpColor(red,yellow,legendh(i));
+    } //if AM, switch the yellow and blue
     fill(legendcolor);
     rect((250)+(25*i),425,25,25);
   }
