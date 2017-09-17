@@ -1,0 +1,169 @@
+* {
+  font-family: "Avenir Next", sans-serif;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  background: url("http://assets.coolhunting.com/coolhunting/2017/01/02/large_Dear-Data-Giorgia14a.jpg") no-repeat center center;
+  background-size: cover;
+  height: 40vw;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10%;
+}
+
+a {
+  color: #000;
+}
+
+.header h1 {
+  font-size: 8vw;
+  text-shadow: 5px 5px #808080;
+}
+
+.header h2 {
+  font-size: 3vw;
+  text-shadow: 2px 2px #808080;
+}
+
+.whoislupi, .datahumanism {
+  width: 75%;
+  margin: 0 auto;
+  font-size: 110%;
+}
+
+.whoislupi p {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 50px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+td {
+  padding: 10px 0;
+}
+
+
+.text a {
+  font-size: 110%;
+  font-weight:500;
+}
+
+.datahumquote {
+  font-size: 36px;
+  margin: 0 auto;
+}
+
+.quoteinfo, .img p {
+  font-size: 10px;
+  max-width: 33%;
+  margin: 0 auto;
+}
+
+.datahumanism {
+  width: 70%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+blockquote {
+/*blockquote formatting from https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling*/
+  border-left: 5px solid #CCC;
+  background: #F9F9F9;
+  font-size: 120%;
+  color: #696969;
+  margin: 1.5em 10px;
+  padding: 1.5em, 1000px;
+  line-height: 1.25em;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before{
+  content: open-quote;
+  color: #CCC;
+  font-size:2em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote:after {
+  content: close-quote;
+  visibility: hidden;
+}
+
+.examples p {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.linkimg:hover {
+  opacity: 0.8;
+}
+
+/* Modals for examples images
+#titleimg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}*/
+
+/* #titleimg:hover {opacity: 0.7;} */
+
+/* The Modal (background)
+.modal {
+  display: inline;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+} */
+
+/* Modal Content (Image)
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+} */
+
+/* Add Animation
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+} */
