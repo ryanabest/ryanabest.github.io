@@ -122,23 +122,6 @@ var ovr = function( sketch ) {
       }
       sketch.ellipse(xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])),hght*vars[i]['crowd']);
     }
-
-    /*
-    for (var vr in vars) {
-      return sketch.ellipse(xstart+(xdiff*vr['sec']),ystart+(ydiff*vr['id']),hght*vr['crowd']);
-    }
-    */
-    /*
-    sketch.stroke(bluer,blueg,blueb);
-    sketch.fill(bluer,blueg,blueb);
-    sketch.ellipse(xstart+(xdiff*98),ystart+(ydiff*1),hght*16); //#1
-    sketch.ellipse(xstart+(xdiff*42),ystart+(ydiff*2),hght*4); //#2
-    sketch.ellipse(xstart+(xdiff*22),ystart+(ydiff*3),hght*3); //#3
-    sketch.ellipse(xstart+(xdiff*30),ystart+(ydiff*4),hght*1); //#4
-    sketch.stroke(redr,redg,redb);
-    sketch.fill(redr,redg,redb);
-    sketch.ellipse(xstart+(xdiff*35),ystart+(ydiff*5),hght*6); //#5
-    */
   };
 };
 
