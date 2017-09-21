@@ -26,33 +26,6 @@ var ovr = function( sketch ) {
     sketch.createCanvas(width, height);
   };
 
-  var xstart = 10
-  var ystart = 10
-  var xend = 350
-  var yend = 590
-  var xdiff = (xend-xstart)/105
-  var ydiff = (yend-ystart)/38
-  var hght = ydiff/8
-
-  var backgrndclr = 220
-
-  var bluer = 17
-  var blueg = 92
-  var blueb = 129
-
-  var redr = 238
-  var redg = 51
-  var redb = 36
-
-  var greenr = 46
-  var greeng = 139
-  var greenb = 87
-
-  var oranger = 255
-  var orangeg = 140
-  var orangeb = 0
-
-  var i = 4
 
 //Data points
   var vars = [
@@ -96,9 +69,37 @@ var ovr = function( sketch ) {
     {id: 38, sec: 10, crowd: 5, loc: "orange", day: 8, dir: "down"}
   ];
 
+  var xstart = 10
+  var ystart = 10
+  var xend = 350
+  var yend = 590
+  var xdiff = (xend-xstart)/105
+  var ydiff = (yend-ystart)/vars.length
+  var hght = ydiff/8
+
+  var backgrndclr = 220
+
+  var bluer = 17
+  var blueg = 92
+  var blueb = 129
+
+  var redr = 238
+  var redg = 51
+  var redb = 36
+
+  var greenr = 46
+  var greeng = 139
+  var greenb = 87
+
+  var oranger = 255
+  var orangeg = 140
+  var orangeb = 0
+
+  var i = 4
+
   sketch.draw = function() {
     sketch.background(backgrndclr);
-    sketch.stroke(0);
+    sketch.stroke(175);
     sketch.line(xstart,ystart,xstart,yend);
     sketch.line(xstart,yend,xend,yend);
 
