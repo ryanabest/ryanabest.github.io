@@ -89,7 +89,7 @@ var ovr = function( sketch ) {
   var xstart = 15
   var ystart = 10
   var xend = 350
-  var yend = 585
+  var yend = 560
   var xdiff = (xend-xstart)/100
   var ydiff = (yend-ystart)/vars.length
   var hght = ydiff/5
@@ -117,6 +117,14 @@ var ovr = function( sketch ) {
     sketch.rotate(-4.71239);
     sketch.translate(-xstart,-(ystart+90));
 
+    //legend text in viz
+    sketch.textSize(10);
+    sketch.text("the bigger the point, the more crowded the elevator",125,ystart+(ydiff*10));
+    sketch.text("the most crowded ride crammed 16 people together",125,ystart+(ydiff*10)+10);
+    sketch.text("the smallest points are rides by myself",100,ystart+(ydiff*28));
+    sketch.text("solo rides are the best rides!",100,ystart+(ydiff*28)+10);
+    sketch.text("I had to wait 98 s!", xend-100,ystart+(ydiff*2));
+
     for (var i = 0; i<vars.length; i++) {
       if (vars[i]['loc'] == 'blue') {
         sketch.stroke(bluer,blueg,blueb);
@@ -137,7 +145,41 @@ var ovr = function( sketch ) {
       //sketch.ellipse(xstart+(xdiff*vars[i]['id']),ystart+(ydiff*(vars[i]['sec'])),hght*vars[i]['crowd']);
       sketch.ellipse(xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])),hght*vars[i]['crowd']);
     }
+
+    //color legend
+    //blue
+    var blueleg = "WebMD Office"
+    sketch.stroke(bluer,blueg,blueb);
+    sketch.fill(bluer,blueg,blueb);
+    sketch.ellipse((ydiff/2),height-(2*hght),hght);
+    sketch.stroke(backgrndclr);
+    sketch.text(blueleg,ydiff,height-hght);
+
+    //red
+    var redleg = "Parsons Univ. Center"
+    sketch.stroke(redr,redg,redb);
+    sketch.fill(redr,redg,redb);
+    sketch.ellipse(90,height-(2*hght),hght);
+    sketch.stroke(backgrndclr);
+    sketch.text(redleg,90+(ydiff/2),height-hght);
+
+    //green
+    var greenleg = "Staples"
+    sketch.stroke(greenr,greeng,greenb);
+    sketch.fill(greenr,greeng,greenb);
+    sketch.ellipse(200,height-(2*hght),hght);
+    sketch.stroke(backgrndclr);
+    sketch.text(greenleg,200+(ydiff/2),height-hght);
+
+    //orange
+    var orangeleg = "2 W 13th St"
+    sketch.stroke(oranger,orangeg, orangeb);
+    sketch.fill(oranger,orangeg, orangeb);
+    sketch.ellipse(250,height-(2*hght),hght);
+    sketch.stroke(backgrndclr);
+    sketch.text(orangeleg,250+(ydiff/2),height-hght);
   };
+
 };
 
 var myp5 = new p5(ovr,'p2');
