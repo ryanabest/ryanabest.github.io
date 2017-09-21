@@ -1,4 +1,4 @@
-var width = 350;
+var width = 360;
 var height = 600;
 
 //Day to Day
