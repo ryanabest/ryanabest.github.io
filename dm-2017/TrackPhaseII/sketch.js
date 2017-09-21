@@ -1,6 +1,24 @@
 var width = 360;
 var height = 600;
 
+var backgrndclr = 240;
+
+var bluer = 17;
+var blueg = 92;
+var blueb = 129;
+
+var redr = 238;
+var redg = 51;
+var redb = 36;
+
+var greenr = 46;
+var greeng = 139;
+var greenb = 87;
+
+var oranger = 255;
+var orangeg = 140;
+var orangeb = 0;
+
 //Day to Day
 
 var d2d = function( sketch ) {
@@ -25,7 +43,6 @@ var ovr = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
   };
-
 
 //Data points
   var vars = [
@@ -72,36 +89,33 @@ var ovr = function( sketch ) {
   var xstart = 15
   var ystart = 10
   var xend = 350
-  var yend = 590
-  var xdiff = (xend-xstart)/105
+  var yend = 585
+  var xdiff = (xend-xstart)/100
   var ydiff = (yend-ystart)/vars.length
   var hght = ydiff/5
 
-  var backgrndclr = 240
-
-  var bluer = 17
-  var blueg = 92
-  var blueb = 129
-
-  var redr = 238
-  var redg = 51
-  var redb = 36
-
-  var greenr = 46
-  var greeng = 139
-  var greenb = 87
-
-  var oranger = 255
-  var orangeg = 140
-  var orangeb = 0
-
-  var i = 4
-
   sketch.draw = function() {
+    //axes and background
     sketch.background(backgrndclr);
     sketch.stroke(175);
     sketch.line(xstart,ystart,xstart,yend);
     sketch.line(xstart,yend,xend,yend);
+
+    //x-axis label
+    var x_axis_label = "time waited (s)"
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.text(x_axis_label, width/2 - (x_axis_label.length/2), yend+10);
+    sketch.text("0s",xstart+3,yend+10);
+    sketch.text("100s",xend-20,yend+10);
+
+    //y-axis label
+    var y_axis_lavel = "← chronological";
+    sketch.translate(xstart, ystart+90);
+    sketch.rotate(4.71239);
+    sketch.text(y_axis_lavel,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart+90));
 
     for (var i = 0; i<vars.length; i++) {
       if (vars[i]['loc'] == 'blue') {
