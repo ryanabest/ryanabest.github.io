@@ -69,15 +69,15 @@ var ovr = function( sketch ) {
     {id: 38, sec: 10, crowd: 5, loc: "orange", day: 8, dir: "down"}
   ];
 
-  var xstart = 10
+  var xstart = 15
   var ystart = 10
   var xend = 350
   var yend = 590
   var xdiff = (xend-xstart)/105
   var ydiff = (yend-ystart)/vars.length
-  var hght = ydiff/8
+  var hght = ydiff/5
 
-  var backgrndclr = 220
+  var backgrndclr = 240
 
   var bluer = 17
   var blueg = 92
@@ -120,6 +120,7 @@ var ovr = function( sketch ) {
         sketch.stroke(backgrndclr);
         sketch.fill(backgrndclr);
       }
+      //sketch.ellipse(xstart+(xdiff*vars[i]['id']),ystart+(ydiff*(vars[i]['sec'])),hght*vars[i]['crowd']);
       sketch.ellipse(xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])),hght*vars[i]['crowd']);
     }
   };
