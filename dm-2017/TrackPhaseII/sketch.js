@@ -87,7 +87,7 @@ var ovr = function( sketch ) {
     {id: 35, sec: 20, crowd: 1, loc: "blue", day: 18, dir: "up"},
     {id: 36, sec: 20, crowd: 2, loc: "blue", day: 18, dir:"down"},
     {id: 37, sec: 20, crowd: 7, loc: "orange", day: 18, dir: "up"},
-    {id: 38, sec: 10, crowd: 5, loc: "orange", day: 8, dir: "down"}
+    {id: 38, sec: 10, crowd: 5, loc: "orange", day: 18, dir: "down"}
   ];
 
   var xstart = width * (0.0417)
@@ -116,11 +116,15 @@ var ovr = function( sketch ) {
 
     //y-axis label
     var y_axis_lavel = "← chronological";
-    sketch.translate(xstart, ystart+90);
+    var start_date = "9.12.17";
+    var end_date = "9.18.17";
+    sketch.translate(xstart, ystart + (width*0.3));
     sketch.rotate(4.71239);
     sketch.text(y_axis_lavel,0,0);
+    sketch.text(start_date,(height*0.15),0);
+    sketch.text(end_date,-(height*0.63),0);
     sketch.rotate(-4.71239);
-    sketch.translate(-xstart,-(ystart+90));
+    sketch.translate(-xstart,-(ystart + (width*0.3)));
 
     //legend text in viz
     /*
