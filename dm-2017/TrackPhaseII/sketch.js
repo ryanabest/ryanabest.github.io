@@ -21,15 +21,20 @@ var orangeb = 0;
 var d2d = function( sketch ) {
   var width = 360;
   var height = 600;
+
+  var img1;
+  sketch.preload = function() {
+    img1 = loadImage('images/Elevator1.png');
+  };
+
   sketch.setup = function() {
     sketch.createCanvas(width, height);
   };
 
   sketch.draw = function() {
-
     sketch.background(255);
     sketch.fill(0);
-    sketch.rect(100,100,width/4,height/4);
+    sketch.rect(0,0,100,100);
   };
 };
 
