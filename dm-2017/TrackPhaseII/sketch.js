@@ -1,6 +1,3 @@
-var width = 360;
-var height = 600;
-
 var backgrndclr = 240;
 
 var bluer = 17;
@@ -22,12 +19,14 @@ var orangeb = 0;
 //Day to Day
 
 var d2d = function( sketch ) {
-
+  var width = 360;
+  var height = 600;
   sketch.setup = function() {
     sketch.createCanvas(width, height);
   };
 
   sketch.draw = function() {
+
     sketch.background(255);
     sketch.fill(0);
     sketch.rect(100,100,width/4,height/4);
@@ -39,7 +38,12 @@ var myp5 = new p5(d2d,'p1');
 //Overall
 
 var ovr = function( sketch ) {
-
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  window.onresize = function() {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+  }
   sketch.setup = function() {
     sketch.createCanvas(width, height);
   };
@@ -86,15 +90,16 @@ var ovr = function( sketch ) {
     {id: 38, sec: 10, crowd: 5, loc: "orange", day: 8, dir: "down"}
   ];
 
-  var xstart = 15
-  var ystart = 10
-  var xend = 350
-  var yend = 560
+  var xstart = width * (0.0417)
+  var ystart = height * (0.0417)
+  var xend = width * (0.9722)
+  var yend = height * (0.90)
   var xdiff = (xend-xstart)/100
   var ydiff = (yend-ystart)/vars.length
   var hght = ydiff/5
 
   sketch.draw = function() {
+
     //axes and background
     sketch.background(backgrndclr);
     sketch.stroke(175);
@@ -118,12 +123,14 @@ var ovr = function( sketch ) {
     sketch.translate(-xstart,-(ystart+90));
 
     //legend text in viz
+    /*
     sketch.textSize(10);
     sketch.text("the bigger the point, the more crowded the elevator",125,ystart+(ydiff*10));
     sketch.text("the most crowded ride crammed 16 people together",125,ystart+(ydiff*10)+10);
     sketch.text("the smallest points are rides by myself",100,ystart+(ydiff*28));
     sketch.text("solo rides are the best rides!",100,ystart+(ydiff*28)+10);
     sketch.text("I had to wait 98 s!", xend-100,ystart+(ydiff*2));
+    */
 
     for (var i = 0; i<vars.length; i++) {
       if (vars[i]['loc'] == 'blue') {
@@ -151,33 +158,53 @@ var ovr = function( sketch ) {
     var blueleg = "WebMD Office"
     sketch.stroke(bluer,blueg,blueb);
     sketch.fill(bluer,blueg,blueb);
-    sketch.ellipse((ydiff/2),height-(2*hght),hght);
+    sketch.ellipse((ydiff/2),height-(10*hght),hght);
     sketch.stroke(backgrndclr);
-    sketch.text(blueleg,ydiff,height-hght);
+    sketch.text(blueleg,ydiff,height-(9*hght));
 
     //red
     var redleg = "Parsons Univ. Center"
     sketch.stroke(redr,redg,redb);
     sketch.fill(redr,redg,redb);
-    sketch.ellipse(90,height-(2*hght),hght);
+    sketch.ellipse(width*(0.27),height-(10*hght),hght);
     sketch.stroke(backgrndclr);
-    sketch.text(redleg,90+(ydiff/2),height-hght);
+    sketch.text(redleg,width*(0.27)+(ydiff/2),height-(9*hght));
 
     //green
     var greenleg = "Staples"
     sketch.stroke(greenr,greeng,greenb);
     sketch.fill(greenr,greeng,greenb);
-    sketch.ellipse(200,height-(2*hght),hght);
+    sketch.ellipse((ydiff/2),height-(6*hght),hght);
     sketch.stroke(backgrndclr);
-    sketch.text(greenleg,200+(ydiff/2),height-hght);
+    sketch.text(greenleg,ydiff,height-(5*hght));
 
     //orange
     var orangeleg = "2 W 13th St"
     sketch.stroke(oranger,orangeg, orangeb);
     sketch.fill(oranger,orangeg, orangeb);
-    sketch.ellipse(250,height-(2*hght),hght);
+    sketch.ellipse(width*(0.27),height-(6*hght),hght);
     sketch.stroke(backgrndclr);
-    sketch.text(orangeleg,250+(ydiff/2),height-hght);
+    sketch.text(orangeleg,width*(0.27)+(ydiff/2),height-(5*hght));
+
+
+    //size legend
+    //small
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    //sketch.text("# of riders:",xend-(50*hght),height-(10*hght));
+    sketch.text("1 rider",xend-(48*hght),height-hght);
+    sketch.stroke(175);
+    sketch.fill(backgrndclr);
+    sketch.ellipse(xend-(50*hght),height-(2*hght),hght);
+
+    //big
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.text("16 riders",xend-(15*hght),height-hght);
+    sketch.stroke(175);
+    sketch.fill(backgrndclr);
+    sketch.ellipse(xend-(23*hght),height-(8*hght),hght*15);
+
   };
 
 };
