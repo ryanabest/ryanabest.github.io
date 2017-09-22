@@ -22,10 +22,9 @@ var d2d = function( sketch ) {
   var width = 360;
   var height = 600;
 
-  var img1;
   sketch.preload = function() {
     img1 = loadImage('images/Elevator1.png');
-  };
+  }
 
   sketch.setup = function() {
     sketch.createCanvas(width, height);
@@ -34,7 +33,7 @@ var d2d = function( sketch ) {
   sketch.draw = function() {
     sketch.background(255);
     sketch.fill(0);
-    sketch.rect(0,0,100,100);
+    sketch.image(img1,100,100);
   };
 };
 
@@ -100,7 +99,7 @@ var ovr = function( sketch ) {
   var xend = width * (0.9722)
   var yend = height * (0.90)
   var xdiff = (xend-xstart)/100
-  var ydiff = (yend-ystart)/vars.length
+  var ydiff = (yend-ystart)/(vars.length+1)
   var hght = ydiff/5
 
   sketch.draw = function() {
@@ -115,9 +114,9 @@ var ovr = function( sketch ) {
     var x_axis_label = "time waited (s)"
     sketch.stroke(backgrndclr);
     sketch.fill(175);
-    sketch.text(x_axis_label, width/2 - (x_axis_label.length/2), yend+10);
-    sketch.text("0s",xstart+3,yend+10);
-    sketch.text("100s",xend-20,yend+10);
+    sketch.text(x_axis_label,xstart+(xend-xstart)/2, yend+10);
+    sketch.text("0s",xstart,yend+10);
+    sketch.text("100s",xend-25,yend+10);
 
     //y-axis label
     var y_axis_lavel = "← chronological";
@@ -135,11 +134,11 @@ var ovr = function( sketch ) {
     sketch.rotate(-4.71239);
     sketch.translate(-xstart,-(ystart + 40));
 
-    sketch.translate(xstart, yend-10);
+    sketch.translate(xstart, yend-5);
     sketch.rotate(4.71239);
     sketch.text(end_date,0,0);
     sketch.rotate(-4.71239);
-    sketch.translate(-xstart,-(yend-10));
+    sketch.translate(-xstart,-(yend-5));
 
     //legend text in viz
     /*
@@ -211,18 +210,18 @@ var ovr = function( sketch ) {
     sketch.stroke(backgrndclr);
     sketch.fill(175);
     //sketch.text("# of riders:",xend-(50*hght),height-(10*hght));
-    sketch.text("1 rider",xend-50,height-(hght));
+    sketch.text("1 rider",xend-60,height-(hght));
     sketch.stroke(175);
     sketch.fill(backgrndclr);
-    sketch.ellipse(xend-75,height-(2*hght),hght);
+    sketch.ellipse(xend-80,height-(2*hght),hght);
 
     //big
     sketch.stroke(backgrndclr);
     sketch.fill(175);
-    sketch.text("16 riders",xend-50,yend+(10*hght));
+    sketch.text("16 riders",xend-50,yend+(11*hght));
     sketch.stroke(175);
     sketch.fill(backgrndclr);
-    sketch.ellipse(xend-75,yend+(9*hght),hght*15);
+    sketch.ellipse(xend-80,yend+(10*hght),hght*15);
 
   };
 
