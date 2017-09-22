@@ -180,9 +180,9 @@ var ovr = function( sketch ) {
     var redleg = "Parsons Univ. Center"
     sketch.stroke(redr,redg,redb);
     sketch.fill(redr,redg,redb);
-    sketch.ellipse(width*(0.27),height-(10*hght),hght);
+    sketch.ellipse((ydiff/2)+100,height-(10*hght),hght);
     sketch.stroke(backgrndclr);
-    sketch.text(redleg,width*(0.27)+(ydiff/2),height-(9*hght));
+    sketch.text(redleg,(ydiff)+100,height-(9*hght));
 
     //green
     var greenleg = "Staples"
@@ -196,9 +196,9 @@ var ovr = function( sketch ) {
     var orangeleg = "2 W 13th St"
     sketch.stroke(oranger,orangeg, orangeb);
     sketch.fill(oranger,orangeg, orangeb);
-    sketch.ellipse(width*(0.27),height-(6*hght),hght);
+    sketch.ellipse((ydiff/2)+100,height-(6*hght),hght);
     sketch.stroke(backgrndclr);
-    sketch.text(orangeleg,width*(0.27)+(ydiff/2),height-(5*hght));
+    sketch.text(orangeleg,(ydiff)+100,height-(5*hght));
 
 
     //size legend
@@ -206,18 +206,18 @@ var ovr = function( sketch ) {
     sketch.stroke(backgrndclr);
     sketch.fill(175);
     //sketch.text("# of riders:",xend-(50*hght),height-(10*hght));
-    sketch.text("1 rider",xend-(48*hght),height-hght);
+    sketch.text("1 rider",xend-50,height-(hght));
     sketch.stroke(175);
     sketch.fill(backgrndclr);
-    sketch.ellipse(xend-(50*hght),height-(2*hght),hght);
+    sketch.ellipse(xend-75,height-(2*hght),hght);
 
     //big
     sketch.stroke(backgrndclr);
     sketch.fill(175);
-    sketch.text("16 riders",xend-(15*hght),height-hght);
+    sketch.text("16 riders",xend-50,yend+(10*hght));
     sketch.stroke(175);
     sketch.fill(backgrndclr);
-    sketch.ellipse(xend-(23*hght),height-(8*hght),hght*15);
+    sketch.ellipse(xend-75,yend+(9*hght),hght*15);
 
   };
 
