@@ -17,10 +17,10 @@ var orangeg = 140;
 var orangeb = 0;
 
 //Day to Day
+var width = window.innerWidth;
+var height = window.innerHeight;
 
 var d2d = function( sketch ) {
-  var width = 360;
-  var height = 600;
 
   /*sketch.preload = function() {
     img1 = loadImage('images/Elevator1.png');
@@ -46,8 +46,6 @@ var myp5 = new p5(d2d,'p1');
 //Overall
 
 var ovr = function( sketch ) {
-  var width = window.innerWidth;
-  var height = window.innerHeight;
   window.onresize = function() {
     var width = window.innerWidth;
     var height = window.innerHeight;
