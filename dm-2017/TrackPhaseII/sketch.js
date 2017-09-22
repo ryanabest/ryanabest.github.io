@@ -36,7 +36,7 @@ var d2d = function( sketch ) {
   sketch.draw = function() {
     sketch.background(255);
     sketch.fill(0);
-    sketch.image(img1);
+    sketch.image(img1,0,0);
     //sketch.rect(10,10,100,100);
   };
 };
