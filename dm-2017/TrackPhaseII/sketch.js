@@ -22,10 +22,11 @@ var d2d = function( sketch ) {
   var width = 360;
   var height = 600;
 
+/*
   sketch.preload = function() {
     img1 = loadImage('images/Elevator1.png');
   }
-
+*/
   sketch.setup = function() {
     sketch.createCanvas(width, height);
   };
@@ -33,7 +34,8 @@ var d2d = function( sketch ) {
   sketch.draw = function() {
     sketch.background(255);
     sketch.fill(0);
-    sketch.image(img1,100,100);
+    //sketch.image(img1,100,100);
+    sketch.rect(10,10,100,100);
   };
 };
 
