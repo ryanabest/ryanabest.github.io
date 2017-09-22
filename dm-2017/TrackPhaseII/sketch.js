@@ -118,13 +118,23 @@ var ovr = function( sketch ) {
     var y_axis_lavel = "← chronological";
     var start_date = "9.12.17";
     var end_date = "9.18.17";
-    sketch.translate(xstart, ystart + (width*0.3));
+    sketch.translate(xstart, ystart + 150);
     sketch.rotate(4.71239);
     sketch.text(y_axis_lavel,0,0);
-    sketch.text(start_date,(height*0.15),0);
-    sketch.text(end_date,-(height*0.63),0);
     sketch.rotate(-4.71239);
-    sketch.translate(-xstart,-(ystart + (width*0.3)));
+    sketch.translate(-xstart,-(ystart + 150));
+
+    sketch.translate(xstart, ystart + 40);
+    sketch.rotate(4.71239);
+    sketch.text(start_date,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart + 40));
+
+    sketch.translate(xstart, yend-10);
+    sketch.rotate(4.71239);
+    sketch.text(end_date,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(yend-10));
 
     //legend text in viz
     /*
