@@ -16,24 +16,21 @@ var oranger = 255;
 var orangeg = 140;
 var orangeb = 0;
 
-
-var prel = function preload( sketch ) {
-  img1 = sketch.loadImage("images/Elevator1.png");
-}
-
 //Day to Day
 
 var d2d = function( sketch ) {
   var width = 360;
   var height = 600;
 
-
-  sketch.preload = function() {
+  /*sketch.preload = function() {
     img1 = loadImage('images/Elevator1.png');
-  }
+  }*/
+
+  var img1;
 
   sketch.setup = function() {
     sketch.createCanvas(width, height);
+    img1 = sketch.loadImage("images/Elevator1.png");
   };
 
   sketch.draw = function() {
