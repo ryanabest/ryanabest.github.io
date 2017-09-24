@@ -77,7 +77,7 @@ var vars = [
 var width = window.innerWidth;
 var height = window.innerHeight;
 
-//Tuesday9/12
+//Tuesday 9.12
 var tue = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
@@ -106,6 +106,8 @@ var tue = function( sketch ) {
 
 var myp5 = new p5(tue,'p1');
 
+/*
+//Wed 9.13
 var wed = function( sketch ) {
   sketch.setup = function() {
     img6 = sketch.loadImage("images/Elevator6.png");
@@ -141,7 +143,7 @@ var wed = function( sketch ) {
     img37 = sketch.loadImage("images/Elevator37.png");
   };
 };
-
+*/
 //Overall
 
 var ovr = function( sketch ) {
@@ -282,4 +284,4 @@ var ovr = function( sketch ) {
 
 };
 
-var myp5 = new p5(ovr,'p8');
+var myp5 = new p5(ovr,'p2');
