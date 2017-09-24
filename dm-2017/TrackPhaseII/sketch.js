@@ -114,7 +114,6 @@ var tue = function( sketch ) {
 
     var ydiff = (yend-ystart)/(5)
     xdiff = (xend-xstart)/140
-    hght = (yend-ystart)/5
 
     sketch.image(img1,xstart+(xdiff*vars[0]['sec']),ystart,img1.width/5,img1.height/5);
     sketch.image(img2,xstart+(xdiff*vars[1]['sec']),ystart+(ydiff),img2.width/5,img2.height/5);
@@ -127,8 +126,55 @@ var tue = function( sketch ) {
 
 var myp5 = new p5(tue,'p1');
 
-/*
 //Wed 9.13
+var wed = function( sketch ) {
+  sketch.setup = function() {
+    sketch.createCanvas(width, height);
+
+    img1 = sketch.loadImage("images/Elevator1.png");
+    img2 = sketch.loadImage("images/Elevator2.png");
+    img3 = sketch.loadImage("images/Elevator3.png");
+    img4 = sketch.loadImage("images/Elevator4.png");
+    img5 = sketch.loadImage("images/Elevator5.png");
+  };
+
+  sketch.draw = function() {
+    sketch.background(backgrndclr);
+    sketch.stroke(175);
+    sketch.line(xstart,ystart,xstart,yend);
+    sketch.line(xstart,yend,xend,yend);
+
+    var y_axis_lavel = "← chronological";
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.translate(xstart, ystart + 100);
+    sketch.rotate(4.71239);
+    sketch.text(y_axis_lavel,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart + 100));
+
+    sketch.text(x_axis_label, width*0.33, yend+10);
+    sketch.text("0s",xstart,yend+10);
+    sketch.text("100s",xend-75,yend+10);
+
+    var ydiff = (yend-ystart)/(8)
+    xdiff = (xend-xstart)/140
+
+    sketch.image(img6,xstart+(xdiff*vars[5]['sec']),ystart,img6.width/8,img6.height/8);
+    sketch.image(img7,xstart+(xdiff*vars[6]['sec']),ystart+(ydiff),img7.width/8,img7.height/8);
+    sketch.image(img8,xstart+(xdiff*vars[7]['sec']),ystart+(ydiff*2),img8.width/8,img8.height/8);
+    sketch.image(img9,xstart+(xdiff*vars[8]['sec']),ystart+(ydiff*3),img9.width/8,img9.height/8);
+    sketch.image(img10,xstart+(xdiff*vars[9]['sec']),ystart+(ydiff*4),img10.width/8,img10.height/8);
+    sketch.image(img11,xstart+(xdiff*vars[10]['sec']),ystart+(ydiff*5),img11.width/8,img11.height/8);
+    sketch.image(img12,xstart+(xdiff*vars[11]['sec']),ystart+(ydiff*6),img12.width/8,img12.height/8);
+    sketch.image(img13,xstart+(xdiff*vars[12]['sec']),ystart+(ydiff*7),img13.width/8,img13.height/8);
+
+  };
+};
+
+var myp5 = new p5(wed,'p2');
+
+/*
 var wed = function( sketch ) {
   sketch.setup = function() {
     img6 = sketch.loadImage("images/Elevator6.png");
