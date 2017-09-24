@@ -104,10 +104,9 @@ var tue = function( sketch ) {
     sketch.translate(-xstart,-(ystart + 100));
 
     var ydiff = (yend-ystart)/(5)
-    xdiff = (xend-xstart)/120
+    xdiff = (xend-xstart)/140
     hght = (yend-ystart)/5
 
-    sketch.imageMode(CENTER);
     sketch.image(img1,xstart+(xdiff*vars[0]['sec']),ystart,img1.width/5,img1.height/5);
 
   };
