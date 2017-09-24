@@ -100,7 +100,7 @@ var tue = function( sketch ) {
     sketch.stroke(175);
     sketch.line(xstart,ystart,xstart,yend);
     sketch.line(xstart,yend,xend,yend);
-    
+
   };
 };
 
@@ -139,7 +139,8 @@ var wed = function( sketch ) {
     img35 = sketch.loadImage("images/Elevator35.png");
     img36 = sketch.loadImage("images/Elevator36.png");
     img37 = sketch.loadImage("images/Elevator37.png");
-}
+  };
+};
 
 //Overall
 
