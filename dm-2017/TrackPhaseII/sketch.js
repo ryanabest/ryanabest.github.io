@@ -280,6 +280,36 @@ var fri = function( sketch ) {
 
 var myp5 = new p5(fri,'p4');
 
+//Sat 9.16
+var sat = function( sketch ) {
+  sketch.setup = function() {
+    sketch.createCanvas(width, height);
+  };
+
+  sketch.draw = function() {
+    sketch.background(backgrndclr);
+    sketch.stroke(175);
+    sketch.line(xstart,ystart,xstart,yend);
+    sketch.line(xstart,yend,xend,yend);
+
+    var y_axis_lavel = "← chronological";
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.translate(xstart, ystart + 100);
+    sketch.rotate(4.71239);
+    sketch.text(y_axis_lavel,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart + 100));
+
+    sketch.text(x_axis_label, width*0.33, yend+10);
+    sketch.text("0s",xstart,yend+10);
+    sketch.text("100s",xend-75,yend+10);
+
+  };
+};
+
+var myp5 = new p5(sat,'p5');
+
 /*
 var wed = function( sketch ) {
   sketch.setup = function() {
