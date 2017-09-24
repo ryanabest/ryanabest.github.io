@@ -71,7 +71,7 @@ var d2d = function( sketch ) {
 
   sketch.setup = function() {
     sketch.createCanvas(width, height);
-
+    /*
     //create list of imgvars to be populated with png's from illustrator
     function imgvars () {
       var imgvars = [];
@@ -94,7 +94,7 @@ var d2d = function( sketch ) {
 
       return pngnames;
     };
-
+    */
     var img1;
     img1 = sketch.loadImage("images/Elevator1.png");
 
