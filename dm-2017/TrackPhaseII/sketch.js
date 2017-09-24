@@ -103,6 +103,10 @@ var tue = function( sketch ) {
     sketch.rotate(-4.71239);
     sketch.translate(-xstart,-(ystart + 100));
 
+    sketch.text(x_axis_label,xstart+(xend-xstart)/2, yend+10);
+    sketch.text("0s",xstart,yend+10);
+    sketch.text("100s",xend-75,yend+10);
+
     var ydiff = (yend-ystart)/(5)
     xdiff = (xend-xstart)/140
     hght = (yend-ystart)/5
