@@ -95,7 +95,7 @@ var d2d = function( sketch ) {
       return pngnames;
     };
 
-    img1 = sketch.loadImage("images/Elevator1.png");
+    var img1 = sketch.loadImage("images/Elevator1.png");
 
     /*
     //import pngs and assign to imgvar values
