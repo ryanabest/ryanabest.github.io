@@ -27,51 +27,46 @@ function imgvars () {
   return imgvars;
 };
 
-for (var i = 0; i<imgvars.length; i++) {
-  var imgvars[i];
-}
-
-
 //Data points
 var vars = [
-  {id: 1,  sec: 98, crowd: 6, loc: "blue", day: 12, dir: "up", img: img1},
-  {id: 2,  sec: 42, crowd: 4, loc: "blue", day: 12, dir: "down", img: img2},
-  {id: 3,  sec: 22, crowd: 4, loc: "blue", day: 12, dir: "up", img: img3},
-  {id: 4,  sec: 30, crowd: 1, loc: "blue", day: 12, dir: "down", img: img4},
-  {id: 5,  sec: 35, crowd: 6, loc: "red", day: 12, dir: "up", img: img5},
-  {id: 6,  sec: 10, crowd: 4, loc: "blue", day: 13, dir: "up", img: img6},
-  {id: 7,  sec: 20, crowd: 1, loc: "blue", day: 13, dir: "down", img: img7},
-  {id: 8,  sec: 11, crowd: 1, loc: "blue", day: 13, dir: "up", img: img8},
-  {id: 9,  sec: 23, crowd: 5, loc: "blue", day: 13, dir: "down", img: img9},
-  {id: 10, sec: 10, crowd: 5, loc: "blue", day: 13, dir: "up", img: img10},
-  {id: 11, sec: 03, crowd: 3, loc: "blue", day: 13, dir: "down", img: img11},
-  {id: 12, sec: 25, crowd: 16, loc: "red", day: 13, dir: "up", img: img12},
-  {id: 13, sec: 00, crowd: 8, loc: "red", day: 13, dir: "down", img: img13},
-  {id: 14, sec: 36, crowd: 10, loc: "blue", day: 14, dir: "up", img: img14},
-  {id: 15, sec: 12, crowd: 1, loc: "blue", day: 14, dir: "down", img: img15},
-  {id: 16, sec: 23, crowd: 1, loc: "green", day: 14, dir: "up", img: img16},
-  {id: 17, sec: 20, crowd: 1, loc: "green", day: 14, dir: "down", img: img17},
-  {id: 18, sec: 09, crowd: 2, loc: "blue", day: 14, dir: "up", img: img18},
-  {id: 19, sec: 35, crowd: 5, loc: "blue", day: 14, dir: "down", img: img19},
-  {id: 20, sec: 07, crowd: 1, loc: "blue", day: 14, dir: "up", img: img20},
-  {id: 21, sec: 21, crowd: 1, loc: "blue", day: 14, dir: "down", img: img21},
-  {id: 22, sec: 00, crowd: 3, loc: "red", day: 14, dir: "up", img: img22},
-  {id: 23, sec: 00, crowd: 2, loc: "red", day: 14, dir: "down", img: img23},
-  {id: 24, sec: 17, crowd: 6, loc: "blue", day: 15, dir: "up", img: img24},
-  {id: 25, sec: 50, crowd: 7, loc: "blue", day: 15, dir: "down", img: img25},
-  {id: 26, sec: 20, crowd: 4, loc: "blue", day: 15, dir: "up", img: img26},
-  {id: 27, sec: 26, crowd: 1, loc: "blue", day: 15, dir: "down", img: img27},
-  {id: 28, sec: 19, crowd: 1, loc: "blue", day: 15, dir: "up", img: img28},
-  {id: 29, sec: 10, crowd: 2, loc: "blue", day: 15, dir: "down", img: img29},
+  {id: 1,  sec: 98, crowd: 6, loc: "blue", day: 12, dir: "up", img: imgvars[0]},
+  {id: 2,  sec: 42, crowd: 4, loc: "blue", day: 12, dir: "down", img: imgvars[1]},
+  {id: 3,  sec: 22, crowd: 4, loc: "blue", day: 12, dir: "up", img: imgvars[2]},
+  {id: 4,  sec: 30, crowd: 1, loc: "blue", day: 12, dir: "down", img: imgvars[3]},
+  {id: 5,  sec: 35, crowd: 6, loc: "red", day: 12, dir: "up", img: imgvars[4]},
+  {id: 6,  sec: 10, crowd: 4, loc: "blue", day: 13, dir: "up", img: imgvars[5]},
+  {id: 7,  sec: 20, crowd: 1, loc: "blue", day: 13, dir: "down", img: imgvars[6]},
+  {id: 8,  sec: 11, crowd: 1, loc: "blue", day: 13, dir: "up", img: imgvars[7]},
+  {id: 9,  sec: 23, crowd: 5, loc: "blue", day: 13, dir: "down", img: imgvars[8]},
+  {id: 10, sec: 10, crowd: 5, loc: "blue", day: 13, dir: "up", img: imgvars[9]},
+  {id: 11, sec: 03, crowd: 3, loc: "blue", day: 13, dir: "down", img: imgvars[10]},
+  {id: 12, sec: 25, crowd: 16, loc: "red", day: 13, dir: "up", img: imgvars[11]},
+  {id: 13, sec: 00, crowd: 8, loc: "red", day: 13, dir: "down", img: imgvars[12]},
+  {id: 14, sec: 36, crowd: 10, loc: "blue", day: 14, dir: "up", img: imgvars[13]},
+  {id: 15, sec: 12, crowd: 1, loc: "blue", day: 14, dir: "down", img: imgvars[14]},
+  {id: 16, sec: 23, crowd: 1, loc: "green", day: 14, dir: "up", img: imgvars[15]},
+  {id: 17, sec: 20, crowd: 1, loc: "green", day: 14, dir: "down", img: imgvars[16]},
+  {id: 18, sec: 09, crowd: 2, loc: "blue", day: 14, dir: "up", img: imgvars[17]},
+  {id: 19, sec: 35, crowd: 5, loc: "blue", day: 14, dir: "down", img: imgvars[18]},
+  {id: 20, sec: 07, crowd: 1, loc: "blue", day: 14, dir: "up", img: imgvars[19]},
+  {id: 21, sec: 21, crowd: 1, loc: "blue", day: 14, dir: "down", img: imgvars[20]},
+  {id: 22, sec: 00, crowd: 3, loc: "red", day: 14, dir: "up", img: imgvars[21]},
+  {id: 23, sec: 00, crowd: 2, loc: "red", day: 14, dir: "down", img: imgvars[22]},
+  {id: 24, sec: 17, crowd: 6, loc: "blue", day: 15, dir: "up", img: imgvars[23]},
+  {id: 25, sec: 50, crowd: 7, loc: "blue", day: 15, dir: "down", img: imgvars[24]},
+  {id: 26, sec: 20, crowd: 4, loc: "blue", day: 15, dir: "up", img: imgvars[25]},
+  {id: 27, sec: 26, crowd: 1, loc: "blue", day: 15, dir: "down", img: imgvars[26]},
+  {id: 28, sec: 19, crowd: 1, loc: "blue", day: 15, dir: "up", img: imgvars[27]},
+  {id: 29, sec: 10, crowd: 2, loc: "blue", day: 15, dir: "down", img: imgvars[28]},
   {id: 30, sec: 10, crowd: 2, loc: "null", day: 16, dir: "null"}, //empty data point for saturday 9/16
-  {id: 31, sec: 00, crowd: 2, loc: "red", day: 17, dir: "up", img: img31},
-  {id: 32, sec: 00, crowd: 1, loc: "red", day: 17, dir: "down", img: img32},
-  {id: 33, sec: 40, crowd: 8, loc: "blue", day: 18, dir: "up", img: img33},
-  {id: 34, sec: 35, crowd: 1, loc: "blue", day: 18, dir: "down", img: img34},
-  {id: 35, sec: 20, crowd: 1, loc: "blue", day: 18, dir: "up", img: img35},
-  {id: 36, sec: 20, crowd: 2, loc: "blue", day: 18, dir:"down", img: img36},
-  {id: 37, sec: 20, crowd: 7, loc: "orange", day: 18, dir: "up", img: img37},
-  {id: 38, sec: 10, crowd: 5, loc: "orange", day: 18, dir: "down", img: img38}
+  {id: 31, sec: 00, crowd: 2, loc: "red", day: 17, dir: "up", img: imgvars[30]},
+  {id: 32, sec: 00, crowd: 1, loc: "red", day: 17, dir: "down", img: imgvars[31]},
+  {id: 33, sec: 40, crowd: 8, loc: "blue", day: 18, dir: "up", img: imgvars[32]},
+  {id: 34, sec: 35, crowd: 1, loc: "blue", day: 18, dir: "down", img: imgvars[33]},
+  {id: 35, sec: 20, crowd: 1, loc: "blue", day: 18, dir: "up", img: imgvars[34]},
+  {id: 36, sec: 20, crowd: 2, loc: "blue", day: 18, dir:"down", img: imgvars[35]},
+  {id: 37, sec: 20, crowd: 7, loc: "orange", day: 18, dir: "up", img: imgvars[36]},
+  {id: 38, sec: 10, crowd: 5, loc: "orange", day: 18, dir: "down", img: imgvars[37]}
 ];
 
 //Day to Day
