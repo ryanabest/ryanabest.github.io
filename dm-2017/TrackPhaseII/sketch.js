@@ -107,7 +107,7 @@ var tue = function( sketch ) {
     hght = (yend-ystart)/5
 
     for (var i = 0; i<4; i++) {
-      sketch.image(img1,xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])));
+      sketch.image(img1,0,0);
     }
 
   };
