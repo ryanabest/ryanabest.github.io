@@ -1,4 +1,8 @@
 var backgrndclr = 240;
+var xstart = width * (0.0417)
+var ystart = height * (0.0417)
+var xend = width * (0.9722)
+var yend = height * (0.90)
 
 var bluer = 17;
 var blueg = 92;
@@ -73,13 +77,8 @@ var vars = [
 var width = window.innerWidth;
 var height = window.innerHeight;
 
-var d2d = function( sketch ) {
-
-  /*sketch.preload = function() {
-    img1 = loadImage('images/Elevator1.png');
-  }*/
-
-
+//Tuesday9/12
+var tue = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
 
@@ -88,6 +87,27 @@ var d2d = function( sketch ) {
     img3 = sketch.loadImage("images/Elevator3.png");
     img4 = sketch.loadImage("images/Elevator4.png");
     img5 = sketch.loadImage("images/Elevator5.png");
+
+    /*
+    //import pngs and assign to imgvar values
+    for (var i=0;i<38;i++) {
+      imgvars[i] = sketch.loadImage(pngnames[i]);
+    }; */
+  };
+
+  sketch.draw = function() {
+    sketch.background(backgrndclr);
+    sketch.stroke(175);
+    sketch.line(xstart,ystart,xstart,yend);
+    sketch.line(xstart,yend,xend,yend);
+    
+  };
+};
+
+var myp5 = new p5(tue,'p1');
+
+var wed = function( sketch ) {
+  sketch.setup = function() {
     img6 = sketch.loadImage("images/Elevator6.png");
     img7 = sketch.loadImage("images/Elevator7.png");
     img8 = sketch.loadImage("images/Elevator8.png");
@@ -119,24 +139,7 @@ var d2d = function( sketch ) {
     img35 = sketch.loadImage("images/Elevator35.png");
     img36 = sketch.loadImage("images/Elevator36.png");
     img37 = sketch.loadImage("images/Elevator37.png");
-
-
-    /*
-    //import pngs and assign to imgvar values
-    for (var i=0;i<38;i++) {
-      imgvars[i] = sketch.loadImage(pngnames[i]);
-    }; */
-  };
-
-  sketch.draw = function() {
-    sketch.background(255);
-    sketch.fill(0);
-    sketch.image(img1,0,0,100,100);
-    //sketch.rect(10,10,100,100);
-  };
-};
-
-var myp5 = new p5(d2d,'p1');
+}
 
 //Overall
 
@@ -149,10 +152,6 @@ var ovr = function( sketch ) {
     sketch.createCanvas(width, height);
   };
 
-  var xstart = width * (0.0417)
-  var ystart = height * (0.0417)
-  var xend = width * (0.9722)
-  var yend = height * (0.90)
   var xdiff = (xend-xstart)/100
   var ydiff = (yend-ystart)/(vars.length+1)
   var hght = ydiff/5
@@ -282,4 +281,4 @@ var ovr = function( sketch ) {
 
 };
 
-var myp5 = new p5(ovr,'p2');
+var myp5 = new p5(ovr,'p8');
