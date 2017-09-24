@@ -396,14 +396,6 @@ var mon = function( sketch ) {
 
 var myp5 = new p5(mon,'p7');
 
-/*
-var wed = function( sketch ) {
-  sketch.setup = function() {
-
-
-  };
-};
-*/
 //Overall
 
 var ovr = function( sketch ) {
