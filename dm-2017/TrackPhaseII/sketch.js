@@ -350,7 +350,7 @@ var sun = function( sketch ) {
 var myp5 = new p5(sun,'p6');
 
 //Mon 9.18
-var sun = function( sketch ) {
+var mon = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
 
@@ -393,6 +393,8 @@ var sun = function( sketch ) {
 
   };
 };
+
+var myp5 = new p5(mon,'p7');
 
 /*
 var wed = function( sketch ) {
