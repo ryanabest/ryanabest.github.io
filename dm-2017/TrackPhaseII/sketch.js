@@ -86,12 +86,6 @@ var tue = function( sketch ) {
     img3 = sketch.loadImage("images/Elevator3.png");
     img4 = sketch.loadImage("images/Elevator4.png");
     img5 = sketch.loadImage("images/Elevator5.png");
-
-    /*
-    //import pngs and assign to imgvar values
-    for (var i=0;i<38;i++) {
-      imgvars[i] = sketch.loadImage(pngnames[i]);
-    }; */
   };
 
   sketch.draw = function() {
@@ -101,17 +95,19 @@ var tue = function( sketch ) {
     sketch.line(xstart,yend,xend,yend);
 
     var y_axis_lavel = "← chronological";
-    sketch.translate(xstart, ystart + 50);
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.translate(xstart, ystart + 100);
     sketch.rotate(4.71239);
     sketch.text(y_axis_lavel,0,0);
     sketch.rotate(-4.71239);
-    sketch.translate(-xstart,-(ystart + 50));
+    sketch.translate(-xstart,-(ystart + 100));
 
     xdiff = (xend-start)/120
     hght = (yend-ystart)/5
 
     for (var i = 0; i<4; i++) {
-      sketch.image(xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])));
+      sketch.image(img1,xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])));
     }
 
   };
