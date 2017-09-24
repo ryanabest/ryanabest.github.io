@@ -78,7 +78,7 @@ function pngnames () {
   var pngnames = [];
   for (var i=0;i<38;i++) {
     if (i != 29) {
-      imgvars[i] = "images/Elevator" + (i+1) + ".png";
+      pngnames[i] = '"images/Elevator' + (i+1) + '.png"';
     }
   }
 
@@ -103,7 +103,7 @@ var d2d = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
 
-    img1 = sketch.loadImage("images/Elevator1.png");
+    img1 = sketch.loadImage(pngnames[0]);
 
     /*
     //import pngs and assign to imgvar values
