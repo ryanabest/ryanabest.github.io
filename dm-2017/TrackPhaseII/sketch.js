@@ -268,12 +268,12 @@ var fri = function( sketch ) {
     var ydiff = (yend-ystart)/(6)
     xdiff = (xend-xstart)/140
 
-    sketch.image(img24,xstart+(xdiff*vars[23]['sec']),ystart,img24.width/6,img14.height/6);
-    sketch.image(img25,xstart+(xdiff*vars[24]['sec']),ystart+(ydiff),img25.width/6,img15.height/6);
-    sketch.image(img26,xstart+(xdiff*vars[25]['sec']),ystart+(ydiff*2),img26.width/6,img16.height/6);
-    sketch.image(img27,xstart+(xdiff*vars[26]['sec']),ystart+(ydiff*3),img27.width/6,img17.height/6);
-    sketch.image(img28,xstart+(xdiff*vars[27]['sec']),ystart+(ydiff*4),img28.width/6,img18.height/6);
-    sketch.image(img29,xstart+(xdiff*vars[28]['sec']),ystart+(ydiff*5),img29.width/6,img19.height/6);
+    sketch.image(img24,xstart+(xdiff*vars[23]['sec']),ystart,img24.width/6,img24.height/6);
+    sketch.image(img25,xstart+(xdiff*vars[24]['sec']),ystart+(ydiff),img25.width/6,img25.height/6);
+    sketch.image(img26,xstart+(xdiff*vars[25]['sec']),ystart+(ydiff*2),img26.width/6,img26.height/6);
+    sketch.image(img27,xstart+(xdiff*vars[26]['sec']),ystart+(ydiff*3),img27.width/6,img27.height/6);
+    sketch.image(img28,xstart+(xdiff*vars[27]['sec']),ystart+(ydiff*4),img28.width/6,img28.height/6);
+    sketch.image(img29,xstart+(xdiff*vars[28]['sec']),ystart+(ydiff*5),img29.width/6,img29.height/6);
 
   };
 };
