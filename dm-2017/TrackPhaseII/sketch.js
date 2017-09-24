@@ -341,8 +341,8 @@ var sun = function( sketch ) {
     var ydiff = (yend-ystart)/(2)
     xdiff = (xend-xstart)/140
 
-    sketch.image(img31,xstart+(xdiff*vars[29]['sec']),ystart,img31.width/2,img31.height/2);
-    sketch.image(img32,xstart+(xdiff*vars[30]['sec']),ystart+(ydiff),img32.width/2,img32.height/2);
+    sketch.image(img31,xstart+(xdiff*vars[29]['sec']),ystart,img31.width/4,img31.height/4);
+    sketch.image(img32,xstart+(xdiff*vars[30]['sec']),ystart+(ydiff),img32.width/4,img32.height/4);
 
   };
 };
