@@ -27,6 +27,10 @@ function imgvars () {
   return imgvars;
 };
 
+for (var i = 0; i<imgvars.length; i++) {
+  var imgvars[i];
+}
+
 
 //Data points
 var vars = [
