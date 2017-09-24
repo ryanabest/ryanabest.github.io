@@ -16,44 +16,6 @@ var oranger = 255;
 var orangeg = 140;
 var orangeb = 0;
 
-//Day to Day
-var width = window.innerWidth;
-var height = window.innerHeight;
-
-var d2d = function( sketch ) {
-
-  /*sketch.preload = function() {
-    img1 = loadImage('images/Elevator1.png');
-  }*/
-
-  var img1;
-
-  sketch.setup = function() {
-    sketch.createCanvas(width, height);
-    img1 = sketch.loadImage("images/Elevator1.png");
-  };
-
-  sketch.draw = function() {
-    sketch.background(255);
-    sketch.fill(0);
-    sketch.image(img1,0,0);
-    //sketch.rect(10,10,100,100);
-  };
-};
-
-var myp5 = new p5(d2d,'p1');
-
-//Overall
-
-var ovr = function( sketch ) {
-  window.onresize = function() {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-  }
-  sketch.setup = function() {
-    sketch.createCanvas(width, height);
-  };
-
 //Data points
   var vars = [
     {id: 1,  sec: 98, crowd: 6, loc: "blue", day: 12, dir: "up"},
@@ -95,6 +57,70 @@ var ovr = function( sketch ) {
     {id: 37, sec: 20, crowd: 7, loc: "orange", day: 18, dir: "up"},
     {id: 38, sec: 10, crowd: 5, loc: "orange", day: 18, dir: "down"}
   ];
+
+//Day to Day
+var width = window.innerWidth;
+var height = window.innerHeight;
+
+var d2d = function( sketch ) {
+
+  /*sketch.preload = function() {
+    img1 = loadImage('images/Elevator1.png');
+  }*/
+
+
+  sketch.setup = function() {
+    sketch.createCanvas(width, height);
+    
+    //create list of imgvars to be populated with png's from illustrator
+    function imgvars () {
+      var imgvars = [];
+
+      for (var i=0;i<38;i++) {
+        imgvars[i] = "img" + (i+1);
+      }
+
+      return imgvars;
+    };
+
+    //create list of png names
+    function pngnames () {
+      var pngnames = [];
+      for var(i=0;i<38;i++) {
+        if (i != 29) {
+          imgvars[i] = "images/Elevator" + (i+1) + ".png";
+        }
+      }
+
+      return pngnames;
+    };
+
+    //import pngs and assign to imgvar values
+    for (var i=0;i<38;i++) {
+      imgvars[i] = sketch.loadImage(pngnames[i]);
+    };
+  };
+
+  sketch.draw = function() {
+    sketch.background(255);
+    sketch.fill(0);
+    sketch.image(img1,0,0,100,100);
+    //sketch.rect(10,10,100,100);
+  };
+};
+
+var myp5 = new p5(d2d,'p1');
+
+//Overall
+
+var ovr = function( sketch ) {
+  window.onresize = function() {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+  }
+  sketch.setup = function() {
+    sketch.createCanvas(width, height);
+  };
 
   var xstart = width * (0.0417)
   var ystart = height * (0.0417)
