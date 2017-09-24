@@ -100,6 +100,20 @@ var tue = function( sketch ) {
     sketch.line(xstart,ystart,xstart,yend);
     sketch.line(xstart,yend,xend,yend);
 
+    var y_axis_lavel = "← chronological";
+    sketch.translate(xstart, ystart + 50);
+    sketch.rotate(4.71239);
+    sketch.text(y_axis_lavel,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart + 50));
+
+    xdiff = (xend-start)/120
+    hght = (yend-ystart)/5
+
+    for (var i = 0; i<4; i++) {
+      sketch.image(xstart+(xdiff*vars[i]['sec']),ystart+(ydiff*(vars[i]['id'])));
+    }
+
   };
 };
 
