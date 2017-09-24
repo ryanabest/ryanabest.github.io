@@ -108,10 +108,10 @@ var tue = function( sketch ) {
     hght = (yend-ystart)/5
 
     sketch.image(img1,xstart+(xdiff*vars[0]['sec']),ystart,img1.width/5,img1.height/5);
-    sketch.image(img2,xstart+(xdiff*vars[1]['sec']),ystart+(ydiff),img1.width/5,img1.height/5);
-    sketch.image(img3,xstart+(xdiff*vars[2]['sec']),ystart+(ydiff*2),img1.width/5,img1.height/5);
-    sketch.image(img4,xstart+(xdiff*vars[3]['sec']),ystart+(ydiff*3),img1.width/5,img1.height/5);
-    sketch.image(img5,xstart+(xdiff*vars[4]['sec']),ystart+(ydiff*4),img1.width/5,img1.height/5);
+    sketch.image(img2,xstart+(xdiff*vars[1]['sec']),ystart+(ydiff),img2.width/5,img2.height/5);
+    sketch.image(img3,xstart+(xdiff*vars[2]['sec']),ystart+(ydiff*2),img3.width/5,img3.height/5);
+    sketch.image(img4,xstart+(xdiff*vars[3]['sec']),ystart+(ydiff*3),img4.width/5,img4.height/5);
+    sketch.image(img5,xstart+(xdiff*vars[4]['sec']),ystart+(ydiff*4),img5.width/5,img5.height/5);
 
   };
 };
