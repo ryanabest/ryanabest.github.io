@@ -1,3 +1,5 @@
+var width = window.innerWidth;
+var height = window.innerHeight;
 var backgrndclr = 240;
 var xstart = width * (0.0417)
 var ystart = height * (0.0417)
@@ -74,9 +76,6 @@ var vars = [
 ];
 
 //Day to Day
-var width = window.innerWidth;
-var height = window.innerHeight;
-
 //Tuesday 9.12
 var tue = function( sketch ) {
   sketch.setup = function() {
@@ -98,7 +97,8 @@ var tue = function( sketch ) {
   sketch.draw = function() {
     sketch.background(backgrndclr);
     sketch.stroke(175);
-    sketch.line(0,0,100,100);
+    sketch.line(xstart,ystart,xstart,yend);
+    sketch.line(xstart,yend,xend,yend);
 
   };
 };
