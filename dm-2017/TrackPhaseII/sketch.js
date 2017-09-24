@@ -131,11 +131,14 @@ var wed = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
 
-    img1 = sketch.loadImage("images/Elevator1.png");
-    img2 = sketch.loadImage("images/Elevator2.png");
-    img3 = sketch.loadImage("images/Elevator3.png");
-    img4 = sketch.loadImage("images/Elevator4.png");
-    img5 = sketch.loadImage("images/Elevator5.png");
+    img6 = sketch.loadImage("images/Elevator6.png");
+    img7 = sketch.loadImage("images/Elevator7.png");
+    img8 = sketch.loadImage("images/Elevator8.png");
+    img9 = sketch.loadImage("images/Elevator9.png");
+    img10 = sketch.loadImage("images/Elevator10.png");
+    img11 = sketch.loadImage("images/Elevator11.png");
+    img12 = sketch.loadImage("images/Elevator12.png");
+    img13 = sketch.loadImage("images/Elevator13.png");
   };
 
   sketch.draw = function() {
@@ -177,14 +180,6 @@ var myp5 = new p5(wed,'p2');
 /*
 var wed = function( sketch ) {
   sketch.setup = function() {
-    img6 = sketch.loadImage("images/Elevator6.png");
-    img7 = sketch.loadImage("images/Elevator7.png");
-    img8 = sketch.loadImage("images/Elevator8.png");
-    img9 = sketch.loadImage("images/Elevator9.png");
-    img10 = sketch.loadImage("images/Elevator10.png");
-    img11 = sketch.loadImage("images/Elevator11.png");
-    img12 = sketch.loadImage("images/Elevator12.png");
-    img13 = sketch.loadImage("images/Elevator13.png");
     img14 = sketch.loadImage("images/Elevator14.png");
     img15 = sketch.loadImage("images/Elevator15.png");
     img16 = sketch.loadImage("images/Elevator16.png");
