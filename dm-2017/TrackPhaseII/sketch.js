@@ -98,8 +98,7 @@ var tue = function( sketch ) {
   sketch.draw = function() {
     sketch.background(backgrndclr);
     sketch.stroke(175);
-    sketch.line(xstart,ystart,xstart,yend);
-    sketch.line(xstart,yend,xend,yend);
+    sketch.line(0,0,100,100);
 
   };
 };
