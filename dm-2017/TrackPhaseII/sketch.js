@@ -16,52 +16,6 @@ var oranger = 255;
 var orangeg = 140;
 var orangeb = 0;
 
-//Data points
-  var vars = [
-    {id: 1,  sec: 98, crowd: 6, loc: "blue", day: 12, dir: "up"},
-    {id: 2,  sec: 42, crowd: 4, loc: "blue", day: 12, dir: "down"},
-    {id: 3,  sec: 22, crowd: 4, loc: "blue", day: 12, dir: "up"},
-    {id: 4,  sec: 30, crowd: 1, loc: "blue", day: 12, dir: "down"},
-    {id: 5,  sec: 35, crowd: 6, loc: "red", day: 12, dir: "up"},
-    {id: 6,  sec: 10, crowd: 4, loc: "blue", day: 13, dir: "up"},
-    {id: 7,  sec: 20, crowd: 1, loc: "blue", day: 13, dir: "down"},
-    {id: 8,  sec: 11, crowd: 1, loc: "blue", day: 13, dir: "up"},
-    {id: 9,  sec: 23, crowd: 5, loc: "blue", day: 13, dir: "down"},
-    {id: 10, sec: 10, crowd: 5, loc: "blue", day: 13, dir: "up"},
-    {id: 11, sec: 03, crowd: 3, loc: "blue", day: 13, dir: "down"},
-    {id: 12, sec: 25, crowd: 16, loc: "red", day: 13, dir: "up"},
-    {id: 13, sec: 00, crowd: 8, loc: "red", day: 13, dir: "down"},
-    {id: 14, sec: 36, crowd: 10, loc: "blue", day: 14, dir: "up"},
-    {id: 15, sec: 12, crowd: 1, loc: "blue", day: 14, dir: "down"},
-    {id: 16, sec: 23, crowd: 1, loc: "green", day: 14, dir: "up"},
-    {id: 17, sec: 20, crowd: 1, loc: "green", day: 14, dir: "down"},
-    {id: 18, sec: 09, crowd: 2, loc: "blue", day: 14, dir: "up"},
-    {id: 19, sec: 35, crowd: 5, loc: "blue", day: 14, dir: "down"},
-    {id: 20, sec: 07, crowd: 1, loc: "blue", day: 14, dir: "up"},
-    {id: 21, sec: 21, crowd: 1, loc: "blue", day: 14, dir: "down"},
-    {id: 22, sec: 00, crowd: 3, loc: "red", day: 14, dir: "up"},
-    {id: 23, sec: 00, crowd: 2, loc: "red", day: 14, dir: "down"},
-    {id: 24, sec: 17, crowd: 6, loc: "blue", day: 15, dir: "up"},
-    {id: 25, sec: 50, crowd: 7, loc: "blue", day: 15, dir: "down"},
-    {id: 26, sec: 20, crowd: 4, loc: "blue", day: 15, dir: "up"},
-    {id: 27, sec: 26, crowd: 1, loc: "blue", day: 15, dir: "down"},
-    {id: 28, sec: 19, crowd: 1, loc: "blue", day: 15, dir: "up"},
-    {id: 29, sec: 10, crowd: 2, loc: "blue", day: 15, dir: "down"},
-    {id: 30, sec: 10, crowd: 2, loc: "null", day: 16, dir: "null"}, //empty data point for saturday 9/16
-    {id: 31, sec: 00, crowd: 2, loc: "red", day: 17, dir: "up"},
-    {id: 32, sec: 00, crowd: 1, loc: "red", day: 17, dir: "down"},
-    {id: 33, sec: 40, crowd: 8, loc: "blue", day: 18, dir: "up"},
-    {id: 34, sec: 35, crowd: 1, loc: "blue", day: 18, dir: "down"},
-    {id: 35, sec: 20, crowd: 1, loc: "blue", day: 18, dir: "up"},
-    {id: 36, sec: 20, crowd: 2, loc: "blue", day: 18, dir:"down"},
-    {id: 37, sec: 20, crowd: 7, loc: "orange", day: 18, dir: "up"},
-    {id: 38, sec: 10, crowd: 5, loc: "orange", day: 18, dir: "down"}
-  ];
-
-//Day to Day
-var width = window.innerWidth;
-var height = window.innerHeight;
-
 //create list of imgvars to be populated with png's from illustrator
 function imgvars () {
   var imgvars = [];
@@ -73,25 +27,52 @@ function imgvars () {
   return imgvars;
 };
 
-//create list of png names
-function pngnames () {
-  var pngnames = [];
-  for (var i=0;i<38;i++) {
-    if (i != 29) {
-      pngnames[i] = '"images/Elevator' + (i+1) + '.png"';
-    }
-  }
 
-  return pngnames;
-};
+//Data points
+var vars = [
+  {id: 1,  sec: 98, crowd: 6, loc: "blue", day: 12, dir: "up", img: img1},
+  {id: 2,  sec: 42, crowd: 4, loc: "blue", day: 12, dir: "down", img: img2},
+  {id: 3,  sec: 22, crowd: 4, loc: "blue", day: 12, dir: "up", img: img3},
+  {id: 4,  sec: 30, crowd: 1, loc: "blue", day: 12, dir: "down", img: img4},
+  {id: 5,  sec: 35, crowd: 6, loc: "red", day: 12, dir: "up", img: img5},
+  {id: 6,  sec: 10, crowd: 4, loc: "blue", day: 13, dir: "up", img: img6},
+  {id: 7,  sec: 20, crowd: 1, loc: "blue", day: 13, dir: "down", img: img7},
+  {id: 8,  sec: 11, crowd: 1, loc: "blue", day: 13, dir: "up", img: img8},
+  {id: 9,  sec: 23, crowd: 5, loc: "blue", day: 13, dir: "down", img: img9},
+  {id: 10, sec: 10, crowd: 5, loc: "blue", day: 13, dir: "up", img: img10},
+  {id: 11, sec: 03, crowd: 3, loc: "blue", day: 13, dir: "down", img: img11},
+  {id: 12, sec: 25, crowd: 16, loc: "red", day: 13, dir: "up", img: img12},
+  {id: 13, sec: 00, crowd: 8, loc: "red", day: 13, dir: "down", img: img13},
+  {id: 14, sec: 36, crowd: 10, loc: "blue", day: 14, dir: "up", img: img14},
+  {id: 15, sec: 12, crowd: 1, loc: "blue", day: 14, dir: "down", img: img15},
+  {id: 16, sec: 23, crowd: 1, loc: "green", day: 14, dir: "up", img: img16},
+  {id: 17, sec: 20, crowd: 1, loc: "green", day: 14, dir: "down", img: img17},
+  {id: 18, sec: 09, crowd: 2, loc: "blue", day: 14, dir: "up", img: img18},
+  {id: 19, sec: 35, crowd: 5, loc: "blue", day: 14, dir: "down", img: img19},
+  {id: 20, sec: 07, crowd: 1, loc: "blue", day: 14, dir: "up", img: img20},
+  {id: 21, sec: 21, crowd: 1, loc: "blue", day: 14, dir: "down", img: img21},
+  {id: 22, sec: 00, crowd: 3, loc: "red", day: 14, dir: "up", img: img22},
+  {id: 23, sec: 00, crowd: 2, loc: "red", day: 14, dir: "down", img: img23},
+  {id: 24, sec: 17, crowd: 6, loc: "blue", day: 15, dir: "up", img: img24},
+  {id: 25, sec: 50, crowd: 7, loc: "blue", day: 15, dir: "down", img: img25},
+  {id: 26, sec: 20, crowd: 4, loc: "blue", day: 15, dir: "up", img: img26},
+  {id: 27, sec: 26, crowd: 1, loc: "blue", day: 15, dir: "down", img: img27},
+  {id: 28, sec: 19, crowd: 1, loc: "blue", day: 15, dir: "up", img: img28},
+  {id: 29, sec: 10, crowd: 2, loc: "blue", day: 15, dir: "down", img: img29},
+  {id: 30, sec: 10, crowd: 2, loc: "null", day: 16, dir: "null"}, //empty data point for saturday 9/16
+  {id: 31, sec: 00, crowd: 2, loc: "red", day: 17, dir: "up", img: img31},
+  {id: 32, sec: 00, crowd: 1, loc: "red", day: 17, dir: "down", img: img32},
+  {id: 33, sec: 40, crowd: 8, loc: "blue", day: 18, dir: "up", img: img33},
+  {id: 34, sec: 35, crowd: 1, loc: "blue", day: 18, dir: "down", img: img34},
+  {id: 35, sec: 20, crowd: 1, loc: "blue", day: 18, dir: "up", img: img35},
+  {id: 36, sec: 20, crowd: 2, loc: "blue", day: 18, dir:"down", img: img36},
+  {id: 37, sec: 20, crowd: 7, loc: "orange", day: 18, dir: "up", img: img37},
+  {id: 38, sec: 10, crowd: 5, loc: "orange", day: 18, dir: "down", img: img38}
+];
 
-/*
-//declare imgvars variables
-for (var i = 0; i<imgvars.length; i++) {
-  var imgvars[i];
-}
-*/
-console.log(imgvars);
+//Day to Day
+var width = window.innerWidth;
+var height = window.innerHeight;
 
 var d2d = function( sketch ) {
 
@@ -103,7 +84,43 @@ var d2d = function( sketch ) {
   sketch.setup = function() {
     sketch.createCanvas(width, height);
 
-    img1 = sketch.loadImage(pngnames[0]);
+    img1 = sketch.loadImage("images/Elevator1.png");
+    img2 = sketch.loadImage("images/Elevator2.png");
+    img3 = sketch.loadImage("images/Elevator3.png");
+    img4 = sketch.loadImage("images/Elevator4.png");
+    img5 = sketch.loadImage("images/Elevator5.png");
+    img6 = sketch.loadImage("images/Elevator6.png");
+    img7 = sketch.loadImage("images/Elevator7.png");
+    img8 = sketch.loadImage("images/Elevator8.png");
+    img9 = sketch.loadImage("images/Elevator9.png");
+    img10 = sketch.loadImage("images/Elevator10.png");
+    img11 = sketch.loadImage("images/Elevator11.png");
+    img12 = sketch.loadImage("images/Elevator12.png");
+    img13 = sketch.loadImage("images/Elevator13.png");
+    img14 = sketch.loadImage("images/Elevator14.png");
+    img15 = sketch.loadImage("images/Elevator15.png");
+    img16 = sketch.loadImage("images/Elevator16.png");
+    img17 = sketch.loadImage("images/Elevator17.png");
+    img18 = sketch.loadImage("images/Elevator18.png");
+    img19 = sketch.loadImage("images/Elevator19.png");
+    img20 = sketch.loadImage("images/Elevator20.png");
+    img21 = sketch.loadImage("images/Elevator21.png");
+    img22 = sketch.loadImage("images/Elevator22.png");
+    img23 = sketch.loadImage("images/Elevator23.png");
+    img24 = sketch.loadImage("images/Elevator24.png");
+    img25 = sketch.loadImage("images/Elevator25.png");
+    img26 = sketch.loadImage("images/Elevator26.png");
+    img27 = sketch.loadImage("images/Elevator27.png");
+    img28 = sketch.loadImage("images/Elevator28.png");
+    img29 = sketch.loadImage("images/Elevator29.png");
+    img31 = sketch.loadImage("images/Elevator31.png");
+    img32 = sketch.loadImage("images/Elevator32.png");
+    img33 = sketch.loadImage("images/Elevator33.png");
+    img34 = sketch.loadImage("images/Elevator34.png");
+    img35 = sketch.loadImage("images/Elevator35.png");
+    img36 = sketch.loadImage("images/Elevator36.png");
+    img37 = sketch.loadImage("images/Elevator37.png");
+
 
     /*
     //import pngs and assign to imgvar values
