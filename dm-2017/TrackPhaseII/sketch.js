@@ -349,15 +349,56 @@ var sun = function( sketch ) {
 
 var myp5 = new p5(sun,'p6');
 
-/*
-var wed = function( sketch ) {
+//Mon 9.18
+var sun = function( sketch ) {
   sketch.setup = function() {
+    sketch.createCanvas(width, height);
 
     img33 = sketch.loadImage("images/Elevator33.png");
     img34 = sketch.loadImage("images/Elevator34.png");
     img35 = sketch.loadImage("images/Elevator35.png");
     img36 = sketch.loadImage("images/Elevator36.png");
     img37 = sketch.loadImage("images/Elevator37.png");
+    img38 = sketch.loadImage("images/Elevator38.png");
+  };
+
+  sketch.draw = function() {
+    sketch.background(backgrndclr);
+    sketch.stroke(175);
+    sketch.line(xstart,ystart,xstart,yend);
+    sketch.line(xstart,yend,xend,yend);
+
+    var y_axis_lavel = "← chronological";
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.translate(xstart, ystart + 100);
+    sketch.rotate(4.71239);
+    sketch.text(y_axis_lavel,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart + 100));
+
+    sketch.text(x_axis_label, width*0.33, yend+10);
+    sketch.text("0s",xstart,yend+10);
+    sketch.text("100s",xend-75,yend+10);
+
+    var ydiff = (yend-ystart)/(6)
+    xdiff = (xend-xstart)/140
+
+    sketch.image(img33,xstart+(xdiff*vars[32]['sec']),ystart,img33.width/6,img33.height/6);
+    sketch.image(img34,xstart+(xdiff*vars[33]['sec']),ystart+(ydiff),img32.width/6,img32.height/6);
+    sketch.image(img35,xstart+(xdiff*vars[34]['sec']),ystart+(ydiff*2),img32.width/6,img32.height/6);
+    sketch.image(img36,xstart+(xdiff*vars[35]['sec']),ystart+(ydiff*3),img32.width/6,img32.height/6);
+    sketch.image(img37,xstart+(xdiff*vars[36]['sec']),ystart+(ydiff*4),img32.width/6,img32.height/6);
+    sketch.image(img38,xstart+(xdiff*vars[37]['sec']),ystart+(ydiff*5),img32.width/6,img32.height/6);
+
+  };
+};
+
+/*
+var wed = function( sketch ) {
+  sketch.setup = function() {
+
+
   };
 };
 */
