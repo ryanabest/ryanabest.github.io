@@ -103,7 +103,7 @@ var tue = function( sketch ) {
     sketch.rotate(-4.71239);
     sketch.translate(-xstart,-(ystart + 100));
 
-    xdiff = (xend-start)/120
+    xdiff = (xend-xstart)/120
     hght = (yend-ystart)/5
 
     sketch.image(img1,0,0);
