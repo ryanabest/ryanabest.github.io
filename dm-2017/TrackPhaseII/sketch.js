@@ -62,7 +62,33 @@ var orangeb = 0;
 var width = window.innerWidth;
 var height = window.innerHeight;
 
-var img1;
+//create list of imgvars to be populated with png's from illustrator
+function imgvars () {
+  var imgvars = [];
+
+  for (var i=0;i<38;i++) {
+    imgvars[i] = "img" + (i+1);
+  }
+
+  return imgvars;
+};
+
+//create list of png names
+function pngnames () {
+  var pngnames = [];
+  for var(i=0;i<38;i++) {
+    if (i != 29) {
+      imgvars[i] = "images/Elevator" + (i+1) + ".png";
+    }
+  }
+
+  return pngnames;
+};
+
+//declare imgvars variables
+for (var i = 0; i<imgvars.length; i++) {
+  var imgvars[i];
+}
 
 var d2d = function( sketch ) {
 
@@ -73,30 +99,7 @@ var d2d = function( sketch ) {
 
   sketch.setup = function() {
     sketch.createCanvas(width, height);
-    /*
-    //create list of imgvars to be populated with png's from illustrator
-    function imgvars () {
-      var imgvars = [];
 
-      for (var i=0;i<38;i++) {
-        imgvars[i] = "img" + (i+1);
-      }
-
-      return imgvars;
-    };
-
-    //create list of png names
-    function pngnames () {
-      var pngnames = [];
-      for var(i=0;i<38;i++) {
-        if (i != 29) {
-          imgvars[i] = "images/Elevator" + (i+1) + ".png";
-        }
-      }
-
-      return pngnames;
-    };
-    */
     img1 = sketch.loadImage("images/Elevator1.png");
 
     /*
