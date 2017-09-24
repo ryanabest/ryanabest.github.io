@@ -310,18 +310,49 @@ var sat = function( sketch ) {
 
 var myp5 = new p5(sat,'p5');
 
+//Sun 9.17
+var sun = function( sketch ) {
+  sketch.setup = function() {
+    sketch.createCanvas(width, height);
+
+    img31 = sketch.loadImage("images/Elevator31.png");
+    img32 = sketch.loadImage("images/Elevator32.png");
+  };
+
+  sketch.draw = function() {
+    sketch.background(backgrndclr);
+    sketch.stroke(175);
+    sketch.line(xstart,ystart,xstart,yend);
+    sketch.line(xstart,yend,xend,yend);
+
+    var y_axis_lavel = "← chronological";
+    sketch.stroke(backgrndclr);
+    sketch.fill(175);
+    sketch.translate(xstart, ystart + 100);
+    sketch.rotate(4.71239);
+    sketch.text(y_axis_lavel,0,0);
+    sketch.rotate(-4.71239);
+    sketch.translate(-xstart,-(ystart + 100));
+
+    sketch.text(x_axis_label, width*0.33, yend+10);
+    sketch.text("0s",xstart,yend+10);
+    sketch.text("100s",xend-75,yend+10);
+
+    var ydiff = (yend-ystart)/(2)
+    xdiff = (xend-xstart)/140
+
+    sketch.image(img31,xstart+(xdiff*vars[29]['sec']),ystart,img31.width/2,img31.height/2);
+    sketch.image(img32,xstart+(xdiff*vars[30]['sec']),ystart+(ydiff),img32.width/2,img32.height/2);
+
+  };
+};
+
+var myp5 = new p5(sun,'p6');
+
 /*
 var wed = function( sketch ) {
   sketch.setup = function() {
 
-    img24 = sketch.loadImage("images/Elevator24.png");
-    img25 = sketch.loadImage("images/Elevator25.png");
-    img26 = sketch.loadImage("images/Elevator26.png");
-    img27 = sketch.loadImage("images/Elevator27.png");
-    img28 = sketch.loadImage("images/Elevator28.png");
-    img29 = sketch.loadImage("images/Elevator29.png");
-    img31 = sketch.loadImage("images/Elevator31.png");
-    img32 = sketch.loadImage("images/Elevator32.png");
     img33 = sketch.loadImage("images/Elevator33.png");
     img34 = sketch.loadImage("images/Elevator34.png");
     img35 = sketch.loadImage("images/Elevator35.png");
