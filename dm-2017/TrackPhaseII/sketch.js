@@ -106,7 +106,7 @@ var tue = function( sketch ) {
     xdiff = (xend-xstart)/120
     hght = (yend-ystart)/5
 
-    sketch.image(img1,0,0,img1.width/10,img1.height/10);
+    sketch.image(img1,xstart+(xdiff*vars[0]['sec']),ystart+(ydiff*(vars[0]['id'])),img1.width/5,img1.height/5);
 
   };
 };
