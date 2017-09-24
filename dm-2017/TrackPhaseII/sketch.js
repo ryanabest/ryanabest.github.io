@@ -62,6 +62,8 @@ var orangeb = 0;
 var width = window.innerWidth;
 var height = window.innerHeight;
 
+var img1;
+
 var d2d = function( sketch ) {
 
   /*sketch.preload = function() {
@@ -95,7 +97,6 @@ var d2d = function( sketch ) {
       return pngnames;
     };
     */
-    var img1;
     img1 = sketch.loadImage("images/Elevator1.png");
 
     /*
