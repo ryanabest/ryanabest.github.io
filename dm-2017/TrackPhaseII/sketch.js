@@ -90,6 +90,8 @@ for (var i = 0; i<imgvars.length; i++) {
   var imgvars[i];
 }
 
+console.log(imgvars);
+
 var d2d = function( sketch ) {
 
   /*sketch.preload = function() {
