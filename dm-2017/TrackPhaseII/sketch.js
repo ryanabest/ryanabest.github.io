@@ -76,7 +76,7 @@ function imgvars () {
 //create list of png names
 function pngnames () {
   var pngnames = [];
-  for var(i=0;i<38;i++) {
+  for (var i=0;i<38;i++) {
     if (i != 29) {
       imgvars[i] = "images/Elevator" + (i+1) + ".png";
     }
