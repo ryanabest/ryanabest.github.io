@@ -6,6 +6,11 @@ var ystart = height * (0.0417)
 var xend = width * (0.9722)
 var yend = height * (0.90)
 
+var x_axis_label = "time waited (s)"
+var y_axis_lavel = "← chronological";
+var start_date = "9.12.17";
+var end_date = "9.18.17";
+
 var bluer = 17;
 var blueg = 92;
 var blueb = 129;
@@ -184,7 +189,6 @@ var ovr = function( sketch ) {
     sketch.line(xstart,yend,xend,yend);
 
     //x-axis label
-    var x_axis_label = "time waited (s)"
     sketch.stroke(backgrndclr);
     sketch.fill(175);
     sketch.text(x_axis_label,xstart+(xend-xstart)/2, yend+10);
@@ -192,9 +196,6 @@ var ovr = function( sketch ) {
     sketch.text("100s",xend-25,yend+10);
 
     //y-axis label
-    var y_axis_lavel = "← chronological";
-    var start_date = "9.12.17";
-    var end_date = "9.18.17";
     sketch.translate(xstart, ystart + 150);
     sketch.rotate(4.71239);
     sketch.text(y_axis_lavel,0,0);
