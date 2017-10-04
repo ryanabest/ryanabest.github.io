@@ -71,7 +71,7 @@ function draw() {
 
         line(x,ymargin+zeroy,x,y);
         if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-          ellipse(x+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),y+random(-rad,rad),diam);
+          ellipse(x+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),y+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),diam);
           strokeWeight(0);
           textStyle(BOLD);
           text(table.getString(r,"time"),wdth/2,ymargin/3);
