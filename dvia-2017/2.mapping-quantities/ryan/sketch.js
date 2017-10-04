@@ -9,7 +9,7 @@ var zerox = wdth/10;
 
 function preload() {
   // load data from either a local copy of one of the USGS CSVs or directly:
-  table = loadTable("assets/4.5_month.csv", "csv", "header");
+  table = loadTable("assets/significant_month.csv", "csv", "header");
   // or (while you're designing) from the feed itself:
   // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv", "csv", "header");
 }
@@ -97,7 +97,7 @@ function draw() {
   translate(-(xmargin+(zerox/2)),-(ymargin+zeroy));
 
   textAlign(CENTER);
-  text("Magnitude",wdth-1.5*xdiff,hght-ymargin-zeroy);
+  text("Magnitude",wdth-(xmargin/2),hght-ymargin-zeroy);
 
   if (mouseX <= wdth-2*xdiff+(xdiff/2) && mouseX >= wdth-2*xdiff-(xdiff/2) && mouseY <= hght-(xdiff/2)-5+(xdiff/24) && mouseY >= hght-(xdiff/2)-5-(xdiff/24)) {
     ellipse(wdth-2*xdiff+random(-1,1),hght-(xdiff/2)-5+random(-1,1),xdiff/12);
