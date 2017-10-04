@@ -51,6 +51,7 @@ function draw() {
     getmaxdepth();
   }
 
+
   var maxy = hght - ymargin - (zeroy/2);
   var miny = ymargin + (zeroy/2);
   var ydiff = (maxy-miny)/(maxd-mind);
@@ -97,7 +98,7 @@ function draw() {
   translate(-(xmargin+(zerox/2)),-(ymargin+zeroy));
 
   textAlign(CENTER);
-  text("Magnitude",wdth-(xmargin/2),hght-ymargin-zeroy);
+  text("Magnitude",wdth-((xmargin+zerox)/2),hght-ymargin-zeroy);
 
   if (mouseX <= wdth-2*xdiff+(xdiff/2) && mouseX >= wdth-2*xdiff-(xdiff/2) && mouseY <= hght-(xdiff/2)-5+(xdiff/24) && mouseY >= hght-(xdiff/2)-5-(xdiff/24)) {
     ellipse(wdth-2*xdiff+random(-1,1),hght-(xdiff/2)-5+random(-1,1),xdiff/12);
