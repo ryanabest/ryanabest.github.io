@@ -65,13 +65,13 @@ function draw() {
       if (sortedtime[t] === table.get(r,"time")) {
         var x = xmargin+zerox+(xdiff*(t));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
-        console.log(r + " - "+ y)
         var diam = (table.getNum(r,"mag")-2)*magscale;
         var rad = diam/2;
+        var rand = 10^(table.getNum(r,"mag"));
 
         line(x,ymargin+zeroy,x,y);
         if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-          ellipse(x+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),y+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),diam);
+          ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
           strokeWeight(0);
           textStyle(BOLD);
           text(table.getString(r,"time"),wdth/2,ymargin/3);
