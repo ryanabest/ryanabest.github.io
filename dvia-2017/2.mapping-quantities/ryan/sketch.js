@@ -102,14 +102,14 @@ function draw() {
   text("Magnitude",wdth-((xmargin+zerox)/2),hght-ymargin-zeroy);
 
   if (mouseX <= wdth-2*xdiff+(xdiff/2) && mouseX >= wdth-2*xdiff-(xdiff/2) && mouseY <= hght-(xdiff/2)-5+(xdiff/24) && mouseY >= hght-(xdiff/2)-5-(xdiff/24)) {
-    ellipse(wdth-2*xdiff+random(-3,3),hght-(xdiff/2)-5+random(-3,3),magscale);
+    ellipse(wdth-2*xdiff+random(-Math.pow(1.5,3),Math.pow(1.5,3)),hght-(xdiff/2)-5+random(-Math.pow(1.5,3),Math.pow(1.5,3)),magscale);
   } else {
     ellipse(wdth-2*xdiff,hght-(xdiff/2)-5,magscale);
   };
   text("3",wdth-2*xdiff,hght-(xdiff/2)+15 );
 
   if (mouseX <= wdth-xdiff+(xdiff/2) && mouseX >= wdth-xdiff-(xdiff/2) && mouseY <= hght-5 && mouseY >= hght-5-xdiff) {
-    ellipse(wdth-xdiff+random(-9,9),hght-(xdiff/2)-5+random(-9,9),xdiff);
+    ellipse(wdth-xdiff+random(-Math.pow(1.5,9),Math.pow(1.5,9)),hght-(xdiff/2)-5+random(-Math.pow(1.5,9),Math.pow(1.5,9)),xdiff);
   } else {
     ellipse(wdth-xdiff,hght-(xdiff/2)-5,xdiff);
   }
