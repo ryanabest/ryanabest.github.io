@@ -67,7 +67,7 @@ function draw() {
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
         var diam = (table.getNum(r,"mag")-2)*magscale;
         var rad = diam/2;
-        var rand = 10^(table.getNum(r,"mag"));
+        var rand = Math.pow(2,table.getNum(r,"mag"));
 
         line(x,ymargin+zeroy,x,y);
         if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
