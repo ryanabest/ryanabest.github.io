@@ -9,7 +9,7 @@ var zerox = wdth/10;
 
 function preload() {
   // load data from either a local copy of one of the USGS CSVs or directly:
-  table = loadTable("assets/significant_month.csv", "csv", "header");
+  table = loadTable("assets/4.5_month.csv", "csv", "header");
   // or (while you're designing) from the feed itself:
   // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv", "csv", "header");
 }
