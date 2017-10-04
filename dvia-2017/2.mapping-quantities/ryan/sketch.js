@@ -55,7 +55,7 @@ function draw() {
   var maxy = hght - ymargin - (zeroy/2);
   var miny = ymargin + (zeroy/2);
   var ydiff = (maxy-miny)/(maxd-mind);
-  var magscale = xdiff/12;
+  var magscale = xdiff/7;
 
 
   sortedtime = sort(table.getColumn("time"));
@@ -65,12 +65,12 @@ function draw() {
       if (sortedtime[t] === table.get(r,"time")) {
         var x = xmargin+zerox+(xdiff*(t));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
-        var diam = (table.getNum(r,"mag")+2)*magscale;
+        var diam = (table.getNum(r,"mag")-3)*magscale;
         var rad = diam/2;
 
         line(x,ymargin+zeroy,x,y);
         if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-          ellipse(x+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),y+random(-table.getNum(r,"mag"),table.getNum(r,"mag")),diam);
+          ellipse(x+random(-diam,diam),y+random(-diam,diam),diam);
           strokeWeight(0);
           textStyle(BOLD);
           text(table.getString(r,"time"),wdth/2,ymargin/3);
@@ -101,17 +101,17 @@ function draw() {
   text("Magnitude",wdth-((xmargin+zerox)/2),hght-ymargin-zeroy);
 
   if (mouseX <= wdth-2*xdiff+(xdiff/2) && mouseX >= wdth-2*xdiff-(xdiff/2) && mouseY <= hght-(xdiff/2)-5+(xdiff/24) && mouseY >= hght-(xdiff/2)-5-(xdiff/24)) {
-    ellipse(wdth-2*xdiff+random(-1,1),hght-(xdiff/2)-5+random(-1,1),xdiff/12);
+    ellipse(wdth-2*xdiff+random(-1,1),hght-(xdiff/2)-5+random(-1,1),magscale);
   } else {
-    ellipse(wdth-2*xdiff,hght-(xdiff/2)-5,xdiff/12);
+    ellipse(wdth-2*xdiff,hght-(xdiff/2)-5,magscale);
   };
 
-  text("-1",wdth-2*xdiff,hght-(xdiff/2)+15 );
+  text("3",wdth-2*xdiff,hght-(xdiff/2)+15 );
   if (mouseX <= wdth-xdiff+(xdiff/2) && mouseX >= wdth-xdiff-(xdiff/2) && mouseY <= hght-5 && mouseY >= hght-5-xdiff) {
     ellipse(wdth-xdiff+random(-12,12),hght-(xdiff/2)-5+random(-12,12),xdiff);
   } else {
     ellipse(wdth-xdiff,hght-(xdiff/2)-5,xdiff);
   }
-  text("10",wdth-xdiff,hght-(xdiff/2)-5)
+  text("9",wdth-xdiff,hght-(xdiff/2)-5)
 
 };
