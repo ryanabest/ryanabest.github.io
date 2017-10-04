@@ -59,12 +59,13 @@ function draw() {
 
 
   sortedtime = sort(table.getColumn("time"));
-  console.log(sortedtime);
+  // console.log(sortedtime);
   for (t=0;t<sortedtime.length;t++) {
     for (r=0;r<rowcount;r++) {
       if (sortedtime[t] === table.get(r,"time")) {
         var x = xmargin+zerox+(xdiff*(t));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
+        console.log(r + " - "+ y)
         var diam = (table.getNum(r,"mag")-2)*magscale;
         var rad = diam/2;
 
