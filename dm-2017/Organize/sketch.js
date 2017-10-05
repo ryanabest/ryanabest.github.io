@@ -27,7 +27,7 @@ function draw() {
   stroke(50);
   fill(100);
   rect(x,y,w,h);
-  rect(x+800,y,w,h);
+  rect(x+200,y,w,h);
   console.log(x);
   if (x < 0) {
     x = 400;
