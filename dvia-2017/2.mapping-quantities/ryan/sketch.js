@@ -65,7 +65,7 @@ function draw() {
         //console.log(Date(table.get(r,"time")));
         var rdate = new Date(sortedtime[t]);
         var maxdate = new Date(table.get(0,"time"));
-        var mindate = new Date(table.get(table.length,"time"));
+        var mindate = new Date(table.get(table.getRowCount(),"time"));
         var totdatediff = (maxdate - mindate);
         var xdifftime = (wdth-(2*xmargin)-(2*zerox))/(totdatediff);
         var rdatediff = (rdate - mindate);
