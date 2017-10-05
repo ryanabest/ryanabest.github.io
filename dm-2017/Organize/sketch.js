@@ -12,12 +12,13 @@ function setup() {
 
 var x = 400;
 var y = 400;
+var w = 100;
 var h = 100;
 
 function draw() {
   background(0);
   fill(255,0,0);
-  rect(x,y,h);
+  rect(x,y,w,h);
 };
 
 // function mousePressed() {
