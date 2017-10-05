@@ -13,6 +13,10 @@ var h;
 function setup() {
   //rowcount = table.getRowCount();
   createCanvas(800,800);
+  x = 400;
+  y = 400;
+  w = 100;
+  h = 100;
 };
 
 function draw() {
@@ -20,10 +24,6 @@ function draw() {
 
   stroke(50);
   fill(100);
-  x = 400;
-  y = 400;
-  w = 100;
-  h = 100;
   rect(x,y,w,h);
   console.log(x);
   x = x - 1;
