@@ -14,24 +14,24 @@ var x = 400;
 var y = 400;
 var w = 100;
 var h = 100;
-var move = 100;
+var move = 800;
 
 function draw() {
-  for (i=0;i<move;i+=100) {
+  for (i=0;i<move;i++) {
     background(0);
     fill(255,0,0);
     rect(x-i,y,w,h);
   }
 };
 
-function mousePressed() {
-  move = move+800;
-  redraw();
-  console.log("Pressed");
-  // for (i=0;i<800;i+=100) {
-  //   background(0);
-  //   fill(255,0,0);
-  //   createCanvas(800,800);
-  //   rect(x+i,y+i,w,h);
-  // }
-};
+// function mousePressed() {
+//   move = move+800;
+//   redraw();
+//   console.log("Pressed");
+//   // for (i=0;i<800;i+=100) {
+//   //   background(0);
+//   //   fill(255,0,0);
+//   //   createCanvas(800,800);
+//   //   rect(x+i,y+i,w,h);
+//   // }
+// };
