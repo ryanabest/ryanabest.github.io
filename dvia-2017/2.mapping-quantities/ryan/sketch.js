@@ -69,7 +69,7 @@ function draw() {
         var totdatediff = (maxdate - mindate);
         var xdifftime = (wdth-(2*xmargin)-(2*zerox))/(totdatediff);
         var rdatediff = (rdate - mindate);
-        console.log(datediff);
+        console.log(rdatediff);
         var x = xmargin+zerox+(xdifftime*(rdatediff));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
         var diam = (table.getNum(r,"mag")-2)*magscale;
