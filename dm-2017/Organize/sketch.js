@@ -31,7 +31,7 @@ function draw() {
   console.log(x);
   for (i=0;i<move;i+=100) {
     x = x - 100;
-  // }
+  }
 };
 
 // function mousePressed() {
