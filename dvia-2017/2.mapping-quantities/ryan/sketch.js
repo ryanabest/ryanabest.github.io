@@ -64,10 +64,13 @@ function draw() {
       if (sortedtime[t] === table.get(r,"time")) {
         //console.log(Date(table.get(r,"time")));
         var rdate = new Date(sortedtime[t]);
-        var mindate = new Date(table.get(0,"time"));
-        datediff = (rdate - mindate);
+        var maxdate = new Date(table.get(0,"time"));
+        var mindate = new Date(table.get(table.length,"time"));
+        totdatediff = (maxdate - mindate);
+        var xdifftime = (wdth-(2*xmargin)-(2*zerox))/(totdatediff);
+        rdatediff = (rdate - mindate);
         console.log(datediff);
-        var x = xmargin+zerox+(xdiff*(t));
+        var x = xmargin+zerox+(xdifftime*(rdatediff));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
         var diam = (table.getNum(r,"mag")-2)*magscale;
         var rad = diam/2;
