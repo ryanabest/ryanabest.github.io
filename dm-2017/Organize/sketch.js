@@ -23,9 +23,10 @@ function draw() {
 
 function mousePressed() {
   for (i=0;i<800;i+=100) {
-    background(0);
-    fill(255,0,0);
-    createCanvas(800,800);
-    rect(x+i,y+i,w,h);
+    // background(0);
+    // fill(255,0,0);
+    // createCanvas(800,800);
+    // rect(x+i,y+i,w,h);
+    rect(100,100,100,100);
   }
 };
