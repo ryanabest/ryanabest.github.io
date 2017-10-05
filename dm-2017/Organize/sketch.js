@@ -29,6 +29,7 @@ function draw() {
   rect(x,y,w,h);
   rect(x+200,y,w,h);
   console.log(x);
+  x = x - 1;
   if (x < 0) {
     x = 400;
   };
