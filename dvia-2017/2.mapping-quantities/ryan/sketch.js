@@ -63,6 +63,8 @@ function draw() {
   for (t=0;t<sortedtime.length;t++) {
     for (r=0;r<rowcount;r++) {
       console.log(Date(table.get(r,"time")));
+      console.log(Date(table.get(0,"time")));
+      console.log(Date(table.get(r,"time"))-Date(table.get(0,"time")));
       if (sortedtime[t] === table.get(r,"time")) {
         var x = xmargin+zerox+(xdiff*(t));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
