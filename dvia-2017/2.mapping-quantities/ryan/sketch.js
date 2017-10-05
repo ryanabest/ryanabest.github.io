@@ -67,6 +67,9 @@ function draw() {
           //Get 1 day in milliseconds
           var one_day=1000*60*60*24;
 
+          date1 = Date(date1);
+          date2 = Date(date2);
+
           // Convert both dates to milliseconds
           var date1_ms = date1.getTime();
           var date2_ms = date2.getTime();
