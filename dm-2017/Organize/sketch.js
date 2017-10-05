@@ -29,7 +29,7 @@ function draw() {
   rect(x,y,w,h);
   rect(x+800,y,w,h);
   console.log(x);
-  for (i=0;i<move;i+=100) {
+  for (i=0;i<move;i++) {
     x = x - i;
   }
 };
