@@ -1,12 +1,12 @@
 function preload() {
   // load data from either a local copy of one of the USGS CSVs or directly:
-  table = loadTable("assets/discogsdata.csv", "csv", "header");
+  //table = loadTable("assets/discogsdata.csv", "csv", "header");
   // or (while you're designing) from the feed itself:
   // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv", "csv", "header");
 }
 
 function setup() {
-  rowcount = table.getRowCount();
+  //rowcount = table.getRowCount();
   createCanvas(800,800);
 };
 
