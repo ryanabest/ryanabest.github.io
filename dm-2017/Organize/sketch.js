@@ -16,10 +16,11 @@ var w = 100;
 var h = 100;
 var move = 800;
 
+background(0);
+fill(255,0,0);
+
 function draw() {
   for (i=0;i<move;i++) {
-    background(0);
-    fill(255,0,0);
     rect(x-i,y,w,h);
   }
 };
