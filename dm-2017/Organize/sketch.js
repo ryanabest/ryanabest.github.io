@@ -9,6 +9,7 @@ var x;
 var y;
 var w;
 var h;
+var move;
 
 function setup() {
   //rowcount = table.getRowCount();
@@ -17,6 +18,7 @@ function setup() {
   y = 400;
   w = 100;
   h = 100;
+  move = 800;
 };
 
 function draw() {
@@ -25,8 +27,11 @@ function draw() {
   stroke(50);
   fill(100);
   rect(x,y,w,h);
+  rect(x+800,y,w,h);
   console.log(x);
-  x = x - 1;
+  for (i=0;i<move,i++) {
+    x = x - 1;
+  }
   // if (x < 800) {
   //   x = 800;
   // }
