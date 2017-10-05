@@ -22,7 +22,10 @@ function draw() {
 };
 
 function mousePressed() {
-  rect(random(0,800),random(0,800),100,100);
+  function draw() {
+    rect(random(0,800),random(0,800),100,100);
+  }
+  console.log("Pressed");
   // for (i=0;i<800;i+=100) {
   //   background(0);
   //   fill(255,0,0);
