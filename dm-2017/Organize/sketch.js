@@ -23,7 +23,7 @@ function draw() {
   x = 400;
   y = 400;
   w = 100;
-  h = 400;
+  h = 100;
   rect(x,y,w,h);
   // x = x-1
   // if (x < 800) {
