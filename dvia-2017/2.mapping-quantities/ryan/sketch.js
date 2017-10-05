@@ -66,10 +66,10 @@ function draw() {
         Date.daysBetween = function( date1, date2 ) {
           //Get 1 day in milliseconds
           var one_day=1000*60*60*24;
-          
+
           // Convert both dates to milliseconds
-          var date1_ms = Date(date1).getTime();
-          var date2_ms = Date(date2).getTime();
+          var date1_ms = Date(date1).prototype.getTime();
+          var date2_ms = Date(date2).prototype.getTime();
 
           // Calculate the difference in milliseconds
           var difference_ms = date2_ms - date1_ms;
