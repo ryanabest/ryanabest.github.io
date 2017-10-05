@@ -17,10 +17,10 @@ var h = 100;
 var move = 100;
 
 function draw() {
-  for (i=0;i<x;i+=100) {
+  for (i=0;i<move;i+=100) {
     background(0);
     fill(255,0,0);
-    rect(x-move,y,w,h);
+    rect(x-i,y,w,h);
   }
 };
 
