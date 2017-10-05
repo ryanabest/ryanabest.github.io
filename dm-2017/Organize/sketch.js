@@ -29,9 +29,9 @@ function draw() {
   rect(x,y,w,h);
   rect(x+800,y,w,h);
   console.log(x);
-  for (i=0;i<move;i++) {
-    x = x - i;
-  }
+  if (x < 0) {
+    x = 400;
+  };
 };
 
 // function mousePressed() {
