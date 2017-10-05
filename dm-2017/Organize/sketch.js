@@ -18,6 +18,7 @@ var move = 0;
 
 
 function draw() {
+  background(0);
   fill(255,0,0);
   rect(x,y,w,h);
   x = x-1
