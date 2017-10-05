@@ -21,11 +21,11 @@ function draw() {
   rect(x,y,w,h);
 };
 
-// function mousePressed() {
-//   for (i=0;i<800;i+=100) {
-//     background(0);
-//     fill(255,0,0);
-//     createCanvas(800,800);
-//     rect(x+i,y+i,h);
-//   }
-// };
+function mousePressed() {
+  for (i=0;i<800;i+=100) {
+    background(0);
+    fill(255,0,0);
+    createCanvas(800,800);
+    rect(x+i,y+i,w,h);
+  }
+};
