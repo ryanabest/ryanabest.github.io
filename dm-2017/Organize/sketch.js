@@ -1,23 +1,19 @@
-function preload() {
-  // load data from either a local copy of one of the USGS CSVs or directly:
-  //table = loadTable("assets/discogsdata.csv", "csv", "header");
-  // or (while you're designing) from the feed itself:
-  // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv", "csv", "header");
-}
+// function preload() {
+//   // load data from either a local copy of one of the USGS CSVs or directly:
+//   //table = loadTable("assets/discogsdata.csv", "csv", "header");
+//   // or (while you're designing) from the feed itself:
+//   // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv", "csv", "header");
+// }
 
 var x;
 var y;
 var w;
 var h;
-var move = 0;
 
 function setup() {
   //rowcount = table.getRowCount();
   createCanvas(800,800);
 };
-
-
-
 
 function draw() {
   background(200);
@@ -29,10 +25,10 @@ function draw() {
   w = 100;
   h = 400;
   rect(x,y,w,h);
-  x = x-1
-  if (x < 800) {
-    x = 800;
-  }
+  // x = x-1
+  // if (x < 800) {
+  //   x = 800;
+  // }
 };
 
 // function mousePressed() {
