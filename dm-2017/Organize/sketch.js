@@ -14,17 +14,19 @@ var x = 400;
 var y = 400;
 var w = 100;
 var h = 100;
+var move = 100;
 
 function draw() {
-  background(0);
-  fill(255,0,0);
-  rect(x,y,w,h);
+  for (i=0;i<x;i+=100) {
+    background(0);
+    fill(255,0,0);
+    rect(x-move,y,w,h);
+  }
 };
 
 function mousePressed() {
-  function draw() {
-    rect(random(0,800),random(0,800),100,100);
-  }
+  move = move+800;
+  redraw();
   console.log("Pressed");
   // for (i=0;i<800;i+=100) {
   //   background(0);
