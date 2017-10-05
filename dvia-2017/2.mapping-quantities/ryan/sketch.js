@@ -62,7 +62,23 @@ function draw() {
   for (t=0;t<sortedtime.length;t++) {
     for (r=0;r<rowcount;r++) {
       if (sortedtime[t] === table.get(r,"time")) {
-        console.log(Date(table.get(r,"time")));
+        //console.log(Date(table.get(r,"time")));
+        Date.daysBetween = function( date1, date2 ) {
+          //Get 1 day in milliseconds
+          var one_day=1000*60*60*24;
+
+          // Convert both dates to milliseconds
+          var date1_ms = date1.getTime();
+          var date2_ms = date2.getTime();
+
+          // Calculate the difference in milliseconds
+          var difference_ms = date2_ms - date1_ms;
+
+          // Convert back to days and return
+          return difference_ms/one_day;
+        }
+        datediff = Date.daysBetween(Date(sortedtime[t]),Date(table.get(0,"time")));
+        console.log(datediff);
         var x = xmargin+zerox+(xdiff*(t));
         var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
         var diam = (table.getNum(r,"mag")-2)*magscale;
