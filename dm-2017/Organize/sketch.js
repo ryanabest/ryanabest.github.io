@@ -29,24 +29,21 @@ function draw() {
   rect(x,y,w,h);
   rect(x+800,y,w,h);
   console.log(x);
-  for (i=0;i<move,i++) {
-    x = x - 1;
-  }
   // if (x < 800) {
   //   x = 800;
   // }
 };
 
-// function mousePressed() {
-//   for (i=0;i<800;i++) {
-//     move = move+800;
-//   }
-//   redraw();
-//   console.log("Pressed");
-//   // for (i=0;i<800;i+=100) {
-//   //   background(0);
-//   //   fill(255,0,0);
-//   //   createCanvas(800,800);
-//   //   rect(x+i,y+i,w,h);
-//   // }
-// };
+function mousePressed() {
+  for (i=0;i<move;i++) {
+    x = x - 1;
+  }
+  redraw();
+  console.log("Pressed");
+  // for (i=0;i<800;i+=100) {
+  //   background(0);
+  //   fill(255,0,0);
+  //   createCanvas(800,800);
+  //   rect(x+i,y+i,w,h);
+  // }
+};
