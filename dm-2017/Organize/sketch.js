@@ -1,40 +1,40 @@
 function preload() {
   // load data from either a local copy of one of the USGS CSVs or directly:
-  table = loadTable("assets/discogsdata.csv", "csv", "header");
+  discogsdata = loadTable("assets/discogsdata.csv", "csv", "header");
+  tracklist = loadTable("assets/tracklist.csv", "csv", "header");
+  genres_and_styles = loadTable("assets/genres_and_styles.csv", "csv", "header");
   // or (while you're designing) from the feed itself:
 }
-
-var x;
-var y;
-var w;
-var h;
-var move;
-
+var slider;
 function setup() {
-  //rowcount = table.getRowCount();
-  createCanvas(800,800);
-  x = 400;
-  y = 400;
-  w = 100;
-  h = 100;
-  move = 800;
-};
-
-function draw() {
-  background(200);
-
-  stroke(50);
-  fill(100);
-  rect(x,y,w,h);
-  rect(x+200,y,w,h);
-  console.log(x);
-  x = x - 1;
-  if (x < 0) {
-    x = 400;
+  rowcount = discogsdata.getRowCount();
+  slider = createSlider(0,rowcount,0);
+  imgs = []
+  for (r=0;r<rowcount;r++) {
+    imgs.push("img"+r);
+  };
+  for (i=0;i<imgs.length;i++) {
+    imgs[i] = loadImage(discogsdata.get(i,"image"));
   };
 };
 
+function draw() {
+  // background(200);
+  // fill(100);
+  // stroke(50);
+  // rect(x,y,w,h);
+  // fill(250,0,0);
+  // rect(x+width,y,w,h);
+  // console.log(x);
+  //x = x - 1;
+  image(img0,0,0);
+  var val = slider.value();
+  console.log(val);
+};
+
 // function mousePressed() {
+//   x=x-800;
+//   img = createImg(discogsdata.get(1,"image"));
 //   console.log("Pressed");
 //   // for (i=0;i<800;i+=100) {
 //   //   background(0);
