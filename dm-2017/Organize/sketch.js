@@ -1,8 +1,8 @@
 function preload() {
   // load data from either a local copy of one of the USGS CSVs or directly:
-  discogsdata = loadTable("assets/discogsdata.csv", "csv", "header");
-  tracklist = loadTable("assets/tracklist.csv", "csv", "header");
-  genres_and_styles = loadTable("assets/genres_and_styles.csv", "csv", "header");
+  // discogsdata = loadTable("assets/discogsdata.csv", "csv", "header");
+  // tracklist = loadTable("assets/tracklist.csv", "csv", "header");
+  // genres_and_styles = loadTable("assets/genres_and_styles.csv", "csv", "header");
   // or (while you're designing) from the feed itself:
 }
 var slider;
@@ -10,12 +10,13 @@ function setup() {
   rowcount = discogsdata.getRowCount();
   slider = createSlider(0,rowcount,0);
   imgs = []
-  for (r=0;r<rowcount;r++) {
-    imgs.push("img"+r);
-  };
-  for (i=0;i<imgs.length;i++) {
-    imgs[i] = loadImage(discogsdata.get(i,"image"));
-  };
+  // for (r=0;r<rowcount;r++) {
+  //   imgs.push("img"+r);
+  // };
+  // for (i=0;i<imgs.length;i++) {
+  //   imgs[i] = loadImage(discogsdata.get(i,"image"));
+  // };
+  img0 = loadimage(" https://img.discogs.com/omVDcifhRmbT3rNnsPPD1fXIqig=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10105639-1491701050-6735.jpeg.jpg");
 };
 
 function draw() {
