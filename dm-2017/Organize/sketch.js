@@ -16,7 +16,7 @@ function setup() {
   // for (i=0;i<imgs.length;i++) {
   //   imgs[i] = loadImage(discogsdata.get(i,"image"));
   // };
-  img0 = loadimage(" https://img.discogs.com/omVDcifhRmbT3rNnsPPD1fXIqig=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10105639-1491701050-6735.jpeg.jpg");
+  img0 = loadImage("https://img.discogs.com/omVDcifhRmbT3rNnsPPD1fXIqig=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-10105639-1491701050-6735.jpeg.jpg");
 };
 
 function draw() {
