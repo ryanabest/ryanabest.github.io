@@ -8,7 +8,7 @@ function preload() {
 var slider;
 function setup() {
   // rowcount = discogsdata.getRowCount();
-  slider = createSlider(0,rowcount,0);
+  // slider = createSlider(0,rowcount,0);
   imgs = []
   // for (r=0;r<rowcount;r++) {
   //   imgs.push("img"+r);
@@ -29,8 +29,8 @@ function draw() {
   // console.log(x);
   //x = x - 1;
   image(img0,0,0);
-  var val = slider.value();
-  console.log(val);
+  // var val = slider.value();
+  // console.log(val);
 };
 
 // function mousePressed() {
