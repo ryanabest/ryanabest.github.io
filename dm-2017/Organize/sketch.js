@@ -7,7 +7,7 @@ function preload() {
 }
 var slider;
 function setup() {
-  rowcount = discogsdata.getRowCount();
+  // rowcount = discogsdata.getRowCount();
   slider = createSlider(0,rowcount,0);
   imgs = []
   // for (r=0;r<rowcount;r++) {
