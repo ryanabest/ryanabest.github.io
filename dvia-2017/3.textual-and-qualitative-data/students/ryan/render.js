@@ -73,7 +73,7 @@ var byVenueEachDayGrouped = _.groupBy(byVenueEachDay,'place')
   //  console.log(byVenueEachDayGrouped[Object.keys(byVenueEachDayGrouped)[i]]);
  }
 
- console.log(byVenueEachDayGrouped['Brooklyn Bowl']);
+ console.log(byArtist['Boogie'][0]['subtitle']);
 
 var markup = template({byVenueEachDay: byVenueEachDayGrouped})
 fs.writeFileSync('site/index.html', markup)
