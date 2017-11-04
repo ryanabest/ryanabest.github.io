@@ -1,4 +1,4 @@
-var Mta = require('mta-gtfs');
+// var Mta = require('mta-gtfs');
 var mta = new Mta({
   key: '9b0444ee72bcbc313ab3306cd32bf6a0', // only needed for mta.schedule() method
   feed_id: 1                  // optional, default = 1
@@ -29,12 +29,12 @@ function setup() {
 
 mta.stop().then(function (result) {
   for (var i=0;i<Object.keys(result).length;i++) {
-    // L.circle([40.680596, -73.955827], {
-    //   color: 'red',
-    //   fillColor: '#f03',
-    //   fillOpacity: 0.5,
-    //   radius: 500
-    // }).addTo(mymap);
+    L.circle([40.680596, -73.955827], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+    }).addTo(mymap);
   };
 });
 
