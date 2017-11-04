@@ -1,0 +1,15 @@
+{
+  "name": "dm2017_mta_feed_project",
+  "version": "1.0.0",
+  "description": "mta feed project attempt",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server . -a localhost -p 8080 -c-1"
+  },
+  "author": "ryan",
+  "license": "ISC",
+  "dependencies": {
+    "mta-gtfs": "^1.1.0"
+  }
+}
