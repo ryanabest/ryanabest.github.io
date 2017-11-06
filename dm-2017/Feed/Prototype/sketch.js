@@ -7,7 +7,7 @@ var currentlat = 40.735310;
 var currentlon = -73.994393;
 
 // JQuery to adjust buttons for train direction
-var trainDirection = 'uptown';
+var trainDirection = 'Uptown';
 $(document).ready(function(){
   $("#uptown").click(function(){
     $("#uptown").css('background-color','white');
@@ -19,7 +19,7 @@ $(document).ready(function(){
     $(".stopiii").css('color','green');
     $(".stopiv").css('color','white');
     $(".stopv").css('color','green');
-    trainDirection = 'uptown';
+    trainDirection = 'Uptown';
     return trainDirection;
   });
   $("#downtown").click(function(){
@@ -32,7 +32,7 @@ $(document).ready(function(){
     $(".stopiii").css('color','red');
     $(".stopiv").css('color','white');
     $(".stopv").css('color','red');
-    trainDirection = 'downtown';
+    trainDirection = 'Downtown';
     return trainDirection;
   });
 });
@@ -78,6 +78,11 @@ function setup() {
 
   // create canvas
 };
+
+function draw() {
+  // console.log(trainDirection);
+}
+
 
 // Random delay status (placeholder)
 function col(num) {
@@ -137,15 +142,11 @@ function drawStop (lat,lon,name,id) {
     stopDist: currentDist,
     stopName: name
   });
-  var popUpText = '<font size ="6"><b>' + name + '</b></font><br>' + status(colorNum) + '<br><img src = "assets/TwitterDelayExample.png"/>'
+  var popUpText = '<font color = "white" size ="6"><b>' + name + '</b></font><br><font size = "4" color="' + col(colorNum) + '">' + status(colorNum) + '</font><br><br><img src = "assets/TwitterDelayExample.png"/>'
   circle.addTo(mymap);
   circle.bindPopup(popUpText);
   circles.push(circle);
 };
-
-function draw() {
-  // console.log(trainDirection);
-}
 
 function closestStops(hbColorNum) {
   stopList = [];
