@@ -14,6 +14,11 @@ $(document).ready(function(){
     $("#uptown").css('color','black');
     $("#downtown").css('background-color','black');
     $("#downtown").css('color','white');
+    $(".stopi").css('color','red');
+    $(".stopii").css('color','green');
+    $(".stopiii").css('color','green');
+    $(".stopiv").css('color','white');
+    $(".stopv").css('color','green');
     trainDirection = 'uptown';
     return trainDirection;
   });
@@ -22,6 +27,11 @@ $(document).ready(function(){
     $("#downtown").css('color','black');
     $("#uptown").css('background-color','black');
     $("#uptown").css('color','white');
+    $(".stopi").css('color','white');
+    $(".stopii").css('color','red');
+    $(".stopiii").css('color','red');
+    $(".stopiv").css('color','white');
+    $(".stopv").css('color','red');
     trainDirection = 'downtown';
     return trainDirection;
   });
