@@ -1,0 +1,84 @@
+* {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+/*#map-wrapper {
+    width: 70%;
+    height: 100%;
+    position: relative;
+    left: 30%;
+}*/
+
+/* default dimensions for the leaflet map */
+#subway-map{
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  left: 30%;
+}
+
+/*#subway-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+}*/
+
+#canvasdiv {
+  position: fixed;
+  width: 30%;
+  height: 100%;
+  background-color: black;
+  box-sizing: border-box;
+  color: white;
+  padding: 10px;
+}
+
+#canvasdiv h1 {
+  text-align: center;
+  font-size: 300%;
+}
+
+img {
+  width: 300px;
+  height: auto;
+}
+
+/* buttons for uptown downtown */
+button {
+  background-color: #000;
+  border: 1px solid white;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+button:active {
+  color: #000;
+  background-color: #FFF;
+  border: solid;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.buttons {
+  text-align: center;
+}
+
+#uptown {
+  background-color: white;
+  color: black;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+.tableTitle {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 110%;
+}
