@@ -7,6 +7,7 @@ var mta = new Mta({
 
 var jsonfile = require('jsonfile')
 
+loadandrun();
 
 // LOAD ALL STOPS INTO STATIC JSON FILE STOPS.JSON
 // mta.stop().then(function (result) {
@@ -24,20 +25,27 @@ var jsonfile = require('jsonfile')
 //     console.log(result1);
 //   });
 // });
+function loadschedule () {
+  var schedule = [];
+  mta.stop().then(function (result) {
+    for (i=0;i<Object.keys(result).length;i++) {
+      if (result[Object.keys(result)[i]]['parent_station'] === '') {
+        var stationID = Object.keys(result)[i];
+        console.log(stationID);
+        // console.log(stationID);
+        // console.log("one array per station");
+        mta.schedule(stationID).then(function(schresult){
+          console.log(stationID);
+          var stationSch;
+          stationSch = schresult;
+          console.log(stationSch);
+        });
+      }
+    }
+    console.log(schedule);
+  });
+}
 
-mta.stop().then(function (result) {
-  for (i=0;i<Object.keys(result).length;i++) {
-    if (result[Object.keys(result)[i]]['parent_station'] === '') {
-      var stationID = Object.keys(result)[i];
-      mta.schedule(stationID).then(function(results){
-        console.log(results);
-      });
-      // console.log(Object.keys(result)[i]);
-    };
-    // console.log(typeof Object.keys(result)[i]);
-  };
-});
-
-mta.schedule('R20', 1).then(function (result) {
-  console.log(result);
-});
+function loadandrun() {
+  loadschedule();
+}

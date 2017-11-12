@@ -15,25 +15,33 @@
 
   <!-- Jquery for uptown/downtown buttons -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/styles2.css" />
 </head>
 <body>
-  <div id="subway-map"></div>
-  <div id="side-menu">
-    <h1> delay </h1>
-    <!-- <img src = 'assets/TwitterDelayExample.png'/><br><br>
-    <img src = 'assets/Instagram-Delay-1.png'/><br><br>
-    <img src = 'assets/TwitterDelayExample2.png'/><br><br>
-    <img src = 'assets/TwitterDelayExample3.png'/><br><br>
-    <a target = '_blank' href = 'https://twitter.com/NadxiNieto/status/929124970432794624'><img src = 'assets/TwitterDelayExample4.png'/></a><br><br>
-    <img src = 'assets/TwitterDelayExample5.png'/><br><br><br><br><br> -->
+  <div id="canvasdiv">
+    <h1>Delay</h1><br>
+    <div class = "buttons">
+      <button id = "uptown">Uptown</button>
+      <button id = "downtown">Downtown</button>
+    </div>
+    <br><br><br>
+    <table>
+      <tr><td class = 'tableTitle'>Status of your closest stops:<br><br></td><tr>
+      <tr><td class = 'stopi'>6 Av<br><br></td></tr>
+      <tr><td class = 'stopii'>Union Sq - 14 St<br><br></td></tr>
+      <tr><td class = 'stopiii'>14 St - Union Sq<br><br></td></tr>
+      <tr><td class = 'stopiv'>14 St<br><br></td></tr>
+      <tr><td class = 'stopv'>14 St - Union Sq<br><br></td></tr>
+    </table>
+    <div id="systemDiagram"><a href="assets/SystemDiagram.JPG" target="_blank">System Diagram Sketch</a></div>
   </div>
+  <div id="subway-map"></div>
   <!-- load our dependencies and sketch file -->
   <script src="libraries/leaflet/leaflet.js"></script>
   <script src="libraries/p5.js"></script>
   <script src="libraries/lodash.js"></script>
   <script src="libraries/handlebars-v4.0.11.js"></script>
-  <script src="sketch.js"></script>
+  <script src="sketch2.js"></script>
 
   <!-- p5.js will create a canvas element here at runtime -->
 </body>

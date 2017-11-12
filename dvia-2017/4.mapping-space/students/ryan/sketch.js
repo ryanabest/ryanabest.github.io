@@ -14,10 +14,11 @@ var circles = [];
 
 // table as the data set
 var table;
+var tableJSON = [];
 
 // dimension variables for timeline sketch and canvas
-var hght = 300;
-var wdth = 1200;
+var hght = window.innerHeight*0.3;
+var wdth = window.innerWidth;
 var ymargin = hght/15;
 var xmargin = wdth/20;
 var zeroy = hght/10;
@@ -31,26 +32,12 @@ var val;
 
 function preload() {
     // load the CSV data into our `table` variable and clip out the header row
-    table = loadTable("assets/significant_month.csv", "csv", "header");
+    table = loadTable("assets/all_month.csv", "csv", "header");
+    // table = loadTable("assets/significant_month.csv", "csv", "header");
 }
 
 function setup() {
-    /*
-    P5 SETUP
-
-    If you want to draw some diagrams to complement the map view, set up your canvas
-    size, color, etc. here
-    */
-    // textSize(64);
-    // text("☃", 18, 72);
-    // createCanvas(wdth,50);
-    // magslider = createSlider(0,7,7,0.01);
-    // magslider.position(width/2,25);
-    val = 7;
-    magslider = createSlider(0,7,val,0.01);
-    magslider.position(wdth/2,600);
-    sortedtime = sort(table.getColumn("time"));
-    rowcount = table.getRowCount();
+    loadData();
 
     /*
     LEAFLET CODE
@@ -61,193 +48,124 @@ function setup() {
     */
 
     // create your own map
-    mymap = L.map('quake-map').setView([51.505, -0.09], 1);
+    mymap = L.map('quake-map').setView([10.00, 0.00], 2);
 
     // load a set of map tiles (you shouldn't need to touch this)
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.light',
-        accessToken: 'pk.eyJ1IjoiZHZpYTIwMTciLCJhIjoiY2o5NmsxNXIxMDU3eTMxbnN4bW03M3RsZyJ9.VN5cq0zpf-oep1n1OjRSEA'
+    L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19,
     }).addTo(mymap);
 
+    // draw p5 sketch
+    sketchsetup()
+    sketch()
+    for (i=0;i<tableJSON.length;i++) {
+      console.log(tableJSON[i].latitude);
+    }
 
     // call our function (defined below) that populates the maps with markers based on the table contents
     drawDataPoints();
 }
 
 function draw() {
-  val = magslider.value();
-  removeAllCircles();
-  drawDataPoints();
-  timelinesketch();
+  // P5 sketch
 }
 
-function timelinesketch() {
-  createCanvas(wdth,hght);
-  background(240);
-  stroke(0);
-  line(xmargin+zerox,ymargin+zeroy,wdth-xmargin-zerox,ymargin+zeroy);
+function loadData() {
+  for (i=0;i<table.rows.length;i++) {
+    tableJSON.push(table.rows[i].obj);
+  }
+  tableJSON = _.orderBy(tableJSON,"mag","desc")
+  // console.log(table.rows[0].obj);
+  sortedtime = sort(table.getColumn("time"));
+  rowcount = table.getRowCount();
+  return tableJSON;
+  return rowcount;
+}
 
-  strokeWeight(3);
-  //width
-  // xdiff = (wdth-(2*xmargin)-(2*zerox))/(rowcount-1);
-  // console.log(rowcount);
-  // console.log(xdiff);
+function sketchsetup() {
+  var canv = createCanvas(wdth,hght);
+  canv.parent('p5-sketch');
+  background(0);
+  stroke(155);
+  strokeWeight(2);
+  //x-axis
+  line(xmargin+(zerox/2),hght-(ymargin+(zeroy/2)),wdth-(xmargin+(zerox/2)),hght-(ymargin+(zeroy/2)));
+  //y-axis
+  line(xmargin+(zerox/2),hght-(ymargin+(zeroy/2)),xmargin+(zerox/2),ymargin+(zeroy/2));
 
-  //get max and mix depths
-  maxd = table.getNum(0,"depth");
-  mind = table.getNum(0,"depth");
+}
 
-  function getmaxdepth() {
-    if (table.getNum(r,"depth") > maxd) {
-      maxd = table.getNum(r,"depth")
-    }
-    return maxd
-  };
-  function getmindepth() {
-    if (table.getNum(r,"depth") < mind) {
-      mind = table.getNum(r,"depth")
-    }
-    return mind
-  };
+function sketch() {
 
-  for (r=0;r<rowcount;r++) {
-    getmindepth();
-    getmaxdepth();
+  var rowcount = tableJSON.length;
+
+  // get max and mix magnitudes
+  var maxmag = tableJSON[0].mag;
+  var minmag = 0;
+
+  // determine increments for each new data point
+  var xdiff = (wdth-(2*xmargin)-(2*zerox))/(rowcount-1);
+  var ydiff = (hght-(2*ymargin)-(2*zeroy))/maxmag;
+
+  // circle diameter
+  var diam = 5;
+  // if (xdiff > 10) {
+  //   diam = 10;
+  // } else {
+  //   diam = xdiff;
+  // };
+  var rad = diam/2;
+
+
+  // draw circles on sketch
+  for (i=0;i<rowcount;i++) {
+    strokeWeight(0);
+    fill(255,255,255);
+    var x = xmargin+zerox+(xdiff*i);
+    var y = hght-ymargin-zeroy-(ydiff*tableJSON[i].mag);
+    var rand = Math.pow(1.2,tableJSON[i].mag);
+    ellipse(x,y,diam);
+    // if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
+    //   ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
+    // } else {
+    //   ellipse(x,y,diam);
+    // }
   }
 
-
-  var maxy = hght - ymargin - (zeroy/2);
-  var miny = ymargin + (zeroy/2);
-  var ydiff = (maxy-miny)/(maxd-mind);
-  var magscale = 3;
-
-  // console.log(sortedtime);
-  stroke(0,0,0,150);
-  for (t=0;t<sortedtime.length;t++) {
-    for (r=0;r<rowcount;r++) {
-      if (sortedtime[t] === table.get(r,"time")) {
-        if (table.get(r,"mag") >= val) {
-          fill(255,255,255,150);
-          //console.log(Date(table.get(r,"time")));
-          var rdate = new Date(sortedtime[t]);
-          var maxdate = new Date(table.get(0,"time"));
-          var mindate = new Date(sortedtime[0]);
-          var totdatediff = (maxdate - mindate);
-          var xdifftime = (wdth-(2*xmargin)-(2*zerox))/(totdatediff);
-          var rdatediff = (rdate - mindate);
-          // console.log(rdatediff);
-          var x = xmargin+zerox+(xdifftime*(rdatediff));
-          var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
-          var diam = (table.getNum(r,"mag")-2)*magscale;
-          var rad = diam/2;
-          var rand = Math.pow(1.2,table.getNum(r,"mag"));
-          if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-            ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
-            strokeWeight(0.1);
-            if(table.getNum(r,"depth")<0) {
-              line(x,y+(diam/2),x,ymargin+zeroy);
-            } else if(table.getNum(r,"depth")===0) {
-              line(x,y,x,y);
-            } else {
-              line(x,ymargin+zeroy,x,y-(diam/2));
-            };
-            strokeWeight(0);
-            textStyle(BOLD);
-            fill(0);
-            text(table.getString(r,"time"),wdth/2,ymargin/3);
-            text(table.getString(r,"place"),wdth/2,2*ymargin/3);
-            text("Depth: "+table.getString(r,"depth") + "km, Mag:"+table.getString(r,"mag")+table.getString(r,"magType"),wdth/2,ymargin);
-            fill(255,255,255,150);
-            drawHighlightedCircle(r);
-            fill(255,255,255,150);
-          } else {
-            ellipse(x,y,diam);
-            strokeWeight(0.1);
-            if(table.getNum(r,"depth")<0) {
-              line(x,y+(diam/2),x,ymargin+zeroy);
-            } else if(table.getNum(r,"depth")===0) {
-              line(x,y,x,y);
-            } else {
-              line(x,ymargin+zeroy,x,y-(diam/2));
-            };
-          };
-          strokeWeight(3);
-        }
-      }
-    }
-  };
-
-  // if (mouseX <= wdth-2*xdiff+(xdiff/2) && mouseX >= wdth-2*xdiff-(xdiff/2) && mouseY <= hght-(xdiff/2)-5+(xdiff/24) && mouseY >= hght-(xdiff/2)-5-(xdiff/24)) {
-  //   ellipse(wdth-2*xdiff+random(-Math.pow(1.5,3),Math.pow(1.5,3)),hght-(xdiff/2)-5+random(-Math.pow(1.5,3),Math.pow(1.5,3)),magscale);
-  // } else {
-  //   ellipse(wdth-2*xdiff,hght-(xdiff/2)-5,magscale);
-  // };
-  //
-  //
-  // if (mouseX <= wdth-xdiff+(xdiff/2) && mouseX >= wdth-xdiff-(xdiff/2) && mouseY <= hght-5 && mouseY >= hght-5-xdiff) {
-  //   ellipse(wdth-xdiff+random(-Math.pow(1.5,9),Math.pow(1.5,9)),hght-(xdiff/2)-5+random(-Math.pow(1.5,9),Math.pow(1.5,9)),xdiff);
-  // } else {
-  //   ellipse(wdth-xdiff,hght-(xdiff/2)-5,xdiff);
+  // function draw rectancle() {
+  //   var
   // }
-  //axes
-  strokeWeight(0);
-  fill(0);
-  // text("3",wdth-2*xdiff,hght-(xdiff/2)+15);
-  // text("9",wdth-xdiff,hght-(xdiff/2)-5);
-  textAlign(LEFT);
-  textStyle(NORMAL);
-  text("Chronological →",xmargin+zerox,ymargin);
-  translate(xmargin+(zerox/2),ymargin+zeroy);
-  rotate(3*PI/2);
-  textAlign(CENTER);
-  text("0",0,0);
-  text("← Depth (km)",-150,0);
-  text(maxd,-(maxd*ydiff),0);
-  rotate(-3*PI/2);
-  translate(-(xmargin+(zerox/2)),-(ymargin+zeroy));
 
-  textAlign(CENTER);
-  // text("Magnitude",wdth-((xmargin+zerox)/2),hght-ymargin-zeroy);
-}
+  // old code for "tooltip"
+  // strokeWeight(0);
+  // textStyle(BOLD);
+  // fill(0);
+  // text(table.getString(r,"time"),wdth/2,ymargin/3);
+  // text(table.getString(r,"place"),wdth/2,2*ymargin/3);
+  // text("Depth: "+table.getString(r,"depth") + "km, Mag:"+table.getString(r,"mag")+table.getString(r,"magType"),wdth/2,ymargin);
+};
 
 function drawDataPoints(){
     strokeWeight(5);
-    stroke(255,0,0);
-
-    // get the two arrays of interest: depth and magnitude
-    depths = table.getColumn("depth");
-    magnitudes = table.getColumn("mag");
-    latitudes = table.getColumn("latitude");
-    longitudes = table.getColumn("longitude");
-
-    // get minimum and maximum values for both
-    magnitudeMin = 0.0;
-    magnitudeMax = getColumnMax("mag");
-    // console.log('magnitude range:', [magnitudeMin, magnitudeMax])
-
-    depthMin = 0.0;
-    depthMax = getColumnMax("depth");
-    // console.log('depth range:', [depthMin, depthMax])
+    stroke(255,255,255);
 
     // cycle through the parallel arrays and add a dot for each event
-    for(var i=0; i<depths.length; i++){
+    for(var i=0; i<tableJSON.length; i++){
         // create a new dot
-        if(magnitudes[i] >= val) {
-          var circle = L.circle([latitudes[i], longitudes[i]], {
-              color: 'black',      // the dot stroke color
-              // fillColor: '#D3D3D3', // the dot fill color
-              fillOpacity: 0.25,  // use some transparency so we can see overlaps
-              radius: 10
-          });
+        var circle = L.circle([tableJSON[i].latitude, tableJSON[i].longitude], {
+            color: 'white',      // the dot stroke color
+            // fillColor: '#D3D3D3', // the dot fill color
+            fillOpacity: 1,  // use some transparency so we can see overlaps
+            radius: 1
+        });
 
-          // place it on the map
-          circle.addTo(mymap) //.on("click",showClickedCircleOnTimeline(i));
+        // place it on the map
+        circle.addTo(mymap) //.on("click",showClickedCircleOnTimeline(i));
 
-          // save a reference to the circle for later
-          circles.push(circle)
-        }
+        // save a reference to the circle for later
+        circles.push(circle)
     }
 }
 
