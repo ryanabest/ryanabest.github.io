@@ -45,7 +45,7 @@ html, body {
 }
 
 .leaflet-popup-content-wrapper {
-  background-color: #000;
+  background-color: rgba(59,59,59,0.9);
   text-align: center;
 }
 
