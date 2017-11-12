@@ -8,25 +8,15 @@ var currentlat = 40.76;
 var currentlon = -73.96;
 
 // JQuery to adjust buttons for train direction
-
+$('#side-menu').click(function(){
+  $("#twit-pics").hide();
+});
 
 function preload() {
   var url = 'assets/stops.json';
   stops = loadJSON(url);
   // console.log(url);
 }
-
-_.mixin({
-    'sortKeysBy': function (obj, comparator) {
-        var keys = _.sortBy(_.keys(obj), function (key) {
-            return comparator ? comparator(obj[key], key) : key;
-        });
-
-        return _.zipObject(keys, _.map(keys, function (key) {
-            return obj[key];
-        }));
-    }
-});
 
 function setup() {
   // create your own map
@@ -139,7 +129,7 @@ function drawStop (lat,lon,name,id) {
 function mapCircles() {
   // circles = _.sortBy(circles,'_radius','desc');
   circles.forEach(function(circle, i){
-    circle.addTo(mymap);
+    circle.addTo(mymap).on("click", showPics);
   });
 }
 
@@ -171,6 +161,10 @@ function resize(num) {
   return num;
 }
 
-// function reorder() {
-//   circles = _.
-// }
+function showPics() {
+  $("#twit-pics").show();
+}
+
+function hidePics() {
+
+}
