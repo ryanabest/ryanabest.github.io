@@ -40,6 +40,10 @@ html, body {
   font-weight: 100;
 }
 
+#twit-pics {
+  display: none;
+}
+
 .leaflet-popup-content-wrapper {
   background-color: #000;
   text-align: center;
