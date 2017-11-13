@@ -30,6 +30,7 @@ html, body {
   overflow: scroll;
   color: #FFF;
   font-family: "Avenir-Next", sans-serif;
+  overflow: hidden;
 }
 
 #side-menu h1 {
