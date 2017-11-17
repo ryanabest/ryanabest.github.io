@@ -47,6 +47,16 @@ html, body {
   display: none;
 }
 
+#mobile-link {
+  position: fixed;
+  top: 95%;
+  left: 2%;
+}
+
+#mobile-link a {
+  color: RGB(59,59,59);
+}
+
 .leaflet-popup-content-wrapper {
   background-color: rgba(59,59,59,0.9);
   text-align: center;
