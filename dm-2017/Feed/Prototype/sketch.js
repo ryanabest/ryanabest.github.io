@@ -48,7 +48,7 @@ function setup() {
       // console.log(Object.keys(stops)[i])
     }
   };
-  mapCircles();
+  // mapCircles();
   console.log(circles);
 };
 
@@ -121,7 +121,7 @@ function drawStop (lat,lon,name,id) {
     radius: Number(Math.random() * 4)
   });
   var popUpText = '<font color = "' + colors[id][0]['color'] + '" size ="6"><b>' + name + '</b></font><br><font size = "4" color="white">' + colors[id][0]['status'] + '</font>'
-  // circle.addTo(mymap);
+  circle.addTo(mymap);
   circle.bindPopup(popUpText);
   circles.push(circle);
 };
