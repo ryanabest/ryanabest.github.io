@@ -1,0 +1,67 @@
+Final (Proposed) Data Sources:
+Proposal #1: Gerrymandering Congressional Districts
+1.) Description: Election results for all federal congressional elections
+Provider: FEC (Federal Election Comission)
+Format: excel (will need to save as csv)
+URL: https://transition.fec.gov/pubrec/electionresults.shtml
+
+2.) Description: Cartographic Boundary Shapefiles - Congressional Districts. Simplified representations of each congressional district's geographic area.
+Provider: US Census Bureau
+Format: Shapefile (shp) format. Also XML zipped up with data. Maybe can use this node package to interpret shapefile into GeoJSON? https://github.com/mbostock/shapefile/blob/master/README.md#shp2json
+URL: https://www.census.gov/geo/maps-data/data/cbf/cbf_cds.html
+
+Proposal #2: NBA 3-Pointers
+1.) Description: Year over year team and opponent stats, including wins, shooting %, and more.
+Provider: Basketball-Reference
+Format: CSV (copy-paste)
+URL: https://www.basketball-reference.com/leagues/NBA_2017.html
+
+2.) Description: Overall team and opponent stats from the above link compiled in csv formats for 2005-16
+Provider: Basketball-Reference / a friend of mine, shaundre3000
+Format: CSV
+URL: https://github.com/shaundre3000/nba_pred/tree/master/yearly_data
+
+3.) Description: Results of every NBA playoff series dating back to 1947
+Provider: Basketball-Reference
+Format: CSV (copy-paste)
+URL: https://www.basketball-reference.com/playoffs/series.html
+
+Proposal #3: NY Food Deserts
+1.) Description: USDA Excel data documenting food desert statistics for every 2010 Census tract, along with some guidance for GIS mapping
+Provider: USDA
+Format: Excel
+URL: https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/
+
+2.) Description: Location of all ‘retail food stores’ in NY State
+Provider: New York State
+Format: CSV
+URL: https://data.ny.gov/Economic-Development/Retail-Food-Stores/9a8c-vfzj
+
+3.) Description: Census data charting the population and demographic/metadata on each person, as of 2010
+Provider: US Census Bureau
+Format:
+URL: https://www2.census.gov/census_2010/04-Summary_File_1/New_York/
+
+Description: txt files containing every MTA turnstile across stations, updated a week at a time. Each rows includes cumulatives. Description: http://web.mta.info/developers/resources/nyct/turnstile/ts_Field_Description.txt
+Provider: MTA
+Format: one txt file, published weekly. Will need to find additional information on each stop (specifically location).
+URL: http://web.mta.info/developers/turnstile.html
+
+Description: Gun death data for the US for 2012-2014
+Provider: CDC, aggregated and cleaned by 538, then made available to the public.
+Format: one csv file (full_data), along with R code that pulls down and cleans this data
+URL: https://github.com/fivethirtyeight/guns-data
+
+Description: Season results for all NBA franchises from 1946-47 to 2017-18, played in the NBA/BAA, sorted by descending Wins
+Provider: basketball-reference.com
+Format: Web table. Will need to explore API or scraping options
+URL: https://www.basketball-reference.com/play-index/tsl_finder.cgi?request=1&match=single&type=team_totals&lg_id=NBA&order_by=wins
+
+Description: Metadata on 721 different Pokemon and their basic stats, including raw attributes that can be used to calculate how much damage an attack will do in the games
+Provider: Pokemon.com, pokemondb, bulbapedia. Aggregated and uploaded to Kaggle.
+Format: one CSV file
+URL: https://www.kaggle.com/abcsds/pokemon
+
+311 service requests in NY: https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9?
+
+Gerrymandered districts: https://github.com/tonmcg/County_Level_Election_Results_12-16

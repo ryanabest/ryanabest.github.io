@@ -25,24 +25,25 @@ loadandrun();
 //     console.log(result1);
 //   });
 // });
+
 function loadschedule () {
   var schedule = [];
   mta.stop().then(function (result) {
+    // console.log(result);
     for (i=0;i<Object.keys(result).length;i++) {
       if (result[Object.keys(result)[i]]['parent_station'] === '') {
         var stationID = Object.keys(result)[i];
-        console.log(stationID);
         // console.log(stationID);
         // console.log("one array per station");
         mta.schedule(stationID).then(function(schresult){
-          console.log(stationID);
+          // console.log(stationID);
           var stationSch;
           stationSch = schresult;
-          console.log(stationSch);
+          console.log(stationSch['schedule']);
         });
       }
     }
-    console.log(schedule);
+    // console.log(schedule);
   });
 }
 
