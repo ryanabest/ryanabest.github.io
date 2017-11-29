@@ -1,0 +1,11 @@
+{
+  "name": "dvia-final",
+  "version": "1.0.0",
+  "description": "DVIA: Final Exercise",
+  "scripts": {
+    "start": "http-server . -a localhost -p 8080 -c-1"
+  },
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}
