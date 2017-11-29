@@ -58,7 +58,7 @@ function setup() {
     }
     for (let r=0;r<rows.length;r++) {
       for (let p=0;p<partyDict.length;p++) {
-        if (isNaN(parseInt(rows[r]['arr'][15].replace(",","")))) {
+        if (isNaN(parseInt(rows[r]['arr'][15].replace(",",""))) || rows[r]['arr'][15] !== 'Unopposed') {
         } else {
           partyDict[p]['totalDists'] = distList.length;
           partyDict[p]['totalVotes'] = partyDict[p]['totalVotes'] + parseInt(rows[r]['arr'][15].replace(",",""));
