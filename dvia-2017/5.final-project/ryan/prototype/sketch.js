@@ -9,7 +9,6 @@ function preload() {
 }
 
 function setup() {
-  console.table(table);
   background(240);
   createCanvas(lngth*8,hght*3);
   // console.log(table.getRowCount());
@@ -21,6 +20,8 @@ function setup() {
     }
   }
 
+
+  var electionResults = [];
 
   for (let s=0;s<stList.length;s++) {
     var txt = stList[s] + " - ";
@@ -64,7 +65,7 @@ function setup() {
           partyDict[p]['totalVotes'] = partyDict[p]['totalVotes'] + parseInt(rows[r]['arr'][15].replace(",",""));
           if (partyDict[p]['party'] === rows[r]['arr'][10]) {
             partyDict[p]['partyVotes'] = partyDict[p]['partyVotes'] + parseInt(rows[r]['arr'][15].replace(",",""));
-            if (rows[r]['arr'][21] === 'W') {
+            if (rows[r]['arr'][21] === 'W' || rows[r]['arr'][21] === 'WW') {
               partyDict[p]['partyDists'] = partyDict[p]['partyDists'] + 1;
             }
           }
@@ -76,6 +77,10 @@ function setup() {
       partyDict[p]['pctOfDists'] = partyDict[p]['partyDists']/partyDict[p]['totalDists'];
     }
     partyDict = _.orderBy(partyDict,['pctOfVotes'],['desc']);
+
+    for (let p=0;p<partyDict.length;p++) {
+      electionResults.push(partyDict[p]);
+    }
 
     var xv = 40;
     var xd = 40;
@@ -100,10 +105,11 @@ function setup() {
       fill(0);
     }
 
-    console.log(partyDict);
+    // console.log(partyDict);
 
     text(stList[s],10,hght+2*((hght/stList.length)*(s+1)));
   }
+  console.log(electionResults);
 }
 
 function draw() {
