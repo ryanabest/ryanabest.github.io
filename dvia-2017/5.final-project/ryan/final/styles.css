@@ -94,6 +94,9 @@ canvas {
   flex-direction:row;
   padding-left:  10%;
   padding-right: 10%;
+  width: 90%;
+  position: relative;
+  left: -5%;
 }
 
 .ex-state-p {
