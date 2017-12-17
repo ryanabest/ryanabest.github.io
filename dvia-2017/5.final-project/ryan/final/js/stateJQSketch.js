@@ -534,8 +534,10 @@ function drawEffAxes() {
   /*Eff Gap Axis */
   let effBenchmark = 0.05;
   let effNumOfTicks = Math.floor(axisMax/effBenchmark);
-  let effBenchmarkProportion = (1/effNumOfTicks)*50;
-  let effDivSize = effBenchmarkProportion + '%';
+  let effBenchmarkProportion = effBenchmark/axisMax;
+  let effPercentValue = (effBenchmarkProportion*100)*0.5;//(Math.abs(effBenchmarkProportion)*100)*0.35;
+  let effDivSize = effPercentValue + '%';
+
 
   let effTickDiv1TextID = 'eff-tick-1-text';
   let effTickDiv1TextClass = 'eff-tick-1';
@@ -592,9 +594,9 @@ function drawSeatAxes() {
   /* Seat Diff Axis */
   let seatBenchmark = 1;
   let seatNumOfTicks = Math.floor(axisMax/seatBenchmark);
-  let seatBenchmarkProportion = (1/seatNumOfTicks)*50;
-  let seatDivSize = seatBenchmarkProportion + '%';
-  // console.log(axisMax);
+  let seatBenchmarkProportion = seatBenchmark/axisMax;
+  let seatPercentValue = (seatBenchmarkProportion*100)*0.5;
+  let seatDivSize = seatPercentValue + '%';
 
   let seatTickDiv1ZeroID = 'seat-tick-1-zero';
   let seatTickDiv1ZeroClass = 'seat-tick-1';
