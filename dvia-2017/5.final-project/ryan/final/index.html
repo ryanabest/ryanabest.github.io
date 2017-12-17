@@ -1,42 +1,136 @@
-<!-- <html>
-<head>
-  <meta charset="UTF-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-  <script language="javascript" type="text/javascript" src="libraries/lodash.js"></script> -->
-  <!-- uncomment lines below to include extra p5 libraries -->
-  <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
-  <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
-  <!-- <script language="javascript" type="text/javascript" src="js/proportionalState.js"></script>
-  <script language="javascript" type="text/javascript" src="js/exampleState.js"></script> -->
-  <!-- <script language="javascript" type="text/javascript" src="sketchExamples.js"></script> -->
-  <!-- <script src="libraries/lodash.js"></script> -->
-  <!-- this line removes any default padding and style. you might only need one of these values set. -->
-  <!-- <style> body {padding: 0; margin: 0;} </style> -->
-<!-- </head>
-
-<body>
-  <div id = "proportonal-state"></div>
-</body>
-</html> -->
-
 <html>
   <head>
-    <title>My Sketch</title>
+    <title>mind the gap</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/lodash.js"></script>
     <script language="javascript" src="libraries/p5.dom.js"></script>
     <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
-    <script src="js/stateSketch.js"></script>
+    <!-- <script src="js/preprocess.js"></script> -->
+    <script src="js/stateSketch.js">0</script>
     <script src="js/distSketch.js"></script>
+    <script src="js/distJQSketch.js"></script>
+    <script src="js/stateJQSketch.js"></script>
   </head>
   <body>
-    <div id="example-state"></div>
-    <div id="proportional-state"></div>
-    <div id="pro-dists"></div>
-    <div id="gerry-state"></div>
-    <div id="gerry-dists"></div>
-    <div id="gerry-eff-dists"></div>
+    <div class="project-intro">
+        <h1>mind the gap</h1>
+        <h2>exploring political gerrymandering in the 2012 federal congressional election</h2><br>
+        <h3>What is gerrymandering?</h3>
+        <p class="intro-p">An ingrained facet of American democracy since the 1800’s, <a href='https://en.wikipedia.org/wiki/Gerrymandering'>gerrymandering</a> refers to the process of drawing voting district lines in a way that offers a political advantage to a specific political party or group of people. This process is a hot-button issue in the current American political climate, as experts debate whether the construction of non-competitive districts in state and federal elections has contributed to the polarization of the political landscape, while legal arguments on the lawfulness of this practice have reached the Supreme Court. The drawing of district lines determines the political representation of a state’s population, with each district sending one representative to state or federal governing bodies, and can therefore have serious societal ramifications.
+        <br><br><br>
+        District lines throughout the country are mostly redrawn every ten years, after a new census determines the sociological makeup of a state’s residents. In most states, this line-drawing process is controlled by state legislatures. If one political party has universal control over the legislature and this process in a state, they could use this power to draw lines that offer them a political advantage, opening up the possibility to earn a disproportionately high number of representative seats, even if they don’t have the majority of votes in a state. Let’s look at an example of how manipulating district lines may lead to such a disproportionate advantage. Below we explore a couple line-drawing scenarios in an example state, with an equal number of votes between a Red and Blue political party. In each scenario, we can see how changing the district lines can result in a different number of representatives elected by each party, even though voting totals remain unchanged.
+        </p><br>
+        <h4>Example State</h4>
+        <div id="example-state"></div>
+        <p class='ex-state-p'>
+          This state has a population of 40 people where half vote blue and half red, and will be split into 4 districts of equal size.<br><br>
+          Based on this vote distribution, we “expect” that both <span class="r-p">Red</span> and <span class = "d-p">Blue</span> earn 2 of the 4 available seats under purely proportional representation.
+        </p><br><br><br>
+        <h5>Perfectly Proportional</h5>
+        <div id="pro-flex" class="ex-flex">
+          <div id="proportional-state"></div>
+          <div id="pro-dists"></div>
+        </div>
+        <p class='center'>
+          <span class="r-p">Red</span> won 50% of the vote and 2 seats<br>
+          <span class="d-p">Blue</span> won 50% of the vote and 2 seats</br>
+        </p><br><br>
+        <h5>Gerrymandered?</h5>
+        <div id="gerry-flex" class="ex-flex">
+          <div id="gerry-state"></div>
+          <div id="gerry-dists"></div>
+        </div>
+        <p class='center'>
+          <span class="r-p">Red</span> won 50% of the vote and 1 seat<br>
+          <span class="d-p">Blue</span> won 50% of the vote and 3 seats</br>
+        </p>
+        <br><br><br><br><br><br><br><br>
+        <h3>How do we quantify gerrymandering?</h3>
+        <p class="intro-p">Political gerrymandering’s opponents have argued that the process provides an unfair advantage for one party over another, contributing both to political polarization and the ability for a minority voice to control policy while silencing the will of voters. This argument has been brought before the Supreme Court in the past, most recently in the <i><a href='https://en.wikipedia.org/wiki/Vieth_v._Jubelirer'>Vieth v. Jubelirer</a></i> case in 2004. In this case, the Court ruled (by a 5-4 vote margin) that partisan gerrymandering was NOT unconstitutional. However, one of the consenting justices, Justice Kennedy, wrote that he was indeed troubled by extreme partisan gerrymandering, but didn’t quite know how to define it and didn't want the courts to dabble in determining which individual congressional maps do and do not cross the threshold of reason and fairness. This explanation left the door open for the gerrymandering argument to return to the court, with the directive that if a plaintiff could bring him a clear workable standard to define such extreme gerrymandering, he may vote that district lines that violate such a standard are unconstitutional. So, political scientists set off to define such a workable quantitative standard.
+        <br><br><br>
+        This issue has once again resurfaced in front of the Supreme Court, this time in the case of <i><a href='https://en.wikipedia.org/wiki/Gill_v._Whitford'>Gill v. Whiftford</a></i>, which is evaluating the constitutionality of Wisconsin’s state congressional map drawn by a Republican-controlled state legislature in 2011. Oral arguments for this case were held in October 2017, with a decision expected in the first half of 2018. In this case, political scientists <a href='https://www.politico.com/interactives/2017/politico50/eric-mcghee-nicholas-stephanopoulos/'>Nick Stephanopoulos and Eric McGhee</a> presented a three-part standard to classify what constitutes ‘extreme political gerrymandering:’<br><br><br></p>
+        <ol class="intro-p">
+          <li>Was the map drawn with discriminatory intent - was there motive to benefit one party over another?</li><br>
+          <li>Did a map produce a 'large and durable' discriminatory effect for one party over another?&nbsp;<strong>(this analysis will explore only this aspect of the standard presented)</strong></li><br>
+          <li>Was there any legitimate justification for a map's discriminatory effect other than gerrymandering, such as changes in the natural political geographic landscape?</li><br>
+        </ol><br>
+        <p class="intro-p">
+        To address the second point of this standard, these researches constructed a metric that centers around looking at how many votes each party 'wasted' in a specific election, which they call the efficiency gap:
+        </p><br>
+        <h5>The Efficiency Gap</h5>
+        <p class="quant-expl">This metric, used in arguments for a workable standard to quantify gerrymandering in front of the Supreme Court, rests on the notion that gerrymandering takes place by concepts called <strong>‘cracking’</strong> and <strong>‘packing’</strong>.
+          <br><br><br><strong>Cracking</strong> disperses opposing supporters across a high number of districts where their candidates lose by narrow margins. <strong>Packing</strong> concentrates opposing supporters into fewer districts where their candidates win by overwhelmingly high margins. Both of these strategies produce what political scientists call ‘wasted votes,’ which are votes that don’t directly contribute to the election of a candidate. So, all votes that are cast for a losing candidate or for the winning candidate above the 50% margin needed to win a district are considered ‘wasted’. The efficiency gap then subtracts one party’s wasted votes from another, taking this difference as a percent of overall votes cast in elections within that state, measuring the extent with which one party is more ‘cracked’ and ‘packed’ than the other party.
+          <br><br><br>Let's look back at our example state and explore the district map that resulted in more districts won by the Blue party. How can we calculate the efficiency gap in this example? What was the efficiency gap in this example legislative map?
+          <br><br><br>
+        </p><br><br>
+        <div id="gerry-eff-flex" class="ex-flex">
+          <div id="gerry-state-2"></div>
+          <div id="gerry-eff-dists"></div>
+        </div>
+        <br><br>
+        <div id="gerry-dist-flex-1" class="ex-flex">
+          <div class="blank-div"></div>
+          <div id="gerry-eff-dem-dists"><p class="center"><span class="d-p">Blue</span> ‘wasted’ 2 votes:</p></div>
+        </div>
+        <div id="gerry-dist-flex-2" class="ex-flex">
+          <div class="blank-div"></div>
+          <div id="gerry-eff-rep-dists"><p class="center"><span class="r-p">Red</span> ‘wasted’ 14 votes:</p></div>
+        </div><br>
+        <p class="quant-expl">
+          <span class="r-p">Red</span> wasted a net of 12 votes. If we take those 12 net wasted votes as a proportion of total votes cast (40), we find a:<br><br>
+        </p>
+        <p class='center'>
+          <span class="ex-gerry-result"><br><span class="d-p">15%</span> efficiency gap benefitting <span class="d-p">Blue</span><br></span>
+          in this example state.
+        </p><br><br>
+        <h5>Difference From Proportional Seats</h5>
+        <p class="quant-expl">While the constitutional right for proportional representation in legislatures does not exist, exploring the difference between the percent of votes won and districts won can give us a sense on how ‘fair’ election results were and what kind of congressional impact these results have on our lawmaking governmental wing.
+          If one party won disproportionately more seats than they would have ‘expected’ to win in pure proportional representation, it might be worthwhile to explore these results in more detail.
+          <br><br>In this analysis, the metric called <i>'difference from proportional seats'</i> first determines how many districts one party would 'expect' to win under pure proportionality by multiplying the total districts available by the total percent of votes earned for that party.
+          We then subtract the actual number of districts won by this party to find out how much over- or under-representation this party enjoys in comparison to pure proportionality:
+        </p><br>
+        <p class='center'>
+          <span class="r-p">Red</span> won 1 of an expected 2 seats <span class="r-p">(-1)</span><br>
+          <span class="d-p">Blue</span> won 3 of an expected 2 seats <span class="d-p">(+1)</span><br><br>
+          <span class="ex-gerry-result"><br><span class="d-p">+1</span> net difference from proportional seat count benefitting <span class="d-p">Blue</span><br></span>
+          in this example state.
+        </p>
+        <br><br><br>
+        <h3>Do these metrics show evidence of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gerrymandering in the 2012 house elections?</h3>
+        <p class="intro-p">The below analysis charts the <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">results</a> of the <a href="https://en.wikipedia.org/wiki/United_States_House_of_Representatives_elections,_2012">2012 federal congressional elections</a>, in which Republicans won a 33-seat advantage while losing the plurality of votes.<a> Prior to these elections, Republicans <a href="https://en.wikipedia.org/wiki/United_States_elections,_2010">gained control<a> of many state legislatures, thus controlling redistricting processes that occured between the 2010 census and these congressional elections. This analysis, which includes states with more than two districts, uses the metrics explained above to present evidence of political bias in these elections at the state and district level.
+        <br><br><br>
+        <strong>NOTE:</strong> Plaintiffs in the ongoing <i><a href='https://en.wikipedia.org/wiki/Gill_v._Whitford'>Gill v. Whiftford</a></i> Supreme Court case argue that a congressional districting map should only be illegal if the bias in the map drawing is deliberate, and not a factor of natural political geography. The below analysis only explores whether there is bias in the maps that were in use during the 2012 Congressional elections, NOT whether district lines should be conclusively considered unlawful if the Supreme Court rules in favor of the plaintiffs in this case. Further analysis would be necessary in states that display potential bias to determine if these results were deliberately constructed by parties in control of state legislatures at the time of redistricting, or whether they could have occurred naturally. Experts who have crafted the studies that explore this metric suggest a reasonable cut-off of an 8% efficiency gap, with anything above this line being considered unfairly biased. For reference, we’ve added this benchmark in the efficiency gap chart below to compare which states we might need to explore further to determine if political gerrymandering affected the results of the 2012 federal congressional elections.
+        </p><br>
+        <h6 class="chart-title">State Results</h6>
+        <br><br>
+        <div class = "metric-buttons">
+        <button id = "eff-button">Efficiency Gap</button>
+        <button id = "seat-button">Diff from Proportional Seats</button>
+      </div>
+    </div>
+    <div id="eff-gap-chart">
+      <br>
+      <div id = "eff-gap-axis-1" class = "axis">
+      </div>
+      <div id = "seat-gap-axis-1" class = "axis">
+      </div>
+      <div class="flex-container">
+      </div>
+      <div id = "eff-gap-axis-2" class = "axis">
+      </div>
+      <div id = "seat-gap-axis-2" class = "axis">
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <h6 class="chart-title">District Results</h6>
+    <div id="dist-chart-title">
+    <div id="dist-legend">
+      <p>Each block represents 5,000 votes (rounded up) and is colored according to party, with grey indicating 'other'. Lighter blocks are votes under the winning threshold for each district.</p>
+    </div>
+    </div>
+    <div id="dist-chart"></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </body>
 </html>

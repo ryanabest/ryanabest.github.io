@@ -1,0 +1,51 @@
+.flex-container {
+  display:flex;
+  align-items: stretch;
+  flex-direction: column;
+  align-items: stretch;
+  vertical-align: middle;
+}
+
+.state-eff {
+  display:flex;
+  align-items: stretch;
+  height:30px;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: stretch;
+  vertical-align: middle;
+}
+
+
+.left-white, .left-blue, .right-red, .right-white {
+  height: 30px;
+}
+
+.left-white, .right-white {
+  background-color: #ffffff;
+}
+
+.left-blue {
+  background-color: rgb(34,106,177);
+}
+
+.right-red {
+  background-color: rgb(236,20,14);
+}
+
+.state-eff p {
+  font-family: "Avenir Next" !important;
+  line-height: 30px;
+  box-sizing: content-box;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  vertical-align: middle;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.left-white {
+  text-align:right;
+}
