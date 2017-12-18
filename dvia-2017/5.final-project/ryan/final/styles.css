@@ -32,7 +32,7 @@
 
 .project-intro h1 {
   text-align: center;
-  font-size: 50px;
+  font-size: 85px;
   margin-top: 50px;
   margin-bottom: 0px;
   background-color: #000;
@@ -43,7 +43,7 @@
 
 .project-intro h2 {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
   margin-top: 5px;
   font-style: italic;
@@ -172,9 +172,9 @@ button {
 /* axes */
 .axis {
   font-family: "Avenir Next" !important;
+  /*font-family: Georgia, Times, "Times New Roman", serif;*/
   position: relative;
   height: 25px;
-  /*background-color: #000;*/
   left: 15%;
   width: 70%;
   display: flex;
@@ -187,12 +187,11 @@ button {
 }
 
 #eff-tick-1-text {
-  width: 35%;
-  /*text-align: ;*/
+  width: 36%;
 }
 
 #eff-tick-1-zero {
-  width: 15%;
+  width: 14%;
 }
 
 .eff-tick-1, .seat-tick-1 {
@@ -229,7 +228,7 @@ button {
 }
 
 .right-white, .left-white {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .state-eff, .state-eff p, .left-white, .left-blue, .right-red, .right-white {
@@ -297,7 +296,7 @@ button {
   font-family: "Avenir Next" !important;
   text-align: center;
   height: 500px;
-  width: 25%;
+  width: 30%;
   position: absolute;
   top: 75px;
   left: 10%;
@@ -355,7 +354,7 @@ button {
 }
 
 #dist-legend p {
-  font-family: "Avenir Next" !important;
+  font-family: Georgia, Times, "Times New Roman", serif;
   text-align: center;
   font-size: 12px;
   padding: 6%;
@@ -396,8 +395,8 @@ button {
 }
 
 .r-vote-under, .r-vote-over, .d-vote-under, .d-vote-over, .o-vote-over {
-  width: 15px;
-  height:15px;
+  width: 14px;
+  height:14px;
   margin-right: 2px;
 }
 
