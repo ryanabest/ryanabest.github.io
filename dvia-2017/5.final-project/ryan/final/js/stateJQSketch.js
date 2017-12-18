@@ -244,7 +244,7 @@ function drawEffGaps() {
 
   let benchmark = 0.08;
   let benchmarkProportion = benchmark/axisMax;
-  let benchmarkPercentValue = Math.round(Math.abs(benchmarkProportion)*100)*0.3;
+  let benchmarkPercentValue = Math.round(Math.abs(benchmarkProportion)*100)*0.35;
 
   $('#line-div-1').css("left",(50-benchmarkPercentValue) + '%');
   $('#line-div-2').css("left",(50+benchmarkPercentValue) + '%');
