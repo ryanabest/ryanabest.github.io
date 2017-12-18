@@ -187,11 +187,11 @@ button {
 }
 
 #eff-tick-1-text {
-  width: 36%;
+  width: 30%;
 }
 
 #eff-tick-1-zero {
-  width: 14%;
+  width: 20%;
 }
 
 .eff-tick-1, .seat-tick-1 {
@@ -296,7 +296,7 @@ button {
   font-family: "Avenir Next", futura-pt, sans-serif !important;
   text-align: center;
   height: 500px;
-  width: 30%;
+  width: 25%;
   position: absolute;
   top: 75px;
   left: 10%;
