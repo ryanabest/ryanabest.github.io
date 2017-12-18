@@ -297,6 +297,7 @@ function drawStateSummaryForDistChart() {
 }
 
 function drawStateDropdown() {
+  $('#dropdown-content').empty();
   let stDropdownList = [];
   for (let e=0;e<effGapChart.length;e++) {
     stDropdownList.push({stateName:effGapChart[e]['stateName'],state:effGapChart[e]['state']});
