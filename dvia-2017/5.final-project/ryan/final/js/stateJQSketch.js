@@ -275,7 +275,7 @@ function drawTooltip(state) {
     '<h1>'+stateName+'</h1>'+
     '<h2><span class='+textClass+'>'+tooltipMetric+'</span> '+tooltipMetricName+' benefitting <span class='+textClass+'>'+stateWinParty+'</span>, who won:</h2>'+
     '<h3><span class='+textClass+'>'+statePartyVotes+'</span> of '+stateTotalVotes+' votes ('+statePartyVotePercent+')<br>' +
-    '<span class ='+textClass+'>'+statePartyDists+'</span> of '+stateTotalDists+' districts ('+statePartyDistPercent+')</h3>' +
+    '<span class ='+textClass+'>'+statePartyDists+'</span> of '+stateTotalDists+' district seats ('+statePartyDistPercent+')</h3>' +
     '<p>Click to see district results</p>'
   );
 }
@@ -543,7 +543,7 @@ function drawEffAxes() {
   let effTickDiv1TextClass = 'eff-tick-1';
   let effTickDiv1Text = $('<div></div>',{id:effTickDiv1TextID, "class":effTickDiv1TextClass});
   $('#eff-gap-axis-1').append(effTickDiv1Text);
-  $('#' + effTickDiv1TextID).append("<p>8% efficiency gap considered reasonable - anything beyond these thresholds is considered too extreme</p>");
+  $('#' + effTickDiv1TextID).append("<p>8% gap suggested by experts - anything beyond these thresholds is considered too extreme</p>");
 
   let effTickDiv1ZeroID = 'eff-tick-1-zero';
   let effTickDiv1ZeroClass = 'eff-tick-1';
