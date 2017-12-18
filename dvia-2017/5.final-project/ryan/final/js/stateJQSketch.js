@@ -244,7 +244,7 @@ function drawEffGaps() {
 
   let benchmark = 0.08;
   let benchmarkProportion = benchmark/axisMax;
-  let benchmarkPercentValue = Math.round(Math.abs(benchmarkProportion)*100)*0.35;
+  let benchmarkPercentValue = (benchmarkProportion*100)*0.35;
 
   $('#line-div-1').css("left",(50-benchmarkPercentValue) + '%');
   $('#line-div-2').css("left",(50+benchmarkPercentValue) + '%');
@@ -458,9 +458,9 @@ function changeStateMetric() {
       drawTooltip(state);
 
       let barProportion = -effGapChart[e]['effGap']/axisMax;
-      let percentValue = (Math.abs(barProportion)*100)*0.3
+      let percentValue = (Math.abs(barProportion)*100)*0.35
       let colorPercent = percentValue + '%';
-      let whitePercent = ((30-percentValue) + 20) + '%';
+      let whitePercent = ((35-percentValue) + 15) + '%';
       let stateDivID = 'state-row-' + state;
       let leftWhiteDivID = 'left-white-' + state;
       let leftBlueDivID = 'left-blue-' + state;
