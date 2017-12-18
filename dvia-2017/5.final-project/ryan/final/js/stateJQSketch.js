@@ -273,7 +273,7 @@ function drawTooltip(state) {
 
   $('#' + stateTooltipDivID).append(
     '<h1>'+stateName+'</h1>'+
-    '<h2><span class='+textClass+'>'+tooltipMetric+'</span> '+tooltipMetricName+' benefitting <span class='+textClass+'>'+stateWinParty+'</span>, who won:</h2>'+
+    '<h2><span class='+textClass+'>'+tooltipMetric+'</span> '+tooltipMetricName+' benefitting <br><span class='+textClass+'>'+stateWinParty+'</span>, who won:</h2>'+
     '<h3><span class='+textClass+'>'+statePartyVotes+'</span> of '+stateTotalVotes+' votes ('+statePartyVotePercent+')<br>' +
     '<span class ='+textClass+'>'+statePartyDists+'</span> of '+stateTotalDists+' district seats ('+statePartyDistPercent+')</h3>' +
     '<p>Click to see district results</p>'

@@ -1,6 +1,6 @@
 /* Project Intro Styling */
 .project-intro:not(p), #dist-chart-title {
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
 }
 
 .intro-p {
@@ -9,7 +9,7 @@
 }
 
 .project-intro p, #dist-chart-title p {
-  font-family: ArnhemPro, Georgia, "Times New Roman", serif;
+  font-family: 'Lora', "Times New Roman", serif;
   line-height: 1.25em;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .intro-p ol, li {
-  font-family: ArnhemPro, Georgia, "Times New Roman", serif;
+  font-family: 'Lora', "Times New Roman", serif;
   font-size: 16px;
   margin-left:  10%;
   margin-right: 10%;
@@ -73,7 +73,7 @@
 }*/
 
 .chart-title {
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -139,7 +139,7 @@ canvas {
 /* buttons - affects metric flip and state summary div */
 button {
   border:none;
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   font-weight:bold;
   text-decoration-line: underline;
   text-decoration-style: dotted;
@@ -147,6 +147,7 @@ button {
 
 .metric-buttons button {
   font-size: 22px;
+  border-radius: 10px;
 }
 
 .metric-buttons {
@@ -171,7 +172,7 @@ button {
 
 /* axes */
 .axis {
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   /*font-family: Georgia, Times, "Times New Roman", serif;*/
   position: relative;
   height: 25px;
@@ -187,11 +188,11 @@ button {
 }
 
 #eff-tick-1-text {
-  width: 30%;
+  width: 34%;
 }
 
 #eff-tick-1-zero {
-  width: 20%;
+  width: 16%;
 }
 
 .eff-tick-1, .seat-tick-1 {
@@ -258,7 +259,7 @@ button {
 }
 
 .state-eff p {
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   font-weight: bold;
   box-sizing: content-box;
   margin: 0px;
@@ -293,10 +294,10 @@ button {
 }
 
 .tooltip {
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   text-align: center;
   height: 500px;
-  width: 25%;
+  width: 26%;
   position: absolute;
   top: 75px;
   left: 10%;
@@ -307,6 +308,7 @@ button {
 
 .dropdown, .dropdown-button {
   font-size: 30px;
+  border-radius: 10px;
 }
 
 .state-summ p {
@@ -323,7 +325,7 @@ button {
 
 .dropdown-button {
   border:none;
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   font-size: 26px;
   font-weight:bold;
   background-color: #f9f9f9;
@@ -354,7 +356,7 @@ button {
 }
 
 #dist-legend p {
-  font-family: ArnhemPro, Georgia, "Times New Roman", serif;
+  font-family: 'Lora', "Times New Roman", serif;
   text-align: center;
   font-size: 12px;
   padding: 6%;
@@ -383,7 +385,7 @@ button {
 }
 
 .dist-label p {
-  font-family: "Avenir Next", futura-pt, sans-serif !important;
+  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
   font-weight: bold;
   box-sizing: content-box;
   margin: 0px;

@@ -2,6 +2,8 @@
   <head>
     <title>mind the gap</title>
     <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
     <script language="javascript" type="text/javascript" src="libraries/lodash.js"></script>
@@ -99,7 +101,7 @@
           in this example state.
         </p>
         <br><br><br>
-        <h3>Do these metrics show evidence of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gerrymandering in the 2012 house elections?</h3>
+        <h3>Do these metrics show evidence of <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gerrymandering in the 2012 house elections?</h3>
         <p class="intro-p">If we implement these metrics with the real data from the 2012 elections, what do we find? The below analysis charts the <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">results</a> of the <a href="https://en.wikipedia.org/wiki/United_States_House_of_Representatives_elections,_2012">2012 federal congressional elections</a>, in which Republicans won a 33-seat advantage while losing the plurality of votes.<a> Prior to these elections, Republicans <a href="https://en.wikipedia.org/wiki/United_States_elections,_2010">gained control<a> of many state legislatures, thus controlling redistricting processes that occured between the 2010 census and these congressional elections. We only look at states with more than two districts and use both the efficiency gap and difference from proportional seats to see if there is evidence of significant political bias in these elections at the state and district level. Explore the visualizations below to analyze the results and see if you think there's evidence of malicious gerrymandering influencing our federal House of Representatives.
         <br><br><br>
         <span style="font-size: 75%; line-height:1.5  em;"><strong>NOTE:</strong> Plaintiffs in the ongoing <i>Gill v. Whiftford</i> Supreme Court case argue that a congressional districting map should only be illegal if the bias in the map drawing is deliberate, and not a factor of natural political geography. The below analysis only explores whether there is bias in the maps that were in use during the 2012 Congressional elections, NOT whether district lines should be conclusively considered unlawful if the Supreme Court rules in favor of the plaintiffs in this case. Further analysis would be necessary in states that display potential bias to determine if these results were deliberately constructed by parties in control of state legislatures at the time of redistricting, or whether they could have occurred naturally. Experts who have crafted the studies that explore this metric suggest a reasonable cut-off of an 8% efficiency gap, with anything above this line being considered unfairly biased. For reference, we’ve added this benchmark in the efficiency gap chart below to compare which states we might need to explore further.
