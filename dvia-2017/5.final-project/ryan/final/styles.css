@@ -421,3 +421,11 @@ button {
 .o-vote-over {
   background-color: rgb(200,200,200);
 }
+
+a {
+  color: rgb(50,50,50);
+}
+
+a:hover {
+  color: #0000EE;
+}
