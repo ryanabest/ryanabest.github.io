@@ -242,8 +242,6 @@ button {
 
 .left-blue {
   background-color: rgb(39,80,166);
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 }
 
 .left-blue:hover {
@@ -253,8 +251,6 @@ button {
 
 .right-red {
   background-color: rgb(219,26,0);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .right-red:hover {
