@@ -1,6 +1,6 @@
 /* Project Intro Styling */
 .project-intro:not(p), #dist-chart-title {
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
 }
 
 .intro-p {
@@ -73,7 +73,7 @@
 }*/
 
 .chart-title {
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -139,7 +139,7 @@ canvas {
 /* buttons - affects metric flip and state summary div */
 button {
   border:none;
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   font-weight:bold;
   text-decoration-line: underline;
   text-decoration-style: dotted;
@@ -172,7 +172,7 @@ button {
 
 /* axes */
 .axis {
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   /*font-family: Georgia, Times, "Times New Roman", serif;*/
   position: relative;
   height: 25px;
@@ -259,7 +259,7 @@ button {
 }
 
 .state-eff p {
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   font-weight: bold;
   box-sizing: content-box;
   margin: 0px;
@@ -294,7 +294,7 @@ button {
 }
 
 .tooltip {
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   text-align: center;
   height: 500px;
   width: 26%;
@@ -325,7 +325,7 @@ button {
 
 .dropdown-button {
   border:none;
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   font-size: 26px;
   font-weight:bold;
   background-color: #f9f9f9;
@@ -385,7 +385,7 @@ button {
 }
 
 .dist-label p {
-  font-family:  'Avenir Next', 'Lato Bold', sans-serif !important;
+  font-family:  'Avenir Next', 'Lato', sans-serif !important;
   font-weight: bold;
   box-sizing: content-box;
   margin: 0px;
