@@ -87,8 +87,6 @@ function draw() {
   for (let w=0;w<4;w++) {
     let tickDate = new Date('2017-09-' + String((w*7)+3));
     let tickDiffTime = (tickDate - minDate);
-    console.log(tickDiffTime);
-    console.log(tickDate);
     let xTick = xmargin+zerox+(xDiffTime*(tickDiffTime));
     strokeWeight(0.75);
     stroke(50);
@@ -178,8 +176,8 @@ function draw() {
     fill(0);
     textAlign(CENTER);
     textStyle(BOLD);
-    text(String(eventDate.getMonth()+1) + '-' + eventDate.getDate() + '-' + eventDate.getFullYear()
-          + ', ' + ('0' + eventDate.getHours()).slice(-2) + ':' + ('0' + eventDate.getMinutes()).slice(-2) + ':' + ('0' + eventDate.getSeconds()).slice(-2),wdth/2,ymargin/3);
+    text(eventDate.toLocaleDateString()
+          + ' ' + ('0' + eventDate.getHours()).slice(-2) + ':' + ('0' + eventDate.getMinutes()).slice(-2) + ':' + ('0' + eventDate.getSeconds()).slice(-2),wdth/2,ymargin/3);
     text(hoverList[0]['place'],wdth/2,2*ymargin/3);
     text("Depth: "+ hoverList[0]['depth'] + "km, Mag:"+hoverList[0]['mag']+hoverList[0]['magType'],wdth/2,ymargin);
     fill(255);
