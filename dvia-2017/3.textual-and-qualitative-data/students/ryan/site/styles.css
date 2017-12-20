@@ -33,7 +33,7 @@ html, body{
 }
 
 .div1 {
-  background: #e0e0e0;
+  background: #FAFAFA;
   position: fixed;
   top: 0;
   height: 100px;
@@ -45,7 +45,7 @@ html, body{
 }
 
 .div2 {
-  background: #e0e0e0;
+  background: #FAFAFA;
   position: fixed;
   top: 100px;
   height: 100px;
@@ -72,14 +72,14 @@ html, body{
 }
 
 .div3 {
-  background: #e0e0e0;
+  background: #FAFAFA;
   position: relative;
   /*width: 100%;*/
   top: 210px;
 }
 
 .div3 h1 {
-  background: #e0e0e0;
+  background: #FAFAFA;
   position: sticky;
   top: 200px;
   font-size: 175%;
