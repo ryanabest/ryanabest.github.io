@@ -36,13 +36,13 @@ function setup() {
     loadData();
 
     // create your own map
-    mymap = L.map('quake-map').setView([10.00, 0.00], 2);
+    mymap = L.map('quake-map', {zoomControl:false,attributionControl:false}).setView([10.00, 0.00], 2);
 
     // load a set of map tiles (you shouldn't need to touch this)
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
         subdomains: 'abcd',
-        maxZoom: 19,
+        maxZoom: 19
     }).addTo(mymap);
 
     for (let e=0;e<eqEvents.length;e++) {
@@ -67,7 +67,7 @@ function mousePressed() {
 }
 
 function draw() {
-  sketchsetup()
+  sketchsetup();
   let hoverMag = [];
   let hoverFreq = 0;
   for (let e=0;e<eqEvents.length;e++) {
