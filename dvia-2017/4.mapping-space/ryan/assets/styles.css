@@ -3,10 +3,39 @@ html, body {
   margin: 0;
 }
 
-/* default dimensions for the leaflet map */
+#title {
+  color: #fff;
+  background-color: #000;
+  height: 25%;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#title h1 {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+#title p {
+  font-family: 'Lora', serif;
+  font-weight: normal;
+  font-size: 80%;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #00FFFF;
+}
+
 #flex-container {
   display:flex;
   flex-direction:row;
+  height: 75%;
 }
 
 #quake-map{
@@ -27,9 +56,19 @@ html, body {
 }
 
 #tooltip h1 {
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
+  font-weight: bolder;
+}
+
+#tooltip h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 #tooltip p {
-  font-size: 10px;
+  font-family: 'Lora', serif;
+  font-size: 12px;
+  font-weight: normal;
 }
