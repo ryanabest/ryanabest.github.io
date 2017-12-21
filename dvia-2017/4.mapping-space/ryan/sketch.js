@@ -1,34 +1,30 @@
-// an array for the magnitude
-var magnitudes;
-// an array for depth
-var depths;
-// an array for lat & long
-var latitudes, longitudes;
-
-// minimum and maximum values for magnitude and depth
-var magnitudeMin, magnitudeMax;
-var depthMin, depthMax;
-
 // the dots we'll be adding to the map
 var circles = [];
 
 // table as the data set
 var table;
 var tableJSON = [];
+var eqEvents = [];
+var circleRedList = [];
+var index;
 
 // dimension variables for timeline sketch and canvas
-var hght = window.innerHeight*0.3;
-var wdth = window.innerWidth;
-var ymargin = hght/15;
-var xmargin = wdth/20;
+var hght = window.innerHeight;
+var wdth = window.innerWidth*0.45;
+var ymargin = hght/25;
+var xmargin = wdth/15;
 var zeroy = hght/10;
 var zerox = wdth/10;
 var ell;
+var diam = 7;
+var rad = diam/2;
+var maxmag;
+var rowcount;
+var xdiff;
+var ydiff;
 
 // my leaflet.js map
 var mymap;
-
-var val;
 
 function preload() {
     // load the CSV data into our `table` variable and clip out the header row
@@ -38,14 +34,6 @@ function preload() {
 
 function setup() {
     loadData();
-
-    /*
-    LEAFLET CODE
-
-    In this case "L" is leaflet. So whenever you want to interact with the leaflet library
-    you have to refer to L first.
-    so for example L.map('mapid') or L.circle([lat, long])
-    */
 
     // create your own map
     mymap = L.map('quake-map').setView([10.00, 0.00], 2);
@@ -57,19 +45,138 @@ function setup() {
         maxZoom: 19,
     }).addTo(mymap);
 
-    // draw p5 sketch
-    sketchsetup()
-    sketch()
-    for (i=0;i<tableJSON.length;i++) {
-      console.log(tableJSON[i].latitude);
+    for (let e=0;e<eqEvents.length;e++) {
+      let EQ = eqEvents[e];
+      EQ.drawLeafletPoint();
     }
+    console.log(circles);
+}
 
-    // call our function (defined below) that populates the maps with markers based on the table contents
-    drawDataPoints();
+function mousePressed() {
+  if (mouseX>0) {
+    for (let r=0;r<circleRedList.length;r++) {
+      mymap.removeLayer(circleRedList[r]);
+    }
+    for (let e=0;e<eqEvents.length;e++) {
+      let EQ = eqEvents[e];
+      EQ.clicked(mouseX,mouseY);
+      EQ.drawP5Circles();
+      // ellipse(EQ.x,EQ.y,EQ.d);
+      // console.log(EQ.d);
+    }
+  }
 }
 
 function draw() {
-  // P5 sketch
+  sketchsetup()
+  let hoverMag = [];
+  let hoverFreq = 0;
+  for (let e=0;e<eqEvents.length;e++) {
+    let EQ = eqEvents[e];
+    EQ.drawP5Circles();
+    if (dist(mouseX,mouseY,EQ.x,EQ.y)<EQ.d) {
+      if ($.inArray(EQ.dataRow.mag,hoverMag) === -1) {
+        hoverMag.push(EQ.dataRow.mag);
+      }
+    }
+  }
+  for (let e=0;e<eqEvents.length;e++) {
+    let EQ = eqEvents[e];
+    for (let h=0;h<hoverMag.length;h++) {
+      if (EQ.dataRow.mag===hoverMag[h]) {
+        hoverFreq = hoverFreq + 1;
+      }
+    }
+  }
+  // console.log(hoverMag);
+
+  if (hoverMag.length === 1) {
+    fill(255);
+    text(hoverMag+' ('+hoverFreq+' events)',mouseX+10,mouseY-20);
+    text("Click to see on map",mouseX+10,mouseY-5);
+  } else if (hoverMag.length > 1) {
+    fill(255);
+    var l = hoverMag.length-1;
+    text(hoverMag[l]+' to '+hoverMag[0]+' ('+hoverFreq+' events)',mouseX+10,mouseY-20);
+    text("Click to see on map",mouseX+10,mouseY-5);
+  }
+  // if (hoverMag) {
+  //   fill(255);
+  //   text(hoverMag+' ('+hoverFreq+' events)',mouseX+10,mouseY-20);
+  //   text("Click to see on map",mouseX+10,mouseY-5);
+  // }
+}
+
+class dataPoint {
+  constructor(row,id) {
+    this.dataRow = row;
+    this.id = id;
+    this.minmag = 0;
+    this.x = xmargin+zerox+(xdiff*this.id);
+    this.y = hght-ymargin-zeroy-(ydiff*this.dataRow.mag);
+    this.d = diam;
+    this.r = this.d/2;
+    this.col = color(255,50);
+  }
+  drawP5Circles() {
+    strokeWeight(0);
+    fill(this.col);
+    ellipse(this.x,this.y,this.d);
+  }
+
+  clicked(px,py) {
+    if (px>0) {
+      let clickMag = [];
+      for (let e=0;e<eqEvents.length;e++) {
+        let EQ = eqEvents[e];
+        if (dist(px,py,EQ.x,EQ.y)<EQ.d) {
+          if ($.inArray(EQ.dataRow.mag,clickMag) === -1) {
+            clickMag.push(EQ.dataRow.mag);
+          }
+        }
+      }
+      if ($.inArray(this.dataRow.mag,clickMag) !== -1) {
+        this.col = color(255,0,0);
+        for (let c=0;c<circles.length;c++) {
+          if (circles[c]['options']['mag'] === this.dataRow.mag) {
+            let circleRed = L.circle([this.dataRow.latitude,this.dataRow.longitude], {
+              color: 'red',
+              fillOpacity:1,
+              radius:40000,
+            });
+            circleRed.addTo(mymap);
+            var tooltipText = "<div id='tooltip'><h1>"+this.dataRow.place+'</h1><p>'+this.dataRow.time+'</p><p>Magnitude: '+this.dataRow.mag+'</p></div>';
+            circleRed.bindTooltip(tooltipText);
+            circleRedList.push(circleRed);
+          }
+        }
+      } else {
+        this.col = color(255,50);
+      }
+    }
+  }
+
+  drawLeafletPoint() {
+    strokeWeight(5);
+    stroke(255,255,255);
+    var circle = L.circle([this.dataRow.latitude, this.dataRow.longitude], {
+        stroke: false,      // the dot stroke color
+        fillColor: '#ffffff', // the dot fill color
+        fillOpacity: 0.3,  // use some transparency so we can see overlaps
+        radius: 1,
+        id: this.id,
+        mag: this.dataRow.mag
+    });
+
+    // place it on the map
+    circle.addTo(mymap) //.on("click",showClickedCircleOnTimeline(i));
+    // save a reference to the circle for later
+    circles.push(circle)
+  }
+
+  showMagnitude(px,py) {
+    text(this.dataRow.mag,px+10,py-10);
+  }
 }
 
 function loadData() {
@@ -80,8 +187,15 @@ function loadData() {
   // console.log(table.rows[0].obj);
   sortedtime = sort(table.getColumn("time"));
   rowcount = table.getRowCount();
-  return tableJSON;
-  return rowcount;
+
+  maxmag = tableJSON[0]['mag'];
+  xdiff = (wdth-(2*xmargin)-(2*zerox))/(rowcount-1);
+  ydiff = (hght-(2*ymargin)-(2*zeroy))/maxmag;
+
+  for (let j=0;j<tableJSON.length;j++) {
+    let eqEvent = new dataPoint(tableJSON[j],j);
+    eqEvents.push(eqEvent);
+  }
 }
 
 function sketchsetup() {
@@ -91,129 +205,27 @@ function sketchsetup() {
   stroke(155);
   strokeWeight(2);
   //x-axis
-  line(xmargin+(zerox/2),hght-(ymargin+(zeroy/2)),wdth-(xmargin+(zerox/2)),hght-(ymargin+(zeroy/2)));
+  line(xmargin+(zerox/2),hght-ymargin-zeroy,wdth-(xmargin+(zerox/2)),hght-ymargin-zeroy);
   //y-axis
   line(xmargin+(zerox/2),hght-(ymargin+(zeroy/2)),xmargin+(zerox/2),ymargin+(zeroy/2));
-
-}
-
-function sketch() {
-
-  var rowcount = tableJSON.length;
-
-  // get max and mix magnitudes
-  var maxmag = tableJSON[0].mag;
-  var minmag = 0;
-
-  // determine increments for each new data point
-  var xdiff = (wdth-(2*xmargin)-(2*zerox))/(rowcount-1);
-  var ydiff = (hght-(2*ymargin)-(2*zeroy))/maxmag;
-
-  // circle diameter
-  var diam = 5;
-  // if (xdiff > 10) {
-  //   diam = 10;
-  // } else {
-  //   diam = xdiff;
-  // };
-  var rad = diam/2;
-
-
-  // draw circles on sketch
-  for (i=0;i<rowcount;i++) {
+  textAlign(CENTER);
+  strokeWeight(0);
+  fill(255);
+  text("Magnitude",xmargin,ymargin+(1*zeroy/3));
+  textAlign(LEFT);
+  text("    Each event ordered my magnitude (descending) →", xmargin+(zerox/2),hght-ymargin-(3*zeroy/4));
+  for (let i=0;i<8;i++) {
+    let y = hght-ymargin-zeroy-(ydiff*i);
+    let x1 = xmargin+(zerox/2);
+    let x2 = wdth-(xmargin+(zerox/2));
+    strokeWeight(0.25);
+    line(x1,y,x2,y);
     strokeWeight(0);
-    fill(255,255,255);
-    var x = xmargin+zerox+(xdiff*i);
-    var y = hght-ymargin-zeroy-(ydiff*tableJSON[i].mag);
-    var rand = Math.pow(1.2,tableJSON[i].mag);
-    ellipse(x,y,diam);
-    // if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-    //   ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
-    // } else {
-    //   ellipse(x,y,diam);
-    // }
+    text(i,xmargin,y);
   }
 
-  // function draw rectancle() {
-  //   var
-  // }
-
-  // old code for "tooltip"
-  // strokeWeight(0);
-  // textStyle(BOLD);
-  // fill(0);
-  // text(table.getString(r,"time"),wdth/2,ymargin/3);
-  // text(table.getString(r,"place"),wdth/2,2*ymargin/3);
-  // text("Depth: "+table.getString(r,"depth") + "km, Mag:"+table.getString(r,"mag")+table.getString(r,"magType"),wdth/2,ymargin);
-};
-
-function drawDataPoints(){
-    strokeWeight(5);
-    stroke(255,255,255);
-
-    // cycle through the parallel arrays and add a dot for each event
-    for(var i=0; i<tableJSON.length; i++){
-        // create a new dot
-        var circle = L.circle([tableJSON[i].latitude, tableJSON[i].longitude], {
-            color: 'white',      // the dot stroke color
-            // fillColor: '#D3D3D3', // the dot fill color
-            fillOpacity: 1,  // use some transparency so we can see overlaps
-            radius: 1
-        });
-
-        // place it on the map
-        circle.addTo(mymap) //.on("click",showClickedCircleOnTimeline(i));
-
-        // save a reference to the circle for later
-        circles.push(circle)
-    }
 }
 
-function drawHighlightedCircle(i) {
-  for (r=0;r<rowcount;r++) {
-    if (sortedtime[i] === table.get(r,"time")) {
-      var circle = L.circle([latitudes[i], longitudes[i]], {
-          color: 'red',      // the dot stroke color
-          fillColor: 'red', // the dot fill color
-          fillOpacity: 1,  // use some transparency so we can see overlaps
-          radius: 10
-      });
-
-      // place it on the map
-      circle.addTo(mymap);
-
-      // save a reference to the circle for later
-      circles.push(circle)
-
-    }
-  }
-};
-
-// function showClickedCircleOnTimeline(j) {
-//   for (r=0;r<rowcount;r++) {
-//     if (sortedtime[j] === table.get(r,"time")) {
-//       fill(255,255,255,150);
-//       //console.log(Date(table.get(r,"time")));
-//       var maxy = hght - ymargin - (zeroy/2);
-//       var miny = ymargin + (zeroy/2);
-//       var ydiff = (maxy-miny)/(maxd-mind);
-//       var magscale = 3;
-//       var rdate = new Date(sortedtime[j]);
-//       var maxdate = new Date(table.get(0,"time"));
-//       var mindate = new Date(sortedtime[0]);
-//       var totdatediff = (maxdate - mindate);
-//       var xdifftime = (wdth-(2*xmargin)-(2*zerox))/(totdatediff);
-//       var rdatediff = (rdate - mindate);
-//       // console.log(rdatediff);
-//       var x = xmargin+zerox+(xdifftime*(rdatediff));
-//       var y = ymargin+zeroy+(table.getNum(r,"depth")*ydiff);
-//       var diam = (table.getNum(r,"mag")-2)*magscale;
-//       var rad = diam/2;
-//       var rand = Math.pow(1.5,table.getNum(r,"mag"));
-//       ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
-//     }
-//   }
-// }
 
 function removeAllCircles(){
     // remove each circle from the map and empty our array of references
@@ -243,7 +255,3 @@ function getColumnMax(columnName){
     // or do it the 'easy way' by using lodash:
     // return _.max(colValues);
 }
-
-// function draw() {
-//   console.log(magslider.value());
-// }
