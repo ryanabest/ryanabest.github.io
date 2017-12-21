@@ -1,6 +1,6 @@
 // define global variables
 var table;
-var hght = window.innerHeight*0.8;
+var hght = window.innerHeight*0.85;
 var wdth = window.innerWidth;
 var ymargin = hght/15;
 var xmargin = wdth/20;
