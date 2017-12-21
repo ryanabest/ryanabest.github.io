@@ -1,0 +1,18 @@
+#title {
+  height: 10%;
+  background-color: rgb(240,240,240);
+  font-family: 'Lato' !important;
+  text-align: center;
+}
+
+h1 {
+  border-top: 10px;
+  padding-top: 20px;
+}
+
+h2 {
+  line-height: 3px;
+  font-weight: normal;
+  font-style:italic;
+  font-size: 125%;
+}
