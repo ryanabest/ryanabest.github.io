@@ -1,6 +1,6 @@
 // define global variables
 var table;
-var hght = window.innerHeight;
+var hght = window.innerHeight*0.9;
 var wdth = window.innerWidth;
 var ymargin = hght/15;
 var xmargin = wdth/20;
@@ -28,7 +28,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(wdth,hght);
+  var canv = createCanvas(wdth,hght);
+  canv.parent('sketch');
   for (let r=0;r<table.getRowCount();r++) {
     eqDict.push(table.getRow(r)['obj']);
   }
@@ -73,6 +74,31 @@ function setup() {
     eqDataPoints.push(eqDataPoint);
   }
 }
+
+function draw() {
+  background(240);
+  drawAxes();
+
+  for (let i=0;i<eqDataPoints.length;i++) {
+    stroke(0);
+    strokeWeight(3);
+    eqDataPoints[i].drawLine();
+  }
+
+  // hoverList = [];
+  for (let i=0;i<eqDataPoints.length;i++) {
+    fill(255);
+    eqDataPoints[i].drawCircle();
+    eqDataPoints[i].addToHoverList();
+  }
+
+  hoverList = _.orderBy(hoverList,['mag'],['asc']);
+  for (let i=0;i<eqDataPoints.length;i++) {
+    eqDataPoints[i].drawShakeCircle();
+    eqDataPoints[i].drawShakeText();
+  }
+  hoverList = [];
+};
 
 class EQ {
   constructor(mag,depth,time,place,magType) {
@@ -175,38 +201,13 @@ function drawAxes() {
   stroke(0);
   fill(255);
   strokeWeight(3);
-  ellipse(wdth-2*xdiff,ymargin+(11*ydiff)+(xdiff/2)-5,magscale);
-  if (dist(wdth-2*xdiff,ymargin+(11*ydiff)+(xdiff/2)-5,mouseX,mouseY)<=magscale/2) {
-    ellipse(wdth-2*xdiff+random(-Math.pow(1.5,3),Math.pow(1.5,3)),ymargin+(11*ydiff)+(xdiff/2)-5+random(-Math.pow(1.5,3),Math.pow(1.5,3)),magscale);
+  ellipse(wdth-2*xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,magscale);
+  if (dist(wdth-2*xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,mouseX,mouseY)<=magscale/2) {
+    ellipse(wdth-2*xdiff+random(-Math.pow(1.5,3),Math.pow(1.5,3)),ymargin+(13*ydiff)+(xdiff/2)-5+random(-Math.pow(1.5,3),Math.pow(1.5,3)),magscale);
   }
 
-  ellipse(wdth-xdiff,ymargin+(11*ydiff)+(xdiff/2)-5,xdiff);
-  if (dist(wdth-xdiff,ymargin+(11*ydiff)+(xdiff/2)-5,mouseX,mouseY)<=xdiff/2) {
-    ellipse(wdth-xdiff+random(-Math.pow(1.5,9),Math.pow(1.5,9)),ymargin+(11*ydiff)+(xdiff/2)-5+random(-Math.pow(1.5,9),Math.pow(1.5,9)),xdiff);
+  ellipse(wdth-xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,xdiff);
+  if (dist(wdth-xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,mouseX,mouseY)<=xdiff/2) {
+    ellipse(wdth-xdiff+random(-Math.pow(1.5,9),Math.pow(1.5,9)),ymargin+(13*ydiff)+(xdiff/2)-5+random(-Math.pow(1.5,9),Math.pow(1.5,9)),xdiff);
   }
 }
-
-function draw() {
-  background(240);
-  drawAxes();
-
-  for (let i=0;i<eqDataPoints.length;i++) {
-    stroke(0);
-    strokeWeight(3);
-    eqDataPoints[i].drawLine();
-  }
-
-  // hoverList = [];
-  for (let i=0;i<eqDataPoints.length;i++) {
-    fill(255);
-    eqDataPoints[i].drawCircle();
-    eqDataPoints[i].addToHoverList();
-  }
-
-  hoverList = _.orderBy(hoverList,['mag'],['asc']);
-  for (let i=0;i<eqDataPoints.length;i++) {
-    eqDataPoints[i].drawShakeCircle();
-    eqDataPoints[i].drawShakeText();
-  }
-  hoverList = [];
-};
