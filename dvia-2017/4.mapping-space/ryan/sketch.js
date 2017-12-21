@@ -3,13 +3,14 @@ var circles = [];
 
 // table as the data set
 var table;
+var tableAll;
 var tableJSON = [];
 var eqEvents = [];
 var circleRedList = [];
 var index;
 
 // dimension variables for timeline sketch and canvas
-var hght = window.innerHeight;
+var hght = window.innerHeight*0.75;
 var wdth = window.innerWidth*0.45;
 var ymargin = hght/25;
 var xmargin = wdth/15;
@@ -28,8 +29,7 @@ var mymap;
 
 function preload() {
     // load the CSV data into our `table` variable and clip out the header row
-    table = loadTable("assets/all_month.csv", "csv", "header");
-    // table = loadTable("assets/significant_month.csv", "csv", "header");
+    table = loadTable("assets/1.0_month.csv", "csv", "header");
 }
 
 function setup() {
@@ -49,11 +49,10 @@ function setup() {
       let EQ = eqEvents[e];
       EQ.drawLeafletPoint();
     }
-    console.log(circles);
 }
 
 function mousePressed() {
-  if (mouseX>0) {
+  if (mouseX<wdth) {
     for (let r=0;r<circleRedList.length;r++) {
       mymap.removeLayer(circleRedList[r]);
     }
@@ -125,7 +124,7 @@ class dataPoint {
   }
 
   clicked(px,py) {
-    if (px>0) {
+    if (px<wdth) {
       let clickMag = [];
       for (let e=0;e<eqEvents.length;e++) {
         let EQ = eqEvents[e];
@@ -142,10 +141,10 @@ class dataPoint {
             let circleRed = L.circle([this.dataRow.latitude,this.dataRow.longitude], {
               color: 'red',
               fillOpacity:1,
-              radius:40000,
+              radius:10000,
             });
             circleRed.addTo(mymap);
-            var tooltipText = "<div id='tooltip'><h1>"+this.dataRow.place+'</h1><p>'+this.dataRow.time+'</p><p>Magnitude: '+this.dataRow.mag+'</p></div>';
+            var tooltipText = "<div id='tooltip'><h1>"+this.dataRow.place+'</h1><h2>'+this.dataRow.time+'</h2><p>Magnitude: '+this.dataRow.mag+'</p></div>';
             circleRed.bindTooltip(tooltipText);
             circleRedList.push(circleRed);
           }
@@ -214,11 +213,11 @@ function sketchsetup() {
   text("Magnitude",xmargin,ymargin+(1*zeroy/3));
   textAlign(LEFT);
   text("    Each event ordered my magnitude (descending) →", xmargin+(zerox/2),hght-ymargin-(3*zeroy/4));
-  for (let i=0;i<8;i++) {
+  for (let i=0;i<maxmag;i++) {
     let y = hght-ymargin-zeroy-(ydiff*i);
     let x1 = xmargin+(zerox/2);
     let x2 = wdth-(xmargin+(zerox/2));
-    strokeWeight(0.25);
+    strokeWeight(0.15);
     line(x1,y,x2,y);
     strokeWeight(0);
     text(i,xmargin,y);
