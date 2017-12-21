@@ -1,16 +1,23 @@
-// define a global variable to hold our USGS data
+// define global variables
 var table;
-var hght = window.innerHeight;
+var hght = window.innerHeight*0.8;
 var wdth = window.innerWidth;
 var ymargin = hght/15;
 var xmargin = wdth/20;
 var zeroy = hght/10;
 var zerox = wdth/10;
+var maxy = hght - ymargin - (zeroy/2);
+var miny = ymargin + (zeroy/2);
 
 var ydiff;
 var magscale;
+var maxDate;
+var minDate;
+var totDateDiff;
+var xDiffTime;
 
 var eqDict = [];
+var eqDataPoints = [];
 var hoverList = [];
 
 function preload() {
@@ -19,16 +26,18 @@ function preload() {
   // or (while you're designing) from the feed itself:
   // table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv", "csv", "header");
 }
-var ell;
+
 function setup() {
-  createCanvas(wdth,hght);
+  var canv = createCanvas(wdth,hght);
+  canv.parent('sketch');
   for (let r=0;r<table.getRowCount();r++) {
     eqDict.push(table.getRow(r)['obj']);
   }
   eqDict = _.orderBy(eqDict,['mag','time'],['desc','asc']);
 
   rowcount = table.getRowCount();
-  xdiff = (wdth-(2*xmargin)-(2*zerox))/(rowcount-1)
+  xdiff = (wdth-(2*xmargin)-(2*zerox))/(rowcount-1);
+  magscale = xdiff/7;
 
   //get max and mix depths
   maxd = table.getNum(0,"depth");
@@ -52,37 +61,119 @@ function setup() {
     getmaxdepth();
   }
 
-
-  var maxy = hght - ymargin - (zeroy/2);
-  var miny = ymargin + (zeroy/2);
   ydiff = (maxy-miny)/(maxd-mind);
-  magscale = xdiff/7;
 
   sortedtime = sort(table.getColumn("time"));
+  maxDate = new Date(table.get(0,"time"));
+  minDate = new Date(sortedtime[0]);
+  totDateDiff = (maxDate - minDate);
+  xDiffTime = (wdth-(2*xmargin)-(2*zerox))/(totDateDiff);
+
+  for (let e=0;e<eqDict.length;e++) {
+    let eqDataPoint = new EQ(eqDict[e]['mag'],eqDict[e]['depth'],eqDict[e]['time'],eqDict[e]['place'],eqDict[e]['magType']);
+    eqDataPoints.push(eqDataPoint);
+  }
 }
 
 function draw() {
   background(240);
+  drawAxes();
+
+  for (let i=0;i<eqDataPoints.length;i++) {
+    stroke(0);
+    strokeWeight(3);
+    eqDataPoints[i].drawLine();
+  }
+
+  // hoverList = [];
+  for (let i=0;i<eqDataPoints.length;i++) {
+    fill(255);
+    eqDataPoints[i].drawCircle();
+    eqDataPoints[i].addToHoverList();
+  }
+
+  hoverList = _.orderBy(hoverList,['mag'],['asc']);
+  for (let i=0;i<eqDataPoints.length;i++) {
+    eqDataPoints[i].drawShakeCircle();
+    eqDataPoints[i].drawShakeText();
+  }
+  hoverList = [];
+};
+
+class EQ {
+  constructor(mag,depth,time,place,magType) {
+    this.place = place;
+    this.mag = mag;
+    this.depth = depth;
+    this.time = new Date(time);
+    this.eventDateDiff = (this.time - minDate);
+    this.x = xmargin+zerox+(xDiffTime*(this.eventDateDiff));
+    this.y = ymargin+zeroy+(this.depth*ydiff);
+    this.diam = (this.mag-2)*magscale;
+    this.rad = this.diam/2;
+    this.rand = Math.pow(1.5,this.mag);
+    this.magType = magType;
+  }
+
+  drawLine () {
+    strokeWeight(3);
+    stroke(0);
+    line(this.x,ymargin+zeroy,this.x,this.y);
+  }
+
+  drawCircle() {
+    fill(255);
+    strokeWeight(3);
+    ellipse(this.x,this.y,this.diam);
+  }
+
+  addToHoverList() {
+    if (dist(this.x,this.y,mouseX,mouseY) <= this.rad) {
+      hoverList.push(this);
+    }
+  }
+
+  drawShakeCircle() {
+    // hoverList = _.orderBy(hoverList,['mag'],['asc']);
+    fill(255);
+    strokeWeight(3);
+    if (hoverList.length >= 1 && this.mag === hoverList[0]['mag'] && this.depth === hoverList[0]['depth'] && this.time.getTime() === new Date(hoverList[0]['time']).getTime()) {
+      console.log(hoverList,this.place);
+      this.x = xmargin+zerox+(xDiffTime*(this.eventDateDiff)) + random(-this.rand,this.rand);
+      this.y = ymargin+zeroy+(this.depth*ydiff) + random(-this.rand,this.rand);
+      ellipse(this.x,this.y,this.diam);
+      this.x = xmargin+zerox+(xDiffTime*(this.eventDateDiff));
+      this.y = ymargin+zeroy+(this.depth*ydiff);
+    }
+  }
+
+  drawShakeText() {
+    strokeWeight(0);
+    fill(0);
+    textAlign(CENTER);
+    textStyle(BOLD);
+    if (hoverList.length >= 1 && this.mag === hoverList[0]['mag'] && this.depth === hoverList[0]['depth'] && this.time.getTime() === new Date(hoverList[0]['time']).getTime()) {
+      text(this.time.toLocaleDateString()
+            + ' ' + ('0' + this.time.getHours()).slice(-2) + ':' + ('0' + this.time.getMinutes()).slice(-2) + ':' + ('0' + this.time.getSeconds()).slice(-2),wdth/2,ymargin/3);
+      text(hoverList[0]['place'],wdth/2,2*ymargin/3);
+      text("Depth: "+ hoverList[0]['depth'] + "km, Mag:"+hoverList[0]['mag']+hoverList[0]['magType'],wdth/2,ymargin);
+    }
+  }
+}
+
+function drawAxes() {
   strokeWeight(6);
-
-  let maxDate = new Date(table.get(0,"time"));
-  let minDate = new Date(sortedtime[0]);
-  let totDateDiff = (maxDate - minDate);
-  let xDiffTime = (wdth-(2*xmargin)-(2*zerox))/(totDateDiff);
-
-  //AXES
-
   line(xmargin+zerox,ymargin+zeroy,wdth-xmargin-zerox,ymargin+zeroy);
+
   strokeWeight(0);
   fill(0);
   textAlign(CENTER);
   textStyle(BOLD);
-  // text("Chronological →",xmargin+zerox,ymargin);
-  text("Magnitude",wdth-((xmargin+zerox)/2)-20,hght-ymargin-zeroy);
+  text("Magnitude",wdth-((xmargin+zerox)/2)-20,ymargin);
   text("Depth (km)",zerox/2,(zeroy+ymargin) + ((hght-ymargin-zeroy)/2));
   textStyle(NORMAL);
-  text("3",wdth-2*xdiff,(ymargin+zeroy)+(195*ydiff));
-  text("9",wdth-xdiff,(ymargin+zeroy)+(182*ydiff));
+  text("3",wdth-2*xdiff,(ymargin)+(20*ydiff));
+  text("9",wdth-xdiff,(ymargin)+(8*ydiff));
 
   for (let w=0;w<4;w++) {
     let tickDate = new Date('2017-09-' + String((w*7)+3));
@@ -104,106 +195,19 @@ function draw() {
     strokeWeight(0.25);
     stroke(175);
     line(zerox+xmargin,(ymargin+zeroy)+(i*ydiff),wdth-(zerox+xmargin),(ymargin+zeroy)+(i*ydiff));
-    // console.log(i);
-  }
-  stroke(0);
-  strokeWeight(3);
-  //width
-  // console.log(sortedtime);
-
-
-  for (let e=0;e<eqDict.length;e++) {
-    let eventDate = new Date(eqDict[e]['time']);
-    let eventDateDiff = (eventDate - minDate);
-    let x = xmargin+zerox+(xDiffTime*(eventDateDiff));
-    let y = ymargin+zeroy+(eqDict[e]['depth']*ydiff);
-    line(x,ymargin+zeroy,x,y);
   }
 
-  for (let e=0;e<eqDict.length;e++) {
-    let eventDate = new Date(eqDict[e]['time']);
-    let eventDateDiff = (eventDate - minDate);
-    let x = xmargin+zerox+(xDiffTime*(eventDateDiff));
-    let y = ymargin+zeroy+(eqDict[e]['depth']*ydiff);
-    let diam = (eqDict[e]['mag']-2)*magscale;
-    let rad = diam/2;
-    let rand = Math.pow(1.5,eqDict[e]['mag']);
-    // if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-    //   // fill(255);
-    //   // ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
-    // } else {
-    //   // hoverList = [];
-    //   // console.log(x);
-    fill(255);
-    ellipse(x,y,diam);
-    // }
-  }
-  // rect(wdth/3,0,(wdth)/3,zeroy);
-
-  function drawShake() {
-    hoverList = [];
-    for (let e=0;e<eqDict.length;e++) {
-      let eventDate = new Date(eqDict[e]['time']);
-      let eventDateDiff = (eventDate - minDate);
-      let x = xmargin+zerox+(xDiffTime*(eventDateDiff));
-      let y = ymargin+zeroy+(eqDict[e]['depth']*ydiff);
-      let diam = (eqDict[e]['mag']-2)*magscale;
-      let rad = diam/2;
-      if (mouseX <= x+rad && mouseX >= x-rad && mouseY <= y+rad && mouseY >= y-rad) {
-        hoverList = [];
-        hoverList.push(eqDict[e]);
-      } else {
-        // hoverList = [];
-      }
-    }
-  }
-
-  drawShake();
-  if (hoverList.length >= 1) {
-    // console.log(hoverList[0]['time']);
-    let eventDate = new Date(hoverList[0]['time']);
-    let eventDateDiff = (eventDate - minDate);
-    let x = xmargin+zerox+(xDiffTime*(eventDateDiff));
-    let y = ymargin+zeroy+(hoverList[0]['depth']*ydiff);
-    let diam = (hoverList[0]['mag']-2)*magscale;
-    let rad = diam/2;
-    let rand = Math.pow(1.5,hoverList[0]['mag']);
-    fill(255);
-    ellipse(x+random(-rand,rand),y+random(-rand,rand),diam);
-    fill(240);
-    strokeWeight(0);
-    rect(wdth/3,0,(wdth)/3,zeroy);
-    fill(0);
-    textAlign(CENTER);
-    textStyle(BOLD);
-    text(eventDate.toLocaleDateString()
-          + ' ' + ('0' + eventDate.getHours()).slice(-2) + ':' + ('0' + eventDate.getMinutes()).slice(-2) + ':' + ('0' + eventDate.getSeconds()).slice(-2),wdth/2,ymargin/3);
-    text(hoverList[0]['place'],wdth/2,2*ymargin/3);
-    text("Depth: "+ hoverList[0]['depth'] + "km, Mag:"+hoverList[0]['mag']+hoverList[0]['magType'],wdth/2,ymargin);
-    fill(255);
-    strokeWeight(3);
-  }
-
-
-
-  // text(maxd,3*(zerox+xmargin)/4,(ymargin+zeroy)+(maxd*ydiff));
-
-  // rotate(-3*PI/2);
-  // translate(-(xmargin+(zerox/2)),-(ymargin+zeroy));
   strokeWeight(0);
-  textAlign(CENTER);
+  stroke(0);
   fill(255);
   strokeWeight(3);
-  ellipse(wdth-2*xdiff,hght-(xdiff/2)-5,magscale);
-  if (mouseX <= wdth-2*xdiff+(xdiff/2) && mouseX >= wdth-2*xdiff-(xdiff/2) && mouseY <= hght-(xdiff/2)-5+(xdiff/24) && mouseY >= hght-(xdiff/2)-5-(xdiff/24)) {
-    ellipse(wdth-2*xdiff+random(-Math.pow(1.5,3),Math.pow(1.5,3)),hght-(xdiff/2)-5+random(-Math.pow(1.5,3),Math.pow(1.5,3)),magscale);
+  ellipse(wdth-2*xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,magscale);
+  if (dist(wdth-2*xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,mouseX,mouseY)<=magscale/2) {
+    ellipse(wdth-2*xdiff+random(-Math.pow(1.5,3),Math.pow(1.5,3)),ymargin+(13*ydiff)+(xdiff/2)-5+random(-Math.pow(1.5,3),Math.pow(1.5,3)),magscale);
   }
-  fill(0);
 
-  fill(255);
-
-  ellipse(wdth-xdiff,hght-(xdiff/2)-5,xdiff);
-  if (mouseX <= wdth-xdiff+(xdiff/2) && mouseX >= wdth-xdiff-(xdiff/2) && mouseY <= hght-5 && mouseY >= hght-5-xdiff) {
-    ellipse(wdth-xdiff+random(-Math.pow(1.5,9),Math.pow(1.5,9)),hght-(xdiff/2)-5+random(-Math.pow(1.5,9),Math.pow(1.5,9)),xdiff);
+  ellipse(wdth-xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,xdiff);
+  if (dist(wdth-xdiff,ymargin+(13*ydiff)+(xdiff/2)-5,mouseX,mouseY)<=xdiff/2) {
+    ellipse(wdth-xdiff+random(-Math.pow(1.5,9),Math.pow(1.5,9)),ymargin+(13*ydiff)+(xdiff/2)-5+random(-Math.pow(1.5,9),Math.pow(1.5,9)),xdiff);
   }
-};
+}
