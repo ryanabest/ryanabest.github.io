@@ -5,6 +5,8 @@ Provider: FEC (Federal Election Comission)
 Format: excel (will need to save as csv)
 URL: https://transition.fec.gov/pubrec/electionresults.shtml
 
+Additional info on efficiency gap: https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf
+
 2.) Description: Cartographic Boundary Shapefiles - Congressional Districts. Simplified representations of each congressional district's geographic area.
 Provider: US Census Bureau
 Format: Shapefile (shp) format. Also XML zipped up with data. Maybe can use this node package to interpret shapefile into GeoJSON? https://github.com/mbostock/shapefile/blob/master/README.md#shp2json
