@@ -32,3 +32,22 @@ function printLinks() {
     createSpan(' | ');
   }
 }
+
+// http://www.javascriptkit.com/javatutors/detect-user-scroll-amount.shtml
+
+function amountscrolled(){
+    var winheight = $(window).height()
+    var docheight = $(document).height()
+    var scrollTop = $(window).scrollTop()
+    var trackLength = docheight - winheight
+    var pctScrolled = 100+Math.floor(scrollTop/trackLength * 100) // gets percentage scrolled (ie: 80 NaN if tracklength == 0)
+    if (pctScrolled === 199) {
+      pctScrolled = 200
+    }
+    $('*').css('line-height',pctScrolled+'%');
+    console.log(pctScrolled + '% scrolled')
+}
+
+$(window).on("scroll", function(){
+    amountscrolled()
+})
