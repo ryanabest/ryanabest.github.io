@@ -2,43 +2,94 @@
 <html>
 <head>
   <title>ryan</title>
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Lora:400,700" rel="stylesheet">
   <style>
-  * {
-    font-family: 'Nunito', sans-serif;
-    text-align: center;
+
+  #menu {
+    font-family: 'Lato', sans-serif;
+    margin: 10vh 20vw 5vh 20vw;
   }
 
-  h1 {
-    font-size: 300%;
-    color: #545454;
+  #content {
+    font-family: 'Lora', serif;
+    margin: 5vh 20vw 5vh 20vw;
   }
 
-  .container {
+  #menu hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+
+  #top-menu {
+    height: 5vh;
+    top: 0;
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-
-  .flex-link {
-    width: 33.33%;
-    font-size: 900%;
-    color: #D9D9D9;
+  #top-menu a {
     text-decoration: none;
   }
 
-  .flex-link:hover {
-    color: #ff0317;
+  #top-menu h1 {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 4vh;
+    /* color: #696969; */
+  }
+
+  #social-thumbnails img {
+    height: 5vh;
+    width: 5vh;
+    margin-left: 1vw;
+    /* color: #696969; */
+  }
+
+  #content {
+    font-size: 3vh;
+  }
+
+  #content a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  #content a:hover {
+    color: #DD2830;
   }
 
   </style>
 </head>
 <body>
-  <h1>ryan</h1>
-  <div class = "container">
-    <a class = "flex-link" href = "https://ryanabest.github.io/dvia-2017/">dvia</a>
-    <a class = "flex-link" href = "https://ryanabest.github.io/dm-2017/">dm</a>
-    <a class = "flex-link" href = "https://ryanabest.github.io/ms1-2018/">ms1</a>
+  <div id = "menu">
+    <div id = "top-menu">
+      <div id = "name">
+        <h1>ryan best</h1>
+      </div>
+      <div id = "social-thumbnails">
+        <a href = 'https://twitter.com/buenosbestos'>
+          <img src = 'https://png.icons8.com/metro/1600/twitter.png'/>
+        </a>
+        <a href='https://www.linkedin.com/in/ryan-best-03722482/'>
+          <img src='https://png.icons8.com/ios/1600/linkedin-2-filled.png'/>
+        </a>
+        <a href = 'https://github.com/ryanabest'>
+          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png'/>
+        </a>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div id = "content">
+    <!-- <hr> -->
+    <p>I'm a student of data visualization, technology, and visual design currently at <a href = 'https://twitter.com/parsonsdesign'>@parsonsdesign</a>.
+    I like creating intuitive, beautiful data visualizations for the web that help us understand complex information, tell us stories, and inform our decision making.</p>
+    <p>Some of my latest projects and prototypes include <a href = 'https://ryanabest.github.io/dvia-2017/5.final-project/ryan/final/index.html'>mind the gap</a> and <a href = 'https://ryanabest.github.io/ms1-2018/interactivity/index.html'>The Migration of Art</a>.</p>
+    <p>I live in Brooklyn and enjoy <a href='https://www.strava.com/athletes/21629547'>biking</a> and <a href = 'https://www.discogs.com/user/ryan.a.best/collection'>record collecting</a>.</p>
   </div>
 </body>
 </html>
