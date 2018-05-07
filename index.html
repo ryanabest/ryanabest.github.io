@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ryan</title>
   <link href="https://fonts.googleapis.com/css?family=Lato|Lora:400,700" rel="stylesheet">
   <style>
 
+  * {
+    box-sizing: border-box;
+  }
+
+  #menu, #content {
+    width: 100%;
+		max-width: 800px;
+		/* padding: 1em; */
+  }
+
   #menu {
     font-family: 'Lato', sans-serif;
-    margin: 10vh 20vw 5vh 20vw;
+    margin: 10vh auto 0vh auto;
   }
 
   #content {
     font-family: 'Lora', serif;
-    margin: 5vh 20vw 5vh 20vw;
+    margin: 0vh auto 0vh auto;
   }
 
   #menu hr {
@@ -22,10 +33,12 @@
   }
 
   #top-menu {
-    height: 5vh;
+    /* height: 5vh; */
     top: 0;
     margin: 0;
     display: flex;
+    flex-flow: row wrap;
+    align-content: space-between;
     justify-content: space-between;
   }
 
@@ -45,7 +58,11 @@
     height: 5vh;
     width: 5vh;
     margin-left: 1vw;
-    /* color: #696969; */
+    opacity: 1;
+  }
+
+  #social-thumbnails img:hover {
+    opacity: 0.7;
   }
 
   #content {
@@ -60,6 +77,28 @@
 
   #content a:hover {
     color: #DD2830;
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width : 415px){
+    #top-menu, #name {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+
+    #social-thumbnails {
+      width: 100%;
+      margin: 2vh auto 2vh auto;
+      text-align: center;
+    }
+
+    #social-thumbnails img {
+      height: 4vh;
+      width: 4vh;
+    }
+
   }
 
   </style>
