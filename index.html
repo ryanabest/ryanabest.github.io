@@ -1,121 +1,12 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>ryan</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
-  <style>
-
-  * {
-    box-sizing: border-box;
-  }
-
-  #menu, #content {
-    width: 100%;
-		max-width: 900px;
-		/* padding: 1em; */
-  }
-
-  #menu {
-    font-family: 'Lato', sans-serif;
-    margin: 10vh auto 0vh auto;
-  }
-
-  #content {
-    /* font-family: 'Lora', serif; */
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    margin: 0vh auto 0vh auto;
-  }
-
-  #menu hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-  }
-
-  #top-menu {
-    /* height: 5vh; */
-    top: 0;
-    margin: 0;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: space-between;
-    justify-content: space-between;
-  }
-
-  #top-menu a {
-    text-decoration: none;
-  }
-
-  #top-menu h1 {
-    margin: 0;
-    text-transform: uppercase;
-    /* letter-spacing: 0.2em; */
-    font-size: 4vh;
-    font-weight: 700;
-    /* color: #696969; */
-  }
-
-  #social-thumbnails img {
-    height: 5vh;
-    width: 5vh;
-    margin-left: 1vw;
-    opacity: 1;
-  }
-
-  #social-thumbnails img:hover {
-    opacity: 0.7;
-  }
-
-  #content {
-    font-size: 3vh;
-  }
-
-  #content a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-  }
-
-  #content a:hover {
-    color: #DD2830;
-  }
-
-
-  /* Responsive Styles */
-  @media screen and (max-width : 415px){
-    #top-menu, #name {
-      width: 100%;
-      margin: auto;
-      text-align: center;
-    }
-
-    #menu {
-      margin: 5vh auto 0vh auto;
-    }
-
-    #social-thumbnails {
-      width: 100%;
-      margin: 1vh auto 1vh auto;
-      text-align: center;
-    }
-
-    #social-thumbnails img {
-      height: 9vw;
-      width: 9vw;
-      margin: 0 2vw;
-    }
-
-    #top-menu h1 {
-      letter-spacing: 0.15em;
-      font-size: 10vw;
-      /* color: #696969; */
-    }
-
-  }
-
-  </style>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700" rel="stylesheet">
+  <script src="/libraries/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8">
 </head>
 <body>
   <div id = "menu">
@@ -123,25 +14,33 @@
       <div id = "name">
         <h1>ryan best</h1>
       </div>
-      <div id = "social-thumbnails">
-        <a href = 'https://twitter.com/buenosbestos' target="_blank">
-          <img src = 'https://png.icons8.com/metro/1600/twitter.png'/>
-        </a>
-        <a href='https://www.linkedin.com/in/ryan-best-03722482/' target="_blank">
-          <img src='https://png.icons8.com/ios/1600/linkedin-2-filled.png'/>
-        </a>
-        <a href = 'https://github.com/ryanabest' target="_blank">
-          <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png'/>
-        </a>
+      <div id = "menu-links">
+        <script src = "/js/link-hover.js"></script>
+        <a href = "/work.html" class = "menu-link">work</a>
+        <a href = "/index.html" class = "menu-link active">about</a>
       </div>
     </div>
-    <hr>
   </div>
-  <div id = "content">
-    <p>I'm a student of data visualization, technology, and visual design currently at <a href = 'https://twitter.com/parsonsdesign'>@parsonsdesign</a>.
+  <div class = "about-content">
+    <p>I'm a student of data visualization, technology, and visual design currently at <a href = 'https://twitter.com/parsonsdesign'>@parsonsdesign</a> and <a href = 'https://twitter.com/WebMD'>@WebMD</a>.
     I like creating intuitive and beautiful data visualizations for the web that help us understand complex information, tell us stories, and inform our decision making.</p>
     <p>Some of my latest projects and prototypes include <a href = 'https://ryanabest.github.io/dvia-2017/5.final-project/ryan/final/index.html'>mind the gap</a> and <a href = 'https://ryanabest.github.io/ms1-2018/interactivity/index.html'>The Migration of Art</a>.</p>
-    <p>I live in Brooklyn and enjoy <a href='https://www.strava.com/athletes/21629547'>biking</a> and <a href = 'https://www.discogs.com/user/ryan.a.best/collection'>record collecting</a>.</p>
+    <p>I currently live in Brooklyn and enjoy <a href='https://www.strava.com/athletes/21629547'>biking</a> and <a href = 'https://www.discogs.com/user/ryan.a.best/collection'>record collecting</a>.</p>
+  </div>
+  <div class = "social-thumbnails">
+    <a href = 'https://twitter.com/buenosbestos' target="_blank">
+      <img id = "twitter-thumb" src = '../assets/twitter.png'/>
+    </a>
+    <a href='https://www.linkedin.com/in/ryan-best-03722482/' target="_blank">
+      <img id = "linkedin-thumb" src='../assets/linkedin.png'/>
+    </a>
+    <a href = 'https://public.tableau.com/profile/ryan.best8326#!/' target="_blank">
+      <img id = "tableau-thumb" src='../assets/tableau.png'/>
+    </a>
+    <a href = 'https://github.com/ryanabest' target="_blank">
+      <img id = "github-thumb" src='../assets/github.png'/>
+    </a>
+    <script src="js/link-hover.js"></script>
   </div>
 </body>
 </html>
