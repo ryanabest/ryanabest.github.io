@@ -66,6 +66,16 @@
   /* margin: auto auto 10vh auto; */
 }
 
+/* The Migration of Art */
+
+
+#phone-png img {
+  height: 100%;
+  width: auto;
+  margin: auto;
+  position: absolute;
+}
+
 @media screen and (max-width : 800px){
   .column {
     flex: 100%;
