@@ -34,8 +34,10 @@
 
 .project-image {
   width: 100%;
+  height: auto;
   max-width: 1500px;
   padding: 1em;
+  text-align: center;
 }
 
 .project-image img {
@@ -43,37 +45,14 @@
   height: auto;
 }
 
-.project-content-with-images {
-  width: 100%;
-  max-width: 900px;
-  margin: 2vh auto 2vh auto;
-  display: flex;
+.video-wrapper, .project-image img {
+  -moz-box-shadow:    0 0 5px .1px #c8c8c8;
+  -webkit-box-shadow: 0 0 5px .1px #c8c8c8;
 }
-
-.project-content-with-images p {
-  font-size: 2vh;
-}
-
-.pcwi-text, .pcwi-image {
-  width: 50%;
-  margin: auto;
-  padding: 1em;
-}
-
-.pcwi-image img {
-  width: 100%;
-  height: auto;
-  /* margin: auto auto 10vh auto; */
-}
-
 /* The Migration of Art */
 
 
-#phone-png img {
-  height: 100%;
-  width: auto;
-  margin: auto;
-  position: absolute;
+#phone{
 }
 
 @media screen and (max-width : 800px){
