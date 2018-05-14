@@ -50,7 +50,7 @@
     <p>The main data challenge in this project was how to parse ownership and exhibition histories, which are organized as separate paragraphs of text and lists in the Met's API and front-end webpage, into workable structures that brought these data together into one cohesive story of movement for each painting.</p>
     <p>After bringing down each provenance paragraph and exhibition history from The Met's API into static files, I needed to split the paragraphs of provenance text into individual unique ownership tenures, associating each owner the with the location listed and timeframe of ownership. I then joined exhibitions and provenance together into the same timeline, logging the location of a painting in each year from creation through 2017 (the most recent data available). In my model, a painting moves locations any time it was acquired by a new owner or went on exhibition. After a painting's last exhibition, it returns to The Met. I used pandas for this data processing and aggregating into data frames, which I then exported as JSON files to be loaded into my front-end visualization.</p>
   </div>
-  <div class = "project-content">
+  <div class = "project-content" id = "project-content-1">
     <h1>Visualization</h1>
   </div>
 
@@ -102,7 +102,7 @@
           <div class="sensor"></div>
           <div class="speaker"></div>
           <div class="screen">
-              <iframe src="https://player.vimeo.com/video/269499860?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe> <script src="https://player.vimeo.com/api/player.js"></script> 
+              <iframe src="https://player.vimeo.com/video/269499860?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe> <script src="https://player.vimeo.com/api/player.js"></script>
           </div>
           <div class="home"></div>
           <div class="bottom-bar"></div>
