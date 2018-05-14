@@ -38,6 +38,7 @@
   max-width: 1500px;
   padding: 1em;
   text-align: center;
+  margin: auto;
 }
 
 .project-image img {
