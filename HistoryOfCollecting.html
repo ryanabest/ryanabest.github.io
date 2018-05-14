@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>ryan</title>
+  <title>A History Of Collecting At The Met</title>
   <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700" rel="stylesheet">
   <script src="/libraries/jquery-3.3.1.min.js"></script>
@@ -13,7 +13,7 @@
   <div id = "menu">
     <div id = "top-menu">
       <div id = "name">
-        <h1>ryan best</h1>
+        <a href="/index.html"><h1>ryan best</h1></a>
       </div>
       <div id = "menu-links">
         <a href = "/work.html" class = "active menu-link">work</a>
@@ -21,18 +21,29 @@
       </div>
     </div>
   </div>
-  <div class = "project-content">
+  <div class = "project-content" id = "project-content-1">
     <h1>A History Of Collecting At The Met</h1>
-    <p>This desktop prototype explores the development of <a href='https://www.metmuseum.org/'>The Metropolitan Museum of Art's</a> collection across it's illustrious history, comparing cumulative objects collected across each country of cultural significance in the museum's widespread collection.</p>
+    <p>This visualization dives into one of the world's most widespread collections of human culture, exploring how it has developed over time and how it reflects human history.</p>
   </div>
   <div class = "project-image">
-    <div style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/269372304?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    <div class = "video-wrapper" style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/269372304?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div> <script src="https://player.vimeo.com/api/player.js"></script>
   </div>
   <div class = "project-content">
     <p><a href = "https://ryanabest.github.io/ms1-2018/quant/index.html" target = "_blank">See the prototype →</a></p>
     <br><br>
-    <h1>The Project</h1>
-    <p></p>
+    <p>How has the The Metropolitan Museum of Art's <a href = "https://www.metmuseum.org/art/collection">collection</a> evolved throughout it's illustrious history? Where are their artifacts and artworks from, and when did they acquire pieces from which areas of the world?</p>
+    <p>As a student of Data Visualization at The Parsons School of Design, I was tasked with conducting a quantitative visualization that focused on The Metropolitan Museum of Art's collection, who partnered with our studio course for the semester. I was floored by the both the breadth and depth of the museum's collection, which numbers in the hundreds of thousands of pieces that span over 5,000 years of human history. I wanted to look at the entirety of this collection to explore where these pieces came from and how the museum's collection patterns had evolved in almost a century and a half of history.</p>
+  </div>
+  <div class = "project-content">
+    <h1>Process</h1>
+    <p>
+      <b>Data Source:</b> The Metropolitan Museum of Art's <a href="https://github.com/metmuseum/openaccess">Open Access CSV</a>
+      <br>
+      <b>Tools: </b>
+      Python and <a href="https://pandas.pydata.org/">pandas</a> for data cleaning and aggregating.
+      <a href="https://p5js.org/">p5.js</a>, JavaScript, HTML/CSS, and <a href="https://nodejs.org/en/">node.js</a> for web development and prototyping.
+      Illustrator and Principle for concept development and  visual/animation prototyping.
+    </p>
   </div>
   <div class = "social-thumbnails">
     <a href = 'https://twitter.com/buenosbestos' target="_blank">
