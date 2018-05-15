@@ -26,7 +26,10 @@
     <p>This visualization explores how artwork travels across the globe through ownership changes and exhibitions, focusing on <a href="https://www.metmuseum.org/">The Met's</a> collection of Van Gogh paintings.</p>
   </div>
   <div class = "project-image">
-    <div class = "video-wrapper" style="padding:56.18% 0 0 0;position:relative;margin:auto;"><iframe src="https://player.vimeo.com/video/269368498?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div> <script src="https://player.vimeo.com/api/player.js"></script>
+    <div class = "video-wrapper">
+      <script src="https://fast.wistia.com/embed/medias/ehyu1tr5ty.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.04% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_ehyu1tr5ty seo=false videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div></div></div>
+    </div>
+    <!-- <div class = "video-wrapper" style="padding:56.18% 0 0 0;position:relative;margin:auto;"><iframe src="https://player.vimeo.com/video/269368498?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div> <script src="https://player.vimeo.com/api/player.js"></script> -->
   </div>
   <div class = "project-content">
     <p><a href = "https://ryanabest.github.io/ms1-2018/interactivity/index.html" target = "_blank">See the prototype →</a></p>
@@ -48,7 +51,7 @@
   <div class = "project-content">
     <h1>Data</h1>
     <p>The main data challenge in this project was how to parse ownership and exhibition histories, which are organized as separate paragraphs of text and lists in the Met's API and front-end webpage, into workable structures that brought these data together into one cohesive story of movement for each painting.</p>
-    <p>After bringing down each provenance paragraph and exhibition history from The Met's API into static files, I needed to split the paragraphs of provenance text into individual unique ownership tenures, associating each owner the with the location listed and timeframe of ownership. I then joined exhibitions and provenance together into the same timeline, logging the location of a painting in each year from creation through 2017 (the most recent data available). In my model, a painting moves locations any time it was acquired by a new owner or went on exhibition. After a painting's last exhibition, it returns to The Met. I used pandas for this data processing and aggregating into data frames, which I then exported as JSON files to be loaded into my front-end visualization.</p>
+    <p>After bringing down each provenance paragraph and exhibition history from The Met's API into static files, I needed to split the paragraphs of provenance text into individual unique ownership tenures, associating each owner with the location listed and their timeframe of ownership. I then joined exhibitions and provenance together into the same timeline, logging the location of a painting in each year from creation through 2017 (the most recent data available). In my model, a painting moves locations any time it was acquired by a new owner or went on exhibition. After a painting's last exhibition, it returns to The Met. I used pandas for this data processing and aggregating into data frames, which I then exported as JSON files to be loaded into my front-end visualization.</p>
   </div>
   <div class = "project-content" id = "project-content-1">
     <h1>Visualization</h1>
@@ -93,7 +96,7 @@
     <link rel="stylesheet" href="css/devices.min.css" type="text/css">
     <h1>Mobile</h1>
     <p>Finally, we were tasked with presenting our project in a 'new context', designing a consistent visual either in the mobile or physical space. The following mock-up displays how we could interact with The Migration of Art on a mobile device, adapting this interface and visualization to a more constrained screen with a wholly different method of interaction.</p>
-    <div class="project-image">
+    <div class="project-image" id="phone-image">
       <div class="marvel-device iphone8plus black">
           <div class="top-bar"></div>
           <div class="sleep"></div>
