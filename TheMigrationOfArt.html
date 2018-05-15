@@ -62,7 +62,9 @@
     <img src = "../assets/projects/MigrationOfArt/TravelTimeline.png"/>
   </div>
   <div class = "project-content">
-    <p>Our main visualization focuses on an abstract representation of each painting's movement. Each location visited by at least one painting in our analysis gets a horizontal line on our y-axis, arranged from east (top) to west (bottom). These locations range from cities to specific Museums. Along the x-axis we track each year in the painting's lifespan, allowing us to see the painting's full history of movement in one visual.</p>
+    <p>I wanted our main visualization to be packed with rich information - the abstracted timeline view allows us to see the entire history of each painting's movement in one visual, while distinguishing movement due to ownership change and exhibitions. Users who are looking for more granular detail on specific owners or exhibition locations can find this information behind a hover.</p>
+    <p>Our axes themselves also portray rich insight about the collection. Each location visited by at least one painting in our analysis gets a horizontal line on our y-axis, arranged from east (top) to west (bottom), allowing us to get a relative sense of where this collection as a whole traveled - and where it didn't.
+      Our x-axis starts when the first painting in our collection was created, in 1885, through to our most recent data in 2017, allowing us to track each year in the painting's lifespan in the context of the collection as a whole. These axes stay consistent for each painting, allowing for quick and easy comparisons across the different paintings in our study.</p>
   </div>
 
   <!-- Travel Map  -->
@@ -94,9 +96,8 @@
   </div>
   <div class = "project-content">
     <link rel="stylesheet" href="css/devices.min.css" type="text/css">
-    <h1>Mobile</h1>
-    <p>Finally, we were tasked with presenting our project in a 'new context', designing a consistent visual either in the mobile or physical space. The following mock-up displays how we could interact with The Migration of Art on a mobile device, adapting this interface and visualization to a more constrained screen with a wholly different method of interaction.</p>
-    <div class="project-image" id="phone-image">
+    <!-- <h1>Mobile</h1> -->
+    <div class="project-image">
       <div class="marvel-device iphone8plus black">
           <div class="top-bar"></div>
           <div class="sleep"></div>
@@ -104,13 +105,16 @@
           <div class="camera"></div>
           <div class="sensor"></div>
           <div class="speaker"></div>
-          <div class="screen">
+          <div class="screen" id="iphone8-screen">
               <iframe src="https://player.vimeo.com/video/269499860?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="height:100%;width:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe> <script src="https://player.vimeo.com/api/player.js"></script>
           </div>
           <div class="home"></div>
           <div class="bottom-bar"></div>
       </div>
     </div>
+    <p>On a mobile device, we need to adapt this interface and visualization to a more constrained screen with a wholly different method of interaction. The orientation of our main visualization and painting menu are flipped to utilize better utilize scrolling. A collapsable menu allows our users to determine the level of detail available at each data point while they scroll, along with changing which visuals are shown. Additional project information and visual legends are also hidden behind this menu.</p>
+  </div>
+  <div class = "more-info">
   </div>
   <div class = "social-thumbnails">
     <a href = 'https://twitter.com/buenosbestos' target="_blank">

@@ -50,15 +50,24 @@
   -moz-box-shadow:    0 0 5px .1px #c8c8c8;
   -webkit-box-shadow: 0 0 5px .1px #c8c8c8;
 }
-/* The Migration of Art */
 
+.marvel-device {
+    zoom: 0.8
+}
 
-#phone{
+#iphone8-screen {
+  background-color: #000;
+  margin: auto;
+  text-align: center;
 }
 
 @media screen and (max-width : 800px){
   .column {
     flex: 100%;
     max-width: 100%;
+  }
+
+  .marvel-device {
+    zoom: 0.65;
   }
 }
