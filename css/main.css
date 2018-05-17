@@ -1,6 +1,6 @@
 body {
-  /* background-image:-webkit-gradient(linear,left top,right top,from(rgba(250,250,250,.5)),to(rgba(200,200,200,.5))); */
   background-color: rgb(250,250,250);
+  color: #000;
 }
 
 * {

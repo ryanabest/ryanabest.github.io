@@ -10,35 +10,41 @@
   <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8">
 </head>
 <body>
-  <div id = "menu">
-    <div id = "top-menu">
-      <div id = "name">
+  <div id="menu">
+    <div id="top-menu">
+      <div id="name">
         <a href="/index.html"><h1>ryan best</h1></a>
       </div>
-      <div id = "menu-links">
-        <a href = "/work.html" class = "active menu-link">work</a>
-        <a href = "/index.html" class = "menu-link">about</a>
+      <div id="menu-links">
+        <a href = "/work.html" class="active menu-link">work</a>
+        <a href = "/index.html" class="menu-link">about</a>
       </div>
     </div>
   </div>
-  <div class = "project-content" id = "project-content-1">
+  <div class="project-content project-content-1">
     <h1>The Migration of Art</h1>
     <p>This visualization explores how artwork travels across the globe through ownership changes and exhibitions, focusing on <a href="https://www.metmuseum.org/">The Met's</a> collection of Van Gogh paintings.</p>
   </div>
-  <div class = "project-image">
-    <div class = "video-wrapper">
+  <div class="project-image">
+    <div class="video-wrapper">
       <script src="https://fast.wistia.com/embed/medias/ehyu1tr5ty.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.04% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_ehyu1tr5ty seo=false videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div></div></div>
     </div>
-    <!-- <div class = "video-wrapper" style="padding:56.18% 0 0 0;position:relative;margin:auto;"><iframe src="https://player.vimeo.com/video/269368498?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div> <script src="https://player.vimeo.com/api/player.js"></script> -->
+    <!-- <div class="video-wrapper" style="padding:56.18% 0 0 0;position:relative;margin:auto;"><iframe src="https://player.vimeo.com/video/269368498?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div> <script src="https://player.vimeo.com/api/player.js"></script> -->
   </div>
-  <div class = "project-content">
+  <div class="project-content">
     <p><a href = "https://ryanabest.github.io/ms1-2018/interactivity/index.html" target = "_blank">See the prototype →</a></p>
     <br><br>
     <!-- <h1>The Project</h1> -->
     <p>How does art travel across the globe before it arrives in a museum gallery? When was it bought and sold, and by whom? When and where was it sent on exhibition tours? Studying an artwork's rich history of movement is crucial to understanding how the world interacted with a piece, along with how it influenced the broader world of art and human culture. While a student of data visualization at Parsons School of Design, I worked with wonderful partners at The Metropolitan Museum of Art to explore these questions in a visual context, utilizing both an abstracted visual timeline and animated mapping to follow the museum's collection of Van Gogh paintings through their paths traveled from creation to their current location at The Met.</p>
   </div>
-  <div class = "project-content">
+  <div class="project-content project-content-1">
     <h1>Process</h1>
+    <img src="/assets/projects/MigrationOfArt/processIteration.gif"/>
+  </div>
+  <div class="project-image">
+
+  </div>
+  <div class="project-content">
     <p>
       <b>Data Source:</b> The Met API, made available to our course.
       <br>
@@ -48,53 +54,71 @@
       Sketch and Adobe Illustrator for concept development and visual prototyping.
     </p>
   </div>
-  <div class = "project-content">
+  <div class="project-content project-content-1">
     <h1>Data</h1>
+  </div>
+  <div class="project-image" id="data-process">
+    <div class="process-content">
+      <div id="prov-text-ex-img" class="process-imgs">
+        <img src="../assets/projects/MigrationOfArt/DataProcess/TheMetTextExample.png"/>
+      </div>
+      <div id="python-ex-img" class="process-imgs">
+        <img src="../assets/projects/MigrationOfArt/DataProcess/PythonExample.png"/>
+      </div>
+      <div id="json-ex-img" class="process-imgs">
+        <img src="../assets/projects/MigrationOfArt/DataProcess/JSONExample.png"/>
+      </div>
+    </div>
+    <div id="data-process-text"><p>Test Explanation</p></div>
+    <script src="/js/migration-data.js"></script>
+  </div>
+  <div class="project-content">
+    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/interactivity" target = "_blank">See the code →</a></p>
     <p>The main data challenge in this project was how to parse ownership and exhibition histories, which are organized as separate paragraphs of text and lists in the Met's API and front-end webpage, into workable structures that brought these data together into one cohesive story of movement for each painting.</p>
     <p>After bringing down each provenance paragraph and exhibition history from The Met's API into static files, I needed to split the paragraphs of provenance text into individual unique ownership tenures, associating each owner with the location listed and their timeframe of ownership. I then joined exhibitions and provenance together into the same timeline, logging the location of a painting in each year from creation through 2017 (the most recent data available). In my model, a painting moves locations any time it was acquired by a new owner or went on exhibition. After a painting's last exhibition, it returns to The Met. I used pandas for this data processing and aggregating into data frames, which I then exported as JSON files to be loaded into my front-end visualization.</p>
   </div>
-  <div class = "project-content" id = "project-content-1">
+  <div class="project-content project-content-1">
     <h1>Visualization</h1>
   </div>
 
   <!-- Travel Timeline  -->
-  <div class = "project-image">
+  <div class="project-image">
     <img src = "../assets/projects/MigrationOfArt/TravelTimeline.png"/>
   </div>
-  <div class = "project-content">
-    <p>I wanted our main visualization to be packed with rich information - the abstracted timeline view allows us to see the entire history of each painting's movement in one visual, while distinguishing movement due to ownership change and exhibitions. Users who are looking for more granular detail on specific owners or exhibition locations can find this information behind a hover.</p>
+  <div class="project-content">
+    <p>I wanted our main visualization to contain layered and rich information, maintaining the entire history of each painting's movement in one visual while distinguishing ownership changes and exhibitions. My solution for this challenge was this abstract travel timeline, inspired by E.J. Marey's 1885 graphical <a href = "https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003zP">train schedule.</a> Users who are looking for more granular detail on specific owners or exhibition locations can find this information behind a hover.</p>
     <p>Our axes themselves also portray rich insight about the collection. Each location visited by at least one painting in our analysis gets a horizontal line on our y-axis, arranged from east (top) to west (bottom), allowing us to get a relative sense of where this collection as a whole traveled - and where it didn't.
       Our x-axis starts when the first painting in our collection was created, in 1885, through to our most recent data in 2017, allowing us to track each year in the painting's lifespan in the context of the collection as a whole. These axes stay consistent for each painting, allowing for quick and easy comparisons across the different paintings in our study.</p>
   </div>
 
   <!-- Travel Map  -->
-  <div class = "project-image">
+  <div class="project-image">
     <img src = "../assets/projects/MigrationOfArt/TravelMap.png"/>
   </div>
-  <div class = "project-content">
+  <div class="project-content">
     <p>This abstract timeline is supported by our map view, showing the path each painting traveled across the globe from its creation through 2017. Through animation we can walk through each year of this journey, following along with these travels in real time.</p>
   </div>
 
   <!-- More Info  -->
-  <div class = "project-image">
+  <div class="project-image">
     <img src = "../assets/projects/MigrationOfArt/MoreInfo.png"/>
   </div>
-  <div class = "project-content">
+  <div class="project-content">
     <p>For users that may be interested in a broader context on the inspiration and impetus of this project, we can see more information in this tertiary level of detail, reminscient of a placard next to each painting on the walls of a museum.</p>
   </div>
 
   <!-- Intro  -->
-  <div class = "project-image">
+  <div class="project-image">
     <!-- <img src = "../assets/projects/MigrationOfArt/MigrationOfArt.png"/> -->
-    <div class = "video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/269498518?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    <div class="video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/269498518?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
   </div>
-  <div class = "project-image">
+  <div class="project-image">
     <img src = "../assets/projects/MigrationOfArt/IntroPlacard.png"/>
   </div>
-  <div class = "project-content">
+  <div class="project-content">
     <p>We welcome our users with a friendly animation that both draws in our users with an engaging visual, while also orienting us to the project's concept of exploring how these pieces move from place to place. These paintings will also become the menu with which we navigate and filter the project's main visualizations, while a concise introduction orients us to the context and importance of the project.</p>
   </div>
-  <div class = "project-content">
+  <div class="project-content">
     <link rel="stylesheet" href="css/devices.min.css" type="text/css">
     <!-- <h1>Mobile</h1> -->
     <div class="project-image">
@@ -112,22 +136,22 @@
           <div class="bottom-bar"></div>
       </div>
     </div>
-    <p>On a mobile device, I needed to adapt this interface and visualization to a more constrained screen which requires wholly different methods of interaction. The orientation of our main visualization and painting menu are flipped to utilize better utilize scrolling. A collapsable menu allows our users to determine the level of detail available at each data point while they scroll, along with changing which visuals are shown. Additional project information and visual legends are also hidden behind this menu.</p>
+    <p>On a mobile device, I needed to adapt this interface and visualization to a more constrained screen which requires wholly different methods of interaction. The orientation of our main visualization and painting menu are rotated to better utilize scrolling. A collapsable menu allows our users to determine the level of detail available at each data point while they scroll, along with changing which visuals are shown. Additional project information and visual legends are also accessible behind this menu.</p>
   </div>
-  <div class = "more-info">
+  <div class="more-info">
   </div>
-  <div class = "social-thumbnails">
+  <div class="social-thumbnails">
     <a href = 'https://twitter.com/buenosbestos' target="_blank">
-      <img id = "twitter-thumb" src = '../assets/social-icons/twitter.png'/>
+      <img id="twitter-thumb" src = '../assets/social-icons/twitter.png'/>
     </a>
     <a href='https://www.linkedin.com/in/ryan-best-03722482/' target="_blank">
-      <img id = "linkedin-thumb" src='../assets/social-icons/linkedin.png'/>
+      <img id="linkedin-thumb" src='../assets/social-icons/linkedin.png'/>
     </a>
     <a href = 'https://public.tableau.com/profile/ryan.best8326#!/' target="_blank">
-      <img id = "tableau-thumb" src='../assets/social-icons/tableau.png'/>
+      <img id="tableau-thumb" src='../assets/social-icons/tableau.png'/>
     </a>
     <a href = 'https://github.com/ryanabest' target="_blank">
-      <img id = "github-thumb" src='../assets/social-icons/github.png'/>
+      <img id="github-thumb" src='../assets/social-icons/github.png'/>
     </a>
     <script src="js/link-hover.js"></script>
   </div>
