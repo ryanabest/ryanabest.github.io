@@ -21,9 +21,9 @@
       </div>
     </div>
   </div>
-  <div class = "project-content" id = "project-content-1">
+  <div class = "project-content project-content-1">
     <h1>A History Of Collecting At The Met</h1>
-    <p>This visualization dives into one of the world's most widespread collections of human culture, exploring how it has developed over time and how it reflects human history.</p>
+    <p>This visualization dives into one of the world's most widespread <a href = "https://www.metmuseum.org/art/collection">collections</a> of human culture, exploring its development over time and its reflection human history.</p>
   </div>
   <div class = "project-image">
     <div class = "video-wrapper">
@@ -39,31 +39,52 @@
   </div>
   <div class = "project-content">
     <h1>Process</h1>
+    <img src="/assets/projects/CollectingMet/CollectingProcess.gif"/>
     <p>
       <b>Data Source:</b> The Metropolitan Museum of Art's <a href="https://github.com/metmuseum/openaccess">Open Access CSV</a>
       <br>
       <b>Tools: </b>
-      Python and <a href="https://pandas.pydata.org/">pandas</a> for data cleaning and aggregating.
+      Python and <a href="https://pandas.pydata.org/">pandas</a> for cleaning and aggregating data.
       <a href="https://p5js.org/">p5.js</a>, JavaScript, HTML/CSS, and <a href="https://nodejs.org/en/">node.js</a> for web development and prototyping.
-      Illustrator and Principle for concept development and  visual/animation prototyping
+      Illustrator and Principle for concept development and  visual/animation prototyping.
     </p>
   </div>
   <div class = "project-content">
     <h1>Data</h1>
-    <p>The Met's open access data provides explanatory data on over 420,000 pieces in its expansive collection. This so-called 'tombstone' data offers a wide range of rich descriptors on the artwork and artifacts the museum keeps within its halls. My main goal for this project was finding which of those descriptors told a compelling story about how the museum's acquisitions have evolved over time, potentially revealing insights on how world events or specific collection strategies affected The Met's representation and reflection of human history.
+    <p>The Met's <a href="https://github.com/metmuseum/openaccess">open access collection data</a> provides explanatory detail on over 420,000 pieces in its expansive collection. After bring this data into a pandas dataframe and exploring the different variables included, I ultimately decided to dive into country of cultural significance and artwork classification for this analysis. These variables allow us to tell shed insight on what regions in the world are most represented in the Met's collection, and what type of art the museum collects from these regions.
+    <p>My main data challenge in this project was making sure I associated as many pieces as possible with their relevant country of cultural significance. This involved both cleaning and standardizing inconsistencies within fields in the dataset, and covering gaps in the data where values were null. To map objects to countries, I first looked to the straight-foward association of the 'country' label. If this field wasn't populated, I focused on the artist's nationality, then the country found with the primary artist's display biography, and finally the object's culture. Any object unattributed to a country after this evaluation was left out of this analysis.</p>
+    <p>The final data processing step was aggregating object totals at various levels of detail. In this process I calculated year-to-year cumulative total for each country, classification, and combination of the two, and exported these statistics in JSON files for my front-end visualiazation.</p>
   </div>
-  <div class = "social-thumbnails">
+  <div class = "project-content project-content-1">
+    <h1>Visualization</h1>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/CollectingMet/CollectingMet.png"/>
+  </div>
+  <div class="project-content">
+    <p></p>
+  </div>
+
+
+  <div class="next-project">
+    <a href="/TheMigrationOfArt.html"><img src="../assets/projects/MigrationOfArt/MigrationOfArt.png"/></a><br>
+    <a href="/TheMigrationOfArt.html">See my next project →</a>
+    <div class="more-info">
+      <p>Like this project? Want to get in touch? <a href="mailto:ryanabest@gmail.com">Reach out!</a></p>
+    </div>
+  </div>
+  <div class="social-thumbnails">
     <a href = 'https://twitter.com/buenosbestos' target="_blank">
-      <img id = "twitter-thumb" src = '../assets/social-icons/twitter.png'/>
+      <img id="twitter-thumb" src = '../assets/social-icons/twitter.png'/>
     </a>
     <a href='https://www.linkedin.com/in/ryan-best-03722482/' target="_blank">
-      <img id = "linkedin-thumb" src='../assets/social-icons/linkedin.png'/>
+      <img id="linkedin-thumb" src='../assets/social-icons/linkedin.png'/>
     </a>
     <a href = 'https://public.tableau.com/profile/ryan.best8326#!/' target="_blank">
-      <img id = "tableau-thumb" src='../assets/social-icons/tableau.png'/>
+      <img id="tableau-thumb" src='../assets/social-icons/tableau.png'/>
     </a>
     <a href = 'https://github.com/ryanabest' target="_blank">
-      <img id = "github-thumb" src='../assets/social-icons/github.png'/>
+      <img id="github-thumb" src='../assets/social-icons/github.png'/>
     </a>
     <script src="js/link-hover.js"></script>
   </div>
