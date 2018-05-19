@@ -40,9 +40,9 @@
   <div class="project-content">
     <h1>Process</h1>
     <img src="/assets/projects/MigrationOfArt/MigrationProcess.gif"/>
+    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/interactivity" target = "_blank">See the code →</a></p>
+    <p><b>Data Source:</b> The Met API, made available to our course.</p>
     <p>
-      <b>Data Source:</b> The Met API, made available to our course.
-      <br>
       <b>Tools: </b>
       Python and <a href="https://pandas.pydata.org/">pandas</a> for collecting, cleaning, and aggregating data.
       <a href="https://d3js.org/">d3.js</a>, <a href="https://jquery.com/">jQuery</a>, JavaScript, HTML/CSS, <a href="https://leafletjs.com/">Leaflet</a>, and <a href="https://nodejs.org/en/">node.js</a> for web development.
@@ -68,7 +68,6 @@
     <script src="/js/migration-data.js"></script>
   </div>
   <div class="project-content">
-    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/interactivity" target = "_blank">See the code →</a></p>
     <p>The main data challenge in this project was how to parse ownership and exhibition histories, which are organized as separate paragraphs of text and lists in the Met's API and front-end webpage, into workable structures that brought these data together into one cohesive story of movement for each painting.</p>
     <p>After bringing down each provenance paragraph and exhibition history from The Met's API into static files, I needed to split the paragraphs of provenance text into individual unique ownership tenures, associating each owner with the location listed and their timeframe of ownership. I then joined exhibitions and provenance together into the same timeline, logging the location of a painting in each year from creation through 2017 (the most recent data available). In my model, a painting moves locations any time it was acquired by a new owner or went on exhibition. After a painting's last exhibition, it returns to The Met. I used pandas for this data processing and aggregating into data frames, which I then exported as JSON files to be loaded into my front-end visualization.</p>
   </div>
