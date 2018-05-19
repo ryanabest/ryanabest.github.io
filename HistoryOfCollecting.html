@@ -40,9 +40,9 @@
   <div class = "project-content">
     <h1>Process</h1>
     <img src="/assets/projects/CollectingMet/CollectingProcess.gif"/>
+    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/quant" target = "_blank">See the code →</a></p>
+    <p><b>Data Source:</b> The Metropolitan Museum of Art's <a href="https://github.com/metmuseum/openaccess">Open Access CSV</a></p>
     <p>
-      <b>Data Source:</b> The Metropolitan Museum of Art's <a href="https://github.com/metmuseum/openaccess">Open Access CSV</a>
-      <br>
       <b>Tools: </b>
       Python and <a href="https://pandas.pydata.org/">pandas</a> for cleaning and aggregating data.
       <a href="https://p5js.org/">p5.js</a>, JavaScript, HTML/CSS, and <a href="https://nodejs.org/en/">node.js</a> for web development and prototyping.
@@ -51,9 +51,9 @@
   </div>
   <div class = "project-content">
     <h1>Data</h1>
-    <p>The Met's <a href="https://github.com/metmuseum/openaccess">open access collection data</a> provides explanatory detail on over 420,000 pieces in its expansive collection. After bring this data into a pandas dataframe and exploring the different variables included, I ultimately decided to dive into country of cultural significance and artwork classification for this analysis. These variables allow us to tell shed insight on what regions in the world are most represented in the Met's collection, and what type of art the museum collects from these regions.
-    <p>My main data challenge in this project was making sure I associated as many pieces as possible with their relevant country of cultural significance. This involved both cleaning and standardizing inconsistencies within fields in the dataset, and covering gaps in the data where values were null. To map objects to countries, I first looked to the straight-foward association of the 'country' label. If this field wasn't populated, I focused on the artist's nationality, then the country found with the primary artist's display biography, and finally the object's culture. Any object unattributed to a country after this evaluation was left out of this analysis.</p>
-    <p>The final data processing step was aggregating object totals at various levels of detail. In this process I calculated year-to-year cumulative total for each country, classification, and combination of the two, and exported these statistics in JSON files for my front-end visualiazation.</p>
+    <p>The Met's <a href="https://github.com/metmuseum/openaccess">open access collection data</a> provides explanatory detail on over 420,000 pieces in its expansive collection. After bring this data into a pandas dataframe and exploring the different variables included, I ultimately decided to dive into country of cultural significance and artwork classification for this analysis. These variables allow us to tell shed insight on what regions in the world are most represented in the Met's collection, and what type of art the museum collects from these regions.</p><br>
+    <p>My main data challenge in this project was making sure I associated as many pieces as possible with their relevant country of cultural significance. This involved both cleaning and standardizing inconsistencies within fields in the dataset, and covering gaps in the data where values were null. To map objects to countries, I first looked to the straight-foward association of the 'country' label. If this field wasn't populated, I focused on the artist's nationality, then the country found with the primary artist's display biography, and finally the object's culture. Any object unattributed to a country after this evaluation was left out of this analysis.</p><br>
+    <p>The final data processing step was aggregating object totals at various levels of detail. In this process I calculated year-to-year cumulative total for each country, classification, and combination of the two, and exported these statistics in JSON files for my front-end visualiazation. This visualization maintains totals for the ten most popular countries in the collection, and the top five classifications within those countries.</p>
   </div>
   <div class = "project-content project-content-1">
     <h1>Visualization</h1>
@@ -62,10 +62,22 @@
     <img src = "../assets/projects/CollectingMet/CollectingMet.png"/>
   </div>
   <div class="project-content">
-    <p></p>
+    <p>The main visual representation of data in this project is a clear and straightforward line graph, allowing for quick and easy comparisons across countries. The bright colors help the lines jump off the dark background, while the rainbow palette provides a familiar visual ranking system of countries. We're used to seeing rainbow colors in this type of order, which corresponds with the ranking of the most popular countries in the museum's collection - also represented by the order of countries in this view's legend.</p>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/CollectingMet/CollectingHover.png"/>
+  </div>
+  <div class="project-content">
+    <p>While the rainbow palette provides a nice pop of color and a visual ordering system to our countries, it can sometimes be hard to dinsguish one point from another. In fact, no color palette is great at distinsuishing ten distinct data points. Hovering over a country label in our legend allows us to clearly highlight a specific country while displaying the cumulative count of objects The Met has collected from this country through the current year of our animation.</p>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/CollectingMet/CollectingCountry.png"/>
+  </div>
+  <div class="project-content">
+    <p>Clicking on a country in the legend allows us to see detail on which types of art The Met collects from this country. This view introduces a new cohesive and intuitive color palette based on the country's base color, with different shades assigned to each classification - those types of art that are most popular within a country are given the color's darkest shades and placed closest to our axis, with shades getting lighter from there.</p>
   </div>
 
-
+  <hr class="page-break"></hr>
   <div class="next-project">
     <a href="/TheMigrationOfArt.html"><img src="../assets/projects/MigrationOfArt/MigrationOfArt.png"/></a><br>
     <a href="/TheMigrationOfArt.html">See my next project →</a>
