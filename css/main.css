@@ -23,6 +23,7 @@ body {
 .about-content {
   width: 100%;
   max-width: 900px;
+  padding: 0 2em;
 }
 
 #menu {
@@ -36,6 +37,7 @@ body {
 
 #menu-links a {
   font-size: 4vh;
+  padding: 0 0.2em;
 }
 
 .about-content {
