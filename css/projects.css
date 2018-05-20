@@ -28,6 +28,8 @@
   width: 100%;
   max-width: 900px;
   margin: 2vh auto 20vh auto;
+  padding: 0 2em;
+  /* padding-right: 2em; */
 }
 
 .project-content h1 {
@@ -140,7 +142,7 @@
 
 @media screen and (max-width : 800px){
   .project-content h1 {
-    font-size: 5vw;
+    font-size: 6vw;
   }
 
   .column {
