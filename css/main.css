@@ -86,7 +86,7 @@ body {
   opacity: 1;
 }
 
-p {
+.about-content p {
   font-size: 3vh;
   line-height: 2em;
 }
