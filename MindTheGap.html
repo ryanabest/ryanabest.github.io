@@ -62,6 +62,13 @@
   </div>
   <div class = "project-content">
     <h1>Data</h1>
+    <p>The data I used in this project comes from a 2012 federal congressional election results excel file available on the <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">FEC website</a>. I first needed to do clean-up in excel to standardize some undeeded inconsistencies and reduce this data to only those candidates who won their district's primaries in the year's house elections.</p><p>I then used node.js to further process this data, leveraging the power of js libraries that would also be used in the page's visualization, including <a href="https://p5js.org/" target="_blank">p5</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, and <a href="https://lodash.com/" target="_blank">Lodash</a>. I needed to organize district results, tracking the votes and percentage of votes cast for each candidate compared with the amount of votes needed to win that district, and calculate state-wide results of my two main metrics for each party: <a href = "https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf" target="_blank">the efficiency gap</a> and the difference in seats earned and seats expected with pure proportionality. This data processing generated two clean json files, one for district results and one for state, that I fed into my front-end visualization.
+  </div>
+  <div class="project-content project-content-1">
+    <h1>Visualization</h1>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/MindTheGap/MindTheGap10.png"/>
   </div>
 
 
