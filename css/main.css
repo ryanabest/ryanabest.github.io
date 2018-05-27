@@ -7,6 +7,7 @@ body {
 * {
   box-sizing: border-box;
   font-family: 'Overpass Mono', sans-serif;
+  transition: 0.2s;
 }
 
 ::selection {
@@ -24,7 +25,10 @@ body {
   width: 100%;
   max-width: 900px;
   padding: 0 2em;
+  font-weight: 300;
+  margin: 0vh auto 0vh auto;
 }
+
 
 #menu {
   margin: 5vh auto 6vh auto;
@@ -32,17 +36,12 @@ body {
 
 #menu-links {
   margin: auto 0vw 0vh auto;
-  text-align: right;
+  /* text-align: right; */
 }
 
 #menu-links a {
   font-size: 4vh;
   padding: 0 0.2em;
-}
-
-.about-content {
-  font-weight: 300;
-  margin: 0vh auto 0vh auto;
 }
 
 #menu hr {
@@ -87,7 +86,7 @@ body {
 }
 
 .about-content p {
-  font-size: 3vh;
+  font-size: 3.2vh;
   line-height: 2em;
 }
 
@@ -108,6 +107,7 @@ a.active {
 
 /* Responsive Styles */
 @media screen and (max-width : 600px){
+
   #top-menu, #name {
     width: 100%;
     margin: auto;
@@ -115,7 +115,7 @@ a.active {
   }
 
   #menu {
-    margin: 5vh auto 0vh auto;
+    margin: 0vh auto 0vh auto;
   }
 
   .social-thumbnails {
@@ -123,7 +123,9 @@ a.active {
   }
 
   #menu-links {
-    margin: auto auto 5vh auto;
+    margin: 0;
+    width: 100vw;
+    justify-content: space-between;
   }
 
   .social-thumbnails img {
@@ -133,22 +135,27 @@ a.active {
   }
 
   #top-menu h1 {
-    letter-spacing: 0.15em;
-    font-size: 10vw;
-    /* color: #696969; */
+    font-size: 13vw;
+    text-align: center;
   }
 
   #menu-links a {
-    font-size: 10vw;
-    /* color: #696969; */
+    font-size: 6vw;
+    letter-spacing: 0.4em;
+    /* text-align: right; */
   }
 
   #work-thumbnails img {
     width: 100%;
   }
 
-  p {
-    font-size: 2vh;
+  .about-content p {
+    font-size: 0.9em;
+    line-height: 2em;
   }
+
+  /* p {
+    font-size: 2vh;
+  } */
 
 }

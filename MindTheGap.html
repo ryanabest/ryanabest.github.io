@@ -21,9 +21,9 @@
       </div>
     </div>
   </div>
-  <div class="project-content project-content-1">
+  <div class="project-content" id="project-content-intro">
     <h1>mind the gap.</h1>
-    <p>This visualization explores the political strategy of gerrymandering, how we can measure it, and what role it played in the 2012 US Federal Congressional elections.</p>
+    <p>This visualization explores the political strategy of gerrymandering, how we can measure it, and what role it played in the 2012 US federal congressional elections.</p>
   </div>
   <div class = "project-image">
     <div class = "video-wrapper">
@@ -40,17 +40,14 @@
   </div>
   </div>
   <div class="project-content">
-    <p><a href = "https://ryanabest.github.io/dvia-2017/5.final-project/ryan/final/index.html" target = "_blank">See the prototype →</a></p>
-    <br><br>
-    <!-- <h1>The Project</h1> -->
     <p>Gerrymandering is an ingrained facet of one of the most fundamental aspects of American democracy - how we draw the districts that elect our representatives. It's a political strategy that's often <a href = "https://www.vox.com/2016/1/12/10758738/obama-state-of-the-union-2016-gerrymandering" target="_blank">blamed</a> for creating uncompetitive elections or stoking political divisiveness and has received quite a bit of <a href="https://projects.fivethirtyeight.com/redistricting-maps/" target="_blank">attention</a> from <a href="https://www.washingtonpost.com/graphics/2017/politics/courts-law/gerrymander/?utm_term=.d08b867bee00">national</a> <a href="https://www.nytimes.com/interactive/2017/10/03/upshot/how-the-new-math-of-gerrymandering-works-supreme-court.html" target="_blank">publications</a>. This visualization dives into how gerrymandering works, what methods we can use quantifiably measure this phenomenon, and what these metrics can tell us about its effect in American elections.
     This analysis specifically focuses on the 2012 Federal Congressional elections, measuring <a href = "https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf" target="_blank">the efficiency gap</a> and <a href="http://bl.ocks.org/cingraham/7551527">difference from proportional representation</a> to find evidence of its political influence stemming from significant redistricting that followed the 2010 census.
     </p>
+    <p><a href = "https://ryanabest.github.io/dvia-2017/5.final-project/ryan/final/index.html" target = "_blank">See the prototype →</a></p>
   </div>
   <div class = "project-content">
     <h1>Process</h1>
     <img src="/assets/projects/MindTheGap/MindTheGapProcess.gif"/>
-    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/quant" target = "_blank">See the code →</a></p>
     <p><b>Data Source:</b> FEC 2012 Senate and House <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">Results</a></p>
     <p>
       <b>Tools: </b>
@@ -59,20 +56,66 @@
       <a href="https://p5js.org/">p5.js</a>, JavaScript, and HTML/CSS for additional web development.
       Adobe Illustrator for concept development and  visual prototyping.
     </p>
+    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/quant" target = "_blank">See the code →</a></p>
   </div>
   <div class = "project-content">
     <h1>Data</h1>
     <p>The data I used in this project comes from a 2012 federal congressional election results excel file available on the <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">FEC website</a>. I first needed to do clean-up in excel to standardize some undeeded inconsistencies and reduce this data to only those candidates who won their district's primaries in the year's house elections.</p><p>I then used node.js to further process this data, leveraging the power of js libraries that would also be used in the page's visualization, including <a href="https://p5js.org/" target="_blank">p5</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, and <a href="https://lodash.com/" target="_blank">Lodash</a>. I needed to organize district results, tracking the votes and percentage of votes cast for each candidate compared with the amount of votes needed to win that district, and calculate state-wide results of my two main metrics for each party: <a href = "https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf" target="_blank">the efficiency gap</a> and the difference in seats earned and seats expected with pure proportionality. This data processing generated two clean json files, one for district results and one for state, that I fed into my front-end visualization.
   </div>
-  <div class="project-content project-content-1">
+  <div class="project-content">
     <h1>Visualization</h1>
   </div>
   <div class="project-image">
     <img src = "../assets/projects/MindTheGap/MindTheGap10.png"/>
   </div>
-
-
-  <hr class="page-break"></hr>
+  <div class="project-content">
+    <p>
+      A straightforward state-level bar chart, created using jQuery and Flexbox, clearly communicates our primary metric, the efficiency gap, using a familiar visual language that allows us to quickly draw insight from the data. Using red and blue to distinguish our political parties requires no cognitive lift, while descending ordering of states allows us to quickly see which states enjoyed disporoportionate advantages by each party. The reference lines show us cut-offs suggested by researchers, allowing us to quickly see which states cross reasonable thresholds.
+    </p>
+  </div>
+  <div class="project-image">
+    <div class="video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/271936063?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+  <div class="project-content">
+    <p>
+      Our prominent menu at the top of this visualization lets us know which metric we're viewing and allows us to switch between metrics. We use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items" target="_blank">flexbox</a> and <a href="https://www.w3schools.com/css/css3_transitions.asp" target="_blank">CSS transitions</a> to maintain <a href="https://bost.ocks.org/mike/constancy/" target="_blank">object constancy</a> when our metric is switched, making it easier for us to see how the two metrics are correlated or follow one specific state's change in ranking from one metric to another.
+    </p>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/MindTheGap/MindTheGap11.png"/>
+  </div>
+  <div class="project-content">
+    <p>
+      Hovering over a state displays secondary-level detail - more familiar statistics that underpin our key metric calculations in the color matching the 'winning' party. This functionality also lets us know how we can advance to our next visualization - a click brings us to the view that examines each district within a state.
+    </p>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/MindTheGap/MindTheGap14.png"/>
+  </div>
+  <div class="project-content">
+    <p>
+      Our district-level visualization breaks up votes into blocks of 5,000 votes, stacks these blocks into one bar for each district, and arranges these blocks based on total party votes in that district. These design choices allow us to quickly get a general sense of which party won more districts (by comparing the left-most color in each bar), by what margin (what proportion of blocks were cast for this party), and even get a general sense of voter turnout across districts (since each district is drawn to include approximately population size).
+    </p>
+    <p>
+      We can also use this view to help visually explain the methodology for calculating the efficiency gap. The emphasized 'darker' blocks are all 'wasted' votes per the efficiency gap definition - arranging the visualization this way allows us to get a sense of the proportion of votes cast that were 'wasted' for each party.
+    </p>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/MindTheGap/MindTheGap3.png"/>
+  </div>
+  <div class="project-content">
+    <p>
+      Our introduction and background sections help explain how gerrymandering works in a visual context, establishing a visual language of party colors, blocks of votes, and stacking these votes into district-level bar charts.
+    </p>
+  </div>
+  <div class="project-image">
+    <img src = "../assets/projects/MindTheGap/MindTheGap6.png"/>
+  </div>
+  <div class="project-content">
+    <p>
+      These introductory visuals also help explain how our main metrics are calculated - for the efficiency gap, what constitutes a wasted vote and how we visually distinguish these votes by lightening their opacity. When this visual language is maintained in our district-level visualization, we're able to more easily connect this theory and background with the results of the 2012 elections to understand the data behind our calculations.
+    </p>
+  </div>
   <div class="next-project">
     <a href="/HistoryOfCollecting.html"><img src="../assets/projects/CollectingMet/CollectingMet.png"/></a><br>
     <a href="/HistoryOfCollecting.html">See my next project →</a>
