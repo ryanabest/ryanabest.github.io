@@ -2,7 +2,8 @@ let p1 = "The Met's rich ownership and exhibition information is stored as parag
 let p2 = "...which I pulled down and parsed to extract the location, time, and detail of each location change using Python...";
 let p3 = "...and combined ownership and exhibitions to generate clean JSON files that would feed into my visualization";
 
-let animationTime = 5000
+let animationTime = 500;
+let waitTime = 3000;
 
 if($(window).width() >= 800){
   dataProcessOpacity()
@@ -17,13 +18,17 @@ function dataProcessOpacity() {
 
   $("#data-process-text").children("p").text(p1);
   $('#prov-text-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-    $("#data-process-text").children("p").text(p2);
+    setTimeout(function() {
+      $("#data-process-text").children("p").text(p2);
       $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-        $("#data-process-text").children("p").text(p3);
-          $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-              setTimeout(function(){ dataProcessOpacity(); }, animationTime);
-            });
-        });
+        setTimeout(function() {
+          $("#data-process-text").children("p").text(p3);
+            $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+                setTimeout(function(){ dataProcessOpacity(); }, waitTime);
+              });
+        },waitTime);
+      });
+    },waitTime);
     });
 }
 
@@ -35,17 +40,21 @@ function dataProcessDisplay() {
   $('#prov-text-ex-img').css("display","inline-block");
   $('#prov-text-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
 
-    $("#data-process-text").children("p").text(p2);
-    $('.process-imgs').css("display","none");
-    $('#python-ex-img').css("display","inline-block");
-    $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+    setTimeout(function() {
+      $("#data-process-text").children("p").text(p2);
+      $('.process-imgs').css("display","none");
+      $('#python-ex-img').css("display","inline-block");
+      $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
 
-        $("#data-process-text").children("p").text(p3);
-        $('.process-imgs').css("display","none");
-        $('#json-ex-img').css("display","inline-block");
-        $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-            setTimeout(function(){ dataProcessDisplay(); }, animationTime);
-          });
-      });
+          setTimeout(function() {
+            $("#data-process-text").children("p").text(p3);
+            $('.process-imgs').css("display","none");
+            $('#json-ex-img').css("display","inline-block");
+            $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+                setTimeout(function(){ dataProcessDisplay(); }, waitTime);
+              });
+          },waitTime);
+        });
+    },waitTime);
   });
 }

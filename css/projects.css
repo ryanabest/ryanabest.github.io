@@ -26,6 +26,7 @@
   width: 100%;
   max-width: 900px;
   margin: auto;
+  padding: 2em 1em 1em 1em;
 }
 
 #highlight-row {
@@ -36,7 +37,16 @@
   margin: auto auto 5vh auto;
 }
 
-@media screen and (max-width : 800px) {
+.project-img-link img {
+  padding-bottom: 1em;
+}
+
+.project-img-link img:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+@media screen and (max-width : 600px) {
   .column {
     flex: 100%;
     max-width: 100%;
@@ -54,32 +64,45 @@
 
 /* Project Info on Project-Specific Pages */
 
+#project-content-intro {
+  text-align: center;
+  max-width: 1500px;
+}
+
+#project-content-intro h1 {
+  font-size: 4.3vw;
+  /* letter-spacing: .05em; */
+}
+
+#project-content-intro p {
+  font-size: 3vh;
+  /* letter-spacing: -.05em; */
+  max-width: 800px;
+  margin: auto;
+}
+
 .project-content {
   width: 100%;
   max-width: 900px;
-  margin: 2vh auto 20vh auto;
-  padding: 0 2em;
-  /* padding-right: 2em; */
+  margin: 10vh auto;
+  padding: 0 4em;
 }
 
 .project-content p {
-  font-size: 3vh;
+  font-size: 2.8vh;
   line-height: 2em;
 }
 
 .project-content h1 {
   font-size: 4vw;
-}
-
-.project-content-1 {
-  margin: 15vh auto 2vh auto;
+  margin: 10vh 0 5vh 0;
 }
 
 .project-image {
   width: 100%;
   height: auto;
   max-width: 1500px;
-  padding: 1em;
+  padding: 0 4em;
   text-align: center;
   margin: auto;
 }
@@ -96,7 +119,8 @@
 }
 
 .marvel-device {
-    zoom: 0.8
+    zoom: 0.8;
+    margin-bottom: 10vh;
 }
 
 #iphone8-screen {
@@ -110,13 +134,14 @@
 #data-process {
   background-color: #696969;
   max-width: 100vw;
+  padding: 5vh 0;
 }
 
 #data-process-text {
   color: #fff;
   width: 100%;
   max-width: 600px;
-  margin: 3vh auto auto auto;
+  margin: 5vh auto auto auto;
   font-size: 2vh;
 }
 
@@ -145,20 +170,15 @@
 }
 
 #prov-text-ex-img {
-  transform: translate(4vw,12vh);
+  transform: translate(4vw,8vh);
 }
 
 #python-ex-img {
-  transform: translate(0vw,0vh);
+  transform: translate(0vw,3vh);
 }
 
 #json-ex-img {
-  transform: translate(-4vw,3vh);
-}
-
-.page-break {
-  border: none;
-  height: 40vh;
+  transform: translate(-4vw,0vh);
 }
 
 .next-project {
@@ -185,8 +205,31 @@
 /* Responsive Design */
 
 @media screen and (max-width : 800px){
+  #project-content-intro {
+    /* margin: 0; */
+  }
+
+  #project-content-intro h1 {
+    font-size: 2.5em;
+    /* text-align: left; */
+  }
+
+  #project-content-intro p {
+    font-size: 1em;
+    /* text-align: left; */
+  }
+
   .project-content h1 {
-    font-size: 6vw;
+    margin: 5vh auto;
+    font-size: 2em;
+  }
+
+  .project-content p {
+    font-size: 0.8em;
+  }
+
+  .project-content, .project-image {
+    padding: 0 1em;
   }
 
   .marvel-device {
@@ -196,6 +239,10 @@
   .process-content {
     width: 100%;
     flex-direction: column;
+  }
+
+  #data-process {
+    padding: 5vw;
   }
 
   #prov-text-ex-img {
