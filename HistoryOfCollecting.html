@@ -23,7 +23,7 @@
   </div>
   <div class = "project-content" id="project-content-intro">
     <h1>A History Of Collecting At The Met</h1>
-    <p>This visualization dives into one of the world's most widespread <a href = "https://www.metmuseum.org/art/collection">collections</a> of human culture, exploring its development over time and its reflection human history.</p>
+    <p>This visualization dives into one of the world's most widespread <a href = "https://www.metmuseum.org/art/collection">collections</a> of human culture, exploring its development over time and its reflection of history.</p>
   </div>
   <div class = "project-image">
     <div class = "video-wrapper">
@@ -42,9 +42,9 @@
     </div>
   </div>
   <div class = "project-content">
-    <p>How has the The Metropolitan Museum of Art's <a href = "https://www.metmuseum.org/art/collection">collection</a> evolved throughout it's illustrious history? Where are their artifacts and artworks from, and when did they acquire pieces from which areas of the world?</p>
-    <p>As a student of Data Visualization at The Parsons School of Design, I was tasked with creating a quantitative visualization that focused on The Metropolitan Museum of Art's collection, who partnered with our studio course for the semester. I was floored by the both the breadth and depth of the museum's collection, which numbers in the hundreds of thousands of pieces that span over 5,000 years of human history. I wanted to look at the entirety of this collection to explore where these pieces came from and how the museum's collection patterns had evolved in almost a century and a half of history.</p>
     <p><a href = "https://ryanabest.github.io/ms1-2018/quant/index.html" target = "_blank">See the prototype →</a></p>
+    <p>How has the The Metropolitan Museum of Art's <a href = "https://www.metmuseum.org/art/collection">collection</a> evolved throughout it's illustrious history? Where do their artifacts and artworks come from, and when did they acquire pieces from which areas of the world?</p>
+    <p>As a student of Data Visualization at The Parsons School of Design, I was tasked with creating a quantitative visualization that focused on The Metropolitan Museum of Art's collection, who partnered with our studio course for the semester. I was floored by the both the breadth and depth of the museum's collection, which numbers in the hundreds of thousands of pieces that span over 5,000 years of human history. I wanted to look at the entirety of this collection to explore the origins of these artworks and how the institution's collection patterns had evolved in almost a century and a half of history.</p>
   </div>
   <div class = "project-content">
     <h1>Process</h1>
@@ -54,15 +54,15 @@
       <b>Tools: </b>
       Python and <a href="https://pandas.pydata.org/">pandas</a> for cleaning and aggregating data.
       <a href="https://p5js.org/">p5.js</a>, JavaScript, HTML/CSS, and <a href="https://nodejs.org/en/">node.js</a> for web development and prototyping.
-      Adobe Illustrator and Principle for concept development and  visual/animation prototyping.
+      <a href="https://www.adobe.com/products/illustrator.html" target="_blank">Adobe Illustrator</a> and <a href="http://principleformac.com/" target="_blank">Principle</a> for concept development and  visual/animation prototyping.
     </p>
     <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/quant" target = "_blank">See the code →</a></p>
   </div>
   <div class = "project-content">
     <h1>Data</h1>
-    <p>The Met's <a href="https://github.com/metmuseum/openaccess">open access collection data</a> provides explanatory detail on over 420,000 pieces in its expansive collection. After bring this data into a pandas dataframe and exploring the different variables included, I ultimately decided to dive into country of cultural significance and artwork classification for this analysis. These variables allow us to tell shed insight on what regions in the world are most represented in the Met's collection, and what type of art the museum collects from these regions.</p>
-    <p>My main data challenge in this project was making sure I associated as many pieces as possible with their relevant country of cultural significance. This involved both cleaning and standardizing inconsistencies within fields in the dataset, and covering gaps in the data where values were null. To map objects to countries, I first looked to the straight-foward association of the 'country' label. If this field wasn't populated, I focused on the artist's nationality, then the country found with the primary artist's display biography, and finally the object's culture. Any object unattributed to a country after this evaluation was left out of this analysis.</p><br>
-    <p>The final data processing step was aggregating object totals at various levels of detail. In this process I calculated year-to-year cumulative total for each country, classification, and combination of the two, and exported these statistics in JSON files for my front-end visualiazation. This visualization maintains totals for the ten most popular countries in the collection, and the top five classifications within those countries.</p>
+    <p>The Met's <a href="https://github.com/metmuseum/openaccess">open access collection data</a> provides explanatory detail on over 420,000 pieces in its expansive collection. After bring this data into a pandas dataframe and exploring the different variables included, I ultimately decided to dive into country of cultural significance and object classification for this analysis. These variables allow us to shed insight on what regions in the world are most represented in the Met's collection, and what type of art the museum collects from these regions.</p>
+    <p>My main data challenge in this project was making sure I associated as many pieces as possible with the most relevant country of cultural significance. This involved identifying and standardizing inconsistencies within key fields in the dataset and covering gaps in the data where values were null. To map objects to countries, I first looked to the straight-foward association of the 'country' label, taking the first country listed in this field. If this field wasn't populated, I focused on the artist's nationality, then the country found with the primary artist's display biography, and finally the object's culture. This process allowed me to attribute 87% of objects to a country - the remaining 13% of objects were left out of this analysis.</p>
+    <p>The final data processing step was aggregating object totals at various levels of detail. I calculated year-to-year cumulative total for each country and classification, along with the combination of these two variables, and exported these statistics in JSON files for my front-end visualiazation. I maintained totals for the ten most popular countries in the collection, and the top five classifications within those countries.</p>
   </div>
   <div class = "project-content">
     <h1>Visualization</h1>
