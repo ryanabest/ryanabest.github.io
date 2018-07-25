@@ -1,5 +1,4 @@
 # ignore all node modules
-gulpfile.js
 npm-debug.log
 node_modules/*
 assets/projects/MindTheGap/MindTheGap3.mov
