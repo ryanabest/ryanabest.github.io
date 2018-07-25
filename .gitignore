@@ -1,5 +1,6 @@
 # ignore all node modules
 npm-debug.log
+package-lock.json
 node_modules/*
 assets/projects/MindTheGap/MindTheGap3.mov
 assets/projects/MindTheGap/gif/*
