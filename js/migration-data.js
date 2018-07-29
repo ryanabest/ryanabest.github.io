@@ -33,6 +33,25 @@ function dataProcessOpacity() {
 }
 
 function dataProcessDisplay() {
+  // $('.process-imgs').children('img').css("opacity","0");
+  // $('.process-imgs').css("display","inline-block");
+  // $('.process-imgs').css("position","absolute");
+  //
+  // $("#data-process-text").children("p").text(p1);
+  // $('#prov-text-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+  //   setTimeout(function() {
+  //     $("#data-process-text").children("p").text(p2);
+  //     $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+  //       setTimeout(function() {
+  //         $("#data-process-text").children("p").text(p3);
+  //           $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+  //               setTimeout(function(){ dataProcessOpacity(); }, waitTime);
+  //             });
+  //       },waitTime);
+  //     });
+  //   },waitTime);
+  //   });
+
   $('.process-imgs').children('img').css("opacity","1");
   $('.process-imgs').css("display","none");
 

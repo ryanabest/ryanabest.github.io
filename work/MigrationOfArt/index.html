@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>The Migration of Art</title>
   <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700" rel="stylesheet">
-  <script src="/libraries/jquery-3.3.1.min.js"></script>
-  <link rel="stylesheet" href="css/projects.css" type="text/css" charset="utf-8">
-  <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8">
+  <script src="../../libraries/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="../../css/projects.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="../../css/main.css" type="text/css" charset="utf-8">
 </head>
 <body>
   <div id="menu">
     <div id="top-menu">
       <div id="name">
-        <a href="/index.html"><h1>ryan best</h1></a>
+        <a href="../../"><h1>ryan best</h1></a>
       </div>
       <div id="menu-links">
-        <a href = "/index.html" class="active menu-link">work</a>
-        <a href = "/about.html" class="menu-link">about</a>
+        <a href="../../" class="active menu-link">work</a>
+        <a href="../../about/" class="menu-link">about</a>
       </div>
     </div>
   </div>
@@ -39,12 +39,12 @@
     <!-- <div class="video-wrapper" style="padding:56.18% 0 0 0;position:relative;margin:auto;"><iframe src="https://player.vimeo.com/video/269368498?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div> <script src="https://player.vimeo.com/api/player.js"></script> -->
   </div>
   <div class="project-content">
-    <p><a href = "https://ryanabest.github.io/ms1-2018/interactivity/index.html" target = "_blank">See the prototype →</a></p>
+    <p><a href="https://ryanabest.com/ms1-2018/interactivity/" target="_blank">See the prototype →</a></p>
     <p>How does art travel across the globe before it arrives in a museum gallery? When was it bought and sold, and by whom? When and where was it sent on exhibition tours?</p><p>Studying an artwork's rich history of movement is crucial to understanding how the world interacted with a piece, along with how it influenced the broader world of art and human culture. While a student of data visualization at Parsons School of Design, I worked with wonderful partners at The Metropolitan Museum of Art to explore these questions in a visual context, utilizing both an abstracted visual timeline and animated mapping to follow the museum's collection of Van Gogh paintings through their paths traveled from creation to their current location at The Met.</p>
   </div>
   <div class="project-content">
     <h1>Process</h1>
-    <img src="/assets/projects/MigrationOfArt/MigrationProcess.gif"/>
+    <img src="assets/MigrationProcess.gif"/>
     <p><b>Data Source:</b> The Met API, made available to our course.</p>
     <p>
       <b>Tools: </b>
@@ -52,7 +52,7 @@
       <a href="https://d3js.org/" target="_blank">d3</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, JavaScript, HTML/CSS, <a href="https://leafletjs.com/" target="_blank">Leaflet</a>, and <a href="https://nodejs.org/en/" target="_blank">node.js</a> for web development.
       <a href="https://www.sketchapp.com/" target="_blank">Sketch</a> and <a href="https://www.adobe.com/products/illustrator.html" target="_blank">Adobe Illustrator</a> for concept development and visual prototyping.
     </p>
-    <p><a href = "https://github.com/ryanabest/ms1-2018/tree/master/interactivity" target = "_blank">See the code →</a></p>
+    <p><a href="https://github.com/ryanabest/ms1-2018/tree/master/interactivity" target="_blank">See the code →</a></p>
   </div>
   <div class="project-content">
     <h1>Data</h1>
@@ -60,13 +60,13 @@
   <div class="project-image" id="data-process">
     <div class="process-content">
       <div id="prov-text-ex-img" class="process-imgs">
-        <img src="../assets/projects/MigrationOfArt/DataProcess/TheMetTextExample.png"/>
+        <img src="assets/DataProcess/TheMetTextExample.png"/>
       </div>
       <div id="python-ex-img" class="process-imgs">
-        <img src="../assets/projects/MigrationOfArt/DataProcess/PythonExample.png"/>
+        <img src="assets/DataProcess/PythonExample.png"/>
       </div>
       <div id="json-ex-img" class="process-imgs">
-        <img src="../assets/projects/MigrationOfArt/DataProcess/JSONExample.png"/>
+        <img src="assets/DataProcess/JSONExample.png"/>
       </div>
     </div>
     <div id="data-process-text"><p>Test Explanation</p></div>
@@ -82,17 +82,17 @@
 
   <!-- Travel Timeline  -->
   <div class="project-image">
-    <img src = "../assets/projects/MigrationOfArt/TravelTimeline.png"/>
+    <img src="assets/TravelTimeline.png"/>
   </div>
   <div class="project-content">
-    <p>Our main visualization needed to contain layered and rich information, maintaining the entire history of each painting's movement while distinguishing ownership changes and exhibitions, in a concise and aesthetically beautiful visual. My solution for this challenge was this abstract travel timeline, inspired by E.J. Marey's 1885 graphical <a href = "https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003zP">train schedule.</a></p>
+    <p>Our main visualization needed to contain layered and rich information, maintaining the entire history of each painting's movement while distinguishing ownership changes and exhibitions, in a concise and aesthetically beautiful visual. My solution for this challenge was this abstract travel timeline, inspired by E.J. Marey's 1885 graphical <a href="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003zP">train schedule.</a></p>
     <p>This visualization, and the corresponding axes themselves, tell a detailed story about the collection. Each location visited by at least one painting in our analysis gets a horizontal line on our y-axis, arranged from east (top) to west (bottom), allowing us to get a relative sense of where this collection as a whole traveled - and where it didn't.
       Our x-axis starts when the first painting in our collection was created, in 1885, through to our most recent data in 2017, allowing us to track where this piece traveled during each year in the painting's lifespan in the context of the collection as a whole. These axes stay consistent for each painting, allowing for quick and easy comparisons across the different paintings in our study.</p>
   </div>
 
   <!-- Travel Map  -->
   <div class="project-image">
-    <img src = "../assets/projects/MigrationOfArt/TravelMap.png"/>
+    <img src="assets/TravelMap.png"/>
   </div>
   <div class="project-content">
     <p>This abstract timeline is supported by our map view, showing the path each painting traveled across the globe from its creation through 2017. Through animation we can walk through each year of this journey, following along with these travels in real time.</p>
@@ -100,7 +100,7 @@
 
   <!-- More Info  -->
   <div class="project-image">
-    <img src = "../assets/projects/MigrationOfArt/MoreInfo.png"/>
+    <img src="assets/MoreInfo.png"/>
   </div>
   <div class="project-content">
     <p>For users that may be interested in a broader context on the inspiration and impetus of this project, we can see more information in this tertiary level of detail, reminscient of a placard next to each painting on the walls of a museum.</p>
@@ -108,20 +108,20 @@
 
   <!-- Intro  -->
   <div class="project-image">
-    <!-- <img src = "../assets/projects/MigrationOfArt/MigrationOfArt.png"/> -->
+    <!-- <img src="../assets/MigrationOfArt.png"/> -->
     <div class="video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/269498518?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
   </div>
   <div class="project-content">
     <p>We welcome our users with a friendly animation that both draws in our users with an engaging visual, while also orienting us to the project's concept of exploring how these pieces move from place to place. These paintings will also become the menu with which we navigate and filter the project's main visualizations.</p>
   </div>
   <div class="project-image">
-    <img src = "../assets/projects/MigrationOfArt/IntroPlacard.png"/>
+    <img src="assets/IntroPlacard.png"/>
   </div>
   <div class="project-content">
     <p>A concise introduction orients us to the context and importance of the project, matching the museum placard style of our project info view.</p>
   </div>
   <div class="project-content">
-    <link rel="stylesheet" href="css/devices.min.css" type="text/css">
+    <link rel="stylesheet" href="../../css/devices.min.css" type="text/css">
     <!-- <h1>Mobile</h1> -->
     <div class="project-image">
       <div class="marvel-device iphone8plus black">
@@ -141,26 +141,26 @@
     <p>On a mobile device, I needed to adapt this interface and visualization to a more constrained screen which requires wholly different methods of interaction. The orientation of our main visualization and painting menu are rotated to better utilize scrolling. A collapsable menu allows our users to determine the level of detail available at each data point while they scroll, along with changing which visuals are shown. Additional project information and visual legends are also accessible behind this menu.</p>
   </div>
   <div class="next-project">
-    <a href="/MindTheGap.html"><img src="../assets/projects/MindTheGap/MindTheGap.png"/></a><br>
-    <a href="/MindTheGap.html">See my next project →</a>
+    <a href="../MindTheGap"><img src="../MindTheGap/assets/MindTheGap.png"/></a><br>
+    <a href="../MindTheGap">See my next project →</a>
     <div class="more-info">
       <p>Like this project? Want to get in touch? <a href="mailto:ryanabest@gmail.com">Reach out!</a></p>
     </div>
   </div>
   <div class="social-thumbnails">
-    <a href = 'https://twitter.com/buenosbestos' target="_blank">
-      <img id="twitter-thumb" src = '../assets/social-icons/twitter.png'/>
+    <a href='https://twitter.com/buenosbestos' target="_blank">
+      <img id="twitter-thumb" src='../../assets/social-icons/twitter.png'/>
     </a>
     <a href='https://www.linkedin.com/in/ryan-best-03722482/' target="_blank">
-      <img id="linkedin-thumb" src='../assets/social-icons/linkedin.png'/>
+      <img id="linkedin-thumb" src='../../assets/social-icons/linkedin.png'/>
     </a>
-    <a href = 'https://public.tableau.com/profile/ryan.best8326#!/' target="_blank">
-      <img id="tableau-thumb" src='../assets/social-icons/tableau.png'/>
+    <a href='https://public.tableau.com/profile/ryan.best8326#!/' target="_blank">
+      <img id="tableau-thumb" src='../../assets/social-icons/tableau.png'/>
     </a>
-    <a href = 'https://github.com/ryanabest' target="_blank">
-      <img id="github-thumb" src='../assets/social-icons/github.png'/>
+    <a href='https://github.com/ryanabest' target="_blank">
+      <img id="github-thumb" src='../../assets/social-icons/github.png'/>
     </a>
-    <script src="js/link-hover.js"></script>
+    <script src="../../js/link-hover.js"></script>
   </div>
 </body>
 </html>
