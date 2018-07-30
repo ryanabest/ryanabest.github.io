@@ -239,6 +239,8 @@
   .process-content {
     width: 100%;
     flex-direction: column;
+    height: 50vh;
+    padding-top: 6vh;
   }
 
   #data-process {
