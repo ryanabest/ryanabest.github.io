@@ -4,7 +4,7 @@
   "description": "portfolio page",
   "main": "gulpfile.js",
   "scripts": {
-    "run dev": "gulp watch"
+    "dev": "gulp watch"
   },
   "repository": {
     "type": "git",
