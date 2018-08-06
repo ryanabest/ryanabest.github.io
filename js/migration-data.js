@@ -2,10 +2,10 @@ let p1 = "The Met's rich ownership and exhibition information is stored as parag
 let p2 = "...which I pulled down and parsed to extract the location, time, and detail of each location change using Python...";
 let p3 = "...and combined ownership and exhibitions to generate clean JSON files that would feed into my visualization";
 
-let animationTime = 500;
-let waitTime = 3000;
+let animationTime = 20;
+let waitTime = 3500;
 
-if($(window).width() >= 800){
+if(window.innerWidth >= 800){
   dataProcessOpacity()
 } else {
   dataProcessDisplay()
@@ -13,67 +13,115 @@ if($(window).width() >= 800){
 
 
 function dataProcessOpacity() {
-  $('.process-imgs').children('img').css("opacity","0");
-  $('.process-imgs').css("display","inline-block");
 
-  $("#data-process-text").children("p").text(p1);
-  $('#prov-text-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+  animate();
+
+  function animate() {
+
+    let processImgs = document.getElementsByClassName("process-imgs")
+    for (let p=0;p<processImgs.length;p++) {
+      let processImg = processImgs[p];
+      let imgs = processImg.getElementsByTagName("img");
+      let img = imgs[0];
+      img.style.opacity = "0";
+      img.style.display = "inline-block";
+    }
+
+    let processText = document.getElementById("data-process-text")
+    let processTextPars = processText.getElementsByTagName("p")
+    processTextPars[0].innerHTML = p1;
+
+    let provTextEx = document.getElementById("prov-text-ex-img");
+    let provTextExImg = provTextEx.getElementsByTagName("img")[0];
+    provTextExImg.style.opacity = "1";
+
+
     setTimeout(function() {
-      $("#data-process-text").children("p").text(p2);
-      $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-        setTimeout(function() {
-          $("#data-process-text").children("p").text(p3);
-            $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-                setTimeout(function(){ dataProcessOpacity(); }, waitTime);
-              });
-        },waitTime);
-      });
+      document.getElementById("data-process-text").getElementsByTagName("p")[0].innerHTML = p2;
+      let pythonId = setInterval(pythonFrame,animationTime);
+      let pythonPos = 0;
+      let pythonTextEx = document.getElementById("python-ex-img");
+      let pythonTextExImg = pythonTextEx.getElementsByTagName("img")[0]
+
+      function pythonFrame() {
+        if (pythonPos == animationTime) {
+          clearInterval(pythonId);
+        } else {
+          pythonPos++;
+          pythonTextExImg.style.opacity = pythonPos/animationTime;
+        }
+      }
     },waitTime);
-    });
+
+    setTimeout(function() {
+      document.getElementById("data-process-text").getElementsByTagName("p")[0].innerHTML = p3;
+      let jsonId = setInterval(jsonFrame,animationTime);
+      let jsonPos = 0;
+      let jsonTextEx = document.getElementById("json-ex-img");
+      let jsonTextExImg = jsonTextEx.getElementsByTagName("img")[0]
+
+      function jsonFrame() {
+        if (jsonPos == animationTime) {
+          clearInterval(jsonId);
+        } else {
+          jsonPos++;
+          jsonTextExImg.style.opacity = jsonPos/animationTime;
+        }
+      }
+    },waitTime*2);
+
+    setTimeout(function() {
+      animate()
+    },waitTime*3)
+  }
 }
 
 function dataProcessDisplay() {
-  // $('.process-imgs').children('img').css("opacity","0");
-  // $('.process-imgs').css("display","inline-block");
-  // $('.process-imgs').css("position","absolute");
-  //
-  // $("#data-process-text").children("p").text(p1);
-  // $('#prov-text-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-  //   setTimeout(function() {
-  //     $("#data-process-text").children("p").text(p2);
-  //     $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-  //       setTimeout(function() {
-  //         $("#data-process-text").children("p").text(p3);
-  //           $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-  //               setTimeout(function(){ dataProcessOpacity(); }, waitTime);
-  //             });
-  //       },waitTime);
-  //     });
-  //   },waitTime);
-  //   });
 
-  $('.process-imgs').children('img').css("opacity","1");
-  $('.process-imgs').css("display","none");
+  animate();
 
-  $("#data-process-text").children("p").text(p1);
-  $('#prov-text-ex-img').css("display","inline-block");
-  $('#prov-text-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
+  function hideAll() {
+    let processImgs = document.getElementsByClassName("process-imgs")
+    for (let p=0;p<processImgs.length;p++) {
+      let processImg = processImgs[p];
+      let imgs = processImg.getElementsByTagName("img");
+      let img = imgs[0];
+      img.style.opacity = "1";
+      img.style.display = "none";
+    }
+  }
+
+  function animate() {
+
+    hideAll()
+
+    let processText = document.getElementById("data-process-text")
+    let processTextPars = processText.getElementsByTagName("p")
+    processTextPars[0].innerHTML = p1;
+
+    let provTextEx = document.getElementById("prov-text-ex-img");
+    let provTextExImg = provTextEx.getElementsByTagName("img")[0];
+    provTextExImg.style.display = "inline-block";
+
 
     setTimeout(function() {
-      $("#data-process-text").children("p").text(p2);
-      $('.process-imgs').css("display","none");
-      $('#python-ex-img').css("display","inline-block");
-      $('#python-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-
-          setTimeout(function() {
-            $("#data-process-text").children("p").text(p3);
-            $('.process-imgs').css("display","none");
-            $('#json-ex-img').css("display","inline-block");
-            $('#json-ex-img').children('img').animate({opacity: 1}, animationTime, function() {
-                setTimeout(function(){ dataProcessDisplay(); }, waitTime);
-              });
-          },waitTime);
-        });
+      hideAll();
+      document.getElementById("data-process-text").getElementsByTagName("p")[0].innerHTML = p2;
+      let pythonTextEx = document.getElementById("python-ex-img");
+      let pythonTextExImg = pythonTextEx.getElementsByTagName("img")[0]
+      pythonTextExImg.style.display = "inline-block"
     },waitTime);
-  });
+
+    setTimeout(function() {
+      hideAll();
+      document.getElementById("data-process-text").getElementsByTagName("p")[0].innerHTML = p3;
+      let jsonTextEx = document.getElementById("json-ex-img");
+      let jsonTextExImg = jsonTextEx.getElementsByTagName("img")[0]
+      jsonTextExImg.style.display = "inline-block";
+    },waitTime*2);
+
+    setTimeout(function() {
+      animate()
+    },waitTime*3)
+  }
 }
