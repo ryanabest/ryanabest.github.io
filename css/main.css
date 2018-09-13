@@ -10,6 +10,14 @@ body {
   transition: 0.2s;
 }
 
+p, a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#menu-links a {
+  font-family: 'Overpass Mono', sans-serif;
+}
+
 ::selection {
   background: #DD2830;
   color: #fff;
@@ -26,21 +34,21 @@ body {
   max-width: 900px;
   padding: 0 2em;
   font-weight: 300;
-  margin: 0vh auto 0vh auto;
+  margin: 0px auto 0px auto;
 }
 
 
 #menu {
-  margin: 5vh auto 6vh auto;
+  margin: 5vmin auto 6vmin auto;
 }
 
 #menu-links {
-  margin: auto 0vw 0vh auto;
+  margin: auto 0vw 0vmin auto;
   /* text-align: right; */
 }
 
 #menu-links a {
-  font-size: 4vh;
+  font-size: 4vmin;
   padding: 0 0.2em;
 }
 
@@ -93,7 +101,7 @@ body {
 a {
   color: #000;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 a:hover {
@@ -115,7 +123,7 @@ a.active {
   }
 
   #menu {
-    margin: 0vh auto 0vh auto;
+    margin: 0px auto 0px auto;
   }
 
   .social-thumbnails {
