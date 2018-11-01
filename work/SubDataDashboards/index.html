@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sub Data Dashboards</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Overpass+Mono:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/projects.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="../../css/main.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="../../css/swiper.css" type="text/css" charset="utf-8">
+  <script src="../../js/swiper.min.js"></script>
+  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <!-- <link rel="stylesheet" href="../../css/process.css" type="text/css" charset="utf-8"> -->
+  <script>
+    function initViz(tabContainer,TableauUrl,tabs) {
+      let containerDiv = document.getElementById(tabContainer),
+      url = TableauUrl;
+      let height = "";
+      if (tabs) {
+        height = "705px";
+      } else {
+        height = "730px";
+      };
+      let options = {
+        hideToolbar: true,
+        hideTabs: tabs,
+        height: height,
+        width: "1100px"
+      };
+
+      let viz = new tableau.Viz(containerDiv, url, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="menu">
+    <div id="top-menu">
+      <div id="name">
+        <a href="../../"><h1>ryan best</h1></a>
+      </div>
+      <div id="menu-links">
+        <a href="../../" class="active menu-link">work</a>
+        <a href="../../about" class="menu-link">about</a>
+      </div>
+    </div>
+  </div>
+  <div class="project-content" id="project-content-intro">
+    <h1>Sub Data Dashboards</h1>
+    <p>This suite of Tableau dashboards built for <a href="https://substantialclassrooms.org/">Substantial Classrooms</a> helps school districts understand the landscape within their substitute teacher systems.</p>
+  </div>
+  <div class="project-image tableau-img" id="sub-data-img-1">
+    <img src="assets/Sub Jobs - Overview.png">
+  </div>
+  <div class="project-image tableau-embed" id="sub-data-embed-1">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+    // https://onlinehelp.tableau.com/current/api/js_api/en-us/JavaScriptAPI/js_api.htm
+
+    init();
+
+    function init() {
+      initViz("sub-data-embed-1","https://public.tableau.com/views/SubstantialClassroomsSubDataBasicsDashboard/SubJobs-Overview",false);
+      initSize();
+      window.addEventListener("resize", initSize);
+    }
+
+    function initSize() {
+      if (window.innerWidth < 1200) {
+        document.getElementById("sub-data-img-1").style.display = "block";
+        document.getElementById("sub-data-embed-1").getElementsByTagName("iframe")[0].style.display = "none";
+      } else {
+        document.getElementById("sub-data-img-1").style.display = "none";
+        document.getElementById("sub-data-embed-1").getElementsByTagName("iframe")[0].style.display = "block";
+      }
+    }
+
+    </script>
+  </div>
+  <div class="project-content">
+    <p><a href="https://public.tableau.com/profile/ryan.best8326#!/vizhome/SubstantialClassroomsSubDataBasicsDashboard/SubJobs-Overview" class="see-link">See the dashboards →</a></p>
+    <p>
+      <a href="https://substantialclassrooms.org/">Substantial Classrooms</a> aims helps school districts improve the substitute teaching experience for everyone involved: students, subs, teachers, and district personnel.
+      Foundational to their approach is allowing exploration of the data that comes from the software these districts use to manage their substite teaching system.
+      District personnel often do not have the time or expertise they need to find useful insight from this rich information. Substantial helps fill this gap, providing understanding on how their substitute systems operate, who their subs are, and what challenges they face.
+    </p><p>
+      Substantial contacted me to help build a suite of low-lift Tableau dashboards that would facilitate this process, providing quicker and more accessible insight to district leaders on the state of their substitute teaching system.
+      These Sub Data Dashboard visualizations allow districts to prove (or perhaps more importantly, disprove) their key assumptions about how their system operates, helping them make improvements in filling the most teacher absences they can as quickly as possible.
+    </p>
+  </div>
+  <div class="project-content">
+    <h1>Process</h1>
+  </div>
+    <!-- https://idangero.us/swiper/ -->
+        <!-- Slider main container -->
+  <div class="project-image callout" id="sub-process">
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="Assets/Process/Page1.jpg"/></div>
+            <div class="swiper-slide"><img src="Assets/Process/Page2.jpg"/></div>
+            <div class="swiper-slide"><img src="Assets/Process/Page3.jpg"/></div>
+            <div class="swiper-slide"><img src="Assets/Process/Page4.jpg"/></div>
+            <div class="swiper-slide"><img src="Assets/Process/Page5.jpg"/></div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <p class="callout-text">
+      I skteched early-stage designs with pen and paper, which helped to organize my thoughts around how my visualizations would answer key analytical questions and allowed me to easily communicate this vision to Substantial.
+    </p>
+  </div>
+  <div class="project-content">
+    <!-- <img src="assets/process/SubDataDashProcess.gif" class="process-gif" id="SubDataDash-process-gif"/> -->
+    <p><b>Client:</b> <a href="https://substantialclassrooms.org/">Substantial Classrooms</a></p>
+    <p><b>Data Source:</b> Sample anonymized export from <a href="https://www.talentedk12.com/smartfind/">TalentEd SmartFind Express</a> absence management system (formerly eSchools SmartFind)</p>
+    <p>
+      <b>Tools: </b>
+      Excel / Tableau / Paper Prototyping
+    </p>
+  </div>
+  <div class="project-content">
+    <h1>Data</h1>
+    <p>Substantial Classrooms needed their visualizations to work with data that districts export from their partner districts' absense management software, so they provided me a representative sample of what these data exports look like from the <a href="https://www.talentedk12.com/smartfind/">TalentEd SmartFind Express</a> system (formerly eSchools SmartFind), one of two main systems their partner districts use.</p>
+    <p>This sample data set had one row per sub request and provided key characteristics of each request, including: the status of each vacancy (was it filled or left unfilled?), the type of the request (was it pre arranged or last minute?), where the substitute was requested (at which school/location?), the timing of each vacancy (when did it start and end?), and identifiers of the teacher and substitute involved (if the vacancies were filled).</p>
+    <p>Since Substantial would own the process of generating new versions of dashboards with updated data, I wanted to minimize their steps between exporting data and providing insight. To streamline this process I opted to forego any data manipulation before bringing these data into Tableau, instead leveraging the flexibility of the software to add any necessary calculations and aggregations once the data was imported. In this way, Substantial would just need to replace the data source within the template once new data was exported to quickly deliver a new report to a partner district.
+    </p>
+  </div>
+  <div class="project-content">
+    <h1>Visualization</h1>
+    <p>Substantial's biggest priorities for these visualizations were ease of use and actionable insight. They wanted busy district leaders to be able to answer a set of strategic questions in a digestible and visually appealing manner without needing technical expertise to understand their data.
+      I took a very pragmatic approach to these dashboards to reflect these priorities, providing simple visualizations that answered these questions as clearly and quickly as possible.</p>
+  </div>
+
+  <!-- Sub Jobs Overview -->
+  <div class="project-image tableau-img" id="sub-overview-img">
+    <img src="assets/Sub Jobs - Overview.png">
+  </div>
+  <div class="project-image tableau-embed" id="sub-overview-embed">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+    init();
+    function init() {
+      initViz("sub-overview-embed","https://public.tableau.com/views/SubstantialClassroomsSubDataBasicsDashboard/SubJobs-Overview",true);
+      initSize();
+      window.addEventListener("resize", initSize);
+    }
+
+    function initSize() {
+      if (window.innerWidth < 1200) {
+        document.getElementById("sub-overview-img").style.display = "block";
+        document.getElementById("sub-overview-embed").getElementsByTagName("iframe")[0].style.display = "none";
+      } else {
+        document.getElementById("sub-overview-img").style.display = "none";
+        document.getElementById("sub-overview-embed").getElementsByTagName("iframe")[0].style.display = "block";
+      }
+    }
+    </script>
+  </div>
+  <div class="project-content">
+    <p>The <span class="bold">Sub Jobs Overview</span> dashboard answers the questions:</p>
+    <ul>
+      <li>How many sub days were requested in my school(s) this year? What percent of these days were filled?</li>
+      <li>How did my request volume and coverage rate compare across job categories and reason for request?</li>
+    </ul>
+    <p>Our simple bottom-line statistics in text and percent-of-total donut chart allow us to quickly provide a high-level snapshot for the current school year as a whole.
+      Organizing coverage across job categories and request reasons in bar charts allows for quick comparisons and rankings of values within these fields in a straightforward, familiar visual. These bars also provide click-to-filter functionality on the other charts in this view (with instructions on this functionality and more detail provided in a hover-over tooltip).</p>
+  </div>
+
+  <!-- How Does Coverage Compare Across Schools? -->
+  <div class="project-image tableau-img" id="schools-overview-img">
+    <img src="assets/Compare Coverage - Schools.png">
+  </div>
+  <div class="project-image tableau-embed" id="schools-overview-embed">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+    init();
+    function init() {
+      initViz("schools-overview-embed","https://public.tableau.com/views/SubstantialClassroomsSubDataBasicsDashboard/CompareCoverage-Schools",true);
+      initSize();
+      window.addEventListener("resize", initSize);
+    }
+
+    function initSize() {
+      if (window.innerWidth < 1200) {
+        document.getElementById("schools-overview-img").style.display = "block";
+        document.getElementById("schools-overview-embed").getElementsByTagName("iframe")[0].style.display = "none";
+      } else {
+        document.getElementById("schools-overview-img").style.display = "none";
+        document.getElementById("schools-overview-embed").getElementsByTagName("iframe")[0].style.display = "block";
+      }
+    }
+    </script>
+  </div>
+  <div class="project-content">
+    <p>The <span class="bold">How Does Coverage Compare Across Schools?</span> dashboard answers the questions:</p>
+    <ul>
+      <li>How did coverage rate compare across job categories within a school level?</li>
+      <li>What was coverage rate in specific schools? What about coverage rate for schools within specific school level(s)? Job categories within these?</li>
+    </ul>
+    <p>Again we use bar charts for a quick and easy comparison of coverage rates across different levels of detail and different categories.
+      Substantial applies a three-tiered category at the school level: high (&gt;90% of days filled), medium (between 67% and 90%), and low (&lt;67%). We represent this distinction here by applying the familiar green-yellow-red stoplight palette to our school-level chart, creating visual tiers of school based on substitute coverage levels.
+    </p>
+  </div>
+  <div class="project-image">
+    <img src="assets/Compare Coverage - Schools - Action.gif">
+  </div>
+  <div class="project-content">
+    <p>Dynamic filtering allows us to whittle down our list of schools by level, or to see the differing coverage rates by job category in each school. This interactivity empowers excited district leaders to take an active role in exploring their data, exploring its nooks and crannies to find the insight that matters most to them.</p>
+  </div>
+
+  <!-- How Does Coverage Compare Across Schools? -->
+  <div class="project-image tableau-img" id="time-img">
+    <img src="assets/Compare Coverage - Time.png">
+  </div>
+  <div class="project-image tableau-embed" id="time-embed">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+    init();
+    function init() {
+      initViz("time-embed","https://public.tableau.com/views/SubstantialClassroomsSubDataBasicsDashboard/CompareCoverage-Time",true);
+      initSize();
+      window.addEventListener("resize", initSize);
+    }
+
+    function initSize() {
+      if (window.innerWidth < 1200) {
+        document.getElementById("time-img").style.display = "block";
+        document.getElementById("time-embed").getElementsByTagName("iframe")[0].style.display = "none";
+      } else {
+        document.getElementById("time-img").style.display = "none";
+        document.getElementById("time-embed").getElementsByTagName("iframe")[0].style.display = "block";
+      }
+    }
+    </script>
+  </div>
+  <div class="project-content">
+    <p>The <span class="bold">How Does Coverage Compare Over Time?</span> dashboard answers the questions:</p>
+    <ul>
+      <li>How has my number of sub days requested and coverage rate progressed from month to month this school year? Across different days of the week?</li>
+      <li>How do these results change for a specific job category?</li>
+    </ul>
+    <p>This dashboard implements a stacked area chart to represent change over time for two metrics simultaneously: the overall number of days requested and the rate of filling those requested days with subs. We use the same color scheme as our donut chart from the Sub Jobs Overview dashboard (blue days fill in the gray total). Carrying this visual language throughout our dashboards provides consistency and reduces the amount of effort needed to understand this new chart. We also implement light-touch filtering, allowing exploration on what these trends look like across the different schooldays or how this chart changes for different types of requests.
+    </p>
+  </div>
+
+  <!-- Who Are The Subs In My District? -->
+  <div class="project-image tableau-img" id="who-img">
+    <img src="assets/Substitutes - Overview.png">
+  </div>
+  <div class="project-image tableau-embed" id="who-embed">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+    init();
+    function init() {
+      initViz("who-embed","https://public.tableau.com/views/SubstantialClassroomsSubDataBasicsDashboard/Substitutes-Overview",true);
+      initSize();
+      window.addEventListener("resize", initSize);
+    }
+
+    function initSize() {
+      if (window.innerWidth < 1200) {
+        document.getElementById("who-img").style.display = "block";
+        document.getElementById("who-embed").getElementsByTagName("iframe")[0].style.display = "none";
+      } else {
+        document.getElementById("who-img").style.display = "none";
+        document.getElementById("who-embed").getElementsByTagName("iframe")[0].style.display = "block";
+      }
+    }
+    </script>
+  </div>
+  <div class="project-content">
+    <p>The <span class="bold">Who Are The Subs In My District?</span> dashboard answers the questions:</p>
+    <ul>
+      <li>How many subs worked in my school(s) this year?</li>
+      <li>What assignment channels were most popular? Least popular?</li>
+      <li>What percent of my subs were "top subs" (worked at least 30 days) this year?</li>
+      <li>What proportion of total days worked were accounted for by my “top subs”?</li>
+    </ul>
+    <p>Here I implement familiar, simple data representations alongside the most complicated visual throughout this suite of dashboards to give detail on the substitutes teachers themselves. I provide the highest-level of detail most simply, with the overall number of subs who worked in a district represented in text reminscient of the style used in our Sub Jobs Overview dashboard.
+      The distribution of assignment channels for these subs is represented in a simple stacked bar chart, which better fits the narrow space available than a bar chart.
+    </p>
+    <p>I chose to represent how many days the "top working" subs accounted for throughout the district in a line graph resembling a Pareto Chart. While this view is undoubtedly our most visually complex, it contains an exciting amount of information in an efficient use of space.</p>
+  </div>
+  <div class="project-image">
+    <img src="assets/Substitutes - Overview - Tooltip.png">
+  </div>
+  <div class="project-content">    <p>In this visualization we rank each sub by the number of days worked on the x-axis, then calculate the cumulative percent of total days worked up to that point in the chart on the y-axis - if every sub worked an equal number of days this chart would be a straight line from bottom-left to the top-right.
+      The shape of this line tells us how equally days were distributed across subs - if the line climbs steeply at first and then quickly levels off, we know there was a more lopsided distribution of work amongst subtitutes with a select few carrying the load.</p>
+    <p>Substantial was also interested in knowing how many of their subs worked at least 30 days throughout the year - the brighter blue makes this distinction visually apparent, allowing us to get a general sense of the distribution of subs working above and below this threshold. Users can hover over this chart to see additional stats about the fill distribution at any given point in the graph (including this 30-day breaking point), learn who a specific sub is, or get more detail on how to interpret this visualization.
+    </p>
+  </div>
+
+  <!-- Progress Monitor -->
+  <div class="project-image tableau-img" id="progress-img">
+    <img src="assets/Progress Monitor.png">
+  </div>
+  <div class="project-image tableau-embed" id="progress-embed">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script>
+    init();
+    function init() {
+      initViz("progress-embed","https://public.tableau.com/views/SubstantialClassroomsSubDataBasicsDashboard/ProgressMonitor",true);
+      initSize();
+      window.addEventListener("resize", initSize);
+    }
+
+    function initSize() {
+      if (window.innerWidth < 1200) {
+        document.getElementById("progress-img").style.display = "block";
+        document.getElementById("progress-embed").getElementsByTagName("iframe")[0].style.display = "none";
+      } else {
+        document.getElementById("progress-img").style.display = "none";
+        document.getElementById("progress-embed").getElementsByTagName("iframe")[0].style.display = "block";
+      }
+    }
+    </script>
+  </div>
+  <div class="project-content">
+    <p>The <span class="bold">Progress Monitor</span> dashboard answers the question:</p>
+    <ul>
+      <li>How did my coverage rate and number of subs worked compare across different seasons of the school year?</li>
+    </ul>
+    <p>
+      Our final visualization takes the donut chart and number of subs worked visuals from the top half of our Sub Jobs Overview dashboard and allows us to look at how these statistics have changed throughout each season within a school year. Substantial refreshes these dashboards three times a year for their district partners, and wanted a simple view that allowed these partners to see back in time for their high-level metrics. This view allows leaders to see how their overall job requests and coverage rates have progressed through one school year, showing a snapshot of what these views from the first page showed during previous iterations of this report.
+    </p>
+    </div>
+
+  <div class="next-project">
+    <a href="../MigrationOfArt"><img  src="../MigrationOfArt/assets/MigrationOfArt.png"/></a><br>
+    <a href="../MigrationOfArt">See my next project →</a>
+    <div class="more-info">
+      <p>Like this project? Want to get in touch?<a href="mailto:ryanabest@gmail.com"> Reach out!</a></p>
+    </div>
+  </div>
+  <div class="social-thumbnails">
+    <a href='https://twitter.com/buenosbestos'>
+      <img id="twitter-thumb" src='../../assets/social-icons/twitter.png'/>
+    </a>
+    <a href='https://www.linkedin.com/in/ryan-best-03722482/'>
+      <img id="linkedin-thumb" src='../../assets/social-icons/linkedin.png'/>
+    </a>
+    <a href='https://public.tableau.com/profile/ryan.best8326#!/'>
+      <img id="tableau-thumb" src='../../assets/social-icons/tableau.png'/>
+    </a>
+    <a href='https://github.com/ryanabest'>
+      <img id="github-thumb" src='../../assets/social-icons/github.png'/>
+    </a>
+    <script src="../../js/link-hover.js"></script>
+  </div>
+  <script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
+
+  </script>
+</body>
+</html>
