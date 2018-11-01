@@ -27,26 +27,26 @@
     <div class="video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/282721267?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
   </div>
   <div class="project-content">
-    <p><a href="http://ryanabest.com/dvia-2017/5.final-project/ryan/final/" target="_blank" class="see-link">See the prototype →</a></p>
-    <p>Gerrymandering is an ingrained facet of one of the most fundamental aspects of American democracy - how we draw the districts that elect our representatives. It's a political strategy that's often <a href="https://www.vox.com/2016/1/12/10758738/obama-state-of-the-union-2016-gerrymandering" target="_blank">blamed</a> for creating uncompetitive elections or stoking political divisiveness and has received quite a bit of <a href="https://projects.fivethirtyeight.com/redistricting-maps/" target="_blank">attention</a> from <a href="https://www.washingtonpost.com/graphics/2017/politics/courts-law/gerrymander/?utm_term=.d08b867bee00">national</a> <a href="https://www.nytimes.com/interactive/2017/10/03/upshot/how-the-new-math-of-gerrymandering-works-supreme-court.html" target="_blank">publications</a>. This visualization dives into how gerrymandering works, what methods we can use quantifiably measure this phenomenon, and what these metrics can tell us about its effect in American elections.
-    This analysis specifically focuses on the 2012 Federal Congressional elections, measuring <a href="https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf" target="_blank">the efficiency gap</a> and <a href="http://bl.ocks.org/cingraham/7551527">difference from proportional representation</a> to find evidence of gerrymandering's political influence stemming from significant redistricting that followed the 2010 census.
+    <p><a href="http://ryanabest.com/dvia-2017/5.final-project/ryan/final/" class="see-link">See the prototype →</a></p>
+    <p>Gerrymandering is an ingrained facet of one of the most fundamental aspects of American democracy - how we draw the districts that elect our representatives. It's a political strategy that's often <a href="https://www.vox.com/2016/1/12/10758738/obama-state-of-the-union-2016-gerrymandering">blamed</a> for creating uncompetitive elections or stoking political divisiveness and has received quite a bit of <a href="https://projects.fivethirtyeight.com/redistricting-maps/">attention</a> from <a href="https://www.washingtonpost.com/graphics/2017/politics/courts-law/gerrymander/?utm_term=.d08b867bee00">national</a> <a href="https://www.nytimes.com/interactive/2017/10/03/upshot/how-the-new-math-of-gerrymandering-works-supreme-court.html">publications</a>. This visualization dives into how gerrymandering works, what methods we can use quantifiably measure this phenomenon, and what these metrics can tell us about its effect in American elections.
+    This analysis specifically focuses on the 2012 Federal Congressional elections, measuring <a href="https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf">the efficiency gap</a> and <a href="http://bl.ocks.org/cingraham/7551527">difference from proportional representation</a> to find evidence of gerrymandering's political influence stemming from significant redistricting that followed the 2010 census.
     </p>
   </div>
   <div class="project-content">
     <h1>Process</h1>
     <img src="assets/MindTheGapProcess.gif"/>
-    <p><b>Data Source:</b> FEC 2012 Senate and House <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml" target="_blank">Results</a></p>
+    <p><b>Data Source:</b> FEC 2012 Senate and House <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">Results</a></p>
     <p>
       <b>Tools: </b>
       JavaScript /
-      <a href="https://jquery.com/" target="_blank">jQuery</a> / <a href="https://p5js.org/">p5</a> / <a href="https://nodejs.org/en/">node</a> / HTML / CSS / <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox</a> /
-      <a href="https://www.adobe.com/products/illustrator.html" target="_blank">Adobe Illustrator</a>
+      <a href="https://jquery.com/">jQuery</a> / <a href="https://p5js.org/">p5</a> / <a href="https://nodejs.org/en/">node</a> / HTML / CSS / <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> /
+      <a href="https://www.adobe.com/products/illustrator.html">Adobe Illustrator</a>
     </p>
-    <p><a href="https://github.com/ryanabest/ms1-2018/tree/master/quant" target="_blank" class="see-link">See the code →</a></p>
+    <p><a href="https://github.com/ryanabest/ms1-2018/tree/master/quant" class="see-link">See the code →</a></p>
   </div>
   <div class="project-content">
     <h1>Data</h1>
-    <p>The data I used in this project comes from a 2012 federal congressional election results excel file available on the <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">FEC website</a>. I first needed to do some clean-up in excel to standardize undeeded inconsistencies and reduce this data to only those candidates who won their district's primaries in the year's house elections.</p><p>I then used node.js to further process this data, leveraging the power of js libraries including <a href="https://p5js.org/" target="_blank">p5</a>, <a href="https://jquery.com/" target="_blank">jQuery</a>, and <a href="https://lodash.com/" target="_blank">Lodash</a>. I needed to organize district results, tracking the votes and percentage of votes cast for each candidate compared with the amount of votes needed to win that district, and calculate state-wide results of my two main metrics for each party: <a href="https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf" target="_blank">the efficiency gap</a> and the difference between seats earned and seats expected in a system with pure proportionality. This data processing generated two clean json files, one for district results and one for state, that I fed into my front-end visualization.
+    <p>The data I used in this project comes from a 2012 federal congressional election results excel file available on the <a href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">FEC website</a>. I first needed to do some clean-up in excel to standardize undeeded inconsistencies and reduce this data to only those candidates who won their district's primaries in the year's house elections.</p><p>I then used node.js to further process this data, leveraging the power of js libraries including <a href="https://p5js.org/">p5</a>, <a href="https://jquery.com/">jQuery</a>, and <a href="https://lodash.com/">Lodash</a>. I needed to organize district results, tracking the votes and percentage of votes cast for each candidate compared with the amount of votes needed to win that district, and calculate state-wide results of my two main metrics for each party: <a href="https://www.brennancenter.org/sites/default/files/legal-work/How_the_Efficiency_Gap_Standard_Works.pdf">the efficiency gap</a> and the difference between seats earned and seats expected in a system with pure proportionality. This data processing generated two clean json files, one for district results and one for state, that I fed into my front-end visualization.
   </div>
   <div class="project-content">
     <h1>Visualization</h1>
@@ -64,7 +64,7 @@
   </div>
   <div class="project-content">
     <p>
-      Our prominent menu at the top of this visualization lets us know which metric we're viewing and allows us to switch between metrics. We use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items" target="_blank">flexbox</a> and <a href="https://www.w3schools.com/css/css3_transitions.asp" target="_blank">CSS transitions</a> to maintain <a href="https://bost.ocks.org/mike/constancy/" target="_blank">object constancy</a> when our metric is switched, making it easier for us to get a general sense of how the two metrics are correlated or to follow one specific state's change in ranking from one metric to another.
+      Our prominent menu at the top of this visualization lets us know which metric we're viewing and allows us to switch between metrics. We use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Ordering_Flex_Items">flexbox</a> and <a href="https://www.w3schools.com/css/css3_transitions.asp">CSS transitions</a> to maintain <a href="https://bost.ocks.org/mike/constancy/">object constancy</a> when our metric is switched, making it easier for us to get a general sense of how the two metrics are correlated or to follow one specific state's change in ranking from one metric to another.
     </p>
   </div>
   <div class="project-image">
@@ -110,16 +110,16 @@
     </div>
   </div>
   <div class="social-thumbnails">
-    <a href='https://twitter.com/buenosbestos' target="_blank">
+    <a href='https://twitter.com/buenosbestos'>
       <img id="twitter-thumb" src='../../assets/social-icons/twitter.png'/>
     </a>
-    <a href='https://www.linkedin.com/in/ryan-best-03722482/' target="_blank">
+    <a href='https://www.linkedin.com/in/ryan-best-03722482/'>
       <img id="linkedin-thumb" src='../../assets/social-icons/linkedin.png'/>
     </a>
-    <a href='https://public.tableau.com/profile/ryan.best8326#!/' target="_blank">
+    <a href='https://public.tableau.com/profile/ryan.best8326#!/'>
       <img id="tableau-thumb" src='../../assets/social-icons/tableau.png'/>
     </a>
-    <a href='https://github.com/ryanabest' target="_blank">
+    <a href='https://github.com/ryanabest'>
       <img id="github-thumb" src='../../assets/social-icons/github.png'/>
     </a>
     <script src="../../js/link-hover.js"></script>
