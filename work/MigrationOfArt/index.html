@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Overpass+Mono:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="../../css/main.css" type="text/css" charset="utf-8">
   <link rel="stylesheet" href="../../css/projects.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="../../css/swiper.css" type="text/css" charset="utf-8">
 </head>
 <body>
   <div id="menu">
@@ -32,7 +33,33 @@
   </div>
   <div class="project-content">
     <h1>Process</h1>
-    <img src="assets/MigrationProcess.gif"/>
+    <!-- <img src="assets/MigrationProcess.gif"/> -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="assets/process/process1.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process2.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process3.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process4.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process5.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process6.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process7.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process8.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process9.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process10.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process11.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process12.png"/></div>
+            <div class="swiper-slide"><img src="assets/process/process13.png"/></div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <script src="../../js/swiper.min.js"></script>
     <p><b>Data Source:</b> The Met API, made available to our course.</p>
     <p>
       <b>Tools: </b>
@@ -44,7 +71,7 @@
   <div class="project-content">
     <h1>Data</h1>
   </div>
-  <div class="project-image" id="data-process">
+  <div class="project-image callout" id="data-process">
     <div class="process-content">
       <div id="prov-text-ex-img" class="process-imgs">
         <img src="assets/DataProcess/TheMetTextExample.png"/>
@@ -56,7 +83,7 @@
         <img src="assets/DataProcess/JSONExample.png"/>
       </div>
     </div>
-    <div id="data-process-text"><p>Test Explanation</p></div>
+    <div class="callout-text" id="data-process-text"><p>Test Explanation</p></div>
     <script src="/js/migration-data.js"></script>
   </div>
   <div class="project-content">
@@ -153,5 +180,23 @@
     </a>
     <script src="../../js/link-hover.js"></script>
   </div>
+  <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    })
+  </script>
 </body>
 </html>
