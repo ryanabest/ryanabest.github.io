@@ -177,6 +177,13 @@ a.see-link {
   /* padding: 0px 2vw 2vw; */
 }
 
+p.process-text {
+  font-size: 16px;
+  padding: 0 8vw;
+  line-height: 1.2em;
+  margin-bottom: 50px;
+  text-align: center;
+}
 
 .process-imgs img {
   height: auto;
@@ -303,6 +310,11 @@ a.see-link {
     width: 75%;
     height: auto;
     max-width: 600px;
+  }
+
+  p.process-text {
+    font-size: 0.8em;
+    padding: 0 10vw;
   }
 
 
