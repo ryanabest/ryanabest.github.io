@@ -15,12 +15,13 @@ p, a {
 }
 
 #menu h1, #menu a {
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
 }
 
 #menu-links a {
   font-family: 'Overpass Mono', sans-serif;
   font-weight: 700;
+  padding-left: 0.5em;
 }
 
 ::selection {
@@ -150,7 +151,6 @@ a.active {
   }
 
   #menu-links {
-    margin: 0;
     width: 100vw;
     justify-content: space-between;
   }
@@ -161,7 +161,7 @@ a.active {
     margin: 0 2vw;
   }
 
-  #top-menu h1 {
+  #top-menu h1, #menu-links a {
     font-size: 8vw;
     text-align: center;
   }
@@ -179,9 +179,8 @@ a.active {
   }
 
   #menu-links a {
+    padding: 0 0.25em;
     font-size: 7vw;
-    letter-spacing: 0.3em;
-    /* text-align: right; */
   }
 
   #work-thumbnails img {
