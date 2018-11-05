@@ -14,20 +14,24 @@ p, a {
   font-family: 'Montserrat', sans-serif;
 }
 
+#menu h1, #menu a {
+  letter-spacing: 0.1em;
+}
+
 #menu-links a {
   font-family: 'Overpass Mono', sans-serif;
   font-weight: 700;
 }
 
 ::selection {
-  background: #DD2830;
+  background: #4295CE;
   color: #fff;
 }
 
 #menu,.social-thumbnails {
   width: 100%;
 	max-width: 1500px;
-	padding: 1em;
+	padding: 1em 2vw;
 }
 
 .about-content {
@@ -40,11 +44,21 @@ p, a {
 
 
 #menu {
-  margin: 5vmin auto 6vmin auto;
+  margin: 5vmin auto;
 }
 
-#menu-links {
-  margin: auto 0vw 0vmin auto;
+#menu img {
+  max-height: 10vmin;
+  vertical-align: bottom;
+}
+
+#menu a {
+  display: inline-block;
+  line-height: 8vmin;
+}
+
+#menu-links, #name {
+  margin: auto 0vw;
   /* text-align: right; */
 }
 
@@ -78,6 +92,7 @@ p, a {
   margin: 0;
   font-size: 4vh;
   font-weight: 700;
+  display: inline;
 }
 
 .social-thumbnails {
@@ -96,7 +111,7 @@ p, a {
 }
 
 .about-content p {
-  font-size: 3.4vh;
+  font-size: 3.1vh;
   line-height: 2em;
 }
 
@@ -107,11 +122,11 @@ a {
 }
 
 a:hover {
-  color: #DD2830;
+  color: #4295CE;
 }
 
 a.active {
-  color: #DD2830;
+  color: #4295CE;
 }
 
 
@@ -145,13 +160,22 @@ a.active {
   }
 
   #top-menu h1 {
-    font-size: 13vw;
+    font-size: 8vw;
     text-align: center;
   }
 
+  #name {
+    margin: 1em 0px;
+  }
+
+  #menu img {
+    max-height: 20vmin;
+    vertical-align: middle;
+  }
+
   #menu-links a {
-    font-size: 6vw;
-    letter-spacing: 0.4em;
+    font-size: 7vw;
+    letter-spacing: 0.3em;
     /* text-align: right; */
   }
 
