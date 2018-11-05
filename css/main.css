@@ -112,6 +112,11 @@ a {
   font-weight: 500;
 }
 
+.about-content a {
+  border-bottom: 1px dashed #4295CE;
+  padding-bottom: 0.15em;
+}
+
 a:hover {
   color: #4295CE;
 }

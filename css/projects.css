@@ -1,5 +1,10 @@
 /* Project Links on Work Page */
 
+.project-content a, a.next-project-link {
+  border-bottom: 1px dashed #4295CE;
+  /* padding-bottom: 1px; */
+}
+
 .row {
   width: 100%;
   max-width: 1500px;
