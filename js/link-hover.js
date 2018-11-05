@@ -4,33 +4,33 @@ let tableau  = document.getElementById("tableau-thumb")
 let gitHub   = document.getElementById("github-thumb")
 
 twitter.addEventListener("mouseover",function(event) {
-  twitter.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/twitter-highlight.png?raw=true"
+  twitter.src = "/assets/social-icons/twitter-highlight.png"
 })
 
 twitter.addEventListener("mouseout",function(event) {
-  twitter.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/twitter.png?raw=true"
+  twitter.src = "/assets/social-icons/twitter.png"
 })
 
 linkedIn.addEventListener("mouseover",function(event) {
-  linkedIn.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/linkedin-highlight.png?raw=true"
+  linkedIn.src = "/assets/social-icons/linkedin-highlight.png"
 })
 
 linkedIn.addEventListener("mouseout",function(event) {
-  linkedIn.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/linkedin.png?raw=true"
+  linkedIn.src = "/assets/social-icons/linkedin.png"
 })
 
 tableau.addEventListener("mouseover",function(event) {
-  tableau.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/tableau-highlight.png?raw=true"
+  tableau.src = "/assets/social-icons/tableau-highlight.png"
 })
 
 tableau.addEventListener("mouseout",function(event) {
-  tableau.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/tableau.png?raw=true"
+  tableau.src = "/assets/social-icons/tableau.png"
 })
 
 gitHub.addEventListener("mouseover",function(event) {
-  gitHub.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/github-highlight.png?raw=true"
+  gitHub.src = "/assets/social-icons/github-highlight.png"
 })
 
 gitHub.addEventListener("mouseout",function(event) {
-  gitHub.src = "https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/social-icons/github.png?raw=true"
+  gitHub.src = "/assets/social-icons/github.png"
 })
