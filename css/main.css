@@ -44,23 +44,17 @@ p, a {
 }
 
 #menu img {
-  max-height: 10vmin;
-  vertical-align: bottom;
+  max-height: 6vmin;
+  vertical-align: top;
 }
 
 #menu a {
   display: inline-block;
-  line-height: 8vmin;
+  line-height: 6vmin;
 }
 
-#menu-links, #name {
-  margin: auto 0vw;
-  /* text-align: right; */
-}
-
-#menu-links a {
+#menu-links a, #top-menu h1 {
   font-size: 4vmin;
-  padding: 0 0.2em;
 }
 
 #menu hr {
@@ -84,11 +78,10 @@ p, a {
   font-weight: 700;
 }
 
-#top-menu h1 {
-  margin: 0;
-  font-size: 4vh;
+#name h1 {
   font-weight: 700;
   display: inline;
+  line-height: 6vmin;
 }
 
 .social-thumbnails {
@@ -149,7 +142,7 @@ a.active {
   }
 
   #menu {
-    margin: 0px auto 0px auto;
+    margin: 0px auto;
   }
 
   .social-thumbnails {
@@ -173,13 +166,16 @@ a.active {
     text-align: center;
   }
 
-  #name {
+  #name, #menu-links {
     margin: 1em 0px;
   }
 
   #menu img {
-    max-height: 20vmin;
-    vertical-align: middle;
+    max-height: 15vmin;
+  }
+
+  #name h1 {
+    line-height: 15vmin;
   }
 
   #menu-links a {
