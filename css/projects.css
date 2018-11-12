@@ -1,10 +1,3 @@
-/* Project Links on Work Page */
-
-.project-content a, a.next-project-link {
-  border-bottom: 1px dashed #4295CE;
-  /* padding-bottom: 1px; */
-}
-
 .row {
   width: 100%;
   max-width: 1500px;
@@ -41,6 +34,11 @@
   padding-bottom: 1vh;
   max-width: 100vw;
   margin: auto auto 5vh auto;
+}
+
+a.project-title-link {
+  font-size: 1.8vh;
+  font-weight: 500;
 }
 
 .project-img-link img {
@@ -180,7 +178,7 @@ a.see-link {
 p.process-text {
   font-size: 16px;
   padding: 0 8vw;
-  line-height: 1.2em;
+  line-height: 1.5em;
   margin-bottom: 50px;
   text-align: center;
 }

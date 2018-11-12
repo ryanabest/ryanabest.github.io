@@ -103,12 +103,26 @@ p, a {
 a {
   color: #000;
   text-decoration: none;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
-.about-content a {
-  border-bottom: 1px dashed #4295CE;
+.about-content a, .project-content a, a.next-project-link, a.project-title-link {
   padding-bottom: 0.15em;
+  padding-top: 0.15em;
+  background:
+     linear-gradient(
+       to bottom, #4295CE 0%,
+       #4295CE 100%
+     );
+  background-position: 0 100%;
+	background-repeat: repeat-x;
+	background-size: 0.12em 0.12em;
+}
+
+.about-content a:hover, .project-content a:hover, a.next-project-link:hover, a.project-title-link:hover {
+  color: #fff;
+  transition: 0.5s;
+  background-size: 100% 100%;
 }
 
 a:hover {
