@@ -206,6 +206,11 @@ a.active {
     line-height: 2em;
   }
 
+  a.project-title-link {
+    font-size: 1.1em;
+    letter-spacing: 0.05em;
+  }
+
   /* p {
     font-size: 2vh;
   } */
