@@ -43,11 +43,12 @@ a.project-title-link {
 
 .project-img-link img {
   padding-bottom: 1em;
+  transition: all 200ms;
 }
 
 .project-img-link img:hover, .next-project img:hover {
   transform: scale(1.05);
-  transition: 0.5s;
+  transition: all 200ms;
 }
 
 @media screen and (max-width : 600px) {

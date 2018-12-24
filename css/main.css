@@ -7,7 +7,7 @@ body {
 * {
   box-sizing: border-box;
   font-family: 'Overpass Mono', sans-serif;
-  transition: 0.2s;
+  /* transition: 0.2s; */
 }
 
 p, a {
@@ -117,11 +117,12 @@ a {
   background-position: 0 100%;
 	background-repeat: repeat-x;
 	background-size: 0.12em 0.12em;
+  transition: all 200ms ease-in-out;
 }
 
 .about-content a:hover, .project-content a:hover, a.next-project-link:hover, a.project-title-link:hover {
   color: #fff;
-  transition: 0.5s;
+  transition: all 200ms ease-in-out;
   background-size: 100% 100%;
 }
 
