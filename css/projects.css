@@ -70,7 +70,7 @@ a.project-title-link {
 /* Project Info on Project-Specific Pages */
 
 a.see-link {
-  font-family: 'Overpass Mono', sans-serif;
+  font-family: 'Overpass Mono', monospace;
   font-weight: 700;
 }
 
@@ -216,7 +216,7 @@ p.process-text {
 }
 
 .next-project p, .next-project a {
-  font-family: 'Overpass Mono', sans-serif;
+  font-family: 'Overpass Mono', monospace;
 }
 
 .next-project img {

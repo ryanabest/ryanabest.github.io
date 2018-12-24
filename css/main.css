@@ -6,8 +6,7 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: 'Overpass Mono', sans-serif;
-  /* transition: 0.2s; */
+  font-family: 'Overpass Mono', monospace;
 }
 
 p, a {
@@ -19,7 +18,7 @@ p, a {
 }
 
 #menu-links a {
-  font-family: 'Overpass Mono', sans-serif;
+  font-family: 'Overpass Mono', monospace;
   font-weight: 700;
   padding-left: 0.5em;
 }
