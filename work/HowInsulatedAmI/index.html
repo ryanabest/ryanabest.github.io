@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>How Well Insulated Am I From The Temperature Outside?</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Overpass+Mono:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/projects.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="../../css/main.css" type="text/css" charset="utf-8">
+  <link rel="icon" type="image/png" href="https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/favicon.png?raw=true"/>
+</head>
+<body>
+  <div id="menu">
+    <div id="top-menu">
+      <div id="name">
+        <a href="/">
+          <h1>ryan&nbsp;</h1>
+          <img src="https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/logo.png?raw=true">
+          <h1>&nbsp;best</h1></a>
+      </div>
+      <div id="menu-links">
+        <a href="/" class="menu-link active">work</a>
+        <a href="/about" class="menu-link">about</a>
+      </div>
+    </div>
+  </div>
+  <div class="project-content" id="project-content-intro">
+    <h1>How Well Insulated Am I From The Temperature Outside?</h1>
+    <p>This visualization compares the fluctuation of temperature inside my windowsill in Brooklyn with the temperature outside.</p>
+  </div>
+  <div class="project-image">
+    <div class="video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/311099018?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+  <div class="project-content">
+    <!-- <p><a href="https://ryanabest.github.io/ms1-2018/quant/final/" class="see-link">See the prototype →</a></p> -->
+    <!-- <p>How has the The Metropolitan Museum of Art's <a href="https://www.metmuseum.org/art/collection">collection</a> evolved throughout it's illustrious history? Where do their artifacts and artworks come from, and when did they acquire pieces from which areas of the world?</p> -->
+  </div>
+  <div class="project-content">
+    <h1>Process</h1>
+    <p><b>Data Source:</b>Inside temperature from a real-time temperature sensor connected to a <a href='https://www.particle.io/'>Particle breadboard</a>, from which I collect temperature readings every 30 seconds. Outside temperature from <a href='https://darksky.net/dev'>Dark Sky API</a>, from which I collect hourly and daily weather data at the end of each day. Both data sources are stored in an AWS RDS&nbsp;database.</p>
+    <p>
+      <b>Tools: </b>
+      d3 / Express / Node / PostgreSQL / AWS EC2 / AWS RDS / Handlebars / Heroku / PM2 / HTML / CSS / JavaScript
+    </p>
+    <p><a href="https://github.com/ryanabest/data-structures/tree/master/final" class="see-link">See the code →</a></p>
+  </div>
+  <!-- <div class="project-content">
+    <h1>Data</h1>
+  </div> -->
+  <div class="project-content">
+    <h1>Visualization</h1>
+  </div>
+  <div class="project-image">
+    <img src="assets/sensor1.png"/>
+  </div>
+  <div class="project-content">
+    <p>My visualization implements a <a href='https://flowingdata.com/charttype/difference-chart/'>difference chart</a>, which fills in the space between lines to highlight a greater-than and less-than differences over time.</p>
+  </div>
+  <div class="project-image">
+    <img src="assets/sensor2.png"/>
+  </div>
+  <div class="project-content">
+    <p>I include a responsive hover-over interaction that allows users to see the specific inside temperature, outside temperature, and difference between the two at any point in the timeframe visualized.</p>
+  </div>
+  <div class="next-project">
+    <a href="../AAMeetingFinder"><img src="../AAMeetingFinder/assets/Preview.png"/></a><br>
+    <a href="../AAMeetingFinder" class="next-project-link">See my next project →</a>
+    <div class="more-info">
+      <p>Like this project? Want to get in touch? <a href="mailto:ryanabest@gmail.com" class="next-project-link">Reach out!</a></p>
+    </div>
+  </div>
+  <div class="social-thumbnails">
+    <a href='https://twitter.com/buenosbestos'>
+      <img id="twitter-thumb" src='../../assets/social-icons/twitter.png'/>
+    </a>
+    <a href='https://www.linkedin.com/in/ryan-best-03722482/'>
+      <img id="linkedin-thumb" src='../../assets/social-icons/linkedin.png'/>
+    </a>
+    <a href='https://public.tableau.com/profile/ryan.best8326#!/'>
+      <img id="tableau-thumb" src='../../assets/social-icons/tableau.png'/>
+    </a>
+    <a href='https://github.com/ryanabest'>
+      <img id="github-thumb" src='../../assets/social-icons/github.png'/>
+    </a>
+    <script src="../../js/link-hover.js"></script>
+  </div>
+</body>
+</html>
