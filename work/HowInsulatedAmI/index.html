@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Overpass+Mono:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="../../css/projects.css" type="text/css" charset="utf-8">
   <link rel="stylesheet" href="../../css/main.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="../../css/swiper.css" type="text/css" charset="utf-8">
   <link rel="icon" type="image/png" href="https://github.com/ryanabest/ryanabest.github.io/blob/master/assets/favicon.png?raw=true"/>
 </head>
 <body>
@@ -36,16 +37,40 @@
   </div>
   <div class="project-content">
     <h1>Process</h1>
-    <p><b>Data Source:</b>Inside temperature from a real-time temperature sensor connected to a <a href='https://www.particle.io/'>Particle breadboard</a>, from which I collect temperature readings every 30 seconds. Outside temperature from <a href='https://darksky.net/dev'>Dark Sky API</a>, from which I collect hourly and daily weather data at the end of each day. Both data sources are stored in an AWS RDS&nbsp;database.</p>
+    <p><b>Data Source:</b> Inside temperature from a real-time temperature sensor connected to a <a href='https://www.particle.io/'>Particle breadboard</a>, from which I collect temperature readings every 30 seconds. Outside temperature from <a href='https://darksky.net/dev'>Dark Sky API</a>, from which I collect hourly and daily weather data at the end of each day. Both data sources are stored in an AWS RDS&nbsp;database.</p>
+    <p><b>Audience:</b> Parsons Data Structures Course</p>
     <p>
       <b>Tools: </b>
-      d3 / Express / Node / PostgreSQL / AWS EC2 / AWS RDS / Handlebars / Heroku / PM2 / HTML / CSS / JavaScript
+      AWS EC2 / AWS RDS / CSS / d3 / Express / Handlebars / Heroku / HTML / JavaScript / Node / PM2 / PostgreSQL
     </p>
     <p><a href="https://github.com/ryanabest/data-structures/tree/master/final" class="see-link">See the code →</a></p>
   </div>
-  <!-- <div class="project-content">
+  <div class="project-content">
     <h1>Data</h1>
-  </div> -->
+    <h2>Inside Temperature</h2>
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="assets/particle_unbox.jpg"/><p class="process-text">I measured the inside temperature in my windowsill using a <a href='https://store.particle.io/collections/photon'>Particle Photon Kit</a>...</p></div>
+            <div class="swiper-slide"><img src="assets/particle_connection.jpg"/><p class="process-text">...which I hooked up to a temperature sensor...</p></div>
+            <div class="swiper-slide"><img src="assets/particle_placement.jpg"/><p class="process-text">...and placed right inside my windowsill, where I figured any dramatic outside temperature changes or weather events would be most likely to affect the temperature inside.</p></div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <script src="../../js/swiper.min.js"></script>
+    <p>After setting up the latest reading coming from my temperature sensor to be accessible through the <a href='https://docs.particle.io/reference/api/'>Particle Cloud API</a>, I established an ongoing process in <a href='http://pm2.keymetrics.io/'>PM2</a> and <a href='https://aws.amazon.com/ec2/'>AWS EC2</a> to execute a <a href='https://github.com/ryanabest/data-structures/blob/master/week9/particle.js'>node script</a> that pulled down these temperature values into an AWS PostgreSQL database every 30 seconds. Since this temperature sensor was a bit finnicky, I then averaged these values per hour to get representative averages for use in the front-end interface.</p>
+    <p>For hours with data gaps — either due to missing (due to Particle outages or process issues) or unreliable data (when my sensor started giving me <a href='https://raw.githubusercontent.com/ryanabest/data-structures/master/final/READMEs/images/EveryValueSpread.png'>particularly buggy results</a>) — I estimated temperature readings by linearly progressing values between the two last reliable data points on either side of the outage:</p>
+    <img src='assets/estimated_temperature.jpg'/>
+    <h2>Outside Temperature</h2>
+    <p>Using the <a href='https://elements.heroku.com/addons/scheduler'>Heroku Scheduler</a> tool, I executed a <a href='https://github.com/ryanabest/ds-particle-heroku/blob/master/darksky.js'>node script</a> that connects to <a href='https://elements.heroku.com/addons/scheduler'>Dark Sky's Time Machine API</a> and writes hourly and daily weather data to AWS PostgreSQL tables at the end of each day (at 12:30 AM). This data pull includes a multitude of helpful data points on the day's weather,  including the hourly temperature readings used in my front-end visualization.</p>
+    <p>I collected both inside and outside temperature for almost two months — from November 8th to December 31st, 2018.</p>
+  </div>
   <div class="project-content">
     <h1>Visualization</h1>
   </div>
@@ -59,7 +84,7 @@
     <img src="assets/sensor2.png"/>
   </div>
   <div class="project-content">
-    <p>I include a responsive hover-over interaction that allows users to see the specific inside temperature, outside temperature, and difference between the two at any point in the timeframe visualized.</p>
+    <p>I also include a responsive hover-over user interaction that provides details on the specific inside temperature (with a designation for estimated temperatures), outside temperature, and difference between the two at any point in the timeframe visualized.</p>
   </div>
   <div class="next-project">
     <a href="../AAMeetingFinder"><img src="../AAMeetingFinder/assets/Preview.png"/></a><br>
@@ -83,5 +108,23 @@
     </a>
     <script src="../../js/link-hover.js"></script>
   </div>
+  <script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    })
+  </script>
 </body>
 </html>
