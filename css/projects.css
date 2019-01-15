@@ -70,7 +70,7 @@ a.project-title-link {
 /* Project Info on Project-Specific Pages */
 
 a.see-link {
-  font-family: 'Overpass Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 700;
 }
 
@@ -104,17 +104,19 @@ a.see-link {
 }
 
 .project-content li {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 2vh;
   line-height: 2em;
 }
 
 .project-content h1 {
+  font-family: 'Roboto Mono', monospace;
   font-size: 4vw;
   margin: 0px 0 10vh 0;
 }
 
 .project-content h2 {
+  font-family: 'Roboto Mono', monospace;
   font-size: 2vw;
   margin: 10vh 0 10vh 0;
 }
@@ -221,7 +223,7 @@ p.process-text {
 }
 
 .next-project p, .next-project a {
-  font-family: 'Overpass Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .next-project img {
