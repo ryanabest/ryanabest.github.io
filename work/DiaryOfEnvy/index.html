@@ -30,9 +30,9 @@
   <div class="project-image">
     <div class="video-wrapper"  style="padding:56.18% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/311098889?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0&autopause=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
   </div>
-  <div class="project-content">
-    <!-- <p><a href="https://ryanabest.github.io/ms1-2018/quant/final/" class="see-link">See the prototype →</a></p> -->
-  </div>
+  <!-- <div class="project-content">
+    <p><a href="https://webrecorder.io/ryanabest/data-structures/20190113234039/http://data-structures-final-dev.us-east-1.elasticbeanstalk.com/diary" class="see-link">See the prototype →</a></p>
+  </div> -->
   <div class="project-content">
     <h1>Process</h1>
     <p><b>Audience:</b> Parsons Data Structures Course</p>
@@ -43,24 +43,31 @@
     </p>
     <p><a href="https://github.com/ryanabest/data-structures/tree/master/final" class="see-link">See the code →</a></p>
   </div>
-  <!-- <div class="project-content">
+  <div class="project-content">
     <h1>Data</h1>
+    <p>I designed a semi-structured NoSQL document-based <a href='https://github.com/ryanabest/data-structures/blob/master/week5/data-structures_week5.md'>data model</a> that utilized the flexibilty of nesting within the JSON format. This design allowed each entry to include (or not include) a range of information on each diary entry that weren't appropriate for a SQL database, including a range of data types (including text strings, lists, and dictionaries) and media elements (including images, videos, or links to social media posts about a particular piece). I then <a href='https://github.com/ryanabest/data-structures/blob/master/week5/js/diaryEntry.js'>used node</a> to realize this data model in AWS DynamoDB and add entries to this data structure on a semi-regular basis.</p>
+    <p>I structured this DynamoDB database with <b>project category</b> serving as my partition key and <b>date added</b> to the diary serving as my sort key. My <a href='https://github.com/ryanabest/data-structures/blob/master/final/routes/sensor.js'>database query</a> that loads data to the front-end visualization therefore pulls in projects that match the current project category selection (defaulted to <i>interactive visualization</i>) that were added on or before October 1, 2018 (when this project started – no entries were added before this date). When a user changes the product category they want to see, the page is re-rendered and a new query is executed returning only those entries that match the category chosen.</p>
   </div>
   <div class="project-content">
     <h1>Visualization</h1>
+    <p>This project is designed to be a simple running list of entries with a broad overview of the specific entry in the same vein as similar pages from some of <a href='https://www.bloomberg.com/features/2017-jealousy-list/'>my</a> <a href="https://fivethirtyeight.com/features/damn-we-wish-wed-done-these-5-stories-this-month-2/">favorite</a> <a href="https://flowingdata.com/2017/12/28/10-best-data-visualization-projects-of-2017/">publications</a>. My entries are split into three categories – interactive visualization, static visualization, and portfolio – and I present individual entries within one category at a time in reverse order of when I added them to this diary (meaning the newest additions to the list will come up first, then proceed in descending order).</p>
   </div>
   <div class="project-image">
-    <img src="assets/sensor1.png"/>
+    <img src="assets/DiaryOfEnvyProject.png"/>
   </div>
   <div class="project-content">
-    <p>My visualization implements a <a href='https://flowingdata.com/charttype/difference-chart/'>difference chart</a>, which fills in the space between lines to highlight a greater-than and less-than differences over time.</p>
+    <p>I render html elements for each of the following data points that is present for the the particular entry:</p>
+    <ul>
+      <li>Name of the project/portfolio</li>
+      <li>Publication</li>
+      <li>Author(s)</li>
+      <li>Preview image/gif</li>
+      <li>My general thoughts (why I included this specific item)</li>
+      <li>External link to project/portfolio</li>
+      <li>External link to twitter from the author or publication</li>
+    </ul>
+    <p>Each of these data points is represented in a visual hierarchy that reflects their level of importance to that entry – the title of the piece is most visually distinguished from the remaining text, while the project preview image occupies the most screen space. The external link to the project is emphasized by matching the typeface and color of the project title, while the publication name is given slightly more weight than the authors (but listed after these individual names).
   </div>
-  <div class="project-image">
-    <img src="assets/sensor2.png"/>
-  </div>
-  <div class="project-content">
-    <p>I include a responsive hover-over interaction that allows users to see the specific inside temperature, outside temperature, and difference between the two at any point in the timeframe visualized.</p>
-  </div> -->
   <div class="next-project">
     <div id="migration-project" class="project next-project-hover">
       <div class="project-title">
