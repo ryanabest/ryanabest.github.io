@@ -55,13 +55,19 @@
 .project-title h1 {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: 1rem;
   color: #fff;
+  font-size: 0.9rem;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
   transform: translateY(-100%);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
 }
 
 .feature-project {
