@@ -93,7 +93,7 @@
       Ultimately, what I needed for this analysis was census estimates of racial compisition, homeownership rates, and median home values for each redlining neighborhood in every census&nbsp;decade.
     </p>
     <p>
-      I approached this problem using spatial geomoetric analysis using the <a target = '_blank' href='https://pypi.org/project/Shapely/'>Shapely</a> python library.
+      I approached this problem using spatial geomoetric analysis, leveraging the <a target = '_blank' href='https://pypi.org/project/Shapely/'>Shapely</a> python library.
       I used this library to figure out which census tract boundaries intersected each redlining neighborhood and the total geographic area of the overlap.
       Then, for each redlining neighborhood, I averaged census metrics across all tracts that intersected with that neighborhood, weighted by the percent of the neighborhood's geographic area each tract encompassed.
       This example shows the results of this process for one neighborhood in Brooklyn's Bergen Beach in 2010:
