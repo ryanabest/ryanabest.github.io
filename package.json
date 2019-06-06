@@ -20,5 +20,8 @@
     "browser-sync": "^2.26.5",
     "gulp": "^4.0.0",
     "gulp-sass": "^4.0.1"
+  },
+  "devDependencies": {
+    "axios": ">=0.18.1"
   }
 }
