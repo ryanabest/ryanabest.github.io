@@ -90,14 +90,12 @@
     <p>
       The biggest data challenge in this project was joining census tract data to redlining neighborhoods.
       These are two distinct geographic boundaries, with census tracts changing decade to decade.
-      Ultimately, what I needed for this analysis was census estimates of racial compisition, homeownership rates, and median home values for each redlining neighborhood in every census&nbsp;decade.
+      Ultimately, what I needed for this analysis was census estimates of racial compisition, homeownership rates, and median home value metrics for each redlining neighborhood in every census&nbsp;decade.
     </p>
     <p>
       I approached this problem using spatial geomoetric analysis, leveraging the <a target = '_blank' href='https://pypi.org/project/Shapely/'>Shapely</a> python library.
-      I used this library to figure out which census tract boundaries intersected each redlining neighborhood and the total geographic area of the overlap.
-      Then, for each redlining neighborhood, I averaged census metrics across all tracts that intersected with that neighborhood, weighted by the percent of the neighborhood's geographic area each tract encompassed.
-      This example shows the results of this process for one neighborhood in Brooklyn's Bergen Beach in 2010:
-      <img src='https://raw.githubusercontent.com/ryanabest/ms2-2019/master/writing/thesis/images/Methodology_BrooklynD22.png'/>
+      I used this library to figure out which census tract boundaries intersected each redlining neighborhood, logging the geographic area of the overlap.
+      I then estimated census metrics for each neighborhood by averaging results across the tracts that intersected with that neighborhood, with each tract weighted by the proportion of the neighborhood it&nbsp;covers.
     </p>
     <p>
       After this lengthy and complicated process, I exported a <a target='_blank' href='https://github.com/ryanabest/ms2-2019/blob/master/thesis/data/HOLC_All_Years.geojson'>GeoJSON file</a> with census estimates for each redlining neighborhood for every decade from 1940 to 2010, along with all the information originally included from the Mapping Inequality&nbsp;project:
