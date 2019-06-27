@@ -152,13 +152,11 @@ a.see-link {
 }
 
 #project-content-intro h1 {
-  font-size: 4vh;
+  /* font-size: 4vh; */
   /* letter-spacing: .05em; */
 }
 
 #project-content-intro p {
-  font-size: 2vh;
-  /* letter-spacing: -.05em; */
   max-width: 800px;
   margin: auto;
 }
