@@ -4,13 +4,13 @@
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
+  padding: 0 1rem;
 }
 
 .column {
-  flex: 50%;
-  max-width: 50%;
-  padding: 0px 2vw 5vh;
+  flex: 33%;
+  max-width: 33%;
+  padding: 0.5rem;
   margin: auto;
 }
 
@@ -29,6 +29,9 @@
   height: auto;
   /* margin-top: 8px; */
   vertical-align: middle;
+  box-shadow: 0 0 10px .1px rgba(78,78,78,0.05);
+  -moz-box-shadow:    0 0 10px .1px rgba(78,78,78,0.05);
+  -webkit-box-shadow: 0 0 10px .1px rgba(78,78,78,0.05);
 }
 
 .project-title {
@@ -47,7 +50,7 @@
 .project-title p {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 1.6rem;
   color: #fff;
   margin: 0 auto;
 }
@@ -56,7 +59,7 @@
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   position: absolute;
   left: 0;
   right: 0;
@@ -152,8 +155,7 @@ a.see-link {
 }
 
 #project-content-intro h1 {
-  /* font-size: 4vh; */
-  /* letter-spacing: .05em; */
+  
 }
 
 #project-content-intro p {
@@ -321,6 +323,7 @@ p.process-text {
 
   #project-content-intro p {
     font-size: 1.1em;
+    text-align: left;
   }
 
   .project-content {
