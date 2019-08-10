@@ -107,6 +107,16 @@ a.project-title-link {
   }
 }
 
+@media screen and (max-width : 900px) {
+  .project-title h1 {
+    font-size: 0.5rem;
+  }
+
+  .project-title p {
+    font-size: 1rem;
+  }
+}
+
 @media screen and (max-width : 800px) {
   .column {
     flex: 100%;
@@ -131,12 +141,10 @@ a.project-title-link {
   }
 
   .project-title p {
-    font-size: 1rem;
     color: #000;
   }
 
   .project-title h1 {
-    font-size: 0.5rem;
     color: #000;
     position: static;
     transform: none;
