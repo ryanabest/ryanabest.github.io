@@ -88,6 +88,7 @@ p, a {
 
 .social-thumbnails {
   text-align: right;
+  cursor: pointer;
   margin: 2vh auto 2vh auto;
   /* position: sticky;
   bottom: 0; */
@@ -99,6 +100,13 @@ p, a {
   margin-left: 0.5vw;
   margin-right: 0.5vw;
   opacity: 1;
+  cursor: pointer;
+}
+
+.social-thumbnails img#fte-thumb {
+  width: 5vh;
+  height: 4.5vh;
+  margin-bottom: 2px;
 }
 
 a {
