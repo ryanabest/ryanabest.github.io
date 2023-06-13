@@ -1,0 +1,53 @@
+mixin project(p)
+  .project(id=p.id)
+      .project-title
+        p.eyebrow --#{p.eyebrow}--
+        p.title !{p.title}
+      - const url = p.url ? p.url : `/${p.id}/`
+      a.project-img-link(href=url)
+        img(src=require(`../images/${utils.slugify(p.eyebrow)}/${p.id}.png`))
+
+mixin next_project(p)
+  .next-project
+    +project(p)
+    a.next-project-link.see-link.underline(href=`/${p.id}/`) See my next project →
+    p
+      | Like this project? Want to get in touch? 
+      a.underline(href="mailto:ryanabest@gmail.com") Reach out!
+
+mixin vimeo(id)
+  .video-wrapper(style={padding:'56.18% 0 0 0', position:'relative'})
+    iframe(style={position:'absolute',top:0,left:0,width:'100%',height:'100%'},
+           src=`https://player.vimeo.com/video/${id}?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0&autopause=0`,
+           frameborder=0,
+           webkitallowfullscreen,
+           mozallowfullscreen,
+           allowfullscreen,
+           allow='autoplay'
+           )
+  script(src='https://player.vimeo.com/api/player.js')
+
+mixin swiper_slide(imgSrc, p)
+  .swiper-slide
+    img(src=imgSrc)
+    p.process-text !{p}
+
+mixin mobile(id)
+  .marvel-device.iphone8plus.black
+    .top-bar
+    .sleep
+    .volume
+    .camera
+    .sensor
+    .speaker
+    .screen#iphone8-screen
+      iframe(style={width:'100%',height:'100%'},
+            src=`https://player.vimeo.com/video/${id}?autoplay=1&loop=1&autopause=0&title=0&byline=0&portrait=0&autopause=0`,
+            frameborder=0,
+            webkitallowfullscreen,
+            mozallowfullscreen,
+            allowfullscreen,
+            allow='autoplay'
+            )
+    .home
+    .bottom-bar

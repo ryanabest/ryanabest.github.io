@@ -1,0 +1,10 @@
+mixin icon(name, url)
+  a(href=url)
+    img.default(class=`${name}-thumb`, src=require(`../images/social_icons/${name}.png`))
+    img.hover(class=`${name}-thumb`, src=require(`../images/social_icons/${name}-highlight.png`))
+
+.social-thumbnails
+  +icon('twitter', 'https://twitter.com/ryanabest')
+  +icon('linkedin', 'https://www.linkedin.com/in/ryan-best-03722482/')
+  +icon('github', 'https://github.com/ryanabest')
+  +icon('fivethirtyeight', 'https://fivethirtyeight.com/contributors/ryan-best/')

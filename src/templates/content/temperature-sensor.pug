@@ -1,0 +1,64 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 !{project.title}
+  p This visualization compares the fluctuation of temperature inside my windowsill in Brooklyn with the temperature outside.
+.project-image
+  +vimeo(311099018)
+
+//- PROCESS -//
+.project-content
+  h1 Process
+  p
+    strong Audience: 
+    | Parsons Data Structures Course
+  p
+    strong Data Source: 
+    | Inside temperature from a real-time temperature sensor connected to a <a class='underline' href='https://www.particle.io/'>Particle breadboard</a>, from which I collect temperature readings every 30 seconds.
+    | Outside temperature from <a class='underline' href='https://darksky.net/dev'>Dark Sky API</a>, from which I collect hourly and daily weather data at the end of each day.
+    | Both data sources are stored in an AWS RDS&nbsp;database
+  p
+    strong Tools: 
+    | AWS EC2 / AWS RDS / CSS / d3 / Express / Handlebars / Heroku / HTML / JavaScript / Node / PM2 / PostgreSQL
+  p
+    a.see-link.underline(href="https://github.com/ryanabest/data-structures/tree/master/final") See the code →
+
+//- DATA -//
+.project-content
+  h1 Data
+  //- INSIDE TEMP -//
+  h2 Inside Temperature
+  .swiper-container
+    .swiper-wrapper
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process1.JPG`), "I measured the inside temperature in my windowsill using a <a class='underline' href='https://store.particle.io/collections/photon'>Particle Photon Kit</a> ...")
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process2.JPG`), "...which I hooked up to a temperature sensor...")
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process3.JPG`), "...and placed right inside my windowsill, where I figured any dramatic outside temperature changes or weather events would be most likely to affect the temperature inside.")
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+  p
+    | After setting up the latest reading coming from my temperature sensor to be accessible through the <a class='underline' href='https://docs.particle.io/reference/api/'>Particle Cloud API</a>, I established an ongoing process in <a class='underline' href='http://pm2.keymetrics.io/'>PM2</a> and <a class='underline' href='https://aws.amazon.com/ec2/'>AWS EC2</a> to execute a <a class='underline' href='https://github.com/ryanabest/data-structures/blob/master/week9/particle.js'>node script</a> that pulled down these temperature values into an AWS PostgreSQL database every 30 seconds.
+    | Since this temperature sensor was a bit finnicky, I then averaged these values per hour to get representative averages for use in the front-end interface.
+  p
+    | For hours with data gaps — either due to missing (due to Particle outages or process issues) or unreliable data (when my sensor started giving me <a class='underline' href='https://raw.githubusercontent.com/ryanabest/data-structures/master/final/READMEs/images/EveryValueSpread.png'>particularly buggy results</a>) — I estimated temperature readings by linearly progressing values between the two last reliable data points on either side of the outage:
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process4.jpg`))
+  //- OUTSIDE TEMP -//
+  h2 Outside Temperature
+  p 
+    | Using the <a class='underline' href='https://elements.heroku.com/addons/scheduler'>Heroku Scheduler</a> tool, I executed a <a class='underline' href='https://github.com/ryanabest/ds-particle-heroku/blob/master/darksky.js'>node script</a> that connects to Dark Sky's Time Machine API and writes hourly and daily weather data to AWS PostgreSQL tables at the end of each day (at 12:30 AM).
+    | This data pull includes a multitude of helpful data points on the day's weather,  including the hourly temperature readings used in my front-end visualization.
+  p I collected both inside and outside temperature for almost two months — from November 8th to December 31st, 2018.
+
+//- VISUALIZATION -//
+.project-content
+  h1 Visualization
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+.project-content
+  p My visualization implements a <a class='underline' href='https://flowingdata.com/charttype/difference-chart/'>difference chart</a>, which fills in the space between lines to highlight a greater-than and less-than differences over time.
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`))
+.project-content
+  p I also include a responsive hover-over user interaction that provides details on the specific inside temperature (with a designation for estimated temperatures), outside temperature, and difference between the two at any point in the timeframe visualized.
+
++next_project(projects.find(d => d.id === 'aa-meeting-finder'))

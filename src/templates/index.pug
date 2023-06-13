@@ -1,0 +1,28 @@
+extends partials/layout.pug
+
+block content
+  .content
+    if page === 'work'
+      include content/work
+    else if page === 'about'
+      include content/about
+    else if page === 'drawing-discrimination'
+      include content/drawing-discrimination
+    else if page === 'redlining-poster'
+      include content/redlining-poster
+    else if page === 'samia-design'
+      include content/samia-design
+    else if page === 'migration-of-art'
+      include content/migration-of-art
+    else if page === 'mind-the-gap'
+      include content/mind-the-gap
+    else if page === 'met-history'
+      include content/met-history
+    else if page === 'temperature-sensor'
+      include content/temperature-sensor
+    else if page === 'aa-meeting-finder'
+      include content/aa-meeting-finder
+    else if page === 'diary-of-envy'
+      include content/diary-of-envy
+    else if page === 'substantial-tableau'
+      include content/substantial-tableau

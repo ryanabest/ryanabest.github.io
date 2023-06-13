@@ -1,0 +1,77 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 #{project.title}
+  p This website showcases the portfolio of my friend Samia Husari – a multifunctional designer, artist, and Parsons School of Design&nbsp;colleague.
+.project-image
+  +vimeo(337795464)
+.project-content
+  p
+    a.see-link.underline(href="https://samia.design/") See the website →
+  p Samia is a talented designer, gifted artist, and a friend who I worked closely with during our time at the Parsons School of Design, where she graduated as an honors student with a Masters in Communication Design. I helped her build a portfolio site from scratch to showcase her impressive work across both digital and print&nbsp;mediums.
+
+//- PROCESS 
+.project-content
+  h1 Process
+  .swiper-container
+    .swiper-wrapper
+      +swiper_slide(require('../images/personal-project/samia-design/process/process1.png'), "Samia's inital concept sketches communicated the structure and functionality she wanted – first, a landing page laid out like cards strewn across a table in a random but readable&nbsp;arrangement")
+      +swiper_slide(require('../images/personal-project/samia-design/process/process2.png'), "Behind each preview image, there needed to be a two-sentence project description available on hover and a link to a full portfolio write-up on&nbsp;click")
+      +swiper_slide(require('../images/personal-project/samia-design/process/process3.png'), "Filters also needed to narrow the work displayed to either print (shown here) or digital&nbsp;projects")
+      +swiper_slide(require('../images/personal-project/samia-design/process/process4.png'), "When both filters are unchecked, a surprising Easter egg shows the user an animation of one her sketches being&nbsp;drawn")
+      +swiper_slide(require('../images/personal-project/samia-design/process/process5.png'), "An about section layers on top of the projects when selected, showing us a picture a quick bio of&nbsp;Samia")
+      +swiper_slide(require('../images/personal-project/samia-design/process/process6.png'), "Each project page needed to contain multimedia assets like pictures and videos in a flexible column-based layout, along with Samia's&nbsp;write-ups")
+      +swiper_slide(require('../images/personal-project/samia-design/process/process7.png'), "Project write-ups needed to break the column-based grid layout of full portfolio pages, with users being able to click and drag these write-ups to rearrange the page format on the&nbsp;fly")
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+  p
+    strong Tools: 
+    | CSS / Flexbox / gulp / HTML / JavaScript / node / Sketch
+  p
+    a.see-link.underline(href="https://github.com/ryanabest/samia.design") See the code →
+.project-content
+  h1 Data
+  p I wanted to make this website as low touch as possible for Samia, allowing her to have a fully customized website built from scratch without requiring her to be overly hands-on with the technical implementation or manage all the code herself. So, I set up some light automation in how I arranged the structure of the webpage's code and the data structure for her&nbsp;projects.
+  p I implemented a relatively low-lift object-oriented approach, establishing a list of projects for Samia to fill in and a structure for how the project's repository would be&nbsp;organized.
+  img(src=require('../images/personal-project/samia-design/data.png'))
+  p This allowed Samia to only edit this one part of the code – all she needed to do was simply update this list with some basic parameters about her project (like the project name, some info about the preview image, and some descriptive text associated with that project). The project preview, description, and link to the full write-up page for that project would then be automatically populated on her main landing&nbsp;page.
+
+//- VISUALIZATION
+.project-content
+  h1 Visualization
+  p I used a pure-JS approach to Samia's webpage, avoiding dependencies on external libraries, to provide a stripped-down webpage structure that had all the functionality she needed while remaining true to the aesthetic and functionality she laid out in her initial design&nbsp;sketches.
+.project-image
+  img(src=require('../images/personal-project/samia-design/visualization/visualization1.png'))
+.project-content
+  p The landing page for Samia's website is dynamic, never showing the same view twice. Her projects distributed evenly across the page horizontally, but are arranged in a random order. Each project preview's vertical position is also randomly generated while being fully contained within the visible&nbsp;viewport.
+.project-image
+  +vimeo(337848742)
+.project-content
+  p Channeling Samia's metaphor of having portfolio that allowed her to really "lay all of her cards on the table", I added a quick animation to her main landing page. When this page is loaded or refreshed, her projects are strewn across the view in a way that resembles throwing a deck of cards across a playing&nbsp;surface.
+.project-image
+  +vimeo(337860214)
+.project-content
+  p Filters on the main landing page allow the user to see only print or digital projects, along with Samia's bio. If none of these options are selected, there is a surprise Easter egg for the user, who can watch an animation of one of Samia's&nbsp;doodles.
+.project-image
+  img(src=require('../images/personal-project/samia-design/visualization/visualization2.png'))
+.project-content
+  p Each project preview image acts as a link to the project's full portfolio entry, with the project title and a two-sentence description available on&nbsp;hover.
+.project-image
+  img(src=require('../images/personal-project/samia-design/visualization/visualization3.png'))
+.project-content
+  p The full portfolio pages for each project use Flexbox to create a simple, flexible column layout. Preestablished classes allow Samia to use a variety of arrangements that differed for each project – she wanted to be able to arrange her project's multimedia assets in two main ways: either spanning across the page's full horizontal width or in a three-column layout (with only one column at a time containing these pictures or&nbsp;videos).
+.project-image
+  +vimeo(337855640)
+.project-content
+  p Samia's text write-ups within her full portfolio pages are also interactive and spur playful engagement. Users can click and drag the position of this text to create their own unique, customized view of each&nbsp;project.
+.project-content
+  .project-image
+    +mobile(337797479)
+  p
+    | Samia's website needed to also work on mobile devices.
+    | The cards for each project on her main landing page are arranged in a vertical stack on mobile devices, foregoing the random positioning and animation.
+    | Her full portfolio pages for each project also use the same vertical column approach with all pictures, videos, and text stacking on top of one another.
+    | The click-and-drag functionality on text write-ups within portfolio pages is also disabled on mobile, allowing users to scroll through the page without a confusing or counter-intuitive&nbsp;experience.
+
++next_project(projects.find(d => d.id === 'migration-of-art'))

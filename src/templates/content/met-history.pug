@@ -1,0 +1,72 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 !{project.title}
+  p This visualization dives into one of the world's most widespread <a class='underline' href="https://www.metmuseum.org/art/collection">collections</a> of human culture, exploring its development over time and its reflection of history.
+.project-image
+  +vimeo(282739452)
+.project-content
+  p
+    a.see-link.underline(href="https://ryanabest.github.io/ms1-2018/quant/final/") See the project →
+  p How has the The Metropolitan Museum of Art's <a class='underline' href="https://www.metmuseum.org/art/collection">collection</a> evolved throughout it's illustrious history? Where do their artifacts and artworks come from, and when did they acquire pieces from which areas of the world?
+  p As a student of Data Visualization at The Parsons School of Design, I was tasked with creating a quantitative visualization that focused on The Metropolitan Museum of Art's collection, who partnered with our studio course for the semester. I was floored by the both the breadth and depth of the museum's collection, which numbers in the hundreds of thousands of pieces that span over 5,000 years of human history. I wanted to look at the entirety of this collection to explore the origins of these artworks and how the institution's collection patterns had evolved in almost a century and a half of history.
+
+//- PROCESS -//
+.project-content
+  h1 Process
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process.gif`))
+  p
+    strong Partner: 
+    | The Metropolitan Museum of Art
+  p
+    strong Data Source: 
+    | The Metropolitan Museum of Art's <a class='underline' href="https://github.com/metmuseum/openaccess">Open Access CSV</a>
+  p
+    strong Tools: 
+    | Adobe Illustrator / CSS / HTML / JavaScript / Node / p5 / Pandas / Principle / Python
+  p
+    a.see-link.underline(href="https://github.com/ryanabest/ms1-2018/tree/master/quant") See the code →
+
+//- DATA -//
+.project-content
+  h1 Data
+  p
+    | The Met's <a class='underline' href="https://github.com/metmuseum/openaccess">open access collection data</a> provides explanatory detail on over 420,000 pieces in its expansive collection.
+    | After bring this data into a pandas dataframe and exploring the different variables included, I ultimately decided to dive into country of cultural significance and object classification for this analysis.
+    | These variables allow us to shed insight on what regions in the world are most represented in the Met's collection, and what type of art the museum collects from these regions.
+  p
+    | My main data challenge in this project was making sure I associated as many pieces as possible with the most relevant country of cultural significance.
+    | This involved identifying and standardizing inconsistencies within key fields in the dataset and covering gaps in the data where values were null.
+    | To map objects to countries, I first looked to the straight-foward association of the 'country' label, taking the first country listed in this field.
+    | If this field wasn't populated, I focused on the artist's nationality, then the country found with the primary artist's display biography, and finally the object's culture.
+    | This process allowed me to attribute 87% of objects to a country - the remaining 13% of objects were left out of this analysis.
+  p
+    | The final data processing step was aggregating object totals at various levels of detail.
+    | I calculated year-to-year cumulative total for each country and classification, along with the combination of these two variables, and exported these statistics in JSON files for my front-end visualization.
+    | I maintained totals for the ten most popular countries in the collection, and the top five classifications within those countries.
+
+//- VISUALIZATION -//
+.project-content
+  h1 Visualization
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+.project-content
+  p
+    | The main visual representation of data in this project is a clear and straightforward line graph, allowing for quick and easy comparisons across countries.
+    | The bright colors help the lines jump off the dark background, while the rainbow palette provides a familiar visual ranking system of countries.
+    | We're used to seeing rainbow colors in this type of order, which corresponds with the ranking of the most popular countries in the museum's collection - also represented by the order of countries in this view's legend.
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`))
+.project-content
+  p
+    | While the rainbow palette provides a nice pop of color and a visual ordering system to our countries, it can sometimes be hard to dinsguish one point from another.
+    | In fact, no color palette is great at distinsuishing ten distinct data points.
+    | Hovering over a country label in our legend allows us to clearly highlight a specific country while displaying the cumulative count of objects The Met has collected from this country through the current year of our animation.
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization3.png`))
+.project-content
+  p
+    | Clicking on a country in the legend allows us to see detail on which types of art The Met collects from this country.
+    | This view introduces a new cohesive and intuitive color palette based on the country's base color, with different shades assigned to each classification - those types of art that are most popular within a country are given the color's darkest shades and placed closest to our axis, with shades getting lighter from there.
+
++next_project(projects.find(d => d.id === 'temperature-sensor'))

@@ -1,0 +1,358 @@
+[
+  {
+    "id": "epl-squads",
+    "title": "How Consistent Was Every Premier League Lineup This Season?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/epl-consistency-2023/"
+  },
+  {
+    "id": "redlining",
+    "title": "The Lasting Legacy Of Redlining",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/redlining/"
+  },
+  {
+    "id": "raptor",
+    "title": "RAPTOR NBA Player Ratings",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/nba-player-ratings/"
+  },
+  {
+    "id": "nba-winprobs-story",
+    "title": "Our New Live In-Game Win Probabilities Are Here For The NBA Playoffs",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/our-new-live-in-game-win-probabilities-are-here-for-the-nba-playoffs/"
+  },
+  {
+    "id": "nba-winprobs-methodology",
+    "title": "How Our NBA Predictions Work",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/methodology/how-our-nba-predictions-work/"
+  },
+  {
+    "id": "nfl-charts",
+    "title": "How Massive The NFL Really Is, In 4 Charts",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/how-massive-the-nfl-really-is-in-4-charts/"
+  },
+  {
+    "id": "daylight-saving-time",
+    "title": "Can You Make Winter Less Dark?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/daylight-saving-time/"
+  },
+  {
+    "id": "2022-election-waves",
+    "title": "A Red Wave In Florida. A Blue Riptide In Michigan.",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/republicans-house-election-margin/"
+  },
+  {
+    "id": "nfl-receiver-rankings",
+    "title": "The Best NFL Receivers, According to ESPN Analytics",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/nfl-receiver-rankings/"
+  },
+  {
+    "id": "redistricting-alternate-maps",
+    "title": "What If Democrats — Or Republicans — Had Won Every Redistricting Battle?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/redistricting-alternate-maps/"
+  },
+  {
+    "id": "2022-election-forecast",
+    "title": "2022 Election Forecast                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2022-election-forecast/"
+  },
+  {
+    "id": "2022-gop-house",
+    "title": "The Seats Republicans Could Flip To Win The House In 2022",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/gop-house-2022/"
+  },
+  {
+    "id": "2023-nhl-predictions",
+    "title": "2022-23 NHL Predictions",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2023-nhl-predictions/"
+  },
+  {
+    "id": "2022-flip-senate-house",
+    "title": "Explore The Ways Republicans Or Democrats Could Win The Midterms",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2022-flip-senate-house/"
+  },
+  {
+    "id": "gun-control-poll-quiz",
+    "title": "Just How Far Apart Are The Two Parties On Gun Control?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/gun-control-polling-2022/"
+  },
+  {
+    "id": "crt-bills",
+    "title": "How Anti-Critical Race Theory Bills Are Taking Aim At Teachers",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/how-anti-critical-race-theory-bills-are-taking-aim-at-teachers/"
+  },
+  {
+    "id": "jay-wright",
+    "title": "Nobody Had More Style Than Jay Wright",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/nobody-had-more-style-than-jay-wright/"
+  },
+  {
+    "id": "biden-inflation",
+    "title": "Why Biden Can’t Win On Inflation",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/why-biden-cant-win-on-inflation/"
+  },
+  {
+    "id": "2022-wnba-predictions",
+    "title": "2022 WNBA Predictions                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2022-wnba-predictions/"
+  },
+  {
+    "id": "2022-nhl-predictions",
+    "title": "2021-22 NHL Predictions",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2022-nhl-predictions/"
+  },
+  {
+    "id": "four-thirty-five",
+    "title": "What If The House Of Representatives Had More Than 435 Seats?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/435-representatives/"
+  },
+  {
+    "id": "redistricting-tracker",
+    "title": "What Redistricting Looks Like In Every State                     ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/redistricting-2022-maps/"
+  },
+  {
+    "id": "politics-of-whiteness",
+    "title": "How The Politics Of White Liberals And White Conservatives Are Shaped By Whiteness",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/how-the-politics-of-white-liberals-and-white-conservatives-are-shaped-by-whiteness/"
+  },
+  {
+    "id": "2021-wnba-predictions",
+    "title": "2021 WNBA Predictions                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2021-wnba-predictions/"
+  },
+  {
+    "id": "nba-trades",
+    "title": "Build An NBA Contender With Our Roster-Shuffling Machine",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/nba-trades-2023/"
+  },
+  {
+    "id": "super-bowl-ads",
+    "title": "According To Super Bowl Ads, Americans Love America, Animals And Sex",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/super-bowl-ads/"
+  },
+  {
+    "id": "mahomes",
+    "title": "What Makes Patrick Mahomes So Great",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/what-makes-patrick-mahomes-so-great/"
+  },
+  {
+    "id": "2020-georgia-runoffs",
+    "title": "Split-Ticket Voters Are A Small Group, But They Could Decide The Georgia Runoffs                                                                ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/split-ticket-voters-are-a-small-group-but-they-could-decide-the-georgia-runoffs/"
+  },
+  {
+    "id": "2020-split-ticket",
+    "title": "There Wasn’t <i>That</i> Much Split-Ticket Voting In 2020                                                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/there-wasnt-that-much-split-ticket-voting-in-2020/"
+  },
+  {
+    "id": "2020-forecast-paths",
+    "title": "Explore The Ways Trump Or Biden Could Win The Election                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/trump-biden-election-map/"
+  },
+  {
+    "id": "2020-forecast",
+    "title": "2020 Election Forecast                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2020-election-forecast/"
+  },
+  {
+    "id": "nba-contracts",
+    "title": "Which NBA Contracts Were Gems This Season, And Which Were Stinkers?                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/nba-contracts/"
+  },
+  {
+    "id": "testing-access",
+    "title": "Which Cities Have The Biggest Racial Gaps In COVID-19 Testing Access?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/white-neighborhoods-have-more-access-to-covid-19-testing-sites/"
+  },
+  {
+    "id": "confederate-monuments",
+    "title": "Confederate Statues Were Never Really About Preserving History",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/confederate-statues/"
+  },
+  {
+    "id": "racism-poll-quiz",
+    "title": "Do You Know How Divided White And Black Americans Are On Racism?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/racism-polls/"
+  },
+  {
+    "id": "covid-model-tracker",
+    "title": "Where The Latest COVID-19 Models Think We’re Headed — And Why They Disagree                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/covid-forecasts/"
+  },
+  {
+    "id": "covid-nba-playoffs",
+    "title": "The Best NBA Playoff Games To Watch While Sports Are Shut Down",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/sports-classics/nba/"
+  },
+  {
+    "id": "covid-unemployment",
+    "title": "America’s Social Safety Net Wasn’t Ready For The Coronavirus Crisis                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/americas-social-safety-net-wasnt-ready-for-the-coronavirus-crisis/"
+  },
+  {
+    "id": "2020-primary-forecast",
+    "title": "2020 Democratic Presidential Primary Forecast",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2020-primary-forecast/"
+  },
+  {
+    "id": "progressive-left",
+    "title": "Why The Progressive Left Fits So Uncomfortably Within The Democratic Party",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/why-the-progressive-left-fits-so-uncomfortably-within-the-democratic-party/"
+  },
+  {
+    "id": "super-bowl",
+    "title": "How Much Football Is Even In A Football Broadcast?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/how-much-football-is-even-in-a-football-broadcast/"
+  },
+  {
+    "id": "tesla",
+    "title": "Thousands of Tesla Owners Share Their Close Calls With Autopilot",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/graphics/2019-tesla-model-3-survey/autopilot.html"
+  },
+  {
+    "id": "2020-dem-debate",
+    "title": "The Democratic Candidates Who Spoke the Most at the Debate—and What They Said",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/graphics/2019-first-2020-democratic-primary-debate/"
+  },
+  {
+    "id": "2020-dem-money-race",
+    "title": "Tracking the 2020 Democratic Presidential Money Race",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/graphics/2020-democratic-presidential-candidate-campaign-finance/"
+  },
+  {
+    "id": "2020-dem-debate-transcripts",
+    "title": "Annotated Transcripts of the Democratic Debates",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/graphics/democratic-presidential-debates-key-issues/"
+  },
+  {
+    "id": "drawing-discrimination",
+    "title": "Drawing Discrimination",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "trade-war-summit",
+    "title": "Trump-Xi Summit at G-20 Could Save the World $1.2 Trillion",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/graphics/2019-g20-trade-war/"
+  },
+  {
+    "id": "argentine-elections",
+    "title": "2019 Argentine Elections",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/graphics/2019-argentina-presidential-election-macri-fernandez/"
+  },
+  {
+    "id": "2020-dem-fundraising",
+    "title": "Warren Outshines Biden in Race to Build Iowa 2020 Ground Game",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/articles/2019-07-20/warren-outshines-biden-in-race-to-build-iowa-2020-ground-game?leadSource=uverify%20wall"
+  },
+  {
+    "id": "fed-stress-test",
+    "title": "Federal Reserve Stress Test Results",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/articles/2019-06-27/deutsche-bank-passes-u-s-stress-test-in-surprise-fed-decision?leadSource=uverify%20wall"
+  },
+  {
+    "id": "2022-wnba-predictions",
+    "title": "2022 WNBA Predictions                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2022-wnba-predictions/"
+  },
+  {
+    "id": "cancer-funding",
+    "title": "Nonprofit Cancer Funding Shows Signs of Inequality",
+    "eyebrow": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/articles/2019-07-19/nonprofit-cancer-funding-shows-signs-of-inequality#xj4y7vzkg"
+  },
+  {
+    "id": "redlining-poster",
+    "title": "New York City Redlining Poster",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "samia-design",
+    "title": "samia.design",
+    "eyebrow": "Personal Project"
+  },
+  {
+    "id": "migration-of-art",
+    "title": "The Migration of Art",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "mind-the-gap",
+    "title": "mind the gap.",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "met-history",
+    "title": "A History Of Collecting At The&nbsp;Met",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "temperature-sensor",
+    "title": "Real-Time Temperature Sensor",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "aa-meeting-finder",
+    "title": "Alcoholics Anonymous Meeting Finder",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "diary-of-envy",
+    "title": "Diary Of Envy",
+    "eyebrow": "Parsons"
+  },
+  {
+    "id": "substantial-tableau",
+    "title": "Sub Data Dashboards",
+    "eyebrow": "Client Work"
+  }
+]

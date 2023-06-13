@@ -1,0 +1,11 @@
+.menu#menu
+  #top-menu
+    .menu-item#name
+      a(href='/')
+        p#first-name ryan
+        .logo
+        //- img(src=require('../../images/ryanabest.png'))
+        p#last-name best
+    .menu-item#menu-links
+      a#work.menu-link(href='/', class=page==='work'?'active':'') work
+      a#about.menu-link(href='/about/', class=page==='about'?'active':'') about
