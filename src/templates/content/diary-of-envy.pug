@@ -1,0 +1,58 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 !{project.title}
+  p This web app catalogs some of my favorite data visualizations and portfolios in a blog-style interface.
+.project-image
+  +vimeo(311098889)
+
+//- PROCESS -//
+.project-content
+  h1 Process
+  p
+    strong Audience: 
+    | Parsons Data Structures Course
+  p
+    strong Data Source: 
+    | Personal NoSQL AWS Database
+  p
+    strong Tools: 
+    | AWS DynamoDB / CSS / Express / Handlebars / HTML / JavaScript / Node / NoSQL
+  p
+    a.see-link.underline(href="https://github.com/ryanabest/data-structures/tree/master/final") See the code →
+
+//- DATA -//
+.project-content
+  h1 Data
+  p
+    | I designed a semi-structured NoSQL document-based <a class='underline' href='https://github.com/ryanabest/data-structures/blob/master/week5/data-structures_week5.md'>data model</a> that utilized the flexibilty of nesting within the JSON format.
+    | This design allowed each entry to include (or not include) a range of information on each diary entry that weren't appropriate for a SQL database, including a range of data types (including text strings, lists, and dictionaries) and media elements (including images, videos, or links to social media posts about a particular piece).
+    | I then <a class='underline' href='https://github.com/ryanabest/data-structures/blob/master/week5/js/diaryEntry.js'>used node</a> to realize this data model in AWS DynamoDB and add entries to this data structure on a semi-regular basis.
+  p
+    | I structured this DynamoDB database with <strong>project category</strong> serving as my partition key and <strong>date added</strong> to the diary serving as my sort key.
+    | My <a class='underline' href='https://github.com/ryanabest/data-structures/blob/master/final/routes/sensor.js'>database query</a> that loads data to the front-end visualization therefore pulls in projects that match the current project category selection (defaulted to <i>interactive visualization</i>) that were added on or before October 1, 2018 (when this project started – no entries were added before this date).
+    | When a user changes the product category they want to see, the page is re-rendered and a new query is executed returning only those entries that match the category chosen.
+
+//- VISUALIZATION -//
+.project-content
+  h1 Visualization
+  p
+    | This project is designed to be a simple running list of entries with a broad overview of the specific entry in the same vein as similar pages from some of <a class='underline' href='https://www.bloomberg.com/features/2017-jealousy-list/'>my</a> <a class='underline' href="https://fivethirtyeight.com/features/damn-we-wish-wed-done-these-5-stories-this-month-2/">favorite</a> <a class='underline' href="https://flowingdata.com/2017/12/28/10-best-data-visualization-projects-of-2017/">publications</a>.
+    | My entries are split into three categories — interactive visualization, static visualization, and portfolio — and I present individual entries within one category at a time in reverse order of when I added them to this diary (meaning the newest additions to the list will come up first, then proceed in descending order).
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+.project-content
+  p I render html elements for each of the following data points that is present for the the particular entry:
+  ul
+    li Name of the project/portfolio
+    li Publication
+    li Author(s)
+    li Preview image/gif
+    li My general thoughts (why I included this specific item)
+    li External link to project/portfolio
+    li External link to twitter from the author or publication
+  p 
+    | Each of these data points is represented in a visual hierarchy that reflects their level of importance to that entry – the title of the piece is most visually distinguished from the remaining text, while the project preview image occupies the most screen space.
+    | The external link to the project is emphasized by matching the typeface and color of the project title, while the publication name is given slightly more weight than the authors (but listed after these individual names).
+
++next_project(projects.find(d => d.id === 'substantial-tableau'))

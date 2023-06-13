@@ -1,0 +1,79 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 #{project.title}
+  p This poster investigates how contemporary hownership rates across New York City are reflective of housing discrimination and redlining from the&nbsp;1930's
+.project-image
+  a(href='https://raw.githubusercontent.com/ryanabest/ms2-2019/master/quant-final/static/quant-final.png')
+    img.redlining-poster(src='https://raw.githubusercontent.com/ryanabest/ms2-2019/master/quant-final/static/quant-final.png')
+.project-content
+  p In this data visualization poster, I examine where the current homeownership landscape in New York City reflects the societal structures dictated in mid-1930's redlining maps, which served to exclude minority and low-class neighborhoods from the burgeoning mortgage market in the New Deal era United&nbsp;States.
+  p 
+    a.underline.see-link(href='https://github.com/ryanabest/ms2-2019/raw/master/quant-final/static/quant-final.pdf') Download the poster →
+.project-content
+  h1 Process
+  .swiper-container
+    .swiper-wrapper#redlining-poster-swiper-wrapper
+      +swiper_slide(require('../images/parsons/redlining-poster/process/process1.png'), "My early concept designs for this poster used a small multiples approach with separate maps for each redlining grade and a linear gradient representing current homeownership&nbsp;levels")
+      +swiper_slide(require('../images/parsons/redlining-poster/process/process2.png'), "I then explored only including the highest and lowest rated zones, playing with how I could use the same color palette for categorical grades and homeownership&nbsp;levels")
+      +swiper_slide(require('../images/parsons/redlining-poster/process/process3.png'), "The small multiples made each map a bit too small on the poster, so I decided to have one map occupy the whole page with only the highest and lowest graded zones colored&nbsp;in...")
+      +swiper_slide(require('../images/parsons/redlining-poster/process/process4.png'), "...and chose to have color represent only the categorical redlining grade, using size as a new retinal variable to display homeownership for census tracts within each&nbsp;neighborhood")
+      +swiper_slide('https://raw.githubusercontent.com/ryanabest/ms2-2019/master/quant-final/static/quant-final.png', "I built on this design to maximize the size of the map and add a title, description, legend, annotations, and data source to the poster, along with a taupe background&nbsp;color")
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+  p
+    strong Data Source: 
+    | <a class='underline' href='https://dsl.richmond.edu/panorama/redlining/'>Mapping Inequality</a> project /
+    | <a class='underline' href='https://www.census.gov/data/developers/data-sets/acs-5year.html'>US Census ACS 5-Year Data (2009-2017)</a> /
+    | <a class='underline' href='https://www2.census.gov/geo/tiger/GENZ2010/gz_2010_36_140_00_500k.zip'>2010 US Census cartographic boundary file</a>
+  p
+    strong Tools: 
+    | Adobe Illustrator / CSS / d3 / HTML / JavaScript / Pandas / Python / <a class='underline' href='https://pypi.org/project/Shapely/'>Shapely</a> / <a class='underline' href='https://nytimes.github.io/svg-crowbar/'>SVG Crowbar</a>
+  p
+    a.see-link.underline(href="https://github.com/ryanabest/ms2-2019/tree/master/quant-final") See the code →
+.project-content
+  h1 Data
+  p
+    | There were two main data sources in this project: redlining maps for all five New York boroughs and lower Westchester county from the <a class='underline' href='https://dsl.richmond.edu/panorama/redlining/'>Mapping Inequality</a> project, and census data from the <a class='underline' href='https://www.census.gov/data/developers/data-sets/acs-5year.html'>American Community Survey (ACS) 5-Year Data (2009-2017)</a> with census tract boundaries from the US Census' <a class='underline' href='https://www2.census.gov/geo/tiger/GENZ2010/ReadMe.pdf'>2010 Cartographic Boundary Files</a>.
+    | I first calculated homeownership rates for each census tract in New York, along with estimating a tract's center point by taking an average of the latitudes and longitudes across that tract's boundary points from the cartographic boundary file.
+  p
+    | Since I wanted to connect grades from the 1930's redlining map to current census data to explore if redlined areas had lower homeownership rates today, I needed to join these two geographic data sources.
+    | The main challenge here was comparing the location of each census tract with the neighborhood boundaries from the redlining map, attributing a redlining grade to each tract.
+    | I approached this problem by detecting intersections between census tract boundaries and redlining neighborhood boundaries with the <a class='underline' href='https://pypi.org/project/Shapely/'>Shapely</a> python library.
+    | If a tract intersected with a redlining neighborhood, I assigned that tract that neighborhood's grade. If a census tract instersected with mutliple neighborhoods, I would manually determine which neighborhood that tract's centerpoint looked closer to and assign it only that one grade.
+  p
+    | After completing this process, I explorted a <a class='underline' href='https://github.com/ryanabest/ms2-2019/blob/master/quant-final/data/censusHolcOverlap.json'>GeoJSON file</a> with geographic centerpoints, homeownership rates, and redlining grades for each census tract encompassed within New York City redlining maps.
+    | Using this data alongide boundary files for each <a class='underline' href='https://github.com/ryanabest/ms2-2019/blob/master/quant-final/data/HOLC/HOLC_All.geojson'>redlining neighborhood</a> and <a class='underline' href='https://github.com/ryanabest/ms2-2019/blob/master/quant-final/data/boroughs.geojson'>borough</a>, I then wrote a script in d3 to <a class='underline' href='https://ryanabest.com/ms2-2019/quant-final/'>draw</a> SVG's of all my redlining neighborhoods and census tract dots.
+    | I used SVG Crowbar to save static copies of these SVGs from that webpage that I could then bring into Adobe Illustrator to create my final poster design.
+.project-content
+  h1 Visualization
+.project-image
+  img(src=require('../images/parsons/redlining-poster/visualization/visualization1.png'))
+.project-content
+  p
+    | The title and intial descriptive text gives the poster necessary context behind the complex topic the graphic is addressing.
+    | By ragging the descriptive block of text against the shape of the map next to it, I maximize space on the poster while visually framing the poster's main graphic.
+    | I also use bold color within this description to communicate the meaning of these colors, which are used throughout the poster, while breaking up visual monotony within the&nbsp;text.
+.project-image
+  img(src=require('../images/parsons/redlining-poster/visualization/visualization2.png'))
+.project-content
+  p
+    | Each tract is represented by a circle centered on the tract's approximate midpoint, with size delineating homeownership rate and color delineating redlining grade.
+    | This approach visually highlights broad differences in homeownership rates across neighborhoods and emphasizes clusters of tracts with divergent homeownership rates.
+    | I only included the highest and lowest rated neighborhoods from the redlining maps, foregoing the two middle grades, since I wanted to simplify the poster's narrative while avoiding a cluttered&nbsp;visual.
+.project-image
+  img(src=require('../images/parsons/redlining-poster/visualization/visualization3.png'))
+.project-content
+  p A visual legend inspired by Giorgia Lupi and Accurat explains how to read the poster's detailed visual language in an aesthetically appealing, illustrative&nbsp;approach.
+.project-image
+  img(src=require('../images/parsons/redlining-poster/visualization/visualization4.png'))
+.project-content
+  p Annotations throughout the poster offer insights about specific neighborhoods for those who want to spend time investigating the graphic in&nbsp;detail.
+.project-image
+  img(src=require('../images/parsons/redlining-poster/visualization/visualization5.png'))
+.project-content
+  p Detailed information about the data sources and methodology are included in the lower right hand corner of the poster, without detracting from the graphic or the poster's&nbsp;insights.
+
++next_project(projects.find(d => d.id === 'samia-design'))
+

@@ -1,0 +1,148 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 !{project.title}
+  p This suite of Tableau dashboards built for <a class='underline' href="https://substantialclassrooms.org/">Substantial Classrooms</a> helps school districts understand the landscape within their substitute teacher systems.
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}.png`))
+.project-content
+  p
+    a.see-link.underline(href="https://public.tableau.com/profile/ryan.best8326#!/vizhome/SubstantialClassroomsSubDataBasicsDashboard/SubJobs-Overview") See the dashboards →
+  p
+    | <a class='underline' href="https://substantialclassrooms.org/">Substantial Classrooms</a> aims helps school districts improve the substitute teaching experience for everyone involved: students, subs, teachers, and district personnel.
+    | Foundational to their approach is allowing exploration of the data that comes from the software these districts use to manage their substite teaching system.
+    | District personnel often do not have the time or expertise they need to find useful insight from this rich information. Substantial helps fill this gap, providing understanding on how their substitute systems operate, who their subs are, and what challenges they face.
+  p
+    | Substantial contacted me to help build a suite of low-lift Tableau dashboards that would facilitate this process, providing quicker and more accessible insight to district leaders on the state of their substitute teaching system.
+    | These Sub Data Dashboard visualizations allow districts to prove (or perhaps more importantly, disprove) their key assumptions about how their system operates, helping them make improvements in filling the most teacher absences they can as quickly as possible.
+
+//- PROCESS -//
+.project-content
+  h1 Process
+  .swiper-container
+    .swiper-wrapper#substantial-tableau-swiper-wrapper
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process1.jpg`), "")
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process2.jpg`), "")
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process3.jpg`), "")
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process4.jpg`), "")
+      +swiper_slide(require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process5.jpg`), "")
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+  p I skteched early-stage designs with pen and paper, which helped to organize my thoughts around how my visualizations would answer key analytical questions and allowed me to easily communicate this vision to Substantial.
+  p
+    strong Client: 
+    a.underline(href="https://substantialclassrooms.org/") Substantial Classrooms
+  p
+    strong Data Source:
+    | Sample anonymized export from <a class='underline' href="https://www.talentedk12.com/smartfind/">TalentEd SmartFind Express</a> absence management system (formerly eSchools SmartFind)
+  p
+    strong Tools: 
+    | Excel / Paper Prototyping / Tableau
+
+//- DATA -//
+.project-content
+  h1 Data
+  p Substantial Classrooms needed their visualizations to work with data that districts export from their partner districts' absense management software, so they provided me a representative sample of what these data exports look like from the <a class='underline' href="https://www.talentedk12.com/smartfind/">TalentEd SmartFind Express</a> system (formerly eSchools SmartFind), one of two main systems their partner districts use.
+  p This sample data set had one row per sub request and provided key characteristics of each request, including: the status of each vacancy (was it filled or left unfilled?), the type of the request (was it pre arranged or last minute?), where the substitute was requested (at which school/location?), the timing of each vacancy (when did it start and end?), and identifiers of the teacher and substitute involved (if the vacancies were filled).
+  p
+    | Since Substantial would own the process of generating new versions of dashboards with updated data, I wanted to minimize their steps between exporting data and providing insight. To streamline this process I opted to forego any data manipulation before bringing these data into Tableau, instead leveraging the flexibility of the software to add any necessary calculations and aggregations once the data was imported.
+    | In this way, Substantial would just need to replace the data source within the template once new data was exported to quickly deliver a new report to a partner district.
+
+//- VISUALIZATION -//
+.project-content
+  h1 Visualization
+  p
+    | Substantial's biggest priorities for these visualizations were ease of use and actionable insight. They wanted busy district leaders to be able to answer a set of strategic questions in a digestible and visually appealing manner without needing technical expertise to understand their data.
+    | I took a very pragmatic approach to these dashboards to reflect these priorities, providing simple visualizations that answered these questions as clearly and quickly as possible.
+
+//- Sub Jobs Overview
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}.png`))
+.project-content
+  p
+    | The <strong>Sub Jobs Overview</strong> dashboard answers the questions:
+  ul
+      li How many sub days were requested in my school(s) this year? What percent of these days were filled?
+      li How did my request volume and coverage rate compare across job categories and reason for request?
+  p 
+    | Our simple bottom-line statistics in text and percent-of-total donut chart allow us to quickly provide a high-level snapshot for the current school year as a whole.
+    | Organizing coverage across job categories and request reasons in bar charts allows for quick comparisons and rankings of values within these fields in a straightforward, familiar visual. These bars also provide click-to-filter functionality on the other charts in this view (with instructions on this functionality and more detail provided in a hover-over tooltip).
+
+//- How Does Coverage Compare Across Schools?
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`))
+.project-content
+  p
+    | The <strong>How Does Coverage Compare Across Schools?</strong> dashboard answers the questions:
+  ul
+      li How did coverage rate compare across job categories within a school level?
+      li What was coverage rate in specific schools? What about coverage rate for schools within specific school level(s)? Job categories within these?
+  p 
+    | Again we use bar charts for a quick and easy comparison of coverage rates across different levels of detail and different categories.
+    | Substantial applies a three-tiered category at the school level: high (&gt;90% of days filled), medium (between 67% and 90%), and low (&lt;67%). We represent this distinction here by applying the familiar green-yellow-red stoplight palette to our school-level chart, creating visual tiers of school based on substitute coverage levels.
+
+//- Filtering
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization3.gif`))
+.project-content
+  p
+    | Dynamic filtering allows us to whittle down our list of schools by level, or to see the differing coverage rates by job category in each school. This interactivity empowers excited district leaders to take an active role in exploring their data, exploring its nooks and crannies to find the insight that matters most to them.
+
+//- How Does Coverage Compare Over Time?
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization4.png`))
+.project-content
+  p
+    | The <strong>How Does Coverage Compare Over Time?</strong> dashboard answers the questions:
+  ul
+      li How has my number of sub days requested and coverage rate progressed from month to month this school year? Across different days of the week?
+      li How do these results change for a specific job category?
+  p 
+    | This dashboard implements a stacked area chart to represent change over time for two metrics simultaneously: the overall number of days requested and the rate of filling those requested days with subs.
+    | We use the same color scheme as our donut chart from the Sub Jobs Overview dashboard (blue days fill in the gray total).
+    | Carrying this visual language throughout our dashboards provides consistency and reduces the amount of effort needed to understand this new chart.
+    | We also implement light-touch filtering, allowing exploration on what these trends look like across the different schooldays or how this chart changes for different types of requests.
+
+//- Who Are The Subs In My District?
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization5.png`))
+.project-content
+  p
+    | The <strong>Who Are The Subs In My District?</strong> dashboard answers the questions:
+  ul
+      li How many subs worked in my school(s) this year?
+      li What assignment channels were most popular? Least popular?
+      li What percent of my subs were "top subs" (worked at least 30 days) this year?
+      li What proportion of total days worked were accounted for by my “top subs”?
+  p 
+    | Here I implement familiar, simple data representations alongside the most complicated visual throughout this suite of dashboards to give detail on the substitutes teachers themselves.
+    | I provide the highest-level of detail most simply, with the overall number of subs who worked in a district represented in text reminscient of the style used in our Sub Jobs Overview dashboard.
+    | The distribution of assignment channels for these subs is represented in a simple stacked bar chart, which better fits the narrow space available than a bar chart.
+  p
+    | I chose to represent how many days the "top working" subs accounted for throughout the district in a line graph resembling a Pareto Chart.
+    | While this view is undoubtedly our most visually complex, it contains an exciting amount of information in an efficient use of space.
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization6.png`))
+.project-content
+  p
+    | In this visualization we rank each sub by the number of days worked on the x-axis, then calculate the cumulative percent of total days worked up to that point in the chart on the y-axis - if every sub worked an equal number of days this chart would be a straight line from bottom-left to the top-right.
+    | The shape of this line tells us how equally days were distributed across subs - if the line climbs steeply at first and then quickly levels off, we know there was a more lopsided distribution of work amongst subtitutes with a select few carrying the load.
+  p 
+    | Substantial was also interested in knowing how many of their subs worked at least 30 days throughout the year - the brighter blue makes this distinction visually apparent, allowing us to get a general sense of the distribution of subs working above and below this threshold.
+    | Users can hover over this chart to see additional stats about the fill distribution at any given point in the graph (including this 30-day breaking point), learn who a specific sub is, or get more detail on how to interpret this visualization.
+
+//- Progress Monitor
+.project-image
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization7.png`))
+.project-content
+  p
+    | The <strong>Progress Monitor</strong> dashboard answers the question:
+  ul
+      li How did my coverage rate and number of subs worked compare across different seasons of the school year?
+  p
+    | Our final visualization takes the donut chart and number of subs worked visuals from the top half of our Sub Jobs Overview dashboard and allows us to look at how these statistics have changed throughout each season within a school year.
+    | Substantial refreshes these dashboards three times a year for their district partners, and wanted a simple view that allowed these partners to see back in time for their high-level metrics.
+    | This view allows leaders to see how their overall job requests and coverage rates have progressed through one school year, showing a snapshot of what these views from the first page showed during previous iterations of this report.
+
++next_project(projects.find(d => d.id === 'drawing-discrimination'))

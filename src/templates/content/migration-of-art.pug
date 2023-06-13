@@ -1,0 +1,110 @@
+include ../mixins/mixins
+
+.project-content#project-content-intro
+  h1 #{project.title}
+  p This visualization explores how artwork travels across the globe through ownership changes and exhibitions, focusing on <a href="https://www.metmuseum.org/">The Met's</a> collection of Van Gogh paintings.
+.project-image
+  +vimeo(269368498)
+.project-content
+  p
+    a.see-link.underline(href="https://ryanabest.com/ms1-2018/interactivity/") See the project →
+  p How does art travel across the globe before it arrives in a museum gallery? When was it bought and sold, and by whom? When and where was it sent on exhibition tours?
+  p
+    | Studying an artwork's rich history of movement is crucial to understanding how the world interacted with a piece, along with how it influenced the broader world of art and human culture.
+    | While a student of data visualization at Parsons School of Design, I worked with wonderful partners at The Metropolitan Museum of Art to explore these questions in an interactive visual context, utilizing both abstracted visual timelines and animated mapping to follow the museum's collection of Van Gogh paintings through their travels from creation to their current location at The&nbsp;Met.
+
+//- PROCESS -//
+.project-content
+  h1 Process
+  .swiper-container
+    .swiper-wrapper
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process1.png'), "My first sketch laid out the project's general concept: using animated mapping to show how The Met's paintings traveled the world over the course of their&nbsp;history")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process2.png'), "I then started exploring how to maintain a visual of past movements on the screen, creating a full timeline of movement that marked when a piece moved from place&nbsp;to&nbsp;place")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process3.png'), "I also experimented with ways to provide a more info-rich timeline that shared screenspace with the map and didn't require a hover action for location and ownership&nbsp;detail")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process4.png'), "My <a class='underline' href='http://ryanabest.com/ms1-2018/qual/'>first interactive prototype</a> prioritized the animated map and used colors from the piece in that map, as the timeline became secondary to watching the piece zig-zag around&nbsp;the&nbsp;globe")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process5.png'), "The next stage of my design explored new avenues to represent the overall movement of each painting beyond a map – here seeing how a piece's total distance traveled progressed over&nbsp;time")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process6.png'), "I took inspiration from <a class='underline' href='https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003zP'>EJ Marey's train schedule graphic</a> to sketch an abstract timeline of movement for each piece, which wound up being the foundation for my final project's primary&nbsp;visualization")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process7.png'), "I then explored looking at ways to represent the whole collection at once, here using a small multiples approach represent the differences between the histories &nbsp;of&nbsp;each&nbsp;piece...")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process9.png'), "...and here combining all paths into one map – I ended up forgoing showing all paintings at once to avoid cluttering the page and to prompt more user exploration of each painting's&nbsp;history")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process10.png'), "Focusing on individual pieces, I then attempted to use multiple graphics to visually extrapolate ownerships and exhibitions, but ended up being a bit too duplicative&nbsp;and&nbsp;scattered")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process12.png'), "I visually condensed this disorganized visual, differentating ownership tenures by thicker line segments connected like sausage links and exhibitions with circles colored within the painting's&nbsp;palette")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process11.png'), "I decided to prioritize the timeline but didn't want to lose the map entirely, which is an engaging animation that helps ground the abstract timeline, so I placed it in its own secondary&nbsp;pane")
+      +swiper_slide(require('../images/parsons/migration-of-art/process/process13.png'), "The final design dedicates more screenspace to our main graphic and softens the colors of side menus and legends, visually emphasizing the project's primary&nbsp;visualiation")
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+  p
+    strong Partner: 
+    | The Metropolitan Museum of Art
+  p
+    strong Data Source: 
+    | The Met Collection API
+  p
+    strong Tools: 
+    | Adobe Illustrator / CSS / d3 / HTML / JavaScript / Leaflet / Node / Pandas / Python / Sketch
+  p
+    strong Mentioned In: 
+    a.underline(href='https://mashable.com/article/the-met-museum-api/?utm_cid=mash-com-Tw-main-link') Mashable
+    | , 
+    a.underline(href='https://www.metmuseum.org/blogs/now-at-the-met/2018/met-collection-api') The Met
+  p
+    a.see-link.underline(href="https://github.com/ryanabest/ms1-2018/tree/master/interactivity") See the code →
+
+
+//- DATA -//
+.project-content
+  h1 Data
+.project-image.callout#data-process
+  .process-content
+    .process-imgs#prov-text-ex-img
+      img(src=require('../images/parsons/migration-of-art/data-process/TheMetTextExample.png'))
+    .process-imgs#python-ex-img
+      img(src=require('../images/parsons/migration-of-art/data-process/PythonExample.png'))
+    .process-imgs#json-ex-img
+      img(src=require('../images/parsons/migration-of-art/data-process/JSONExample.png'))
+  .callout-text#data-process-text
+    p
+.project-content
+  p The main data challenge in this project was how to parse ownership and exhibition histories, which are organized as separate paragraphs and lists in the Met's API and front-end webpage, into one cohesive story of movement for each painting.
+  p After pulling down each provenance paragraph and exhibition history from The Met's API into static text files, I needed to split the paragraphs of provenance text into individual unique ownership tenures, associating each owner with the location listed and their timeframe of ownership. Exhibition histories, stored as html lists, were a bit more straightfoward to organize into data structures. I then joined these exhibitions and provenance structures together to craft an exhausted travel timeline, logging the location of aeachpainting in each year from creation through 2017 (the most recent data available at the time of data collection). In my timeline model, a painting moves locations any time it was acquired by a new owner or went on exhibition; after a painting's last exhibition, it returns to The Met.
+  p I used python to pull HTML text from the Met API and the pandas library for data processing and organizing, which I then exported as JSON files that are picked up by my front-end visualization.
+
+//- VISUALIZATION -//
+.project-content
+  h1 Visualization
+  p 
+    | This project's visualizations needed to contain multiple layers of dense, rich information; how can we show the entire history of each painting's movement while distinguishing ownership changes and exhibitions in a concise and aesthetically appealing visual?
+    | My primary solution for this challenge was an abstract travel timeline, inspired by E.J. Marey's 1885 graphical <a href="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003zP">train schedule.</a>
+.project-image
+  img(src=require('../images/parsons/migration-of-art/visualization/visualization1.png'))
+.project-content
+  p
+    | This visualization and the corresponding axes themselves tell a detailed story about each piece and the collection more broadly. Each location visited by at least one painting in our analysis gets a horizontal line on our y-axis, arranged from east (top) to west (bottom). This allows our axis to provide its own insight, giving us to get a relative sense of where this collection as a whole traveled - and where it didn't.
+    | Our x-axis starts when the first painting in our collection was created, in 1885, through to our most recent data in 2017. This shows us where each piece traveled during each year in its lifespan within the context of the collection as a whole. These axes stay consistent throughout each iteration of the visualization, facilitating quick and easy comparisons across paintings.
+.project-image
+  img(src=require('../images/parsons/migration-of-art/visualization/visualization2.png'))
+.project-content
+  p This abstract timeline is supported by our map view, showing the path each painting traveled across the globe from its creation through 2017. Through animation we can watch the whole journey from start to finish or walk through each year of this journey one by one, following along with these travels in real time.
+.project-image
+  img(src=require('../images/parsons/migration-of-art/visualization/visualization3.png'))
+.project-content
+  p I also provide a tertiary level of information for those users that may be interested in the broader context on the inspiration and impetus of this project, reminscient of the placards placed next to each painting on the walls of a museum.
+.project-image
+  +vimeo(269498518)
+.project-content
+  p We welcome our users with a friendly animation that also orients us to the project's concept of following the movement of each painting from place to place. These animated paintings will also become the menu with which we navigate and filter the project's main visualizations.
+.project-image
+  img(src=require('../images/parsons/migration-of-art/visualization/visualization4.png'))
+.project-content
+  p A concise introduction orients us to the context of the project, matching the museum placard style of our more detailed project info view.
+.project-content
+  .project-image
+    +mobile(269499860)
+.project-content
+  p
+    | I needed to design a new interface and visualization more attuned to the constrained screen and wholly different methods of interaction required on a mobile device.
+    | The orientation of our main visualization and painting menu are rotated to better utilize scrolling.
+    | A collapsable menu allows our users to decide which view to show, along with the level of detail available at each data point while they scroll.
+    | Project information and visual legends are also accessible behind this menu.
+
++next_project(projects.find(d => d.id === 'mind-the-gap'))
