@@ -8,5 +8,9 @@
   p {
     font-size: 1.5rem;
     line-height: 2em;
+    @include breakpoint($M) {
+      font-size: 17px;
+      line-height: 28px;
+    }
   }
 }
