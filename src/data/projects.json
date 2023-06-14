@@ -18,6 +18,24 @@
     "url": "https://projects.fivethirtyeight.com/nba-player-ratings/"
   },
   {
+    "id": "redistricting-tracker",
+    "title": "What Redistricting Looks Like In Every State                     ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/redistricting-2022-maps/"
+  },
+  {
+    "id": "2022-election-forecast",
+    "title": "2022 Election Forecast                        ",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/2022-election-forecast/"
+  },
+  {
+    "id": "confederate-monuments",
+    "title": "Confederate Statues Were Never Really About Preserving History",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/confederate-statues/"
+  },
+  {
     "id": "nba-winprobs-story",
     "title": "Our New Live In-Game Win Probabilities Are Here For The NBA Playoffs",
     "eyebrow": "FiveThirtyEight",
@@ -54,22 +72,16 @@
     "url": "https://projects.fivethirtyeight.com/nfl-receiver-rankings/"
   },
   {
-    "id": "redistricting-alternate-maps",
-    "title": "What If Democrats — Or Republicans — Had Won Every Redistricting Battle?",
-    "eyebrow": "FiveThirtyEight",
-    "url": "https://projects.fivethirtyeight.com/redistricting-alternate-maps/"
-  },
-  {
-    "id": "2022-election-forecast",
-    "title": "2022 Election Forecast                        ",
-    "eyebrow": "FiveThirtyEight",
-    "url": "https://projects.fivethirtyeight.com/2022-election-forecast/"
-  },
-  {
     "id": "2022-gop-house",
     "title": "The Seats Republicans Could Flip To Win The House In 2022",
     "eyebrow": "FiveThirtyEight",
     "url": "https://projects.fivethirtyeight.com/gop-house-2022/"
+  },
+  {
+    "id": "redistricting-alternate-maps",
+    "title": "What If Democrats — Or Republicans — Had Won Every Redistricting Battle?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/redistricting-alternate-maps/"
   },
   {
     "id": "2023-nhl-predictions",
@@ -124,12 +136,6 @@
     "title": "What If The House Of Representatives Had More Than 435 Seats?",
     "eyebrow": "FiveThirtyEight",
     "url": "https://projects.fivethirtyeight.com/435-representatives/"
-  },
-  {
-    "id": "redistricting-tracker",
-    "title": "What Redistricting Looks Like In Every State                     ",
-    "eyebrow": "FiveThirtyEight",
-    "url": "https://projects.fivethirtyeight.com/redistricting-2022-maps/"
   },
   {
     "id": "politics-of-whiteness",
@@ -196,12 +202,6 @@
     "title": "Which Cities Have The Biggest Racial Gaps In COVID-19 Testing Access?",
     "eyebrow": "FiveThirtyEight",
     "url": "https://fivethirtyeight.com/features/white-neighborhoods-have-more-access-to-covid-19-testing-sites/"
-  },
-  {
-    "id": "confederate-monuments",
-    "title": "Confederate Statues Were Never Really About Preserving History",
-    "eyebrow": "FiveThirtyEight",
-    "url": "https://projects.fivethirtyeight.com/confederate-statues/"
   },
   {
     "id": "racism-poll-quiz",
