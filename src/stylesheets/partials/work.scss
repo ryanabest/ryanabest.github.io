@@ -79,14 +79,16 @@
   }
 
   &:hover {
-    background-color: $blue-highlight;
-
-    .project-img-link {
-      opacity: 0.05;
-    }
-
-    .project-title {
-      display: block;
+    @include breakpoint($T-D) {
+      background-color: $blue-highlight;
+      
+      .project-img-link {
+        opacity: 0.05;
+      }
+    
+      .project-title {
+        display: block;
+      }
     }
   }
 }
