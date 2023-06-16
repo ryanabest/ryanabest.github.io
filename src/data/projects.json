@@ -36,10 +36,10 @@
     "url": "https://projects.fivethirtyeight.com/confederate-statues/"
   },
   {
-    "id": "nba-winprobs-story",
-    "title": "Our New Live In-Game Win Probabilities Are Here For The NBA Playoffs",
+    "id": "2023-nba-predictions",
+    "title": "2022-23 NBA Predictions",
     "eyebrow": "FiveThirtyEight",
-    "url": "https://fivethirtyeight.com/features/our-new-live-in-game-win-probabilities-are-here-for-the-nba-playoffs/"
+    "url": "https://projects.fivethirtyeight.com/2023-nba-predictions/games/"
   },
   {
     "id": "nba-winprobs-methodology",
@@ -60,6 +60,12 @@
     "url": "https://projects.fivethirtyeight.com/daylight-saving-time/"
   },
   {
+    "id": "four-thirty-five",
+    "title": "What If The House Of Representatives Had More Than 435 Seats?",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://projects.fivethirtyeight.com/435-representatives/"
+  },
+  {
     "id": "2022-election-waves",
     "title": "A Red Wave In Florida. A Blue Riptide In Michigan.",
     "eyebrow": "FiveThirtyEight",
@@ -76,6 +82,12 @@
     "title": "The Seats Republicans Could Flip To Win The House In 2022",
     "eyebrow": "FiveThirtyEight",
     "url": "https://projects.fivethirtyeight.com/gop-house-2022/"
+  },
+  {
+    "id": "wecount",
+    "title": "How Nine Months Of Dobbs Changed America",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/abortion-trend-after-dobbs/"
   },
   {
     "id": "redistricting-alternate-maps",
@@ -132,10 +144,16 @@
     "url": "https://projects.fivethirtyeight.com/2022-nhl-predictions/"
   },
   {
-    "id": "four-thirty-five",
-    "title": "What If The House Of Representatives Had More Than 435 Seats?",
+    "id": "nba-winprobs-story",
+    "title": "Our New Live In-Game Win Probabilities Are Here For The NBA Playoffs",
     "eyebrow": "FiveThirtyEight",
-    "url": "https://projects.fivethirtyeight.com/435-representatives/"
+    "url": "https://fivethirtyeight.com/features/our-new-live-in-game-win-probabilities-are-here-for-the-nba-playoffs/"
+  },
+  {
+    "id": "four-thirty-five-feature",
+    "title": "How The House Got Stuck At 435 Seats",
+    "eyebrow": "FiveThirtyEight",
+    "url": "https://fivethirtyeight.com/features/how-the-house-got-stuck-at-435-seats/"
   },
   {
     "id": "politics-of-whiteness",
