@@ -1,0 +1,22 @@
+#headshot-container {
+  text-align: center;
+  margin-top: calc(5vmin + 1em);
+
+  img {
+    border-radius: 50%;
+    height: 11em;
+    box-shadow: 4px 4px 2px $blue-highlight;
+  }
+
+  p {
+    font-size: 1.5rem;
+    line-height: 2em;
+    text-align: center;
+      margin-top: 0;
+
+    @include breakpoint($M) {
+      font-size: 17px;
+      line-height: 28px;
+    }
+  }
+}
