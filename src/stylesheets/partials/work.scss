@@ -39,7 +39,7 @@
     transform: translateY(-50%);
 
     .eyebrow {
-      font-family: $rob-mono;
+      font-family: $mono;
       font-weight: 700;
       color: $white;
       font-size: 14px;
@@ -51,14 +51,14 @@
     }
 
     .title {
-      font-family: $rob-mono;
+      font-family: $mono;
       font-weight: 700;
       font-size: 24px;
       color: $white;
       margin: 0 auto;
 
       i {
-        font-family: $rob-mono;
+        font-family: $mono;
         font-style: italic;
       }
     }
