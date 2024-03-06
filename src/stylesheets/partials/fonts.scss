@@ -1,7 +1,7 @@
 @font-face {
   font-family: Montserrat;
   src: url('../fonts/Montserrat-Regular.woff2') format('woff2'),
-       url('../fonts/Montserrat-Regular.woff') format('woff');
+    url('../fonts/Montserrat-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -25,7 +25,7 @@
 @font-face {
   font-family: Roboto Mono;
   src: url('../fonts/RobotoMono-Regular.woff2') format('woff2'),
-       url('../fonts/RobotoMono-Regular.woff') format('woff');
+    url('../fonts/RobotoMono-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -40,7 +40,38 @@
 @font-face {
   font-family: Roboto Mono;
   src: url('../fonts/RobotoMono-Bold.woff2') format('woff2'),
-       url('../fonts/RobotoMono-Bold.woff') format('woff');
+    url('../fonts/RobotoMono-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
+}
+
+@font-face {
+  font-family: Space Mono;
+  src: url('../fonts/SpaceMono-Regular.woff2') format('woff2'),
+    url('../fonts/SpaceMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Space Mono;
+  src: url('../fonts/SpaceMono-Italic.woff2') format('woff2'),
+    url('../fonts/SpaceMono-Italic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Space Mono;
+  src: url('../fonts/SpaceMono-Bold.woff2') format('woff2'),
+    url('../fonts/SpaceMono-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Space Mono;
+  src: url('../fonts/SpaceMono-BoldItalic.woff2') format('woff2'),
+    url('../fonts/SpaceMono-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
 }
