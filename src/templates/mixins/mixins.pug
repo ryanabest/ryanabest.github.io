@@ -1,7 +1,7 @@
 mixin project(p)
   .project(id=p.id)
       .project-title
-        p.eyebrow --#{p.eyebrow}--
+        p.eyebrow ~~#{p.eyebrow}~~
         p.title !{p.title}
       - const url = p.url ? p.url : `/${p.id}/`
       a.project-img-link(href=url)
