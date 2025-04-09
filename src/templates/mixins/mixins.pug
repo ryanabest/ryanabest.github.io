@@ -3,7 +3,8 @@ mixin project(p)
       .project-title
         p.eyebrow ~~#{p.eyebrow}~~
         p.title !{p.title}
-      - const url = p.url ? p.url : `/${p.id}/`
+      - const link = p.wayback ?? p.url
+      - const url = link ?? `/${p.id}/`
       a.project-img-link(href=url)
         img(src=require(`../images/${utils.slugify(p.eyebrow)}/${p.id}.png`))
 
