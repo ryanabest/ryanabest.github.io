@@ -1,9 +1,15 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // https://www.youtube.com/playlist?list=PLblA84xge2_zwxh3XJqy6UVxS60YdusY8
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const projects = require('./src/data/projects.json');
 const utils = require('./src/js/utils');
 
 const plugins = [
+  new CopyWebpackPlugin({
+    patterns: [
+      { from: 'static', to: '.' },
+    ],
+  }),
   new HtmlWebpackPlugin({
     template: './src/templates/index.pug',
     favicon: './src/images/favicon.png',
