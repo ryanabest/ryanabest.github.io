@@ -1,5 +1,29 @@
 [
   {
+    "id": "2025-nfl-playoff-trees",
+    "title": "2025 NFL Week 18 playoff trees",
+    "eyebrow": "The Athletic",
+    "url": "https://www.nytimes.com/athletic/interactive/nfl-playoff-picture-week-18-scenarios/"
+  },
+  {
+    "id": "2025-nfl-playoff-picture-tables",
+    "title": "2025 NFL Playoff picture",
+    "eyebrow": "The Athletic",
+    "url": "https://www.nytimes.com/athletic/interactive/nfl-playoff-picture-week-16-scenarios/#section-jax"
+  },
+  {
+    "id": "2025-wc-draw",
+    "title": "2026 World Cup Draw",
+    "eyebrow": "The Athletic",
+    "url": "https://www.nytimes.com/athletic/interactive/world-cup-2026-group-stage-draw-live/"
+  },
+  {
+    "id": "2025-wc-sims",
+    "title": "World Cup Draw Simulator",
+    "eyebrow": "The Athletic",
+    "url": "https://www.nytimes.com/athletic/interactive/world-cup-2026-draw-group-stage-scenarios-teams/"
+  },
+  {
     "id": "2025-nfl-simulator",
     "title": "2025 NFL Playoff Simulator",
     "eyebrow": "The Athletic",
