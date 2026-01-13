@@ -2162,9 +2162,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gh-pages@npm:4.0.0":
-  version: 4.0.0
-  resolution: "gh-pages@npm:4.0.0"
+"gh-pages@npm:3.2.3":
+  version: 3.2.3
+  resolution: "gh-pages@npm:3.2.3"
   dependencies:
     async: "npm:^2.6.1"
     commander: "npm:^2.18.0"
@@ -2176,7 +2176,7 @@ __metadata:
   bin:
     gh-pages: bin/gh-pages.js
     gh-pages-clean: bin/gh-pages-clean.js
-  checksum: 10c0/78dc17a886771fb84d467f40db33382a4f45fd63d4cfd524ee71e99592d961bf62e63f66ed8a5640cf30f51458668c409f910f0aff4d47beb5ee294f42cdbaac
+  checksum: 10c0/d1765d1497ef30e42d0d640417cd658b8b3b37ece8f6953fa41f05f7c1b9b25b8a9c97f5f6ed02ae7e973cc8cf934f00efb925378298bea593314c91eef8e3bf
   languageName: node
   linkType: hard
 
@@ -5315,7 +5315,7 @@ __metadata:
     clean-webpack-plugin: "npm:^4.0.0"
     copy-webpack-plugin: "npm:^13.0.0"
     css-loader: "npm:^6.8.1"
-    gh-pages: "npm:4.0.0"
+    gh-pages: "npm:3.2.3"
     google-spreadsheet: "npm:^3.3.0"
     html-loader: "npm:^4.2.0"
     html-webpack-plugin: "npm:^5.5.1"
