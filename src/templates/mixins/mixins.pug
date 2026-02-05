@@ -6,7 +6,7 @@ mixin project(p)
       - const link = p.wayback ?? p.url
       - const url = link ?? `/${p.id}/`
       a.project-img-link(href=url)
-        img(src=require(`../images/${utils.slugify(p.eyebrow)}/${p.id}.png`))
+        img(src=require(`../images/${utils.slugify(p.eyebrow)}/${p.id}.png`) loading="lazy" decoding="async")
 
 mixin next_project(p)
   .next-project
@@ -30,7 +30,7 @@ mixin vimeo(id)
 
 mixin swiper_slide(imgSrc, p)
   .swiper-slide
-    img(src=imgSrc)
+    img(src=imgSrc loading="lazy" decoding="async")
     p.process-text !{p}
 
 mixin mobile(id)

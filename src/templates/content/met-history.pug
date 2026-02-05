@@ -14,7 +14,7 @@ include ../mixins/mixins
 //- PROCESS -//
 .project-content
   h1 Process
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process.gif`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process.gif`) loading="lazy" decoding="async")
   p
     strong Partner: 
     | The Metropolitan Museum of Art
@@ -49,21 +49,21 @@ include ../mixins/mixins
 .project-content
   h1 Visualization
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`) loading="lazy" decoding="async")
 .project-content
   p
     | The main visual representation of data in this project is a clear and straightforward line graph, allowing for quick and easy comparisons across countries.
     | The bright colors help the lines jump off the dark background, while the rainbow palette provides a familiar visual ranking system of countries.
     | We're used to seeing rainbow colors in this type of order, which corresponds with the ranking of the most popular countries in the museum's collection - also represented by the order of countries in this view's legend.
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`) loading="lazy" decoding="async")
 .project-content
   p
     | While the rainbow palette provides a nice pop of color and a visual ordering system to our countries, it can sometimes be hard to dinsguish one point from another.
     | In fact, no color palette is great at distinsuishing ten distinct data points.
     | Hovering over a country label in our legend allows us to clearly highlight a specific country while displaying the cumulative count of objects The Met has collected from this country through the current year of our animation.
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization3.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization3.png`) loading="lazy" decoding="async")
 .project-content
   p
     | Clicking on a country in the legend allows us to see detail on which types of art The Met collects from this country.

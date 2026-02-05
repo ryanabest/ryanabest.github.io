@@ -41,7 +41,7 @@ include ../mixins/mixins
     | Since this temperature sensor was a bit finnicky, I then averaged these values per hour to get representative averages for use in the front-end interface.
   p
     | For hours with data gaps — either due to missing (due to Particle outages or process issues) or unreliable data (when my sensor started giving me <a class='underline' href='https://raw.githubusercontent.com/ryanabest/data-structures/master/final/READMEs/images/EveryValueSpread.png'>particularly buggy results</a>) — I estimated temperature readings by linearly progressing values between the two last reliable data points on either side of the outage:
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process4.jpg`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/process/process4.jpg`) loading="lazy" decoding="async")
   //- OUTSIDE TEMP -//
   h2 Outside Temperature
   p 
@@ -53,11 +53,11 @@ include ../mixins/mixins
 .project-content
   h1 Visualization
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`) loading="lazy" decoding="async")
 .project-content
   p My visualization implements a <a class='underline' href='https://flowingdata.com/charttype/difference-chart/'>difference chart</a>, which fills in the space between lines to highlight a greater-than and less-than differences over time.
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization2.png`) loading="lazy" decoding="async")
 .project-content
   p I also include a responsive hover-over user interaction that provides details on the specific inside temperature (with a designation for estimated temperatures), outside temperature, and difference between the two at any point in the timeframe visualized.
 

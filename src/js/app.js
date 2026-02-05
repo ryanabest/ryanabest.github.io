@@ -26,3 +26,18 @@ if (document.querySelector('.marvel-device')) {
 }
 
 new MigrationOfArt();
+
+// Handle lazy-loaded images fade-in effect
+document.addEventListener('DOMContentLoaded', () => {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  lazyImages.forEach(img => {
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+      });
+    }
+  });
+});

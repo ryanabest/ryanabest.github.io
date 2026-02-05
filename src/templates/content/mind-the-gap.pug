@@ -18,7 +18,7 @@ include ../mixins/mixins
 //- PROCESS -//
 .project-content
   h1 Process
-  img(src=require('../images/parsons/mind-the-gap/process/process.gif'))
+  img(src=require('../images/parsons/mind-the-gap/process/process.gif') loading="lazy" decoding="async")
   p
     strong Data Source: 
     | FEC 2012 Senate and House <a class='underline' href="https://transition.fec.gov/pubrec/fe2012/federalelections2012.shtml">Results</a>
@@ -44,7 +44,7 @@ include ../mixins/mixins
 .project-content
   h1 Visualization
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`) loading="lazy" decoding="async")
 .project-content
   p A straightforward state-level bar chart, created using jQuery and Flexbox, clearly communicates our primary metric, the efficiency gap, using a familiar visual language that allows us to quickly draw insight from the data. Using red and blue to distinguish our political parties requires little to no cognitive lift, while ranked ordering of states allows us to quickly see which states enjoyed disporoportionate advantages by each party. The reference lines show us cut-offs suggested by researchers, allowing us to quickly see which states cross thresholds of reasonability.
 .project-image

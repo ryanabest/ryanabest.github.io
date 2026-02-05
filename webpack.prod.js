@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -16,7 +17,18 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new OptimizeCssAssetsPlugin(),
-      new TerserPlugin()
+      new TerserPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              ['mozjpeg', { quality: 80 }],
+              ['pngquant', { quality: [0.65, 0.80], speed: 4 }],
+            ],
+          },
+        },
+      })
     ]
   },
   plugins: [

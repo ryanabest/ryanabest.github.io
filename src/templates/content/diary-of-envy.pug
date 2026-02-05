@@ -40,7 +40,7 @@ include ../mixins/mixins
     | This project is designed to be a simple running list of entries with a broad overview of the specific entry in the same vein as similar pages from some of <a class='underline' href='https://www.bloomberg.com/features/2017-jealousy-list/'>my</a> <a class='underline' href="https://fivethirtyeight.com/features/damn-we-wish-wed-done-these-5-stories-this-month-2/">favorite</a> <a class='underline' href="https://flowingdata.com/2017/12/28/10-best-data-visualization-projects-of-2017/">publications</a>.
     | My entries are split into three categories — interactive visualization, static visualization, and portfolio — and I present individual entries within one category at a time in reverse order of when I added them to this diary (meaning the newest additions to the list will come up first, then proceed in descending order).
 .project-image
-  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`))
+  img(src=require(`../images/${utils.slugify(project.eyebrow)}/${project.id}/visualization/visualization1.png`) loading="lazy" decoding="async")
 .project-content
   p I render html elements for each of the following data points that is present for the the particular entry:
   ul

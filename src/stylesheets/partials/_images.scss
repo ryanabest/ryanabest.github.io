@@ -1,0 +1,18 @@
+// Image styles for lazy loading - only apply to project images
+.project-image img[loading="lazy"],
+.project-content img[loading="lazy"],
+.swiper-slide img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+// Ensure project images are responsive
+.project-image img,
+.project-content img {
+  max-width: 100%;
+  height: auto;
+}
