@@ -12,13 +12,11 @@ const plugins = [
   }),
   new HtmlWebpackPlugin({
     template: './src/templates/index.pug',
-    favicon: './src/images/favicon.png',
     templateParameters: { utils, projects, title: 'ryan best', page: 'work' }
   }),
   new HtmlWebpackPlugin({
     template: './src/templates/index.pug',
     filename: 'about/index.html',
-    favicon: './src/images/favicon.png',
     templateParameters: { utils, title: 'ryan best', page: 'about' }
   })
 ];
@@ -28,7 +26,6 @@ internalProjects.forEach(project => {
   plugins.push(new HtmlWebpackPlugin({
     template: './src/templates/index.pug',
     filename: `${project.id}/index.html`,
-    favicon: './src/images/favicon.png',
     templateParameters: { utils, projects, title: project.title, page: project.id, project: project }
   }));
 });
