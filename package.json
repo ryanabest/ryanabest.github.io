@@ -14,7 +14,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^6.8.1",
-    "gh-pages": "3.2.3",
+    "gh-pages": "5.0.0",
     "google-spreadsheet": "^3.3.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.1",
